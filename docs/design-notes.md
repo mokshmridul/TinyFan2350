@@ -56,7 +56,7 @@ The RP2350 has a known erratum (E9): a GPIO with its input enabled can latch at 
 | Fans | 2/3/4-pin, fixed voltage | 6 x 4-pin JST-XH, per-port VIN/5V jumper, tach with protection |
 | LEDs | - | 2 x WS2812 ports, buffered |
 | Sensors | - | 4 x thermistor ports |
-| Size | ~60 x 62 mm | 84 x 76 mm |
+| Size | ~60 x 62 mm | 89 x 76 mm |
 
 ## Verification
 

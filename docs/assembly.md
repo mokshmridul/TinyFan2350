@@ -52,8 +52,8 @@ Solder male pin headers to the module: both 9-pin sides and the 5-pin row on the
 ## Before first power-up
 
 1. Leave the fuses out. Using the meter in continuity mode, check:
-   - J1 bottom screw (VIN+) to J1 top screw (GND): not shorted
-   - J2 bottom screw (5V+) to J2 top screw (GND): not shorted
+   - J1 VIN+ screw to J1 GND screw: not shorted
+   - J2 5V+ screw to J2 GND screw: not shorted
 2. Fit the fuses: **5A in F1** (VIN), **4A in F2** (5V).
 3. With no fans plugged in, apply 5V to J2 and VIN to J1. You should measure:
    - the JP middle pin with the jumper on top = VIN

@@ -24,7 +24,7 @@ Item,Qty,Refs,Part,Package / Footprint,Example MPN,Notes
 23,2,"R19, R20",Resistor 330R 1%,0805,Generic 0805 330R,WS2812 data series resistor
 24,6,R21-R26,Resistor 4.7k 1%,0805,Generic 0805 4.7k,Tach series resistor
 25,4,R27-R30,Resistor 4.7k 1% (100ppm or better),0805,Generic 0805 4.7k 1%,Thermistor pull-up (matches pullup_resistor: 4700)
-26,1,PCB,"TinyFan2350 v2.0, 2-layer, 1.6mm FR4, 1oz",84 x 76 mm,hardware/fab/TinyFan2350-gerbers.zip,"Min track/gap 0.2mm, min via drill 0.3mm. Any colour"
+26,1,PCB,"TinyFan2350 v2.0, 2-layer, 1.6mm FR4, 1oz",89 x 76 mm,hardware/fab/TinyFan2350-gerbers.zip,"Min track/gap 0.2mm, min via drill 0.3mm. Any colour"
 ,,,Cable side (not on the PCB),,,
 27,6,Fan cables,JST XH 4-pin housing,-,JST XHP-4,Standard PC fan plugs do not fit XH - re-terminate
 28,2,LED cables,JST XH 3-pin housing,-,JST XHP-3,

@@ -10,7 +10,7 @@
 | **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 4A mini blade | 5V fans, LED ports, level shifters |
 | USB-C on the RP2350-Zero | Klipper host (Pi etc.) | - | The RP2350-Zero itself (MCU + 3.3V) |
 
-On **both** terminals the **top screw is GND** and the bottom screw is +.
+Each screw has its label printed right in front of it: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals the top screw is GND.
 
 - There is no voltage conversion on the board. J1 is passed straight to the fan jumpers.
 - J1 and J2 share GND with each other and with the USB ground. Tie the supply grounds together at one point (your PSU's V-) and don't run separate ground returns.
@@ -73,4 +73,4 @@ JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no polarity. Use
 
 ## Mounting
 
-4 x M3 holes on a **75 x 67 mm** rectangle, 4.5 mm in from each corner. The holes are connected to GND. Allow about 20 mm of height above the board for the fuse holders with fuses fitted. For DIN rail mounting, see [mounting.md](mounting.md).
+4 x M3 holes on a **75 x 67 mm** rectangle (4.5 mm in from the top, bottom and right edges, 9.5 mm from the left edge). The holes are connected to GND. Allow about 20 mm of height above the board for the fuse holders with fuses fitted. For DIN rail mounting, see [mounting.md](mounting.md).
