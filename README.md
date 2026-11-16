@@ -24,7 +24,7 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 
 ## Quick start
 
-1. **Order the board, fully assembled**: follow [docs/ordering.md](docs/ordering.md). Upload [`TinyFan2350_GERBERS_upload.zip`](hardware/fab/TinyFan2350_GERBERS_upload.zip), [`TinyFan2350_BOM_JLCPCB.csv`](hardware/fab/TinyFan2350_BOM_JLCPCB.csv) and [`TinyFan2350_CPL_JLCPCB.csv`](hardware/fab/TinyFan2350_CPL_JLCPCB.csv) to JLCPCB (or the PCBWay BOM [`TinyFan2350_BOM_PCBWay.csv`](hardware/fab/TinyFan2350_BOM_PCBWay.csv)).
+1. **Order the board, fully assembled**: follow [docs/ordering.md](docs/ordering.md). Upload [`TinyFan2350_GERBERS_upload.zip`](hardware/fab/TinyFan2350_GERBERS_upload.zip), [`TinyFan2350_BOM_JLCPCB.csv`](hardware/fab/TinyFan2350_BOM_JLCPCB.csv) and [`TinyFan2350_CPL_JLCPCB.csv`](hardware/fab/TinyFan2350_CPL_JLCPCB.csv) to JLCPCB (for PCBWay use [`TinyFan2350_BOM_PCBWay.csv`](hardware/fab/TinyFan2350_BOM_PCBWay.csv) and [`TinyFan2350_CPL_PCBWay.csv`](hardware/fab/TinyFan2350_CPL_PCBWay.csv)).
 2. **Buy the rest**: RP2350-Zero, socket strips, fuses, jumpers and mount hardware. The BOM lists every part with its maker's part number.
 3. **Finish it**: solder the three RP2350-Zero socket strips ([docs/assembly.md](docs/assembly.md)). Or hand-build the whole board from the same guide.
 4. **Wire it up**: [docs/wiring.md](docs/wiring.md). **Set every fan jumper before you power on.**
@@ -38,7 +38,7 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 ```
 hardware/
   kicad/        KiCad 10 project (schematic, PCB, custom RP2350-Zero footprint/symbol)
-  fab/          Gerbers + drill (zip and loose), JLCPCB BOM + CPL, PCBWay BOM, KiCad pick-and-place
+  fab/          Gerbers + drill (zip and loose), JLCPCB BOM + CPL, PCBWay BOM + CPL, KiCad pick-and-place
   3d/           STEP model of the assembled board
 docs/
   images/       Renders and annotated pinout

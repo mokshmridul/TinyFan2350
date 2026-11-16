@@ -6,7 +6,8 @@ All the files are in [`hardware/fab/`](../hardware/fab):
 |---|---|---|
 | `TinyFan2350_GERBERS_upload.zip` | Copper, mask, silk, paste, outline and drill | JLCPCB and PCBWay, PCB step |
 | `TinyFan2350_BOM_JLCPCB.csv` | Bill of materials with LCSC part numbers | JLCPCB assembly step ("BOM") |
-| `TinyFan2350_CPL_JLCPCB.csv` | Where each part goes, and its rotation | JLCPCB assembly step ("CPL") and PCBWay ("Centroid") |
+| `TinyFan2350_CPL_JLCPCB.csv` | Where each part goes, and its rotation | JLCPCB assembly step ("CPL") |
+| `TinyFan2350_CPL_PCBWay.csv` | Same, with J1-J4 turned 180° to suit PCBWay's 3D models | PCBWay assembly step ("Centroid") |
 | `TinyFan2350_BOM_PCBWay.csv` | The same BOM with makers and maker part numbers | PCBWay assembly step |
 | `TinyFan2350-pos.csv` | KiCad's own position file (raw, for reference) | Any assembler that wants KiCad format |
 
@@ -50,8 +51,9 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
 
 1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 100 x 63 mm, 1.6 mm, **2 oz**, HASL or ENIG, solder mask **Black**, silkscreen White.
 2. Tick **Assembly service**: *Turnkey*, **SMT on both sides** plus through-hole.
-3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid file. PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
+3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_PCBWay.csv`** as the centroid file (not the JLC one: PCBWay's 3-pin JST and screw-terminal models are drawn 180° off from JLC's). PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
 4. In the remarks, add: *"Do not fit U1 and J5. SMD on both sides (LEDs LD1-LD8 and R33-R40 on top, the rest on the bottom). Please confirm the orientation of D1-D22, Q1-Q9, U2, LD1-LD8 and C5/C6."*
+   In PCBWay's preview, C6 (470 µF polymer) may show as bare pads with no 3D model. It is still in the BOM and centroid file, so it gets fitted. Polarity: + is the square pad. Screw terminals: wire openings face the board edge. JST XH latch slots face the board edge on J3/J4.
 5. PCBWay reviews the files and sends a quote with any part questions. Answer those, then pay.
 
 ## When the boards arrive
