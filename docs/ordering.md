@@ -24,6 +24,7 @@ The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). 
 2. PCB options:
    - Base material FR-4, 2 layers, 1.6 mm. Leave the rest at the defaults.
    - Surface finish: HASL lead-free (cheapest) or ENIG.
+   - PCB colour: **Black** (white silkscreen). Takes the same time as green at JLC.
    - Copper: **1 oz is fine.** 2 oz runs the 5A traces about 10 °C cooler, at extra cost.
    - "Remove order number": pick *Specify a location* only if you want it hidden. Otherwise any choice is fine.
 3. Turn on **PCB Assembly**:
