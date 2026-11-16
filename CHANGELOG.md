@@ -9,6 +9,7 @@
 - EXP header reduced to 1x4 (GND, 3V3, GP15, GP14); GP26-29 moved to the thermistor ports.
 - Power trunks widened to 2-3 mm, GND pour on both layers, wider clearances.
 - Klipper config refactored (thermistors, flashing notes, examples).
+- New printable DIN rail tray for two Voron Trident PCB DIN clips (`mechanical/`).
 
 ## v1.2
 - Mini-blade fuses on both inputs (F1 5A, F2 4A), bulk capacitors, wider power traces.

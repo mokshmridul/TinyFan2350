@@ -27,6 +27,9 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 3. **Assemble**: [docs/assembly.md](docs/assembly.md).
 4. **Wire it up**: [docs/wiring.md](docs/wiring.md). **Set every fan jumper before you power on.**
 5. **Flash Klipper and add the config**: [docs/klipper.md](docs/klipper.md) and [`klipper/tinyfan.cfg`](klipper/tinyfan.cfg).
+6. **Mount it** on a DIN rail with the printed tray and two Voron Trident PCB DIN clips: [docs/mounting.md](docs/mounting.md).
+
+![DIN mount](docs/images/mount_assembly.png)
 
 ## Repository layout
 
@@ -38,7 +41,9 @@ hardware/
 docs/
   images/       Renders and annotated pinout
   TinyFan2350-schematic.pdf
-  assembly.md, wiring.md, klipper.md, design-notes.md
+  assembly.md, wiring.md, klipper.md, mounting.md, design-notes.md
+mechanical/
+  TinyFan2350_DIN_mount.stl/.step/.py   Printable DIN tray (CadQuery source)
 klipper/
   tinyfan.cfg   Ready-to-include Klipper config
 ```

@@ -73,4 +73,4 @@ JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no polarity. Use
 
 ## Mounting
 
-4 x M3 holes on a **75 x 67 mm** rectangle, 4.5 mm in from each corner. The holes are connected to GND. Allow about 20 mm of height above the board for the fuse holders with fuses fitted.
+4 x M3 holes on a **75 x 67 mm** rectangle, 4.5 mm in from each corner. The holes are connected to GND. Allow about 20 mm of height above the board for the fuse holders with fuses fitted. For DIN rail mounting, see [mounting.md](mounting.md).

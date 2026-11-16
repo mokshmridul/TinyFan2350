@@ -29,4 +29,4 @@ Item,Qty,Refs,Part,Package / Footprint,Example MPN,Notes
 27,6,Fan cables,JST XH 4-pin housing,-,JST XHP-4,Standard PC fan plugs do not fit XH - re-terminate
 28,2,LED cables,JST XH 3-pin housing,-,JST XHP-3,
 29,4,Thermistor cables,JST XH 2-pin housing,-,JST XHP-2,
-30,4,Mounting,M3 screws + standoffs,-,M3 x 6-8mm,"Holes on a 75 x 67 mm rectangle. Old TinyFan mounts do not fit v2.0"
+30,4,Mounting,M3x6 screws + M3 heat-set inserts,-,M3x6 BHCS + M3x5x4 insert,"Holes on a 75 x 67 mm rectangle. Use mechanical/TinyFan2350_DIN_mount + 2 Voron PCB DIN clips + 4x M2x10 self-tappers (docs/mounting.md)"
