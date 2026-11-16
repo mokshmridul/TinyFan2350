@@ -80,7 +80,7 @@ Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V**
 
 - **2-pin and 3-pin fans**: set that port's MODE jumper to the top two pins (see above) and Klipper controls their speed.
 
-The LED data line is buffered to 5V with a 1k series resistor and a clamp diode, so a long run to the first LED is fine, and touching +V to the data pin by mistake doesn't kill the buffer.
+The LED data line is buffered to 5V with a 1k series resistor and a clamp diode, so a long run to the first LED is fine, and touching +V to the data pin by mistake doesn't kill the buffer (on a 24V strip, don't leave it shorted: the 1k resistor overheats).
 
 ## Thermistors (TH1-TH4)
 

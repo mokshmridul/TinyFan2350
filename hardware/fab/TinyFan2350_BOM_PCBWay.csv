@@ -11,18 +11,19 @@ Item,Qty,Designator,Description,Manufacturer,Manufacturer Part Number,LCSC Part 
 10,6,"Q4,Q5,Q6,Q7,Q8,Q9",AO3400A MOSFET 30V 5.7A,Alpha & Omega,AO3400A,C20917,SOT-23,SMD,2/3-pin fan low-side switch
 11,6,"Q10,Q11,Q12,Q13,Q14,Q15",2N7002 N-MOSFET 60V SOT-23,Changjiang (CJ),2N7002,C8545,SOT-23,SMD,"JLC basic; 3.3V->5V PWM shifter, pin1 G pin2 S pin3 D"
 12,2,"R19,R20",1k 1% 1206,UNI-ROYAL,1206W4F1001T5E,C4410,R_1206_3216Metric,SMD,JLC basic part; LED data series
-13,16,"R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R41,R42,R43,R44,R45,R46",4.7k 1% 0805,UNI-ROYAL,0805W8F4701T5E,C17673,R_0805_2012Metric,SMD,JLC basic part
+13,10,"R21,R22,R23,R24,R25,R26,R27,R28,R29,R30",4.7k 1% 0805,UNI-ROYAL,0805W8F4701T5E,C17673,R_0805_2012Metric,SMD,JLC basic part
 14,27,"R31,R32,R33,R34,R35,R36,R37,R38,R39,R47,R48,R49,R50,R51,R52,R53,R54,R55,R56,R57,R58,R59,R60,R61,R62,R63,R64",10k 1% 0805,UNI-ROYAL,0805W8F1002T5E,C17414,R_0805_2012Metric,SMD,JLC basic part
 15,1,R40,1k 1% 0805,UNI-ROYAL,0805W8F1001T5E,C17513,R_0805_2012Metric,SMD,JLC basic part
-16,1,U2,74HCT2G17GW-Q100H,Nexperia,74HCT2G17GW-Q100H,C547569,SOT-363_SC-70-6,SMD,Must be HCT (not HC) - 3.3V input to 5V output
-17,1,C5,100uF 50V electrolytic 8x11.5,Rubycon,50YXF100MEFC8X11.5,C88728,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
-18,1,C6,470uF 16V polymer 8x9,Zhaoqing Ruilong,E2471M016D090RL,C2898814,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
-19,2,"F1,F2",Mini blade fuse holder,Keystone,3568,C5249699,Fuseholder_Blade_Mini_Keystone_3568,THT,THT; OPTIONAL - delete these rows if you fit holders yourself
-20,6,"FAN1,FAN2,FAN3,FAN4,FAN5,FAN6",B4B-XH-A,JST,B4B-XH-A(LF)(SN),C144395,JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical,THT,THT
-21,2,"J1,J2",Screw terminal 2P 5mm,Cixi Kefa,KF301-5.0-2P,C474881,"TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",THT,THT; 5.0mm part fits the 5.08mm footprint
-22,2,"J3,J4",B3B-XH-A,JST,B3B-XH-A(LF)(SN),C144394,JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical,THT,THT
-23,4,"J6,J7,J8,J9",B2B-XH-A,JST,B2B-XH-A(LF)(SN),C158012,JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,THT,THT
-24,14,"JL1,JL2,JM1,JM2,JM3,JM4,JM5,JM6,JP1,JP2,JP3,JP4,JP5,JP6",Pin header 1x3 2.54mm,BOOMELE,2.54-1*3P,C49257,PinHeader_1x03_P2.54mm_Vertical_TightCY,THT,THT
-25,8,"LD1,LD2,LD3,LD4,LD5,LD6,LD7,LD8",Green LED 0805,Hubei KENTO,KT-0805G,C2297,LED_0805_2012Metric,SMD,TOP side; cathode = pad 1
+16,6,"R41,R42,R43,R44,R45,R46",22k 1% 0805,UNI-ROYAL,0805W8F2202T5E,C17560,R_0805_2012Metric,SMD,JLC basic part; MOSFET gate resistor
+17,1,U2,74HCT2G17GW-Q100H,Nexperia,74HCT2G17GW-Q100H,C547569,SOT-363_SC-70-6,SMD,Must be HCT (not HC) - 3.3V input to 5V output
+18,1,C5,100uF 50V electrolytic 8x11.5,Rubycon,50YXF100MEFC8X11.5,C88728,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
+19,1,C6,470uF 16V polymer 8x9,Zhaoqing Ruilong,E2471M016D090RL,C2898814,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
+20,2,"F1,F2",Mini blade fuse holder,Keystone,3568,C5249699,Fuseholder_Blade_Mini_Keystone_3568,THT,THT; OPTIONAL - delete these rows if you fit holders yourself
+21,6,"FAN1,FAN2,FAN3,FAN4,FAN5,FAN6",B4B-XH-A,JST,B4B-XH-A(LF)(SN),C144395,JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical,THT,THT
+22,2,"J1,J2",Screw terminal 2P 5mm,Cixi Kefa,KF301-5.0-2P,C474881,"TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",THT,THT; 5.0mm part fits the 5.08mm footprint
+23,2,"J3,J4",B3B-XH-A,JST,B3B-XH-A(LF)(SN),C144394,JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical,THT,THT
+24,4,"J6,J7,J8,J9",B2B-XH-A,JST,B2B-XH-A(LF)(SN),C158012,JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical,THT,THT
+25,14,"JL1,JL2,JM1,JM2,JM3,JM4,JM5,JM6,JP1,JP2,JP3,JP4,JP5,JP6",Pin header 1x3 2.54mm,BOOMELE,2.54-1*3P,C49257,PinHeader_1x03_P2.54mm_Vertical_TightCY,THT,THT
+26,8,"LD1,LD2,LD3,LD4,LD5,LD6,LD7,LD8",Green LED 0805,Hubei KENTO,KT-0805G,C2297,LED_0805_2012Metric,SMD,TOP side; cathode = pad 1
 -,0,J5,DO NOT PLACE,,,,,,"EXP header - optional, leave empty or solder a 1x4 male header"
 -,0,U1,DO NOT PLACE,,,,,,RP2350-Zero sits in female headers - solder 2x 1x9 + 1x 1x5 female strips yourself (see notes)

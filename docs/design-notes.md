@@ -27,10 +27,10 @@ Each fan has its own 2N7002 MOSFET (Q10-Q15 = FAN1-FAN6). The gate is tied to 3V
 
 ## Fan mode: 4-pin or 2/3-pin (x6)
 
-The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of an AO3400A MOSFET whose source is on GND.
+The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of an AO3400A MOSFET whose source is on the port's return (FANx_RET, which reaches GND through the port's PTC).
 
 - **JM on the bottom two pins (4-pin):** the jumper ties pin 1 to the port's return (FANx_RET), which goes to GND through the port's PTC. The MOSFET is shorted out and does nothing, and the fan is controlled on its PWM wire as above.
-- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven (through a 4.7k resistor, clamped by a 5.6V zener) by the same 5V PWM line (the fan side of the 2N7002 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
+- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven (through a 22k resistor, clamped by a 5.6V zener) by the same 5V PWM line (the fan side of the 2N7002 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
 - The gate is pulled up through 10k, so it turns on in a few microseconds. That is fine at 100 Hz but too slow for 25 kHz: use `cycle_time: 0.010` for 2/3-pin ports (see `klipper/tinyfan.cfg`).
 - The status LED (10k from the fan's +V to pin 1) lights whenever the port is powered. In 2/3-pin mode its brightness follows the fan speed. It is dim on 5V fans and bright on 24V fans.
 - AO3400A: 30V, 5.7A, about 30 mOhm at 5V gate drive, so it barely warms at the 1A per port that the traces are sized for.
@@ -44,7 +44,7 @@ Sized for up to **5A on VIN** with **1 oz copper and a 5A F1**, for example 3 x 
 The goal is that a badly crimped cable kills a fan at worst, never the board.
 
 - **Fan ports:** each port's ground return (FANx_RET: the MODE jumper's 4-pin side and the AO3400A source) goes to GND through a 1.6A / 30V PTC resettable fuse (F3-F8, 1812, LUTE 1812L160/30GR). That holds a 0.8-1A fan continuously, even warm in an electronics bay, and still trips a dead short (tens of amps) in well under a second, so only that port shuts off and the main fuse and the other ports carry on. It resets once the short is gone and it cools.
-- **Fan MOSFET gates:** R41-R46 (4.7k) plus BZT52C5V6 zeners (D13-D18). A fan wired with its power reversed can lift the PWM line well above 5V through its own pull-up; the zener keeps the AO3400A gate under its 12V rating.
+- **Fan MOSFET gates:** R41-R46 (22k since v2.4, was 4.7k) plus BZT52C5V6 zeners (D13-D18). A fan wired with its power reversed can lift the PWM line well above 5V through its own pull-up; the zener keeps the AO3400A gate under its 12V rating. 22k keeps the gate's capacitance from slowing the 25 kHz PWM edge in 4-pin mode; in 2/3-pin mode (100 Hz) the slower gate does not matter.
 - **Tach lines** were already safe: 4.7k series + BAT54S clamp to 3V3, so even 24V on a tach pin is only ~4 mA.
 - **LED ports:** 2A / 30V PTC (F9/F10, 1812) in each strip's ground return, plus the 1k + clamp on data (see below).
 - **Inputs:** SMCJ28A across VIN and SMBJ5.0A across 5V, right behind the blade fuses. Wired backwards, the TVS conducts and the fuse blows. If 12/24V is put into the 5V terminal, the 5V TVS clamps and the fuse blows before the RP2350, buffer and 5V fans see it. They also soak up power-supply spikes.

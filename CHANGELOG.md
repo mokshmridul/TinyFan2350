@@ -7,6 +7,8 @@
 - Through-hole GND pins now connect to the ground pours with thermal spokes (0.8 mm), so they are easy to hand-solder. SMD pads stay solidly connected.
 - U2 is the 74HCT2G17GW-Q100H (C547569), same chip as the ,125 part which is often short at JLC.
 - JLC CPL: J1-J4 rotated 180° to match JLC's 3D models.
+- R41-R46 (MOSFET gate resistors) 4.7k -> **22k** (C17560, basic): the AO3400A's gate capacitance no longer slows the 25 kHz PWM edge in 4-pin mode.
+- Independent review: ERC/DRC 0, all 355 pads match the design, pinouts checked against datasheets.
 
 ## v2.3 (2026-11)
 - **Port protection against bad crimps.** Each fan port's return goes through a 1.6A resettable fuse (PTC, F3-F8, holds 0.8-1A fans) and each LED port's return through a 2A PTC (F9/F10): a short in a cable switches off only that port and it recovers once fixed.
