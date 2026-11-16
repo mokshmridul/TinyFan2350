@@ -1,0 +1,143 @@
+{
+  "jobs": [
+    {
+      "description": "top",
+      "id": "4f8a1c2e-1001-4a1b-9c3d-000000000001",
+      "settings": {
+        "description": "",
+        "format": "png",
+        "output_filename": "render-top.png",
+        "quality": "high",
+        "bg_style": "opaque",
+        "width": 1992,
+        "height": 1488,
+        "side": "top",
+        "zoom": 1.0,
+        "perspective": false,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 0,
+        "use_board_stackup_colors": true,
+        "floor": false,
+        "anti_alias": true,
+        "post_process": true,
+        "procedural_textures": true
+      },
+      "type": "pcb_render"
+    },
+    {
+      "description": "bottom",
+      "id": "4f8a1c2e-1002-4a1b-9c3d-000000000001",
+      "settings": {
+        "description": "",
+        "format": "png",
+        "output_filename": "render-bottom.png",
+        "quality": "high",
+        "bg_style": "opaque",
+        "width": 1600,
+        "height": 1100,
+        "side": "bottom",
+        "zoom": 1.0,
+        "perspective": false,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 0,
+        "use_board_stackup_colors": true,
+        "floor": false,
+        "anti_alias": true,
+        "post_process": true,
+        "procedural_textures": true
+      },
+      "type": "pcb_render"
+    },
+    {
+      "description": "front",
+      "id": "4f8a1c2e-1003-4a1b-9c3d-000000000001",
+      "settings": {
+        "description": "",
+        "format": "png",
+        "output_filename": "render-front.png",
+        "quality": "high",
+        "bg_style": "opaque",
+        "width": 1600,
+        "height": 900,
+        "side": "front",
+        "zoom": 1.0,
+        "perspective": false,
+        "rotation_x": 0,
+        "rotation_y": 0,
+        "rotation_z": 0,
+        "use_board_stackup_colors": true,
+        "floor": false,
+        "anti_alias": true,
+        "post_process": true,
+        "procedural_textures": true
+      },
+      "type": "pcb_render"
+    },
+    {
+      "description": "angle top",
+      "id": "4f8a1c2e-1004-4a1b-9c3d-000000000001",
+      "settings": {
+        "description": "",
+        "format": "png",
+        "output_filename": "render-angle.png",
+        "quality": "high",
+        "bg_style": "opaque",
+        "width": 2000,
+        "height": 1400,
+        "side": "top",
+        "zoom": 0.85,
+        "perspective": true,
+        "rotation_x": -40,
+        "rotation_y": 0,
+        "rotation_z": 25,
+        "use_board_stackup_colors": true,
+        "floor": false,
+        "anti_alias": true,
+        "post_process": true,
+        "procedural_textures": true
+      },
+      "type": "pcb_render"
+    },
+    {
+      "description": "angle bottom",
+      "id": "4f8a1c2e-1005-4a1b-9c3d-000000000001",
+      "settings": {
+        "description": "",
+        "format": "png",
+        "output_filename": "render-angle-bottom.png",
+        "quality": "high",
+        "bg_style": "opaque",
+        "width": 2000,
+        "height": 1400,
+        "side": "bottom",
+        "zoom": 0.85,
+        "perspective": true,
+        "rotation_x": -40,
+        "rotation_y": 0,
+        "rotation_z": -25,
+        "use_board_stackup_colors": true,
+        "floor": false,
+        "anti_alias": true,
+        "post_process": true,
+        "procedural_textures": true
+      },
+      "type": "pcb_render"
+    }
+  ],
+  "meta": {
+    "version": 1
+  },
+  "outputs": [
+    {
+      "description": "",
+      "id": "4f8a1c2e-0002-4a1b-9c3d-000000000002",
+      "only": [],
+      "settings": {
+        "output_path": "../../docs/images"
+      },
+      "type": "folder"
+    }
+  ]
+}

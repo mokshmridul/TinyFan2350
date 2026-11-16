@@ -4,7 +4,13 @@ A small Klipper fan and lighting controller built on the **Waveshare RP2350-Zero
 
 Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), redesigned in KiCad 10.
 
-![TinyFan2350 top render](docs/images/render-top.png)
+![TinyFan2350](docs/images/render-angle.png)
+
+| Top | Bottom |
+|---|---|
+| ![Top](docs/images/render-top.png) | ![Bottom](docs/images/render-bottom.png) |
+
+![Bottom, angled](docs/images/render-angle-bottom.png)
 
 | | |
 |---|---|
