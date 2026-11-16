@@ -37,27 +37,41 @@
     "meta": {
       "version": 4
     },
-    "netclass_assignments": {
-      "+5V": "Power",
-      "GND": "Default",
-      "/FAN1_VCC": "FanPower",
-      "/FAN2_VCC": "FanPower",
-      "/FAN3_VCC": "FanPower",
-      "/FAN4_VCC": "FanPower",
-      "/FAN5_VCC": "FanPower",
-      "/FAN6_VCC": "FanPower",
-      "/5V_IN": "Power",
-      "/VIN": "Power",
-      "/VIN_RAW": "Power",
-      "/FAN1_GND": "FanPower",
-      "/FAN2_GND": "FanPower",
-      "/FAN3_GND": "FanPower",
-      "/FAN4_GND": "FanPower",
-      "/FAN5_GND": "FanPower",
-      "/FAN6_GND": "FanPower",
-      "/LED1_VCC": "LedPower",
-      "/LED2_VCC": "LedPower"
-    }
+    "netclass_assignments": {},
+    "netclass_patterns": [
+      {
+        "netclass": "FanPower",
+        "pattern": "/FAN*_GND"
+      },
+      {
+        "netclass": "FanPower",
+        "pattern": "/FAN*_VCC"
+      },
+      {
+        "netclass": "LedPower",
+        "pattern": "/LED*_VCC"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/VIN*"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "+5V"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/5V_IN"
+      },
+      {
+        "netclass": "FanPower",
+        "pattern": "/FAN*_RET"
+      },
+      {
+        "netclass": "LedPower",
+        "pattern": "/LED*_RET"
+      }
+    ]
   },
   "board": {
     "design_settings": {

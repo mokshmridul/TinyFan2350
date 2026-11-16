@@ -45,14 +45,15 @@ Each port has two 3-pin jumpers next to it. **Set both before you power up.**
 
 | Jumper | Top two pins | Bottom two pins |
 |---|---|---|
-| **MODE** (JM, left column) | 4-pin PWM fan | 2-pin or 3-pin fan |
+| **MODE** (JM, left column) | 2-pin or 3-pin fan | 4-pin PWM fan |
 | **FAN V** (JP, right column) | VIN (what J1 is fed, 12V or 24V) | 5V |
 
-- **4-pin fan:** MODE on top. The fan gets steady power and is controlled through its blue PWM wire.
-- **2-pin fan** (most Voron 4010/5015/6015 fans): MODE on the bottom. Crimp the fan into an XHP-4 housing using **pin 1 (black, -) and pin 2 (red, +)** only. The board switches the fan's ground. In Klipper set `cycle_time: 0.010` for that fan (see `klipper/tinyfan.cfg`).
-- **3-pin fan:** MODE on the bottom, pins 1-3 as in the table. Speed control works, but the tach reading is not reliable in this mode, so leave `tachometer_pin` out.
-- If you get MODE wrong nothing is damaged: a 2-pin fan with MODE on top just runs at full speed, and a 4-pin fan with MODE on the bottom runs badly until you move the jumper.
+- **4-pin fan:** MODE on the bottom. The fan gets steady power and is controlled through its blue PWM wire.
+- **2-pin fan** (most Voron 4010/5015/6015 fans): MODE on top. Crimp the fan into an XHP-4 housing using **pin 1 (black, -) and pin 2 (red, +)** only. The board switches the fan's ground. In Klipper set `cycle_time: 0.010` for that fan (see `klipper/tinyfan.cfg`).
+- **3-pin fan:** MODE on top, pins 1-3 as in the table. Speed control works, but the tach reading is not reliable in this mode, so leave `tachometer_pin` out.
+- If you get MODE wrong nothing is damaged: a 2-pin fan with MODE on the bottom just runs at full speed, and a 4-pin fan with MODE on top runs badly until you move the jumper.
 - The small green LED next to each fan lights when that port is powered. With a 2/3-pin fan it gets brighter as the fan speeds up.
+- **Shorted cable?** Each fan port has its own resettable fuse (0.5A) and each LED port a 2A one. If a bad crimp shorts +V to GND, only that port switches off (its fan stops). Unplug, fix the cable, wait about a minute and it works again. No fuse to replace. Fans drawing more than about 0.4A continuously can trip it: printer fans are well under that.
 
 ## LED strips (LED1, LED2)
 
@@ -77,9 +78,9 @@ Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V**
 
 ### 2-pin and 3-pin fans
 
-- **2-pin and 3-pin fans**: set that port's MODE jumper to the bottom two pins (see above) and Klipper controls their speed.
+- **2-pin and 3-pin fans**: set that port's MODE jumper to the top two pins (see above) and Klipper controls their speed.
 
-The LED data line is buffered to 5V with a 330R series resistor, so a long run to the first LED is fine.
+The LED data line is buffered to 5V with a 1k series resistor and a clamp diode, so a long run to the first LED is fine, and touching +V to the data pin by mistake doesn't kill the buffer.
 
 ## Thermistors (TH1-TH4)
 

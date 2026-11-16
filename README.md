@@ -17,7 +17,8 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 | Indicators | VIN ON and 5V ON LEDs, one status LED per fan port |
 | Thermistors | 4 x JST-XH 2-pin (GP26-GP29), 4.7k 1% pull-up, 100nF filter |
 | Expansion | 1x4 header: GND, 3V3, GP15, GP14 |
-| PCB | **93 x 63 mm**, 2-layer, 1.6 mm, 1 oz copper (2 oz optional), 4 x M3 (79 x 54 mm pattern) |
+| Protection | Every fan and LED port has a **resettable fuse** (a shorted cable switches off just that port, and it comes back by itself). LED data pins survive +V by mistake (1k + clamp). Fan MOSFET gates are zener-clamped. TVS diodes behind F1/F2: reverse polarity, or 12-24V into the 5V input, blows the fuse instead of the board |
+| PCB | **100 x 63 mm**, 2-layer, 1.6 mm, black, 1 oz copper (2 oz optional), 4 x M3 (86 x 54 mm pattern) |
 
 ![Pinout](docs/images/pinout.png)
 
@@ -58,7 +59,7 @@ klipper/
 
 ## Status
 
-v2.2 passes ERC and DRC (KiCad 10.0.8) with no errors and no unconnected nets, and every pad's net has been checked against the design table by script. It has not been fabricated yet. Please open an issue if you build one.
+v2.3 passes ERC and DRC (KiCad 10.0.8) with no errors and no unconnected nets, and every pad's net has been checked against the design table by script. It has not been fabricated yet. Please open an issue if you build one.
 
 ## License
 

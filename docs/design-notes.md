@@ -29,11 +29,22 @@ Each fan uses one half of a BSS138DW dual MOSFET (Q1 = FAN1+2, Q2 = FAN3+4, Q3 =
 
 The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of an AO3400A MOSFET whose source is on GND.
 
-- **JM on the top two pins (4-pin):** the jumper ties pin 1 straight to GND. The MOSFET is shorted out and does nothing, and the fan is controlled on its PWM wire as above.
-- **JM on the bottom two pins (2/3-pin):** pin 1 only reaches GND through the MOSFET. Its gate is driven by the same 5V PWM line (the fan side of the BSS138 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
+- **JM on the bottom two pins (4-pin):** the jumper ties pin 1 to the port's return (FANx_RET), which goes to GND through the port's PTC. The MOSFET is shorted out and does nothing, and the fan is controlled on its PWM wire as above.
+- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven (through a 4.7k resistor, clamped by a 5.6V zener) by the same 5V PWM line (the fan side of the BSS138 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
 - The gate is pulled up through 10k, so it turns on in a few microseconds. That is fine at 100 Hz but too slow for 25 kHz: use `cycle_time: 0.010` for 2/3-pin ports (see `klipper/tinyfan.cfg`).
 - The status LED (10k from the fan's +V to pin 1) lights whenever the port is powered. In 2/3-pin mode its brightness follows the fan speed. It is dim on 5V fans and bright on 24V fans.
 - AO3400A: 30V, 5.7A, about 30 mOhm at 5V gate drive, so it barely warms at the 1A per port that the traces are sized for.
+
+## Port protection (v2.3)
+
+The goal is that a badly crimped cable kills a fan at worst, never the board.
+
+- **Fan ports:** each port's ground return (FANx_RET: the MODE jumper's 4-pin side and the AO3400A source) goes to GND through a 0.5A / 30V PTC resettable fuse (F3-F8, 1206). A +V-to-GND short in the cable trips it in milliseconds, so only that port shuts off and the 5A main fuse and the other ports carry on. It resets once the short is gone and it cools.
+- **Fan MOSFET gates:** R41-R46 (4.7k) plus BZT52C5V6 zeners (D13-D18). A fan wired with its power reversed can lift the PWM line well above 5V through its own pull-up; the zener keeps the AO3400A gate under its 12V rating.
+- **Tach lines** were already safe: 4.7k series + BAT54S clamp to 3V3, so even 24V on a tach pin is only ~4 mA.
+- **LED ports:** 2A / 30V PTC (F9/F10, 1812) in each strip's ground return, plus the 1k + clamp on data (see below).
+- **Inputs:** SMCJ28A across VIN and SMBJ5.0A across 5V, right behind the blade fuses. Wired backwards, the TVS conducts and the fuse blows. If 12/24V is put into the 5V terminal, the 5V TVS clamps and the fuse blows before the RP2350, buffer and 5V fans see it. They also soak up power-supply spikes.
+- Not covered: +V shorted straight onto a fan's PWM pin (pins 2 and 4 are not next to each other, so a crimp can't easily do it).
 
 ## LED strip voltage (x2)
 
@@ -55,7 +66,7 @@ The RP2350 has a known erratum (E9): a GPIO with its input enabled can latch at 
 
 ## WS2812 (x2)
 
-One 74HCT2G17 dual Schmitt-trigger buffer drives both ports. It is powered from 5V. HCT inputs switch at under 2V, so 3.3V logic is read reliably, and the outputs swing the full 5V (at least 4.1V at 4mA). Each input has a 10k pull-down (R31/R32), so the LED data line is held low and the strips stay dark while the RP2350 is unplugged or booting. A 330R series resistor (R19/R20) damps ringing on long cables.
+One 74HCT2G17 dual Schmitt-trigger buffer drives both ports. It is powered from 5V. HCT inputs switch at under 2V, so 3.3V logic is read reliably, and the outputs swing the full 5V (at least 4.1V at 4mA). Each input has a 10k pull-down (R31/R32), so the LED data line is held low and the strips stay dark while the RP2350 is unplugged or booting. A 1k 1206 series resistor (R19/R20) damps ringing on long cables, and a BAT54S (D19/D20) clamps the buffer side to 5V/GND. If +V lands on the data pin, the current is limited to about 19 mA even at 24V, so the buffer survives (indefinitely at 5V and 12V, the resistor runs over its rating at 24V).
 
 ## Thermistors (x4)
 
@@ -63,14 +74,14 @@ One 74HCT2G17 dual Schmitt-trigger buffer drives both ports. It is powered from 
 
 ## Changes from the original TinyFan
 
-| | TinyFan (Gi7mo) | TinyFan2350 v2.2 |
+| | TinyFan (Gi7mo) | TinyFan2350 v2.3 |
 |---|---|---|
 | MCU | RP2040-Zero | RP2350-Zero (same footprint and pinout), socketed |
 | Input | 24V + on-board converter | Separate VIN 12-24V and 5V inputs, each with its own fuse |
 | Fans | 2/3/4-pin, fixed voltage | 6 x JST-XH, per-port VIN/5V jumper, 4-pin PWM or MOSFET-switched 2/3-pin, tach with protection |
 | LEDs | - | 2 x addressable LED ports, buffered, 5V or VIN strip power |
 | Sensors | - | 4 x thermistor ports |
-| Size | ~60 x 62 mm | 93 x 63 mm |
+| Size | ~60 x 62 mm | 100 x 63 mm |
 
 ## Verification
 
