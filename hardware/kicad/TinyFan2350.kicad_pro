@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "filename": "TinyFan2350.kicad_pro",
+    "version": 1
+  },
+  "net_settings": {
+    "classes": [
+      {
+        "name": "Power",
+        "track_width": 1.0,
+        "clearance": 0.3,
+        "via_diameter": 1.2,
+        "via_drill": 0.6
+      },
+      {
+        "name": "Default",
+        "track_width": 0.3,
+        "clearance": 0.2,
+        "via_diameter": 0.7,
+        "via_drill": 0.35
+      },
+      {
+        "name": "FanPower",
+        "track_width": 0.8,
+        "clearance": 0.25,
+        "via_diameter": 1.0,
+        "via_drill": 0.5
+      }
+    ],
+    "meta": {
+      "version": 4
+    },
+    "netclass_assignments": {
+      "+5V": "Power",
+      "GND": "FanPower",
+      "/FAN1_VCC": "FanPower",
+      "/FAN2_VCC": "FanPower",
+      "/FAN3_VCC": "FanPower",
+      "/FAN4_VCC": "FanPower",
+      "/FAN5_VCC": "FanPower",
+      "/FAN6_VCC": "FanPower",
+      "/5V_IN": "Power",
+      "/VIN": "Power",
+      "/VIN_RAW": "Power"
+    }
+  }
+}

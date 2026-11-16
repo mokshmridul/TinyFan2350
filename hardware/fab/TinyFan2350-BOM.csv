@@ -1,0 +1,32 @@
+Item,Qty,Refs,Part,Package / Footprint,Example MPN,Notes
+1,1,U1,Waveshare RP2350-Zero,"Module, 2.54mm pins",Waveshare RP2350-Zero,"Solder male pins on both 9-pin sides and the 5-pin bottom row (GP9-GP13), USB-C facing the top edge"
+2,2,U1 socket,"Female header 1x9, 2.54mm, straight",THT,Generic 1x9 2.54mm female header,RP2350-Zero socket - left and right rows
+3,1,U1 socket,"Female header 1x5, 2.54mm, straight",THT,Generic 1x5 2.54mm female header,RP2350-Zero socket - bottom row
+4,2,"J1, J2","Screw terminal 2-pin, 5.08mm pitch","Phoenix MKDS 1,5/2-5,08",Phoenix Contact 1715721,"J1 = VIN 12-24V, J2 = 5V. Top screw = GND on both"
+5,2,"F1, F2","Mini blade fuse holder, PCB mount",Keystone 3568,Keystone 3568,"For car mini-blade (ATM) fuses, 32V rated"
+6,1,F1,Mini blade fuse 5A,Mini blade (ATM),Littelfuse 0297005.WXNV or any 5A 32V mini blade,VIN rail. Keep spares
+7,1,F2,Mini blade fuse 4A,Mini blade (ATM),Littelfuse 0297004.WXNV or any 4A 32V mini blade,5V rail. Keep spares
+8,1,C5,"Electrolytic 100uF 50V, low ESR","Radial D8mm, 3.5mm pitch",e.g. Panasonic EEU-FR1H101 (8x11.5),"VIN bulk. 50V so it is safe at 24V. Max 8mm dia, <=12.5mm tall. Mind polarity (+ on silk)"
+9,1,C6,"Electrolytic 470uF 16V, low ESR","Radial D8mm, 3.5mm pitch",e.g. Panasonic EEU-FR1C471 (8x11.5),"5V bulk. Max 8mm dia, <=12.5mm tall. Mind polarity (+ on silk)"
+10,1,C1,"Ceramic 10uF 50V X5R/X7R",1206,e.g. Murata GRM31CR61H106KA12,VIN decoupling at F1 output
+11,1,C2,"Ceramic 10uF 16V X5R/X7R",1206,Generic 1206 10uF 16V or 25V,5V decoupling at F2 output
+12,6,"C3, C4, C7-C10",Ceramic 100nF 50V X7R,0805,Generic 0805 100nF,"C3/C4 buffer decoupling, C7-C10 thermistor filter"
+13,6,FAN1-FAN6,"JST XH 4-pin vertical header, 2.50mm",JST_XH_B4B-XH-A,JST B4B-XH-A(LF)(SN),"Fan ports: 1 GND, 2 +V, 3 TACH, 4 PWM"
+14,2,"J3, J4","JST XH 3-pin vertical header, 2.50mm",JST_XH_B3B-XH-A,JST B3B-XH-A(LF)(SN),"LED ports: 1 GND, 2 +5V, 3 DATA"
+15,4,J6-J9,"JST XH 2-pin vertical header, 2.50mm",JST_XH_B2B-XH-A,JST B2B-XH-A(LF)(SN),"Thermistor ports TH1-TH4: 1 SIGNAL, 2 GND"
+16,6,JP1-JP6,"Pin header 1x3, 2.54mm",THT,Generic 1x3 2.54mm male header,Fan voltage select
+17,6,JP1-JP6,"Jumper shunt, 2.54mm",-,Generic 2.54mm jumper cap,"Top two pins = VIN, bottom two pins = 5V"
+18,1,J5,"Pin header 1x4, 2.54mm",THT,Generic 1x4 2.54mm male header,"EXP: GND, 3V3, GP15, GP14"
+19,6,Q1-Q6,N-MOSFET BSS138,SOT-23,onsemi BSS138,3.3V to 5V PWM level shift
+20,6,D1-D6,Dual Schottky BAT54S,SOT-23,Nexperia BAT54S,"Tach input clamp (protects the RP2350 if a fan puts VIN on TACH)"
+21,2,"U2, U3",Single buffer 74AHCT1G125,SOT-23-5,TI SN74AHCT1G125DBVR,3.3V to 5V WS2812 data buffer. Must be AHCT (not LVC/HC)
+22,18,R1-R18,Resistor 10k 1%,0805,Generic 0805 10k,PWM and tach pull-ups
+23,2,"R19, R20",Resistor 330R 1%,0805,Generic 0805 330R,WS2812 data series resistor
+24,6,R21-R26,Resistor 4.7k 1%,0805,Generic 0805 4.7k,Tach series resistor
+25,4,R27-R30,Resistor 4.7k 1% (100ppm or better),0805,Generic 0805 4.7k 1%,Thermistor pull-up (matches pullup_resistor: 4700)
+26,1,PCB,"TinyFan2350 v2.0, 2-layer, 1.6mm FR4, 1oz",84 x 76 mm,hardware/fab/TinyFan2350-gerbers.zip,"Min track/gap 0.2mm, min via drill 0.3mm. Any colour"
+,,,Cable side (not on the PCB),,,
+27,6,Fan cables,JST XH 4-pin housing,-,JST XHP-4,Standard PC fan plugs do not fit XH - re-terminate
+28,2,LED cables,JST XH 3-pin housing,-,JST XHP-3,
+29,4,Thermistor cables,JST XH 2-pin housing,-,JST XHP-2,
+30,4,Mounting,M3 screws + standoffs,-,M3 x 6-8mm,"Holes on a 75 x 67 mm rectangle. Old TinyFan mounts do not fit v2.0"

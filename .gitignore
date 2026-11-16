@@ -1,0 +1,15 @@
+# KiCad local/user state
+*.kicad_prl
+*-backups/
+_autosave-*
+*.lck
+fp-info-cache
+\#auto_saved_files#
+# KiCad outputs that are regenerated
+*-drc.json
+*-erc.json
+*.net
+*_routed.*
+# OS
+.DS_Store
+Thumbs.db
