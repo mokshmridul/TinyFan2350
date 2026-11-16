@@ -13,3 +13,5 @@ fp-info-cache
 # OS
 .DS_Store
 Thumbs.db
+# Scratch output
+_tmp/
