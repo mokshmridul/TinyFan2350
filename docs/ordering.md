@@ -45,7 +45,7 @@ The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). 
 
 ## PCBWay
 
-1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 93 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG.
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 93 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG, solder mask **Black**, silkscreen White.
 2. Tick **Assembly service**: *Turnkey*, **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid file. PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
 4. In the remarks, add: *"Do not fit U1 and J5. SMD on both sides (LEDs LD1-LD8 and R33-R40 on top, the rest on the bottom). Please confirm the orientation of D1-D12, Q1-Q9, U2, LD1-LD8 and C5/C6."*
