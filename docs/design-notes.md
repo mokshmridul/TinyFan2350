@@ -18,26 +18,26 @@ flowchart LR
 ```
 
 - The RP2350-Zero is powered **only from USB**. Its 5V pin is left unconnected, so USB 5V and J2 5V can never back-feed each other.
-- There is no on-board regulation of VIN. Anything from 12V to 24V works. The VIN-side parts are rated for that: the fuses and holders are 32V, C1 and C5 are 50V, and the BSS138DW is 50V (though it only ever sees 5V).
-- Copper: VIN and 5V trunks are 2-3 mm wide on 1 oz copper, and the short feeds from each jumper to its fan connector are 0.4-1.2 mm (about 1A per fan). A resistive-network simulation of the routed board puts the narrowest trunk section (2.0 mm) at about a 15-17 °C rise at a continuous 5A, the fuse limit. That is inside the usual 20 °C design limit, and realistic loads are well below it. 2 oz copper brings it to about 6 °C. Both layers have a solid GND pour, connected solidly to every GND pad.
+- There is no on-board regulation of VIN. Anything from 12V to 24V works. The VIN-side parts are rated for that: the fuses and holders are 32V, C1 and C5 are 50V, and the 2N7002s are 60V (though they only ever see 5V).
+- Copper: VIN and 5V trunks are 2-3 mm wide on 1 oz copper, and the short feeds from each jumper to its fan connector are 0.4-1.2 mm (about 1A per fan). A resistive-network simulation of the routed board puts the narrowest trunk section (2.0 mm) at about a 15-17 °C rise at a continuous 5A, the fuse limit. That is inside the usual 20 °C design limit, and realistic loads are well below it. 2 oz copper brings it to about 6 °C. Both layers have a solid GND pour. SMD GND pads connect solidly; through-hole GND pins connect with four 0.8 mm thermal spokes so they are easy to hand-solder.
 
 ## Fan PWM (x6)
 
-Each fan uses one half of a BSS138DW dual MOSFET (Q1 = FAN1+2, Q2 = FAN3+4, Q3 = FAN5+6). The gate is tied to 3V3 and the source is on the GPIO, which is the classic bidirectional open-drain shifter. The GPIO side is pulled up to 3V3 with 10k and the fan side to 5V with 10k, both from the EXB-38V103JV arrays (RN1/RN3/RN5). If the RP2350 is unplugged or still booting, the fan side floats high and the fans run at **full speed**, which is the safe failure. Logic is non-inverting. Fans have their own internal pull-up on PWM, so it ends up as an open-drain 5V signal, as the Intel 4-wire spec expects.
+Each fan has its own 2N7002 MOSFET (Q10-Q15 = FAN1-FAN6). The gate is tied to 3V3 and the source is on the GPIO, which is the classic bidirectional open-drain shifter. The GPIO side is pulled up to 3V3 with 10k and the fan side to 5V with 10k, all discrete 0805 resistors (R47-R64). If the RP2350 is unplugged or still booting, the fan side floats high and the fans run at **full speed**, which is the safe failure. Logic is non-inverting. Fans have their own internal pull-up on PWM, so it ends up as an open-drain 5V signal, as the Intel 4-wire spec expects.
 
 ## Fan mode: 4-pin or 2/3-pin (x6)
 
 The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of an AO3400A MOSFET whose source is on GND.
 
 - **JM on the bottom two pins (4-pin):** the jumper ties pin 1 to the port's return (FANx_RET), which goes to GND through the port's PTC. The MOSFET is shorted out and does nothing, and the fan is controlled on its PWM wire as above.
-- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven (through a 4.7k resistor, clamped by a 5.6V zener) by the same 5V PWM line (the fan side of the BSS138 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
+- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven (through a 4.7k resistor, clamped by a 5.6V zener) by the same 5V PWM line (the fan side of the 2N7002 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
 - The gate is pulled up through 10k, so it turns on in a few microseconds. That is fine at 100 Hz but too slow for 25 kHz: use `cycle_time: 0.010` for 2/3-pin ports (see `klipper/tinyfan.cfg`).
 - The status LED (10k from the fan's +V to pin 1) lights whenever the port is powered. In 2/3-pin mode its brightness follows the fan speed. It is dim on 5V fans and bright on 24V fans.
 - AO3400A: 30V, 5.7A, about 30 mOhm at 5V gate drive, so it barely warms at the 1A per port that the traces are sized for.
 
-## Current budget (v2.3)
+## Current budget (v2.4)
 
-Sized for six 0.8A fans on VIN plus LED strips: about 6.8A worst case through F1, so **F1 is a 7.5A blade** and the board must be made in **2 oz copper**. At 2 oz the VIN spine (2 mm) sits about 10 °C above ambient at 6.8A; at 1 oz it would be about 25-30 °C. Each fan's own traces (0.375-1.2 mm) are good for 1A. F2 (5V) stays 5A.
+Sized for up to **5A on VIN** with **1 oz copper and a 5A F1**, for example 3 x 0.8A + 3 x 0.2A fans (3A) at 12V or 24V. The resistive simulation puts the 2 mm VIN spine at about 76% of its 10 °C-rise capacity at 3A and about 127% (roughly 17 °C) at the 5A fuse limit. If you need more on VIN (six 0.8A fans plus LED strips, ~6.8A), order **2 oz copper and fit a 7.5A fuse**: at 2 oz the spine sits about 10 °C above ambient at 6.8A. Each fan's own traces (0.375-1.2 mm) are good for 1A. F2 (5V) stays 5A.
 
 ## Port protection (v2.3)
 
@@ -57,7 +57,7 @@ JL1/JL2 connect each LED connector's pin 2 to VIN (left two pins) or 5V (right t
 ## Fan tach (x6)
 
 ```
-FAN TACH (XH pin 3) --+-- 10k (RN2/RN4/RN6) --> 3V3
+FAN TACH (XH pin 3) --+-- 10k (R51/R52, R57/R58, R63/R64) --> 3V3
                       |
                       +-- 4.7k --+--> GPIO
                                  |
@@ -78,7 +78,7 @@ One 74HCT2G17 dual Schmitt-trigger buffer drives both ports. It is powered from 
 
 ## Changes from the original TinyFan
 
-| | TinyFan (Gi7mo) | TinyFan2350 v2.3 |
+| | TinyFan (Gi7mo) | TinyFan2350 v2.4 |
 |---|---|---|
 | MCU | RP2040-Zero | RP2350-Zero (same footprint and pinout), socketed |
 | Input | 24V + on-board converter | Separate VIN 12-24V and 5V inputs, each with its own fuse |

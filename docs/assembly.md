@@ -2,7 +2,9 @@
 
 **Easiest: have JLCPCB or PCBWay build it** ([ordering.md](ordering.md)). Then the only soldering left is the RP2350-Zero socket strips (step 2.2 below), plus the fuse holders if you left them off the order.
 
-If you build it by hand: SMD parts are 0805, 1206, SOT-23, SOD-123, 0603x4 resistor arrays and **SOT-363 (0.65 mm pitch)**. Almost all of them are on the bottom side. The 8 status/power LEDs and their resistors (LD1-LD8, R33-R40) are on the **top** so you can see them. The SOT-363 parts need a fine tip, flux and a magnifier. Connectors and through-hole parts go on the top side.
+**Cheaper middle route:** order JLCPCB assembly for the **bottom side only**, with only the basic parts plus U2, and hand-solder the rest: the 8 top LEDs, the TVS diodes, PTC fuses, zeners, BAT54S clamps and all the through-hole parts. All of those are 0805 or bigger, SOT-23 or SOD-123.
+
+If you build it all by hand: SMD parts are 0805, 1206, 1812, SOT-23, SOD-123, SMB/SMC and one **SOT-363 (0.65 mm pitch)**, U2, which needs a fine tip, flux and a magnifier. Everything except the 8 status/power LEDs (LD1-LD8, top side so you can see them) is on the bottom. Connectors and through-hole parts go on the top side; their GND pins have thermal spokes so a normal iron heats them fine.
 
 ![Bottom side](images/render-bottom.png)
 
@@ -21,9 +23,11 @@ Solder from the lowest parts to the tallest.
 | Refs | Part | Notes |
 |---|---|---|
 | U2 | 74HCT2G17GW (SOT-363 / TSSOP-6) | Pin 1 dot on the silk. Must be **HCT**, not HC |
-| Q1-Q3 | BSS138DW (SOT-363) | Pin 1 dot on the silk |
+| Q10-Q15 | 2N7002 (SOT-23) | PWM level shifters, between the fan connector pin rows |
 | D1-D6 | BAT54S (SOT-23) | Under the RP2350-Zero. Not interchangeable with BAT54/BAT54C/BAT54A |
-| RN1-RN6 | 10k x4 array, EXB-38V103JV | Not polarised |
+| R47-R64 | 10k 0805 | Pull-ups for the PWM shifters and tach lines, next to Q10-Q15 |
+| R33-R39 | 10k 0805 | Fan / VIN LED resistors (bottom, under the LEDs' area) |
+| R40 | 1k 0805 | 5V ON LED resistor |
 | R19, R20 | 1k 1206 | LED data series resistors |
 | R21-R26 | 4.7k | Tach series resistors, under the RP2350-Zero |
 | R27-R30 | 4.7k 1% | Thermistor pull-ups (bottom edge, under TH1-TH4) |
@@ -45,12 +49,10 @@ Top side SMD:
 | Refs | Part | Notes |
 |---|---|---|
 | LD1-LD8 | Green LED 0805 | Cathode mark to pad 1 (square/marked pad) |
-| R33-R39 | 10k 0805 | LED resistors |
-| R40 | 1k 0805 | 5V ON LED resistor |
 
 The reference designators are hidden on the bottom silk to save space. Use the interactive BOM or the `hardware/fab/TinyFan2350-pos.csv` coordinates, or open the PCB in KiCad and hover over a footprint.
 
-Check after this step: no solder bridges on the SOT-363 parts. Check with the meter that +5V, +3V3 and VIN are not shorted to GND. Measure at the fuse holders and the EXP header.
+Check after this step: no solder bridges on U2 (SOT-363). Check with the meter that +5V, +3V3 and VIN are not shorted to GND. Measure at the fuse holders and the EXP header.
 
 ### 2. Top side, low parts
 

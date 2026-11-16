@@ -6,7 +6,7 @@
 
 | Terminal | Feed | Fuse | Supplies |
 |---|---|---|---|
-| **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 7.5A mini blade | Fans whose jumper is on **VIN** |
+| **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 5A mini blade | Fans (and LED strips) whose jumper is on **VIN**. Must match your fans: 12V fans need 12V here |
 | **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 5A mini blade | 5V fans, LED ports, level shifters |
 | USB-C on the RP2350-Zero | Klipper host (Pi etc.) | - | The RP2350-Zero itself (MCU + 3.3V) |
 
@@ -15,13 +15,13 @@ Each screw has its label printed right in front of it: **GND**, **VIN+** (J1) an
 - There is no voltage conversion on the board. J1 is passed straight to the fan jumpers.
 - J1 and J2 share GND with each other and with the USB ground. Tie the supply grounds together at one point (your PSU's V-) and don't run separate ground returns.
 - Use at least 0.5 mm² (20 AWG) wire for both inputs.
-- There is no reverse-polarity protection. A reversed input will most likely kill the MOSFETs and buffers before the fuse blows.
+- Reverse polarity (or 12/24V into the 5V terminal) is caught by the TVS diodes D21/D22, which short the input and blow that input's fuse. Replace the fuse after fixing the wiring.
 
 ### Current budget
 
 | Rail | Fuse | Comfortable continuous load |
 |---|---|---|
-| VIN | 5A | ~3.5A total, e.g. 3 fans at 0.6A + 3 fans at 0.3A = 2.7A |
+| VIN | 5A | up to ~4A continuous, e.g. 3 fans at 0.8A + 3 fans at 0.2A = 3A, at 12V or 24V. More than 5A on VIN needs 2 oz copper and a 7.5A fuse |
 | 5V | 5A | ~3.5A total for 5V fans + LEDs (a 60-LED WS2812 strip at full white is ~3.6A, so cap brightness in software) |
 
 Each fan port is good for about **1A**. The board warms by roughly 15 °C if a rail runs at the full 5A for a long time, which is fine. Order 2 oz copper if you want it to run cooler (see [ordering.md](ordering.md)).

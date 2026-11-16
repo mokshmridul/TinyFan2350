@@ -1,5 +1,13 @@
 # Changelog
 
+## v2.4 (2026-11)
+- **Easier to build and cheaper at JLCPCB.** The six 10k resistor arrays (EXB-38V) are now 18 ordinary 0805 resistors (R47-R64), and the three BSS138DW duals are now six **2N7002** SOT-23 MOSFETs (Q10-Q15). Both are JLC basic parts, so the only extended part JLC still places is U2.
+- The LED resistors R33-R40 moved to the bottom. The top side now has only the 8 status LEDs, so a JLC order can be **bottom-side assembly only** (hand-solder the 8 LEDs).
+- **1 oz copper is fine again, with F1 = 5A.** Sized for up to 5A on VIN, e.g. 3 x 0.8A + 3 x 0.2A fans (3A) at 12V or 24V. Above 5A on VIN, use 2 oz copper and a 7.5A fuse.
+- Through-hole GND pins now connect to the ground pours with thermal spokes (0.8 mm), so they are easy to hand-solder. SMD pads stay solidly connected.
+- U2 is the 74HCT2G17GW-Q100H (C547569), same chip as the ,125 part which is often short at JLC.
+- JLC CPL: J1-J4 rotated 180° to match JLC's 3D models.
+
 ## v2.3 (2026-11)
 - **Port protection against bad crimps.** Each fan port's return goes through a 1.6A resettable fuse (PTC, F3-F8, holds 0.8-1A fans) and each LED port's return through a 2A PTC (F9/F10): a short in a cable switches off only that port and it recovers once fixed.
 - LED data: 330R -> 1k 1206 plus a BAT54S clamp (D19/D20), so +V touching the data pin no longer kills the 74HCT2G17.
