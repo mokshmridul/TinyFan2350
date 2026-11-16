@@ -14,7 +14,7 @@ Item,Qty,Designator,Description,Manufacturer,Manufacturer Part Number,LCSC Part 
 13,16,"R21,R22,R23,R24,R25,R26,R27,R28,R29,R30,R41,R42,R43,R44,R45,R46",4.7k 1% 0805,UNI-ROYAL,0805W8F4701T5E,C17673,R_0805_2012Metric,SMD,JLC basic part
 14,9,"R31,R32,R33,R34,R35,R36,R37,R38,R39",10k 1% 0805,UNI-ROYAL,0805W8F1002T5E,C17414,R_0805_2012Metric,SMD,JLC basic part
 15,6,"RN1,RN2,RN3,RN4,RN5,RN6",10k x4 array,Panasonic,EXB-38V103JV,C192513,R_Array_Convex_4x0603,SMD,
-16,1,U2,"74HCT2G17GW,125",Nexperia,"74HCT2G17GW,125",C547568,SOT-363_SC-70-6,SMD,Must be HCT (not HC) - 3.3V input to 5V output
+16,1,U2,74HCT2G17GW-Q100H,Nexperia,74HCT2G17GW-Q100H,C547569,SOT-363_SC-70-6,SMD,Must be HCT (not HC) - 3.3V input to 5V output
 17,1,C5,100uF 50V electrolytic 8x11.5,Rubycon,50YXF100MEFC8X11.5,C88728,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
 18,1,C6,470uF 16V polymer 8x9,Zhaoqing Ruilong,E2471M016D090RL,C2898814,CP_Radial_D8.0mm_P3.50mm,THT,THT - polarity: + pad is square
 19,2,"F1,F2",Mini blade fuse holder,Keystone,3568,C5249699,Fuseholder_Blade_Mini_Keystone_3568,THT,THT; OPTIONAL - delete these rows if you fit holders yourself

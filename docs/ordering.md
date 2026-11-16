@@ -18,7 +18,7 @@ All the files are in [`hardware/fab/`](../hardware/fab):
 
 The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). If you'd rather fit your own, delete that line from the BOM before you upload it, and the assembler will leave the holes empty.
 
-If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yourself (4 big through-hole pins). For **U2** the 74HCT2G34GW-Q100H (C547575) is a drop-in: same 5V HCT dual buffer, same pinout and package.
+If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yourself (4 big through-hole pins). For **U2** the BOM already uses 74HCT2G17GW-Q100H (C547569). If that is short too, 74HCT2G34GW-Q100H (C547575) is a drop-in: same 5V HCT dual buffer, same pinout and package.
 
 ## JLCPCB
 
@@ -35,7 +35,7 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
    - Tooling holes: *Added by JLCPCB*.
 4. Click **Next**, then upload **`TinyFan2350_BOM_JLCPCB.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the CPL.
 5. On the parts page every line should be matched to its LCSC number. U1 and J5 will show as "not in BOM". That is expected.
-   - `74HCT2G17GW,125` (C547568) often has low stock. If it is short, the automotive version **74HCT2G17GW-Q100H** (C547569) is the same chip. Do **not** accept a `74HC2G17` (no T): it won't read 3.3V reliably at 5V.
+   - U2 is the automotive version **74HCT2G17GW-Q100H** (C547569), the same chip as 74HCT2G17GW,125 (C547568), which often runs short. Do **not** accept a `74HC2G17` (no T): it won't read 3.3V reliably at 5V.
 6. **Check the placement preview.** JLCPCB's footprints don't always use KiCad's zero rotation, so look at each part type once:
    - **D1-D6** (BAT54S) and **Q4-Q9** (AO3400A), both SOT-23: the single pin should be on the same side as the single pad.
    - **D7-D18** (SOD-123), **D21/D22** (big TVS diodes) and **LD1-LD8** (LEDs): the cathode band/mark should be on pad 1, the one marked on the silk.
