@@ -35,11 +35,15 @@ The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of 
 - The status LED (10k from the fan's +V to pin 1) lights whenever the port is powered. In 2/3-pin mode its brightness follows the fan speed. It is dim on 5V fans and bright on 24V fans.
 - AO3400A: 30V, 5.7A, about 30 mOhm at 5V gate drive, so it barely warms at the 1A per port that the traces are sized for.
 
+## Current budget (v2.3)
+
+Sized for six 0.8A fans on VIN plus LED strips: about 6.8A worst case through F1, so **F1 is a 7.5A blade** and the board must be made in **2 oz copper**. At 2 oz the VIN spine (2 mm) sits about 10 °C above ambient at 6.8A; at 1 oz it would be about 25-30 °C. Each fan's own traces (0.375-1.2 mm) are good for 1A. F2 (5V) stays 5A.
+
 ## Port protection (v2.3)
 
 The goal is that a badly crimped cable kills a fan at worst, never the board.
 
-- **Fan ports:** each port's ground return (FANx_RET: the MODE jumper's 4-pin side and the AO3400A source) goes to GND through a 0.5A / 30V PTC resettable fuse (F3-F8, 1206). A +V-to-GND short in the cable trips it in milliseconds, so only that port shuts off and the 5A main fuse and the other ports carry on. It resets once the short is gone and it cools.
+- **Fan ports:** each port's ground return (FANx_RET: the MODE jumper's 4-pin side and the AO3400A source) goes to GND through a 1.6A / 30V PTC resettable fuse (F3-F8, 1812, LUTE 1812L160/30GR). That holds a 0.8-1A fan continuously, even warm in an electronics bay, and still trips a dead short (tens of amps) in well under a second, so only that port shuts off and the main fuse and the other ports carry on. It resets once the short is gone and it cools.
 - **Fan MOSFET gates:** R41-R46 (4.7k) plus BZT52C5V6 zeners (D13-D18). A fan wired with its power reversed can lift the PWM line well above 5V through its own pull-up; the zener keeps the AO3400A gate under its 12V rating.
 - **Tach lines** were already safe: 4.7k series + BAT54S clamp to 3V3, so even 24V on a tach pin is only ~4 mA.
 - **LED ports:** 2A / 30V PTC (F9/F10, 1812) in each strip's ground return, plus the 1k + clamp on data (see below).

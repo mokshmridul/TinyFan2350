@@ -1,10 +1,11 @@
 # Changelog
 
 ## v2.3 (2026-11)
-- **Port protection against bad crimps.** Each fan port's return goes through a 0.5A resettable fuse (PTC, F3-F8) and each LED port's return through a 2A PTC (F9/F10): a short in a cable switches off only that port and it recovers once fixed.
+- **Port protection against bad crimps.** Each fan port's return goes through a 1.6A resettable fuse (PTC, F3-F8, holds 0.8-1A fans) and each LED port's return through a 2A PTC (F9/F10): a short in a cable switches off only that port and it recovers once fixed.
 - LED data: 330R -> 1k 1206 plus a BAT54S clamp (D19/D20), so +V touching the data pin no longer kills the 74HCT2G17.
 - Fan MOSFETs: 4.7k gate resistor + BZT52C5V6 zener (R41-R46, D13-D18), so a miswired fan can't push its gate past its rating. The resistor also keeps the gate's capacitance off the 4-pin PWM line.
-- TVS crowbars behind the main fuses: SMCJ28A on VIN (D21), SMBJ5.0A on 5V (D22). Reverse polarity, or 12/24V into the 5V terminal, now blows the 5A fuse instead of the board.
+- TVS crowbars behind the main fuses: SMCJ28A on VIN (D21), SMBJ5.0A on 5V (D22). Reverse polarity, or 12/24V into the 5V terminal, now blows the main fuse instead of the board.
+- **F1 (VIN) is now 7.5A and the board is 2 oz copper**, for six 0.8A fans on VIN plus LEDs (~6.8A worst case).
 - **MODE jumper flipped:** bottom two pins = 4-pin fan, top two pins = 2/3-pin fan (it was the other way round in v2.2).
 - Board 100 x 63 mm (+7 mm for the protection column), holes 86 x 54 mm, black solder mask. DIN tray updated (clips 50 mm apart, centred).
 

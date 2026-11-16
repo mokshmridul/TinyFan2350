@@ -34,7 +34,7 @@ Solder from the lowest parts to the tallest.
 | D7-D12 | B5819W (SOD-123) | Flyback diodes. **Band (cathode) towards the jumpers** as on the silk |
 | R41-R46 | 4.7k 0805 | MOSFET gate resistors (protection column, left of the MODE jumpers) |
 | D13-D18 | BZT52C5V6 (SOD-123) | Gate zeners. Band (cathode) to pad 1, as on the silk |
-| F3-F8 | PTC 0.5A 30V 1206 | Per-fan resettable fuses. Not polarised |
+| F3-F8 | PTC 1.6A 30V 1812 | Per-fan resettable fuses. Not polarised |
 | F9, F10 | PTC 2A 30V 1812 | Per-LED-port resettable fuses, above the LED connectors. Not polarised |
 | D19, D20 | BAT54S (SOT-23) | LED data clamps, below U2 |
 | D21 | SMCJ28A (SMC) | VIN TVS next to F1. **Band (cathode) towards F1** |

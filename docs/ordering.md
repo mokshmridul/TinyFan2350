@@ -14,7 +14,7 @@ All the files are in [`hardware/fab/`](../hardware/fab):
 
 - **U1, the RP2350-Zero.** It sits in female header sockets that you solder yourself: 2 x 1x9 and 1 x 1x5, cut from a 2.54 mm female strip (5 minutes, see [assembly.md](assembly.md)). Solder male headers to the module too, if it didn't come with them.
 - **J5, the EXP header.** Optional. Solder a 1x4 male header if you want it.
-- You fit the **fuses** (2 x 5A mini blade) and the **6 jumper caps** yourself.
+- You fit the **fuses** (F1: 7.5A, F2: 5A mini blade) and the **6 jumper caps** yourself.
 
 The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). If you'd rather fit your own, delete that line from the BOM before you upload it, and the assembler will leave the holes empty.
 
@@ -27,7 +27,7 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
    - Base material FR-4, 2 layers, 1.6 mm. Leave the rest at the defaults.
    - Surface finish: HASL lead-free (cheapest) or ENIG.
    - PCB colour: **Black** (white silkscreen). Takes the same time as green at JLC.
-   - Copper: **1 oz is fine.** 2 oz runs the 5A traces about 10 °C cooler, at extra cost.
+   - Copper: **2 oz (required).** With six 0.8A fans the VIN traces carry up to ~7A; 1 oz would run them too hot.
    - "Remove order number": pick *Specify a location* only if you want it hidden. Otherwise any choice is fine.
 3. Turn on **PCB Assembly**:
    - PCBA type: **Standard** (it needs through-hole soldering for the connectors).
@@ -48,7 +48,7 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
 
 ## PCBWay
 
-1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 100 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG, solder mask **Black**, silkscreen White.
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 100 x 63 mm, 1.6 mm, **2 oz**, HASL or ENIG, solder mask **Black**, silkscreen White.
 2. Tick **Assembly service**: *Turnkey*, **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid file. PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
 4. In the remarks, add: *"Do not fit U1 and J5. SMD on both sides (LEDs LD1-LD8 and R33-R40 on top, the rest on the bottom). Please confirm the orientation of D1-D22, Q1-Q9, U2, LD1-LD8 and C5/C6."*
@@ -58,4 +58,4 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
 
 1. Check for shorts with a meter before anything else ([assembly.md](assembly.md), "Before first power-up").
 2. Solder the RP2350-Zero sockets.
-3. Fit 5A fuses in F1 and F2, set every fan jumper, then follow [wiring.md](wiring.md) and [klipper.md](klipper.md).
+3. Fit a 7.5A fuse in F1 and a 5A fuse in F2, set every fan jumper, then follow [wiring.md](wiring.md) and [klipper.md](klipper.md).

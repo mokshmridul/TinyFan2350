@@ -6,7 +6,7 @@
 
 | Terminal | Feed | Fuse | Supplies |
 |---|---|---|---|
-| **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 5A mini blade | Fans whose jumper is on **VIN** |
+| **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 7.5A mini blade | Fans whose jumper is on **VIN** |
 | **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 5A mini blade | 5V fans, LED ports, level shifters |
 | USB-C on the RP2350-Zero | Klipper host (Pi etc.) | - | The RP2350-Zero itself (MCU + 3.3V) |
 
@@ -53,7 +53,7 @@ Each port has two 3-pin jumpers next to it. **Set both before you power up.**
 - **3-pin fan:** MODE on top, pins 1-3 as in the table. Speed control works, but the tach reading is not reliable in this mode, so leave `tachometer_pin` out.
 - If you get MODE wrong nothing is damaged: a 2-pin fan with MODE on the bottom just runs at full speed, and a 4-pin fan with MODE on top runs badly until you move the jumper.
 - The small green LED next to each fan lights when that port is powered. With a 2/3-pin fan it gets brighter as the fan speeds up.
-- **Shorted cable?** Each fan port has its own resettable fuse (0.5A) and each LED port a 2A one. If a bad crimp shorts +V to GND, only that port switches off (its fan stops). Unplug, fix the cable, wait about a minute and it works again. No fuse to replace. Fans drawing more than about 0.4A continuously can trip it: printer fans are well under that.
+- **Shorted cable?** Each fan port has its own resettable fuse (1.6A) and each LED port a 2A one. If a bad crimp shorts +V to GND, only that port switches off (its fan stops). Unplug, fix the cable, wait about a minute and it works again. No fuse to replace. Fans up to about 1A each are fine (your 0.8A fans included). With six big fans on VIN, use a 7.5A fuse in F1.
 
 ## LED strips (LED1, LED2)
 

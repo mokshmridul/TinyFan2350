@@ -6,7 +6,7 @@ Item,Qty,Designator,Description,Manufacturer,Manufacturer Part Number,LCSC Part 
 5,6,"D13,D14,D15,D16,D17,D18",BZT52C5V6 zener 5.6V SOD-123,JSCJ,BZT52C5V6,C2119,D_SOD-123,SMD,MOSFET gate clamp; cathode band = pad 1
 6,1,D21,SMCJ28A TVS 28V SMC,Boarden,SMCJ28A,C967193,D_SMC,SMD,VIN crowbar; cathode band = pad 1 (towards F1)
 7,1,D22,SMBJ5.0A TVS 5V SMB,SMC (Sangdest),SMBJ5.0A,C260407,D_SMB,SMD,5V crowbar; cathode band = pad 1 (towards F2)
-8,6,"F3,F4,F5,F6,F7,F8",PTC resettable fuse 0.5A 30V 1206,Jinrui,JK-nSMD050-30,C720075,Fuse_1206_3216Metric,SMD,"fan return fuse, resets itself"
+8,6,"F3,F4,F5,F6,F7,F8",PTC resettable fuse 1.6A 30V 1812,LUTE,1812L160/30GR,C18198337,Fuse_1812_4532Metric,SMD,"fan return fuse, resets itself"
 9,2,"F9,F10",PTC resettable fuse 2A 30V 1812,TECHFUSE,mSMD200-30V,C6851470,Fuse_1812_4532Metric,SMD,"LED strip return fuse, resets itself"
 10,3,"Q1,Q2,Q3",BSS138DW-7-F,Diodes Inc,BSS138DW-7-F,C154900,SOT-363_SC-70-6,SMD,
 11,6,"Q4,Q5,Q6,Q7,Q8,Q9",AO3400A MOSFET 30V 5.7A,Alpha & Omega,AO3400A,C20917,SOT-23,SMD,2/3-pin fan low-side switch

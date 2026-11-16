@@ -9,7 +9,7 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 | | |
 |---|---|
 | MCU | Waveshare RP2350-Zero (socketed), powered over USB from the Klipper host |
-| Fan supply | **J1: VIN 12-24V**, 5A mini-blade fuse (F1) |
+| Fan supply | **J1: VIN 12-24V**, 7.5A mini-blade fuse (F1) |
 | Logic / LED supply | **J2: 5V**, 5A mini-blade fuse (F2) |
 | Fans | 6 x JST-XH 4-pin (GND, +V, TACH, PWM). Per-port **MODE** jumper: 4-pin PWM fan (25 kHz, tach) **or** 2/3-pin fan switched by an AO3400A MOSFET (Klipper-Expander style). Status LED on every port |
 | Fan voltage | Per-port jumper: **VIN** or **5V** |
@@ -17,8 +17,8 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 | Indicators | VIN ON and 5V ON LEDs, one status LED per fan port |
 | Thermistors | 4 x JST-XH 2-pin (GP26-GP29), 4.7k 1% pull-up, 100nF filter |
 | Expansion | 1x4 header: GND, 3V3, GP15, GP14 |
-| Protection | Every fan and LED port has a **resettable fuse** (a shorted cable switches off just that port, and it comes back by itself). LED data pins survive +V by mistake (1k + clamp). Fan MOSFET gates are zener-clamped. TVS diodes behind F1/F2: reverse polarity, or 12-24V into the 5V input, blows the fuse instead of the board |
-| PCB | **100 x 63 mm**, 2-layer, 1.6 mm, black, 1 oz copper (2 oz optional), 4 x M3 (86 x 54 mm pattern) |
+| Protection | Every fan port (fans up to ~1A each) and LED port has a **resettable fuse** (a shorted cable switches off just that port, and it comes back by itself). LED data pins survive +V by mistake (1k + clamp). Fan MOSFET gates are zener-clamped. TVS diodes behind F1/F2: reverse polarity, or 12-24V into the 5V input, blows the fuse instead of the board |
+| PCB | **100 x 63 mm**, 2-layer, 1.6 mm, black, **2 oz copper**, 4 x M3 (86 x 54 mm pattern) |
 
 ![Pinout](docs/images/pinout.png)
 
