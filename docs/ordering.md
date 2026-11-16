@@ -53,7 +53,7 @@ If JLCPCB shows a shortage: for **F1/F2** untick the line and fit the holders yo
 2. Tick **Assembly service**: *Turnkey*, **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_PCBWay.csv`** as the centroid file (not the JLC one: PCBWay's 3-pin JST and screw-terminal models are drawn 180° off from JLC's). PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
 4. In the remarks, add: *"Do not fit U1 and J5. SMD on both sides (LEDs LD1-LD8 and R33-R40 on top, the rest on the bottom). Please confirm the orientation of D1-D22, Q1-Q9, U2, LD1-LD8 and C5/C6."*
-   In PCBWay's preview, C6 (470 µF polymer) may show as bare pads with no 3D model. It is still in the BOM and centroid file, so it gets fitted. Polarity: + is the square pad. Screw terminals: wire openings face the board edge. JST XH latch slots face the board edge on J3/J4.
+   In PCBWay's preview, C6 (470 µF polymer) may show as bare pads with no 3D model. It is still in the BOM and centroid file, so it gets fitted. Polarity: + is the square pad. Screw terminals: wire openings face the board edge.
 5. PCBWay reviews the files and sends a quote with any part questions. Answer those, then pay.
 
 ## When the boards arrive
