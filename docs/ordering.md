@@ -20,7 +20,7 @@ The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). 
 
 ## JLCPCB
 
-1. Go to jlcpcb.com, click **Order now** and drop in `TinyFan2350_GERBERS_upload.zip`. It should read the board as **87 x 63 mm, 2 layers**.
+1. Go to jlcpcb.com, click **Order now** and drop in `TinyFan2350_GERBERS_upload.zip`. It should read the board as **93 x 63 mm, 2 layers**.
 2. PCB options:
    - Base material FR-4, 2 layers, 1.6 mm. Leave the rest at the defaults.
    - Surface finish: HASL lead-free (cheapest) or ENIG.
@@ -28,13 +28,14 @@ The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). 
    - "Remove order number": pick *Specify a location* only if you want it hidden. Otherwise any choice is fine.
 3. Turn on **PCB Assembly**:
    - PCBA type: **Standard** (it needs through-hole soldering for the connectors).
-   - **Assembly side: Bottom side.** Every SMD part is on the bottom. The connectors, caps and fuse holders on the top are through-hole, and JLCPCB solders those separately.
+   - **Assembly side: Both sides.** Most SMD parts are on the bottom; the 8 indicator LEDs and their resistors are on the top so you can see them. The connectors, caps and fuse holders on the top are through-hole, and JLCPCB solders those separately. (Both-side SMT adds a little to the setup cost.)
    - Tooling holes: *Added by JLCPCB*.
 4. Click **Next**, then upload **`TinyFan2350_BOM_JLCPCB.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the CPL.
 5. On the parts page every line should be matched to its LCSC number. U1 and J5 will show as "not in BOM". That is expected.
    - `74HCT2G17GW,125` (C547568) often has low stock. If it is short, the automotive version **74HCT2G17GW-Q100H** (C547569) is the same chip. Do **not** accept a `74HC2G17` (no T): it won't read 3.3V reliably at 5V.
 6. **Check the placement preview.** JLCPCB's footprints don't always use KiCad's zero rotation, so look at each part type once:
-   - **D1-D6** (BAT54S, SOT-23): the single pin should be on the same side as the single pad.
+   - **D1-D6** (BAT54S) and **Q4-Q9** (AO3400A), both SOT-23: the single pin should be on the same side as the single pad.
+   - **D7-D12** (B5819W, SOD-123) and **LD1-LD8** (LEDs): the cathode band/mark should be on pad 1, the one marked on the silk.
    - **Q1-Q3** (BSS138DW) and **U2** (74HCT2G17): the pin-1 dot on the part should sit on the pad marked with the dot on the silk.
    - **RN1-RN6**: the four pads on each long side should line up with the part's terminals (it is not polarised, but it must not be turned 90°).
    - **C5 and C6**: the stripe (minus) should face away from the square pad.
@@ -43,10 +44,10 @@ The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). 
 
 ## PCBWay
 
-1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 87 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG.
-2. Tick **Assembly service**: *Turnkey*, **SMT on one side (bottom)** plus through-hole.
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 93 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG.
+2. Tick **Assembly service**: *Turnkey*, **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid file. PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
-4. In the remarks, add: *"Do not fit U1 and J5. All SMD parts on the bottom side. Please confirm the orientation of D1-D6, Q1-Q3, U2 and C5/C6."*
+4. In the remarks, add: *"Do not fit U1 and J5. SMD on both sides (LEDs LD1-LD8 and R33-R40 on top, the rest on the bottom). Please confirm the orientation of D1-D12, Q1-Q9, U2, LD1-LD8 and C5/C6."*
 5. PCBWay reviews the files and sends a quote with any part questions. Answer those, then pay.
 
 ## When the boards arrive

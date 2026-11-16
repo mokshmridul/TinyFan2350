@@ -11,12 +11,13 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 | MCU | Waveshare RP2350-Zero (socketed), powered over USB from the Klipper host |
 | Fan supply | **J1: VIN 12-24V**, 5A mini-blade fuse (F1) |
 | Logic / LED supply | **J2: 5V**, 5A mini-blade fuse (F2) |
-| Fans | 6 x JST-XH 4-pin (GND, +V, TACH, PWM), 25 kHz hardware PWM, tach on every port |
+| Fans | 6 x JST-XH 4-pin (GND, +V, TACH, PWM). Per-port **MODE** jumper: 4-pin PWM fan (25 kHz, tach) **or** 2/3-pin fan switched by an AO3400A MOSFET (Klipper-Expander style). Status LED on every port |
 | Fan voltage | Per-port jumper: **VIN** or **5V** |
-| LEDs | 2 x JST-XH 3-pin WS2812/SK6812 ports, 5V data via one 74HCT2G17 dual buffer |
+| LEDs | 2 x JST-XH 3-pin addressable LED ports, 5V data via one 74HCT2G17 dual buffer. Per-port jumper: strip power from **5V** (WS2812/SK6812) or **VIN** (12/24V WS2815 etc.) |
+| Indicators | VIN ON and 5V ON LEDs, one status LED per fan port |
 | Thermistors | 4 x JST-XH 2-pin (GP26-GP29), 4.7k 1% pull-up, 100nF filter |
 | Expansion | 1x4 header: GND, 3V3, GP15, GP14 |
-| PCB | **87 x 63 mm**, 2-layer, 1.6 mm, 1 oz copper (2 oz optional), 4 x M3 (73 x 54 mm pattern) |
+| PCB | **93 x 63 mm**, 2-layer, 1.6 mm, 1 oz copper (2 oz optional), 4 x M3 (79 x 54 mm pattern) |
 
 ![Pinout](docs/images/pinout.png)
 
@@ -57,7 +58,7 @@ klipper/
 
 ## Status
 
-v2.1 passes ERC and DRC (KiCad 10.0.8) with no errors and no unconnected nets, and every pad's net has been checked against the design table by script. It has not been fabricated yet. Please open an issue if you build one.
+v2.2 passes ERC and DRC (KiCad 10.0.8) with no errors and no unconnected nets, and every pad's net has been checked against the design table by script. It has not been fabricated yet. Please open an issue if you build one.
 
 ## License
 

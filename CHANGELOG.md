@@ -1,5 +1,12 @@
 # Changelog
 
+## v2.2 (2026-11)
+- Inspired by the Voron Klipper Expander: **every fan port can now drive a 2-pin or 3-pin fan**. A MODE jumper (JM1-JM6) picks 4-pin PWM (fan ground solid) or 2/3-pin (an AO3400A MOSFET switches the fan ground, B5819W flyback diode). The MOSFET is driven from the 5V PWM line, so fans still run at full speed if the RP2350 is unplugged.
+- Status LED on every fan port, plus VIN ON and 5V ON LEDs.
+- LED ports: jumpers JL1/JL2 pick 5V or VIN for each strip, so 12/24V addressable strips (WS2815) work. Data stays 5V.
+- Board 93 x 63 mm (+6 mm wide for the new jumpers). DIN tray updated.
+- LEDs and their resistors are on the top side, so the JLCPCB order is now two-sided SMT.
+
 ## v2.1 (2026-11)
 - **Smaller board: 87 x 63 mm** (was 89 x 76), M3 holes on a 73 x 54 mm pattern. The DIN tray in `mechanical/` is updated to match.
 - Fan PWM level shifters: 6 x BSS138 -> **3 x BSS138DW** (dual MOSFET, SOT-363). Same circuit, half the parts.

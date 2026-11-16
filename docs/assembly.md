@@ -2,7 +2,7 @@
 
 **Easiest: have JLCPCB or PCBWay build it** ([ordering.md](ordering.md)). Then the only soldering left is the RP2350-Zero socket strips (step 2.2 below), plus the fuse holders if you left them off the order.
 
-If you build it by hand: SMD parts are 0805, 1206, SOT-23, 0603x4 resistor arrays and **SOT-363 (0.65 mm pitch)**, and **all of them are on the bottom side**. The SOT-363 parts need a fine tip, flux and a magnifier. Connectors and through-hole parts go on the top side.
+If you build it by hand: SMD parts are 0805, 1206, SOT-23, SOD-123, 0603x4 resistor arrays and **SOT-363 (0.65 mm pitch)**. Almost all of them are on the bottom side. The 8 status/power LEDs and their resistors (LD1-LD8, R33-R40) are on the **top** so you can see them. The SOT-363 parts need a fine tip, flux and a magnifier. Connectors and through-hole parts go on the top side.
 
 ![Bottom side](images/render-bottom.png)
 
@@ -30,6 +30,16 @@ Solder from the lowest parts to the tallest.
 | R31, R32 | 10k | LED input pull-downs |
 | C1, C2 | 10uF 50V 1206 | C1 next to F1, C2 next to F2 |
 | C3, C7-C10 | 100nF 0805 | |
+| Q4-Q9 | AO3400A (SOT-23) | Fan-mode MOSFETs, right of each fan connector |
+| D7-D12 | B5819W (SOD-123) | Flyback diodes. **Band (cathode) towards the jumpers** as on the silk |
+
+Top side SMD:
+
+| Refs | Part | Notes |
+|---|---|---|
+| LD1-LD8 | Green LED 0805 | Cathode mark to pad 1 (square/marked pad) |
+| R33-R39 | 10k 0805 | LED resistors |
+| R40 | 1k 0805 | 5V ON LED resistor |
 
 The reference designators are hidden on the bottom silk to save space. Use the interactive BOM or the `hardware/fab/TinyFan2350-pos.csv` coordinates, or open the PCB in KiCad and hover over a footprint.
 
@@ -37,7 +47,7 @@ Check after this step: no solder bridges on the SOT-363 parts. Check with the me
 
 ### 2. Top side, low parts
 
-1. JP1-JP6 (1x3 headers) and J5 (1x4 header)
+1. JP1-JP6, JM1-JM6, JL1-JL2 (1x3 headers) and J5 (1x4 header)
 2. RP2350-Zero sockets: 2 x 1x9 + 1 x 1x5 female headers. Put the module into the sockets while you solder them, so they stay straight.
 3. JST-XH headers: FAN1-FAN6 (4-pin), J3/J4 (3-pin), J6-J9 / TH1-TH4 (2-pin). The locking ramp faces the same way as the silk outline.
 

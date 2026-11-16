@@ -25,6 +25,20 @@ flowchart LR
 
 Each fan uses one half of a BSS138DW dual MOSFET (Q1 = FAN1+2, Q2 = FAN3+4, Q3 = FAN5+6). The gate is tied to 3V3 and the source is on the GPIO, which is the classic bidirectional open-drain shifter. The GPIO side is pulled up to 3V3 with 10k and the fan side to 5V with 10k, both from the EXB-38V103JV arrays (RN1/RN3/RN5). If the RP2350 is unplugged or still booting, the fan side floats high and the fans run at **full speed**, which is the safe failure. Logic is non-inverting. Fans have their own internal pull-up on PWM, so it ends up as an open-drain 5V signal, as the Intel 4-wire spec expects.
 
+## Fan mode: 4-pin or 2/3-pin (x6)
+
+The fan connector's pin 1 (GND) goes to the MODE jumper JMx and to the drain of an AO3400A MOSFET whose source is on GND.
+
+- **JM on the top two pins (4-pin):** the jumper ties pin 1 straight to GND. The MOSFET is shorted out and does nothing, and the fan is controlled on its PWM wire as above.
+- **JM on the bottom two pins (2/3-pin):** pin 1 only reaches GND through the MOSFET. Its gate is driven by the same 5V PWM line (the fan side of the BSS138 shifter), so the GPIO's PWM switches the fan's ground, like the Klipper Expander's outputs. A B5819W Schottky across the fan (cathode to +V) catches the motor's turn-off spike. The pull-up holds the gate high when the RP2350 is unplugged, so the fan runs at full speed, the same safe failure as the 4-pin mode.
+- The gate is pulled up through 10k, so it turns on in a few microseconds. That is fine at 100 Hz but too slow for 25 kHz: use `cycle_time: 0.010` for 2/3-pin ports (see `klipper/tinyfan.cfg`).
+- The status LED (10k from the fan's +V to pin 1) lights whenever the port is powered. In 2/3-pin mode its brightness follows the fan speed. It is dim on 5V fans and bright on 24V fans.
+- AO3400A: 30V, 5.7A, about 30 mOhm at 5V gate drive, so it barely warms at the 1A per port that the traces are sized for.
+
+## LED strip voltage (x2)
+
+JL1/JL2 connect each LED connector's pin 2 to VIN (left two pins) or 5V (right two pins). Data is always the 5V buffer output, which 12V/24V addressable strips (WS2815, WS2813 12V) also accept. The VIN feed is a 1.0 mm trace and the strip feeds are 0.8 mm or wider, about 2A per port.
+
 ## Fan tach (x6)
 
 ```
@@ -49,14 +63,14 @@ One 74HCT2G17 dual Schmitt-trigger buffer drives both ports. It is powered from 
 
 ## Changes from the original TinyFan
 
-| | TinyFan (Gi7mo) | TinyFan2350 v2.1 |
+| | TinyFan (Gi7mo) | TinyFan2350 v2.2 |
 |---|---|---|
 | MCU | RP2040-Zero | RP2350-Zero (same footprint and pinout), socketed |
 | Input | 24V + on-board converter | Separate VIN 12-24V and 5V inputs, each with its own fuse |
-| Fans | 2/3/4-pin, fixed voltage | 6 x 4-pin JST-XH, per-port VIN/5V jumper, tach with protection |
-| LEDs | - | 2 x WS2812 ports, buffered |
+| Fans | 2/3/4-pin, fixed voltage | 6 x JST-XH, per-port VIN/5V jumper, 4-pin PWM or MOSFET-switched 2/3-pin, tach with protection |
+| LEDs | - | 2 x addressable LED ports, buffered, 5V or VIN strip power |
 | Sensors | - | 4 x thermistor ports |
-| Size | ~60 x 62 mm | 87 x 63 mm |
+| Size | ~60 x 62 mm | 93 x 63 mm |
 
 ## Verification
 

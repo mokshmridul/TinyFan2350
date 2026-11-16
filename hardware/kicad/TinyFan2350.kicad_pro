@@ -21,10 +21,17 @@
       },
       {
         "name": "FanPower",
-        "track_width": 0.4,
+        "track_width": 0.5,
         "clearance": 0.2,
-        "via_diameter": 0.7,
-        "via_drill": 0.35
+        "via_diameter": 0.8,
+        "via_drill": 0.4
+      },
+      {
+        "name": "LedPower",
+        "track_width": 0.8,
+        "clearance": 0.25,
+        "via_diameter": 1.0,
+        "via_drill": 0.5
       }
     ],
     "meta": {
@@ -41,7 +48,15 @@
       "/FAN6_VCC": "FanPower",
       "/5V_IN": "Power",
       "/VIN": "Power",
-      "/VIN_RAW": "Power"
+      "/VIN_RAW": "Power",
+      "/FAN1_GND": "FanPower",
+      "/FAN2_GND": "FanPower",
+      "/FAN3_GND": "FanPower",
+      "/FAN4_GND": "FanPower",
+      "/FAN5_GND": "FanPower",
+      "/FAN6_GND": "FanPower",
+      "/LED1_VCC": "LedPower",
+      "/LED2_VCC": "LedPower"
     }
   },
   "board": {

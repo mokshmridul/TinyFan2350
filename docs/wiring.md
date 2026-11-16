@@ -39,6 +39,32 @@ JST-XH 4-pin, 2.5 mm pitch. Standard PC fan plugs (2.54 mm KK-style) **do not fi
 
 Wire colours vary by maker, so always check the fan's datasheet.
 
+### Two jumpers per fan port
+
+Each port has two 3-pin jumpers next to it. **Set both before you power up.**
+
+| Jumper | Top two pins | Bottom two pins |
+|---|---|---|
+| **MODE** (JM, left column) | 4-pin PWM fan | 2-pin or 3-pin fan |
+| **FAN V** (JP, right column) | VIN (what J1 is fed, 12V or 24V) | 5V |
+
+- **4-pin fan:** MODE on top. The fan gets steady power and is controlled through its blue PWM wire.
+- **2-pin fan** (most Voron 4010/5015/6015 fans): MODE on the bottom. Crimp the fan into an XHP-4 housing using **pin 1 (black, -) and pin 2 (red, +)** only. The board switches the fan's ground. In Klipper set `cycle_time: 0.010` for that fan (see `klipper/tinyfan.cfg`).
+- **3-pin fan:** MODE on the bottom, pins 1-3 as in the table. Speed control works, but the tach reading is not reliable in this mode, so leave `tachometer_pin` out.
+- If you get MODE wrong nothing is damaged: a 2-pin fan with MODE on top just runs at full speed, and a 4-pin fan with MODE on the bottom runs badly until you move the jumper.
+- The small green LED next to each fan lights when that port is powered. With a 2/3-pin fan it gets brighter as the fan speeds up.
+
+## LED strips (LED1, LED2)
+
+JST-XH 3-pin: 1 GND, 2 +V, 3 DATA. The **LED V** jumpers (JL1 for LED1, JL2 for LED2, bottom right corner) pick the strip's power:
+
+| JL position | Strip power | For |
+|---|---|---|
+| Left two pins (VIN) | Whatever J1 is fed (12V or 24V) | WS2815, 12V/24V addressable strips |
+| Right two pins (5V) | 5V from J2 | WS2812B, SK6812 and other 5V strips |
+
+**A 5V strip on VIN will be destroyed. Check the jumper first.** The data line is 5V in both cases. Each port is good for about 2A.
+
 ### Voltage jumpers (JP1-JP6)
 
 Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V** (bottom).
@@ -51,12 +77,9 @@ Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V**
 
 ### 2-pin and 3-pin fans
 
-- **3-pin fans** (GND, +V, TACH): they run at full speed whenever the port is powered and still report tach. PWM has no effect, because the board drives the PWM wire, not the fan's power.
-- **2-pin fans**: connect to XH pins 1 and 2. They always run at full speed.
+- **2-pin and 3-pin fans**: set that port's MODE jumper to the bottom two pins (see above) and Klipper controls their speed.
 
-## LED ports (J3 = LED1, J4 = LED2)
-
-JST-XH 3-pin: **1 GND, 2 +5V, 3 DATA**. For 5V WS2812B / SK6812 strips only (not 12V WS2811 strips). The data line is buffered to 5V with a 330R series resistor, so a long run to the first LED is fine.
+The LED data line is buffered to 5V with a 330R series resistor, so a long run to the first LED is fine.
 
 ## Thermistors (TH1-TH4)
 

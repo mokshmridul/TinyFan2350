@@ -7,7 +7,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 | | |
 |---|---|
 | Printed part | [`mechanical/TinyFan2350_DIN_mount.stl`](../mechanical/TinyFan2350_DIN_mount.stl) (STEP + CadQuery source alongside) |
-| Footprint | 87 x 63 mm, the same as the PCB. About 43 mm from the bottom of the clips to the top of the screw terminals |
+| Footprint | 93 x 63 mm, the same as the PCB. About 43 mm from the bottom of the clips to the top of the screw terminals |
 | PCB height | Board underside sits 10 mm above the clips (7 mm standoffs on a 3 mm plate) |
 | Clip spacing | 50 mm centre-to-centre along the rail |
 
@@ -41,7 +41,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 ## Design notes
 
 - The geometry was measured from the Voron Trident PCB DIN clip STEP: a 41.5 x 10 mm flat top face, and two Ø1.9 mm pilot holes 31.5 mm apart for M2 self-tappers.
-- The clip axis is across the rail and the board's long side runs along it. That way the board uses 87 mm of rail, and the two clips make a stable 50 mm wide base.
+- The clip axis is across the rail and the board's long side runs along it. That way the board uses 93 mm of rail, and the two clips make a stable 50 mm wide base.
 - 7 mm of clearance under the PCB covers untrimmed through-hole leads (JST-XH pins stick out about 3.4 mm). The screw pads leave at least 2 mm under the fuse-holder and jumper leads.
 - The open windows let air through, and you can reach the clip screws without removing the clips.
 - To change anything (standoff height, insert size, clip spacing), edit the parameters at the top of `TinyFan2350_DIN_mount.py` and run it with CadQuery 2.x. It writes the STEP and STL.
