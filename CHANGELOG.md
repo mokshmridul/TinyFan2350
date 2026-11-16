@@ -1,5 +1,16 @@
 # Changelog
 
+## v2.1 (2026-11)
+- **Smaller board: 87 x 63 mm** (was 89 x 76), M3 holes on a 73 x 54 mm pattern. The DIN tray in `mechanical/` is updated to match.
+- Fan PWM level shifters: 6 x BSS138 -> **3 x BSS138DW** (dual MOSFET, SOT-363). Same circuit, half the parts.
+- LED data buffers: 2 x 74AHCT1G125 -> **1 x 74HCT2G17** (dual Schottky-input buffer, SOT-363/TSSOP-6), with a 10k pull-down on each input so the strips stay dark while the RP2350 boots.
+- 18 discrete 10k pull-ups -> **6 x EXB-38V103JV** 4-resistor arrays.
+- **5A fuses on both rails** (F2 was 4A). Keystone 3568 mini-blade holders kept.
+- Tach protection (4.7k + BAT54S) moved under the RP2350-Zero, next to the pins it protects.
+- RP2350-Zero stays socketed in female headers.
+- Assembly files for JLCPCB (BOM + CPL with LCSC part numbers) and PCBWay (BOM with maker part numbers). All SMD parts are on the bottom side, so it is a single-side SMT order.
+- Narrower signal rules (0.2 mm / 0.18 mm) so the smaller board routes completely. Power trunks are still 2-3 mm.
+
 ## v2.0 (2026-11)
 - Board enlarged to 89 x 76 mm with new M3 mounting holes (75 x 67 mm pattern). **Old TinyFan mounts no longer fit.**
 - Fan supply input relabelled **VIN 12-24V**. No on-board conversion: fans on the VIN jumper position get whatever J1 is fed with.

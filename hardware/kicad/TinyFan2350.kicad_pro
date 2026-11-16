@@ -7,24 +7,24 @@
     "classes": [
       {
         "name": "Power",
-        "track_width": 1.0,
-        "clearance": 0.3,
-        "via_diameter": 1.2,
-        "via_drill": 0.6
+        "track_width": 0.4,
+        "clearance": 0.25,
+        "via_diameter": 0.8,
+        "via_drill": 0.4
       },
       {
         "name": "Default",
-        "track_width": 0.3,
-        "clearance": 0.2,
-        "via_diameter": 0.7,
-        "via_drill": 0.35
+        "track_width": 0.2,
+        "clearance": 0.18,
+        "via_diameter": 0.6,
+        "via_drill": 0.3
       },
       {
         "name": "FanPower",
-        "track_width": 0.8,
-        "clearance": 0.25,
-        "via_diameter": 1.0,
-        "via_drill": 0.5
+        "track_width": 0.4,
+        "clearance": 0.2,
+        "via_diameter": 0.7,
+        "via_drill": 0.35
       }
     ],
     "meta": {
@@ -32,7 +32,7 @@
     },
     "netclass_assignments": {
       "+5V": "Power",
-      "GND": "FanPower",
+      "GND": "Default",
       "/FAN1_VCC": "FanPower",
       "/FAN2_VCC": "FanPower",
       "/FAN3_VCC": "FanPower",
@@ -42,6 +42,16 @@
       "/5V_IN": "Power",
       "/VIN": "Power",
       "/VIN_RAW": "Power"
+    }
+  },
+  "board": {
+    "design_settings": {
+      "rules": {
+        "min_track_width": 0.12,
+        "min_clearance": 0.15,
+        "min_via_diameter": 0.5,
+        "min_through_hole_diameter": 0.3
+      }
     }
   }
 }

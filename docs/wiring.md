@@ -7,7 +7,7 @@
 | Terminal | Feed | Fuse | Supplies |
 |---|---|---|---|
 | **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 5A mini blade | Fans whose jumper is on **VIN** |
-| **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 4A mini blade | 5V fans, LED ports, level shifters |
+| **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 5A mini blade | 5V fans, LED ports, level shifters |
 | USB-C on the RP2350-Zero | Klipper host (Pi etc.) | - | The RP2350-Zero itself (MCU + 3.3V) |
 
 Each screw has its label printed right in front of it: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals the top screw is GND.
@@ -22,7 +22,9 @@ Each screw has its label printed right in front of it: **GND**, **VIN+** (J1) an
 | Rail | Fuse | Comfortable continuous load |
 |---|---|---|
 | VIN | 5A | ~3.5A total, e.g. 3 fans at 0.6A + 3 fans at 0.3A = 2.7A |
-| 5V | 4A | ~3A total for 5V fans + LEDs (a 60-LED WS2812 strip at full white is ~3.6A, so cap brightness in software) |
+| 5V | 5A | ~3.5A total for 5V fans + LEDs (a 60-LED WS2812 strip at full white is ~3.6A, so cap brightness in software) |
+
+Each fan port is good for about **1A**. The board warms by roughly 15 °C if a rail runs at the full 5A for a long time, which is fine. Order 2 oz copper if you want it to run cooler (see [ordering.md](ordering.md)).
 
 ## Fans (FAN1-FAN6)
 

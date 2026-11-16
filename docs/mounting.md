@@ -7,7 +7,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 | | |
 |---|---|
 | Printed part | [`mechanical/TinyFan2350_DIN_mount.stl`](../mechanical/TinyFan2350_DIN_mount.stl) (STEP + CadQuery source alongside) |
-| Footprint | 89 x 76 mm, the same as the PCB. About 43 mm from the bottom of the clips to the top of the screw terminals |
+| Footprint | 87 x 63 mm, the same as the PCB. About 43 mm from the bottom of the clips to the top of the screw terminals |
 | PCB height | Board underside sits 10 mm above the clips (7 mm standoffs on a 3 mm plate) |
 | Clip spacing | 50 mm centre-to-centre along the rail |
 
@@ -18,7 +18,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 | 1 | Printed mount | |
 | 2 | Voron Trident PCB DIN clip | [VoronDesign/Voron-Trident `STLs/ElectronicsBay`](https://github.com/VoronDesign/Voron-Trident/tree/main/STLs/ElectronicsBay) |
 | 4 | M2x10 self-tapping screw | Mount → clips (part of the Voron BOM). M2x12 also fits and grips better |
-| 4 | M3 heat-set insert, 5 mm OD x 4 mm (Voron standard) | Pressed into the standoffs |
+| 4 | M3 heat-set insert, 4.8 mm OD x 4 mm (Robu M3x4) | Pressed into the standoffs (4.3 mm holes). For Voron 5 mm inserts set `INS_D=4.6` in the .py |
 | 4 | M3x6 BHCS or SHCS | PCB → mount |
 
 ## Print settings
@@ -41,7 +41,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 ## Design notes
 
 - The geometry was measured from the Voron Trident PCB DIN clip STEP: a 41.5 x 10 mm flat top face, and two Ø1.9 mm pilot holes 31.5 mm apart for M2 self-tappers.
-- The clip axis is across the rail and the board's long side runs along it. That way the board uses 89 mm of rail, and the two clips make a stable 50 mm wide base.
+- The clip axis is across the rail and the board's long side runs along it. That way the board uses 87 mm of rail, and the two clips make a stable 50 mm wide base.
 - 7 mm of clearance under the PCB covers untrimmed through-hole leads (JST-XH pins stick out about 3.4 mm). The screw pads leave at least 2 mm under the fuse-holder and jumper leads.
 - The open windows let air through, and you can reach the clip screws without removing the clips.
 - To change anything (standoff height, insert size, clip spacing), edit the parameters at the top of `TinyFan2350_DIN_mount.py` and run it with CadQuery 2.x. It writes the STEP and STL.

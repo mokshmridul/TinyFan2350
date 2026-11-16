@@ -1,0 +1,56 @@
+# Ordering a fully built board (JLCPCB or PCBWay)
+
+All the files are in [`hardware/fab/`](../hardware/fab):
+
+| File | What it is | Upload it to |
+|---|---|---|
+| `TinyFan2350_GERBERS_upload.zip` | Copper, mask, silk, paste, outline and drill | JLCPCB and PCBWay, PCB step |
+| `TinyFan2350_BOM_JLCPCB.csv` | Bill of materials with LCSC part numbers | JLCPCB assembly step ("BOM") |
+| `TinyFan2350_CPL_JLCPCB.csv` | Where each part goes, and its rotation | JLCPCB assembly step ("CPL") and PCBWay ("Centroid") |
+| `TinyFan2350_BOM_PCBWay.csv` | The same BOM with makers and maker part numbers | PCBWay assembly step |
+| `TinyFan2350-pos.csv` | KiCad's own position file (raw, for reference) | Any assembler that wants KiCad format |
+
+**What the assembler does not fit:**
+
+- **U1, the RP2350-Zero.** It sits in female header sockets that you solder yourself: 2 x 1x9 and 1 x 1x5, cut from a 2.54 mm female strip (5 minutes, see [assembly.md](assembly.md)). Solder male headers to the module too, if it didn't come with them.
+- **J5, the EXP header.** Optional. Solder a 1x4 male header if you want it.
+- You fit the **fuses** (2 x 5A mini blade) and the **6 jumper caps** yourself.
+
+The two Keystone 3568 fuse holders (F1, F2) **are** in the BOM (LCSC C5249699). If you'd rather fit your own, delete that line from the BOM before you upload it, and the assembler will leave the holes empty.
+
+## JLCPCB
+
+1. Go to jlcpcb.com, click **Order now** and drop in `TinyFan2350_GERBERS_upload.zip`. It should read the board as **87 x 63 mm, 2 layers**.
+2. PCB options:
+   - Base material FR-4, 2 layers, 1.6 mm. Leave the rest at the defaults.
+   - Surface finish: HASL lead-free (cheapest) or ENIG.
+   - Copper: **1 oz is fine.** 2 oz runs the 5A traces about 10 °C cooler, at extra cost.
+   - "Remove order number": pick *Specify a location* only if you want it hidden. Otherwise any choice is fine.
+3. Turn on **PCB Assembly**:
+   - PCBA type: **Standard** (it needs through-hole soldering for the connectors).
+   - **Assembly side: Bottom side.** Every SMD part is on the bottom. The connectors, caps and fuse holders on the top are through-hole, and JLCPCB solders those separately.
+   - Tooling holes: *Added by JLCPCB*.
+4. Click **Next**, then upload **`TinyFan2350_BOM_JLCPCB.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the CPL.
+5. On the parts page every line should be matched to its LCSC number. U1 and J5 will show as "not in BOM". That is expected.
+   - `74HCT2G17GW,125` (C547568) often has low stock. If it is short, the automotive version **74HCT2G17GW-Q100H** (C547569) is the same chip. Do **not** accept a `74HC2G17` (no T): it won't read 3.3V reliably at 5V.
+6. **Check the placement preview.** JLCPCB's footprints don't always use KiCad's zero rotation, so look at each part type once:
+   - **D1-D6** (BAT54S, SOT-23): the single pin should be on the same side as the single pad.
+   - **Q1-Q3** (BSS138DW) and **U2** (74HCT2G17): the pin-1 dot on the part should sit on the pad marked with the dot on the silk.
+   - **RN1-RN6**: the four pads on each long side should line up with the part's terminals (it is not polarised, but it must not be turned 90°).
+   - **C5 and C6**: the stripe (minus) should face away from the square pad.
+   - Fix anything that is off with the rotate button. JLCPCB's engineers also check orientation and will email you if something looks wrong.
+7. Confirm and pay. Lead time is usually a few days plus shipping.
+
+## PCBWay
+
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. 2 layers, 87 x 63 mm, 1.6 mm, 1 oz (or 2 oz), HASL or ENIG.
+2. Tick **Assembly service**: *Turnkey*, **SMT on one side (bottom)** plus through-hole.
+3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid file. PCBWay sources parts by the maker part number column. LCSC numbers are included as a second reference.
+4. In the remarks, add: *"Do not fit U1 and J5. All SMD parts on the bottom side. Please confirm the orientation of D1-D6, Q1-Q3, U2 and C5/C6."*
+5. PCBWay reviews the files and sends a quote with any part questions. Answer those, then pay.
+
+## When the boards arrive
+
+1. Check for shorts with a meter before anything else ([assembly.md](assembly.md), "Before first power-up").
+2. Solder the RP2350-Zero sockets.
+3. Fit 5A fuses in F1 and F2, set every fan jumper, then follow [wiring.md](wiring.md) and [klipper.md](klipper.md).

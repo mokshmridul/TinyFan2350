@@ -1,6 +1,8 @@
 # Assembly guide
 
-Everything is hand-solderable. SMD parts are 0805, SOT-23 and SOT-23-5, and **all of them are on the bottom side**. Connectors and through-hole parts go on the top side.
+**Easiest: have JLCPCB or PCBWay build it** ([ordering.md](ordering.md)). Then the only soldering left is the RP2350-Zero socket strips (step 2.2 below), plus the fuse holders if you left them off the order.
+
+If you build it by hand: SMD parts are 0805, 1206, SOT-23, 0603x4 resistor arrays and **SOT-363 (0.65 mm pitch)**, and **all of them are on the bottom side**. The SOT-363 parts need a fine tip, flux and a magnifier. Connectors and through-hole parts go on the top side.
 
 ![Bottom side](images/render-bottom.png)
 
@@ -18,20 +20,20 @@ Solder from the lowest parts to the tallest.
 
 | Refs | Part | Notes |
 |---|---|---|
-| U2, U3 | 74AHCT1G125 (SOT-23-5) | Pin 1 dot on the silk. Must be **AHCT** |
-| Q1-Q6 | BSS138 (SOT-23) | |
-| D1-D6 | BAT54S (SOT-23) | Not interchangeable with BAT54/BAT54C/BAT54A |
-| R1-R18 | 10k | |
-| R19, R20 | 330R | |
-| R21-R26 | 4.7k | Tach series resistors |
+| U2 | 74HCT2G17GW (SOT-363 / TSSOP-6) | Pin 1 dot on the silk. Must be **HCT**, not HC |
+| Q1-Q3 | BSS138DW (SOT-363) | Pin 1 dot on the silk |
+| D1-D6 | BAT54S (SOT-23) | Under the RP2350-Zero. Not interchangeable with BAT54/BAT54C/BAT54A |
+| RN1-RN6 | 10k x4 array, EXB-38V103JV | Not polarised |
+| R19, R20 | 330R | LED data series resistors |
+| R21-R26 | 4.7k | Tach series resistors, under the RP2350-Zero |
 | R27-R30 | 4.7k 1% | Thermistor pull-ups (bottom edge, under TH1-TH4) |
-| C1 | 10uF 50V 1206 | Next to F1 |
-| C2 | 10uF 16V 1206 | Next to F2 |
-| C3, C4, C7-C10 | 100nF 0805 | |
+| R31, R32 | 10k | LED input pull-downs |
+| C1, C2 | 10uF 50V 1206 | C1 next to F1, C2 next to F2 |
+| C3, C7-C10 | 100nF 0805 | |
 
 The reference designators are hidden on the bottom silk to save space. Use the interactive BOM or the `hardware/fab/TinyFan2350-pos.csv` coordinates, or open the PCB in KiCad and hover over a footprint.
 
-Check after this step: no solder bridges on the SOT-23-5 parts. Check with the meter that +5V, +3V3 and VIN are not shorted to GND. Measure at the fuse holders and the EXP header.
+Check after this step: no solder bridges on the SOT-363 parts. Check with the meter that +5V, +3V3 and VIN are not shorted to GND. Measure at the fuse holders and the EXP header.
 
 ### 2. Top side, low parts
 
@@ -54,7 +56,7 @@ Solder male pin headers to the module: both 9-pin sides and the 5-pin row on the
 1. Leave the fuses out. Using the meter in continuity mode, check:
    - J1 VIN+ screw to J1 GND screw: not shorted
    - J2 5V+ screw to J2 GND screw: not shorted
-2. Fit the fuses: **5A in F1** (VIN), **4A in F2** (5V).
+2. Fit the fuses: **5A in F1** (VIN) and **5A in F2** (5V).
 3. With no fans plugged in, apply 5V to J2 and VIN to J1. You should measure:
    - the JP middle pin with the jumper on top = VIN
    - the JP middle pin with the jumper on the bottom = 5V
