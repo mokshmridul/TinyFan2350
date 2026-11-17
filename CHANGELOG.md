@@ -1,5 +1,10 @@
 # Changelog
 
+## v2.4.1 (2026-11)
+- **Hierarchical schematic, redrawn for humans.** Root block diagram plus sheets for Power, MCU, LEDs and Thermistors, and one **Fan channel** sheet used six times (FAN1-FAN6). Real wires inside each functional block, labelled boxes, notes beside each block. Same circuit: all 348 connected pins land on the same nets as before (checked pin by pin), ERC 0.
+- Net names follow the hierarchy (`/FAN3/FAN_VCC`, `/LEDs/LED1_DATA`, `VIN`); netclass rules updated to match.
+- PCB: right-angle track corners chamfered to 45° wherever clearance allows (52 of 63 exposed corners; the rest are inside pads/vias or under the GND pour). 87 GND stitching vias tie the two ground pours together. DRC 0 / 0 unconnected, BOM and CPL unchanged.
+
 ## v2.4 (2026-11)
 - **Easier to build and cheaper at JLCPCB.** The six 10k resistor arrays (EXB-38V) are now 18 ordinary 0805 resistors (R47-R64), and the three BSS138DW duals are now six **2N7002** SOT-23 MOSFETs (Q10-Q15). Both are JLC basic parts, so the only extended part JLC still places is U2.
 - The LED resistors R33-R40 moved to the bottom. The top side now has only the 8 status LEDs, so a JLC order can be **bottom-side assembly only** (hand-solder the 8 LEDs).

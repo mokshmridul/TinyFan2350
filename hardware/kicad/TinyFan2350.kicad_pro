@@ -41,19 +41,27 @@
     "netclass_patterns": [
       {
         "netclass": "FanPower",
-        "pattern": "/FAN*_GND"
+        "pattern": "/FAN*/FAN_GND"
       },
       {
         "netclass": "FanPower",
-        "pattern": "/FAN*_VCC"
+        "pattern": "/FAN*/FAN_VCC"
+      },
+      {
+        "netclass": "FanPower",
+        "pattern": "/FAN*/FAN_RET"
       },
       {
         "netclass": "LedPower",
-        "pattern": "/LED*_VCC"
+        "pattern": "/LEDs/LED*_VCC"
+      },
+      {
+        "netclass": "LedPower",
+        "pattern": "/LEDs/LED*_RET"
       },
       {
         "netclass": "Power",
-        "pattern": "/VIN*"
+        "pattern": "VIN"
       },
       {
         "netclass": "Power",
@@ -61,15 +69,11 @@
       },
       {
         "netclass": "Power",
-        "pattern": "/5V_IN"
+        "pattern": "/Power/VIN_RAW"
       },
       {
-        "netclass": "FanPower",
-        "pattern": "/FAN*_RET"
-      },
-      {
-        "netclass": "LedPower",
-        "pattern": "/LED*_RET"
+        "netclass": "Power",
+        "pattern": "/Power/5V_IN"
       }
     ]
   },

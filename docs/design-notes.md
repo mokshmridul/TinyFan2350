@@ -2,6 +2,25 @@
 
 Schematic: [TinyFan2350-schematic.pdf](TinyFan2350-schematic.pdf). KiCad project: [`hardware/kicad`](../hardware/kicad) (KiCad 10).
 
+## Schematic layout
+
+The schematic is hierarchical:
+
+| Sheet | File | What is on it |
+|---|---|---|
+| Root | `TinyFan2350.kicad_sch` | Block diagram: which MCU pin goes to which channel |
+| Power | `power.kicad_sch` | J1/J2, F1/F2 fuses, bulk caps, TVS crowbars, power LEDs, mounting holes |
+| MCU | `mcu.kicad_sch` | RP2350-Zero pin map, EXP header J5 |
+| FAN1..FAN6 | `fan_channel.kicad_sch` (one file, used 6x) | PWM level shifter, tach input + clamp, fan connector, VIN/5V jumper, flyback, status LED, 2/3-pin low-side switch, PTC |
+| LEDs | `leds.kicad_sch` | 74HCT2G17 buffer, data resistors and clamps, two WS2812 ports with their jumpers and PTCs |
+| Thermistors | `thermistors.kicad_sch` | Four 4.7k pull-up + 100 nF inputs |
+
+`VIN`, `+5V`, `+3V3` and `GND` are global power symbols; the root sheet only carries signals between the MCU and the channels. Nets inside a channel are named per instance, e.g. `/FAN3/FAN_GND`. Each part keeps its board reference designator; the fan sheet has a table mapping FAN1..FAN6 to their R/Q/D/F numbers.
+
+## Track corners and EMI
+
+90° track corners are a long-lived myth as an EMI source: their extra capacitance only matters at multi-GHz edge rates, and the fastest signal here is the 800 kHz WS2812 data line (25 kHz fan PWM). What does matter on this board is the return path, so v2.4.1 adds 87 GND stitching vias between the top and bottom ground pours, and keeps the solid pours under the signal tracks. Right-angle corners were still chamfered to 45° where clearance allowed, for neatness and to avoid acid traps (none of the remaining ones are acute).
+
 ## Power
 
 ```mermaid
