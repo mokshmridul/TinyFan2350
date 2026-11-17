@@ -43,12 +43,13 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 
 ```
 hardware/
-  kicad/        KiCad 10 project (schematic, PCB, custom RP2350-Zero footprint/symbol)
+  kicad/        KiCad 10 project (6 schematic sheets, PCB, custom footprints/symbols, 3D stand-in for the RP2350-Zero, render jobset)
   fab/          Gerbers + drill (zip and loose), JLCPCB BOM + CPL, PCBWay BOM, KiCad pick-and-place
   3d/           STEP model of the assembled board
 docs/
   images/       Renders and annotated pinout
-  TinyFan2350-schematic.pdf
+  TinyFan2350-schematic.pdf   (hierarchical: root + power, MCU, fan channel x6, LEDs, thermistors)
+  TinyFan2350-pcb-copper.pdf  (top and bottom copper)
   ordering.md, assembly.md, wiring.md, klipper.md, mounting.md, design-notes.md
 mechanical/
   TinyFan2350_DIN_mount.stl/.step/.py   Printable DIN tray (CadQuery source)
