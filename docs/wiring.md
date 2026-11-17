@@ -66,6 +66,8 @@ JST-XH 3-pin: 1 GND, 2 +V, 3 DATA. The **LED V** jumpers (JL1 for LED1, JL2 for 
 
 **A 5V strip on VIN will be destroyed. Check the jumper first.** The data line is 5V in both cases. Each port is good for about 2A.
 
+The data line is 5V for every strip type. 12V/24V pixel chips such as the WS2815 run their logic from an internal ~5V supply, so they read 5V data fine (and must not get more than about 5.7V on DATA). Before using an unusual 12V/24V strip, check its datasheet: the DATA input high level should be met by 5V.
+
 ### Voltage jumpers (JP1-JP6)
 
 Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V** (bottom).
