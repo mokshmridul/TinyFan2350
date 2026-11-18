@@ -2,103 +2,110 @@
 
 ![Pinout](images/pinout.png)
 
-## Power
+**Do the jumpers first, plug things in second, switch on last.** A wrong jumper is the one mistake that can destroy a fan or an LED strip.
 
-| Terminal | Feed | Fuse | Supplies |
+## 1. Power
+
+The board has three power inputs:
+
+| Input | Connect it to | Fuse | It powers |
 |---|---|---|---|
-| **J1: VIN 12-24V** | 12V or 24V from your PSU | F1, 5A mini blade | Fans (and LED strips) whose jumper is on **VIN**. Must match your fans: 12V fans need 12V here |
-| **J2: 5V** | 5V from a buck converter or 5V PSU | F2, 5A mini blade | 5V fans, LED ports, level shifters |
-| USB-C on the RP2350-Zero | Klipper host (Pi etc.) | - | The RP2350-Zero itself (MCU + 3.3V) |
+| **J1: VIN 12-24 V** | Your printer's main power supply (12 V or 24 V) | F1, 5 A mini blade | Fans and LED strips whose jumper is set to **VIN** |
+| **J2: 5 V** | A 5 V power supply or a 5 V buck converter | F2, 5 A mini blade | 5 V fans, 5 V LED strips, and the signal boosters on the board |
+| **USB-C on the RP2350-Zero** | Your Klipper host (Raspberry Pi etc.) | - | The RP2350-Zero itself |
 
-Each screw has its label printed right in front of it: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals the top screw is GND.
+**How to connect J1 and J2**
 
-- There is no voltage conversion on the board. J1 is passed straight to the fan jumpers.
-- J1 and J2 share GND with each other and with the USB ground. Tie the supply grounds together at one point (your PSU's V-) and don't run separate ground returns.
-- Use at least 0.5 mm² (20 AWG) wire for both inputs.
-- Reverse polarity (or 12/24V into the 5V terminal) is caught by the TVS diodes D21/D22, which short the input and blow that input's fuse. Replace the fuse after fixing the wiring.
+- The board labels each screw: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals the **top screw is GND**.
+- Use wire of at least **0.5 mm² (20 AWG)**.
+- Connect GND of both supplies together at one point (normally your power supply's V- terminal). All grounds on the board are joined, including the USB ground.
+- The board does **not** convert voltage. Whatever you feed into J1 goes straight to the fan jumpers.
+- **Wired it backwards?** The board is protected. A protection diode (D21 on J1, D22 on J2) shorts the wrong voltage and the fuse for that input blows. Fix the wiring, then put in a new 5 A fuse. The same happens if you put 12/24 V into the 5 V input by mistake.
 
-### Current budget
+### How much can it power?
 
-| Rail | Fuse | Comfortable continuous load |
+These limits keep every part comfortably below its maximum, including in a warm electronics bay:
+
+| What | Recommended maximum | Hard limit (fuse) |
 |---|---|---|
-| VIN | 5A | up to ~4A continuous, e.g. 3 fans at 0.8A + 3 fans at 0.2A = 3A, at 12V or 24V. More than 5A on VIN needs 2 oz copper and a 7.5A fuse |
-| 5V | 5A | ~3.5A total for 5V fans + LEDs (a 60-LED WS2812 strip at full white is ~3.6A, so cap brightness in software) |
+| All fans and strips on **VIN** together | **4 A** (for example 3 fans at 0.8 A + 3 fans at 0.2 A = 3 A) | 5 A (F1) |
+| Everything on **5 V** together | **3.5 A** | 5 A (F2) |
+| **One fan port** | **1 A** | 1.5 A (self-resetting) |
+| **One LED port** | **1.5 A** | 2 A (self-resetting) |
 
-Each fan port is good for about **1A**. The board warms by roughly 15 °C if a rail runs at the full 5A for a long time, which is fine. Order 2 oz copper if you want it to run cooler (see [ordering.md](ordering.md)).
+A 5 V WS2812 strip uses up to about 60 mA per LED at full white. 25 LEDs at full white is already 1.5 A, so set a brightness limit in Klipper for long strips (or use a 12 V strip on VIN).
 
-## Fans (FAN1-FAN6)
+## 2. Fans (FAN1-FAN6)
 
-JST-XH 4-pin, 2.5 mm pitch. Standard PC fan plugs (2.54 mm KK-style) **do not fit**. Re-terminate the fans with XHP-4 housings.
+The fan sockets are **JST-XH 4-pin** (2.5 mm). Normal PC fan plugs **do not fit**: put JST-XH (XHP-4) housings on your fan wires.
 
-| XH pin | Signal | Typical PC fan wire |
+| XH pin | Signal | Usual PC fan wire colour |
 |---|---|---|
-| 1 | GND | black |
-| 2 | +V (VIN or 5V, from the jumper) | yellow (12V fans) / red |
-| 3 | TACH | green |
-| 4 | PWM | blue |
+| 1 | GND (-) | black |
+| 2 | + power (VIN or 5 V, from the jumper) | red, or yellow on 12 V PC fans |
+| 3 | TACH (RPM signal) | green or yellow |
+| 4 | PWM (speed signal) | blue |
 
-Wire colours vary by maker, so always check the fan's datasheet.
+Colours vary between makers, so check your fan's datasheet.
 
-### Two jumpers per fan port
+### Set two jumpers for every fan port
 
-Each port has two 3-pin jumpers next to it. **Set both before you power up.**
+Next to each fan socket are two 3-pin jumpers. Put one cap on each, on either the top pair or the bottom pair.
 
-| Jumper | Top two pins | Bottom two pins |
+| Jumper | Cap on the **top** two pins | Cap on the **bottom** two pins |
 |---|---|---|
-| **MODE** (JM, left column) | 2-pin or 3-pin fan | 4-pin PWM fan |
-| **FAN V** (JP, right column) | VIN (what J1 is fed, 12V or 24V) | 5V |
+| **MODE** (JM, left) | 2-pin or 3-pin fan | 4-pin PWM fan |
+| **FAN V** (JP, right) | **VIN** (the 12 V or 24 V on J1) | **5 V** |
 
-- **4-pin fan:** MODE on the bottom. The fan gets steady power and is controlled through its blue PWM wire.
-- **2-pin fan** (most Voron 4010/5015/6015 fans): MODE on top. Crimp the fan into an XHP-4 housing using **pin 1 (black, -) and pin 2 (red, +)** only. The board switches the fan's ground. In Klipper set `cycle_time: 0.010` for that fan (see `klipper/tinyfan.cfg`).
-- **3-pin fan:** MODE on top, pins 1-3 as in the table. Speed control works, but the tach reading is not reliable in this mode, so leave `tachometer_pin` out.
-- If you get MODE wrong nothing is damaged: a 2-pin fan with MODE on the bottom just runs at full speed, and a 4-pin fan with MODE on top runs badly until you move the jumper.
-- The small green LED next to each fan lights when that port is powered. With a 2/3-pin fan it gets brighter as the fan speeds up.
-- **Shorted cable?** Each fan port has its own resettable fuse (1.6A) and each LED port a 2A one. If a bad crimp shorts +V to GND, only that port switches off (its fan stops). Unplug, fix the cable, wait about a minute and it works again. No fuse to replace. Fans up to about 1A each are fine (your 0.8A fans included). With six big fans on VIN, use a 7.5A fuse in F1.
+No cap on FAN V means that port gets no power.
 
-## LED strips (LED1, LED2)
+> **Match FAN V to the voltage printed on the fan.** A 12 V fan on 24 V overheats and dies. A 5 V fan on VIN dies straight away.
 
-JST-XH 3-pin: 1 GND, 2 +V, 3 DATA. The **LED V** jumpers (JL1 for LED1, JL2 for LED2, bottom right corner) pick the strip's power:
+**Which MODE?**
 
-| JL position | Strip power | For |
+- **4-pin fan** (4 wires): MODE on the **bottom**. The fan gets steady power, and its blue wire sets the speed. You also get RPM.
+- **2-pin fan** (red and black only, like most Voron 4010/5015/6015 fans): MODE on the **top**. Crimp the black wire to **pin 1** and the red wire to **pin 2**. The board switches the fan on and off quickly to set the speed. In Klipper use `cycle_time: 0.010` for that fan (it is already in `klipper/tinyfan.cfg`).
+- **3-pin fan**: MODE on the **top**, wires on pins 1-3. Speed control works, but the RPM reading is not reliable in this mode, so leave `tachometer_pin` out of the config.
+- Got MODE wrong? Nothing breaks. A 2-pin fan on the bottom setting just runs at full speed, and a 4-pin fan on the top setting runs roughly until you move the cap.
+
+**Green light next to each fan:** it is on when that port has power. With a 2/3-pin fan it gets brighter as the fan speeds up. It is dim on 5 V fans.
+
+**Shorted cable?** Each fan port has its own self-resetting fuse. If a bad crimp shorts + to -, only that port switches off and its fan stops. Unplug it, fix the cable, wait about a minute, and the port works again. Nothing to replace.
+
+## 3. LED strips (LED1, LED2)
+
+The LED sockets are JST-XH 3-pin: **1 GND, 2 + power, 3 DATA**.
+
+The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, bottom right corner) chooses the strip's power:
+
+| JL cap on | Strip gets | Use it for |
 |---|---|---|
-| Left two pins (VIN) | Whatever J1 is fed (12V or 24V) | WS2815, 12V/24V addressable strips |
-| Right two pins (5V) | 5V from J2 | WS2812B, SK6812 and other 5V strips |
+| **Left two pins (VIN)** | the 12 V or 24 V on J1 | 12 V / 24 V addressable strips, such as WS2815 |
+| **Right two pins (5 V)** | 5 V from J2 | WS2812B, SK6812 and other 5 V strips |
 
-**A 5V strip on VIN will be destroyed. Check the jumper first.** The data line is 5V in both cases. Each port is good for about 2A.
+> **A 5 V strip on VIN is destroyed at once. Check the LED V jumper before you plug a strip in.**
 
-The data line is 5V for every strip type. 12V/24V pixel chips such as the WS2815 run their logic from an internal ~5V supply, so they read 5V data fine (and must not get more than about 5.7V on DATA). Before using an unusual 12V/24V strip, check its datasheet: the DATA input high level should be met by 5V.
+The DATA signal is always 5 V. That suits 5 V strips, and 12 V/24 V strips such as the WS2815 also accept it. If you use an unusual 12/24 V strip, check its datasheet says it accepts 5 V data.
 
-### Voltage jumpers (JP1-JP6)
+The data line is protected. A long wire to the first LED is fine, and if + touches DATA by mistake on a 5 V strip, nothing is damaged. With a 12/24 V strip, fix such a short quickly, because the small protection resistor gets hot.
 
-Each fan port has a 3-pin header to its right, labelled **VIN** (top) and **5V** (bottom).
+## 4. Thermistors (TH1-TH4)
 
-- Jumper on the **top two pins**: the fan gets **VIN** (12V or 24V, whatever J1 is fed).
-- Jumper on the **bottom two pins**: the fan gets **5V**.
-- No jumper: the fan gets no power.
+JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no + or -, so either way round works. Use standard **100k NTC** thermistors ("Generic 3950" in Klipper). The board already has the resistor Klipper expects (4.7k), so you don't add anything.
 
-> **Match the jumper to the fan's rated voltage.** A 12V fan on a 24V VIN will overheat and fail. A 5V fan on VIN will be destroyed immediately.
-
-### 2-pin and 3-pin fans
-
-- **2-pin and 3-pin fans**: set that port's MODE jumper to the top two pins (see above) and Klipper controls their speed.
-
-The LED data line is buffered to 5V with a 1k series resistor and a clamp diode, so a long run to the first LED is fine, and touching +V to the data pin by mistake doesn't kill the buffer (on a 24V strip, don't leave it shorted: the 1k resistor overheats).
-
-## Thermistors (TH1-TH4)
-
-JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no polarity. Use 100k NTC thermistors (Generic 3950 by default). The 4.7k pull-up is on the board, so you don't need to add anything.
-
-| Port | GPIO |
+| Port | RP2350 pin |
 |---|---|
 | TH1 | GP26 |
 | TH2 | GP27 |
 | TH3 | GP28 |
 | TH4 | GP29 |
 
-## EXP header (J5)
+**3.3 V only.** Never connect anything with 5 V or more to these ports.
 
-1 GND, 2 3V3, 3 GP15, 4 GP14. **3.3V logic only.** You can use it for a door switch, a filament sensor, a single extra neopixel data line (unbuffered), I2C (GP14 = SDA1, GP15 = SCL1), etc. Do not draw more than ~100 mA from 3V3.
+## 5. EXP header (J5, optional)
 
-## Mounting
+Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14**. Uses: a door switch, a filament sensor, an I2C sensor (GP14 = SDA, GP15 = SCL), or one small extra LED strip data line. **3.3 V signals only**, and draw no more than about 100 mA from the 3.3 V pin.
 
-4 x M3 holes on a **75 x 67 mm** rectangle (4.5 mm in from the top, bottom and right edges, 9.5 mm from the left edge). The holes are connected to GND. Allow about 20 mm of height above the board for the fuse holders with fuses fitted. For DIN rail mounting, see [mounting.md](mounting.md).
+## 6. Mounting holes
+
+Four M3 holes on an **86 x 54 mm** rectangle, 4.5 mm in from the top, bottom and right edges and 9.5 mm from the left edge (the screw-terminal side), seen from the top. The holes are connected to GND. Leave about 20 mm of space above the board for the fuses. For DIN rail mounting see [mounting.md](mounting.md).

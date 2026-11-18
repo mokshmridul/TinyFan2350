@@ -1,8 +1,8 @@
 # TinyFan2350
 
-A small Klipper fan and lighting controller built on the **Waveshare RP2350-Zero**. It runs six 4-pin PWM fans with tach feedback, two 5V WS2812 LED ports and four thermistor inputs. Each fan input has its own fuse.
+TinyFan2350 is a small add-on board for a 3D printer that runs **Klipper**. It controls up to **six fans**, **two addressable LED strips** (WS2812 and similar) and reads **four temperature sensors** (thermistors). A **Waveshare RP2350-Zero** does the work. It's a thumb-sized microcontroller board that plugs into sockets on the TinyFan, and it talks to your printer's Raspberry Pi (or similar) over a USB cable.
 
-Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), redesigned in KiCad 10.
+It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) and was redesigned in KiCad 10.
 
 ![TinyFan2350](docs/images/render-angle.png)
 
@@ -12,61 +12,71 @@ Derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero), re
 
 ![Bottom, angled](docs/images/render-angle-bottom.png)
 
+## What it does
+
 | | |
 |---|---|
-| MCU | Waveshare RP2350-Zero (socketed), powered over USB from the Klipper host |
-| Fan supply | **J1: VIN 12-24V**, 5A mini-blade fuse (F1), up to 5A of fans/LEDs on VIN |
-| Logic / LED supply | **J2: 5V**, 5A mini-blade fuse (F2) |
-| Fans | 6 x JST-XH 4-pin (GND, +V, TACH, PWM). Per-port **MODE** jumper: 4-pin PWM fan (25 kHz, tach) **or** 2/3-pin fan switched by an AO3400A MOSFET (Klipper-Expander style). Status LED on every port |
-| Fan voltage | Per-port jumper: **VIN** or **5V** |
-| LEDs | 2 x JST-XH 3-pin addressable LED ports, 5V data via one 74HCT2G17 dual buffer. Per-port jumper: strip power from **5V** (WS2812/SK6812) or **VIN** (12/24V WS2815 etc.) |
-| Indicators | VIN ON and 5V ON LEDs, one status LED per fan port |
-| Thermistors | 4 x JST-XH 2-pin (GP26-GP29), 4.7k 1% pull-up, 100nF filter |
-| Expansion | 1x4 header: GND, 3V3, GP15, GP14 |
-| Protection | Every fan port (fans up to ~1A each) and LED port has a **resettable fuse** (a shorted cable switches off just that port, and it comes back by itself). LED data pins survive +V by mistake (1k + clamp). Fan MOSFET gates are zener-clamped. TVS diodes behind F1/F2: reverse polarity, or 12-24V into the 5V input, blows the fuse instead of the board |
-| PCB | **100 x 63 mm**, 2-layer, 1.6 mm, black, 1 oz copper (2 oz only if VIN carries more than 5A), 4 x M3 (86 x 54 mm pattern) |
+| **Brain** | Waveshare RP2350-Zero in sockets. It is powered by its own USB cable from the Klipper host |
+| **Power in** | **J1: 12 V or 24 V** for fans (and 12/24 V LED strips), with a 5 A blade fuse (F1). **J2: 5 V** for 5 V fans and 5 V LED strips, with a 5 A blade fuse (F2) |
+| **Fans** | 6 ports (JST-XH 4-pin). Each port works with **4-pin PWM fans** (speed control plus RPM reading) **or 2/3-pin fans** (switched on and off fast by the board to set the speed). Each port can be set to 12/24 V or 5 V. A small green light shows when a port has power |
+| **LED strips** | 2 ports (JST-XH 3-pin) for addressable strips. Each port can be powered from 5 V (WS2812B, SK6812) or from J1 (12/24 V strips such as WS2815) |
+| **Temperature** | 4 ports (JST-XH 2-pin) for standard 100k thermistors |
+| **Extra pins** | One small 4-pin header (GND, 3.3 V, GP14, GP15) for a door switch, sensor and similar |
+| **Protection** | Every fan port and LED port has its own **self-resetting fuse**: a shorted cable switches off just that port, and it works again once you fix the cable. If you wire the power the wrong way round, a protection diode blows the main fuse instead of the board. All the main parts run well below their maximum ratings at 24 V (see [design notes](docs/design-notes.md#safety-margins)) |
+| **Board** | 100 x 63 mm, black, 2 layers, 1 oz copper. Four M3 holes on an 86 x 54 mm pattern. A printable DIN-rail mount is included |
 
 ![Pinout](docs/images/pinout.png)
 
-## Quick start
+## Build one in six steps
 
-1. **Order the board, fully assembled**: follow [docs/ordering.md](docs/ordering.md). Upload [`TinyFan2350_GERBERS_upload.zip`](hardware/fab/TinyFan2350_GERBERS_upload.zip), [`TinyFan2350_BOM_JLCPCB.csv`](hardware/fab/TinyFan2350_BOM_JLCPCB.csv) and [`TinyFan2350_CPL_JLCPCB.csv`](hardware/fab/TinyFan2350_CPL_JLCPCB.csv) to JLCPCB (for PCBWay use [`TinyFan2350_BOM_PCBWay.csv`](hardware/fab/TinyFan2350_BOM_PCBWay.csv) with the same CPL).
-2. **Buy the rest**: RP2350-Zero, socket strips, fuses, jumpers and mount hardware. The BOM lists every part with its maker's part number.
-3. **Finish it**: solder the three RP2350-Zero socket strips ([docs/assembly.md](docs/assembly.md)). Or hand-build the whole board from the same guide.
-4. **Wire it up**: [docs/wiring.md](docs/wiring.md). **Set every fan jumper before you power on.**
-5. **Flash Klipper and add the config**: [docs/klipper.md](docs/klipper.md) and [`klipper/tinyfan.cfg`](klipper/tinyfan.cfg).
+1. **Order the board, already assembled**: [docs/ordering.md](docs/ordering.md) walks you through JLCPCB or PCBWay screen by screen. You upload three files from [`hardware/fab/`](hardware/fab).
+2. **Buy the few extra parts**: the RP2350-Zero, female header strips for its socket, two 5 A mini blade fuses, and jumper caps. See the list in [ordering.md](docs/ordering.md#what-you-buy-yourself).
+3. **Solder the socket** for the RP2350-Zero (three short female header strips). [docs/assembly.md](docs/assembly.md) shows how, and also how to build the whole board by hand if you prefer.
+4. **Wire it up and set the jumpers**: [docs/wiring.md](docs/wiring.md). **Set every fan jumper before you switch the power on.**
+5. **Install Klipper on it and add the config**: [docs/klipper.md](docs/klipper.md) and [`klipper/tinyfan.cfg`](klipper/tinyfan.cfg).
 6. **Mount it** on a DIN rail with the printed tray and two Voron Trident PCB DIN clips: [docs/mounting.md](docs/mounting.md).
 
 ![DIN mount](docs/images/mount_assembly.png)
 
-## Repository layout
+## Three rules that keep it safe
+
+1. **Fans get the voltage you feed in.** The board does not convert voltage. If J1 gets 24 V, every fan whose jumper is on VIN gets 24 V. A 12 V fan on 24 V will burn out, and a 5 V fan or 5 V LED strip on VIN dies at once. Check each jumper against the fan's label.
+2. **Check + and - with a meter before you connect power.** Each screw is labelled on the board (GND / VIN+ / 5V+). Wiring it backwards will not damage the board, but it blows the fuse and you have to replace it.
+3. **Stay at 24 V or below on J1.** The board is designed for 12 V or 24 V supplies (a 24 V supply turned up to 28 V is still fine). The thermistor ports and the EXP header are **3.3 V only**.
+
+## Words you will see
+
+| Word | Meaning |
+|---|---|
+| **VIN** | The 12 V or 24 V you feed into J1 |
+| **Jumper** | A small plastic cap that connects two of three pins. Where you put it chooses an option |
+| **PWM** | How speed is controlled: power is switched on and off very fast. 4-pin fans have a wire just for this |
+| **Tach** | The fan's speed signal, used to show RPM |
+| **PTC** | A self-resetting fuse. It switches off when too much current flows and comes back once it cools |
+| **TVS** | A protection diode. It shorts out wrong or too-high input voltage so the main fuse blows |
+| **Klipper host** | The computer that runs Klipper (usually a Raspberry Pi) |
+
+## What is in this repository
 
 ```
 hardware/
-  kicad/        KiCad 10 project (6 schematic sheets, PCB, custom footprints/symbols, 3D stand-in for the RP2350-Zero, render jobset)
-  fab/          Gerbers + drill (zip and loose), JLCPCB BOM + CPL, PCBWay BOM, KiCad pick-and-place
-  3d/           STEP model of the assembled board
+  kicad/        KiCad 10 project: schematic (6 sheets), PCB, custom parts, 3D stand-in for the RP2350-Zero
+  fab/          Files for the factory: Gerbers, BOMs (parts lists) and CPL (part positions)
+  3d/           3D model (STEP) of the finished board
 docs/
-  images/       Renders and annotated pinout
-  TinyFan2350-schematic.pdf   (hierarchical: root + power, MCU, fan channel x6, LEDs, thermistors)
-  TinyFan2350-pcb-copper.pdf  (top and bottom copper)
+  images/       Pictures and the pinout
+  TinyFan2350-schematic.pdf    The circuit diagram
+  TinyFan2350-pcb-copper.pdf   Top and bottom copper layers
   ordering.md, assembly.md, wiring.md, klipper.md, mounting.md, design-notes.md
 mechanical/
-  TinyFan2350_DIN_mount.stl/.step/.py   Printable DIN tray (CadQuery source)
+  TinyFan2350_DIN_mount.stl/.step/.py   Printable DIN rail tray (CadQuery source)
 klipper/
-  tinyfan.cfg   Ready-to-include Klipper config
+  tinyfan.cfg   Ready-to-use Klipper config
 ```
-
-## Safety notes
-
-- **The fan voltage is whatever you feed J1.** If J1 gets 24V, every fan jumpered to VIN gets 24V. A 12V fan on 24V will be destroyed.
-- J1 and J2 have **no reverse-polarity protection**. Every screw is labelled on the board (GND / VIN+ / 5V+). Check with a meter before you connect.
-- The fuses are rated 32V DC. Do not feed J1 more than 24V nominal.
-- The EXP header and thermistor ports are **3.3V only**.
 
 ## Status
 
-v2.4 passes ERC and DRC (KiCad 10.0.8) with no errors and no unconnected nets, and every pad's net has been checked against the design table by script. It has not been fabricated yet. Please open an issue if you build one.
+v2.5 passes KiCad's electrical check (ERC) and layout check (DRC) with zero errors and nothing left unconnected. A script also checks that every pad on the board connects to the right signal. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
 
 ## License
 

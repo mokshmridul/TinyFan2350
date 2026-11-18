@@ -4,11 +4,11 @@ Item,Qty,Designator,Description,Manufacturer,Manufacturer Part Number,LCSC Part 
 3,8,"D1,D2,D3,D4,D5,D6,D19,D20",BAT54S-7-F,Diodes Inc,BAT54S-7-F,C83574,SOT-23,SMD,
 4,6,"D7,D8,D9,D10,D11,D12",B5819W Schottky 40V 1A,Changjiang (CJ),B5819W,C8598,D_SOD-123,SMD,fan flyback diode; cathode band = pad 1
 5,6,"D13,D14,D15,D16,D17,D18",BZT52C5V6 zener 5.6V SOD-123,JSCJ,BZT52C5V6,C2119,D_SOD-123,SMD,MOSFET gate clamp; cathode band = pad 1
-6,1,D21,SMCJ28A TVS 28V SMC,Boarden,SMCJ28A,C967193,D_SMC,SMD,VIN crowbar; cathode band = pad 1 (towards F1)
+6,1,D21,SMCJ30A TVS 30V SMC,MDD,SMCJ30A,C408374,D_SMC,SMD,VIN crowbar; cathode band = pad 1 (towards F1)
 7,1,D22,SMBJ5.0A TVS 5V SMB,SMC (Sangdest),SMBJ5.0A,C260407,D_SMB,SMD,5V crowbar; cathode band = pad 1 (towards F2)
-8,6,"F3,F4,F5,F6,F7,F8",PTC resettable fuse 1.6A 30V 1812,LUTE,1812L160/30GR,C18198337,Fuse_1812_4532Metric,SMD,"fan return fuse, resets itself"
-9,2,"F9,F10",PTC resettable fuse 2A 30V 1812,TECHFUSE,mSMD200-30V,C6851470,Fuse_1812_4532Metric,SMD,"LED strip return fuse, resets itself"
-10,6,"Q4,Q5,Q6,Q7,Q8,Q9",AO3400A MOSFET 30V 5.7A,Alpha & Omega,AO3400A,C20917,SOT-23,SMD,2/3-pin fan low-side switch
+8,6,"F3,F4,F5,F6,F7,F8",PTC resettable fuse 1.5A 33V 1812,LUTE,1812L150/33GR,C18198333,Fuse_1812_4532Metric,SMD,"fan return fuse, resets itself"
+9,2,"F9,F10",PTC resettable fuse 2A 33V 1812,LUTE,1812L200/33GR,C18198343,Fuse_1812_4532Metric,SMD,"LED strip return fuse, resets itself"
+10,6,"Q4,Q5,Q6,Q7,Q8,Q9",SI2308A N-MOSFET 60V 3A SOT-23,UMW,SI2308A,C347491,SOT-23,SMD,fan low-side switch for 2/3-pin fans; 60V for margin on 24V
 11,6,"Q10,Q11,Q12,Q13,Q14,Q15",2N7002 N-MOSFET 60V SOT-23,Changjiang (CJ),2N7002,C8545,SOT-23,SMD,"JLC basic; 3.3V->5V PWM shifter, pin1 G pin2 S pin3 D"
 12,2,"R19,R20",1k 1% 1206,UNI-ROYAL,1206W4F1001T5E,C4410,R_1206_3216Metric,SMD,JLC basic part; LED data series
 13,10,"R21,R22,R23,R24,R25,R26,R27,R28,R29,R30",4.7k 1% 0805,UNI-ROYAL,0805W8F4701T5E,C17673,R_0805_2012Metric,SMD,JLC basic part

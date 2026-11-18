@@ -1,6 +1,6 @@
 # DIN rail mount
 
-A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips** (the `pcb_din_clip` from the Voron Trident electronics bay).
+A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail in most printer electronics bays). It clips on with **two Voron Trident PCB DIN clips** (`pcb_din_clip`, the same clips the Voron Trident uses for its other boards).
 
 ![Assembled](images/mount_assembly.png)
 
@@ -18,8 +18,8 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 | 1 | Printed mount | |
 | 2 | Voron Trident PCB DIN clip | [VoronDesign/Voron-Trident `STLs/ElectronicsBay`](https://github.com/VoronDesign/Voron-Trident/tree/main/STLs/ElectronicsBay) |
 | 4 | M2x10 self-tapping screw | Mount → clips (part of the Voron BOM). M2x12 also fits and grips better |
-| 4 | M3 heat-set insert, 4.8 mm OD x 4 mm (Robu M3x4) | Pressed into the standoffs (4.3 mm holes). For Voron 5 mm inserts set `INS_D=4.6` in the .py |
-| 4 | M3x6 BHCS or SHCS | PCB → mount |
+| 4 | M3 heat-set insert, 4.8 mm outside diameter x 4 mm long (Robu M3x4) | Melted into the posts with a soldering iron (4.3 mm holes). For Voron-style 5 mm inserts set `INS_D=4.6` in the .py and re-export |
+| 4 | M3x6 screw, button head (BHCS) or socket head (SHCS) | PCB → mount |
 
 ## Print settings
 
@@ -30,7 +30,7 @@ A printed tray that holds the TinyFan2350 on **two Voron Trident PCB DIN clips**
 
 ![Exploded](images/mount_exploded.png)
 
-1. Press the 4 M3 heat-set inserts into the standoffs.
+1. Heat each M3 insert with your soldering iron (about 220-250 °C) and press it gently straight down into a post, flush with the top.
 2. Put the two DIN clips into the 0.5 mm locating pockets on the underside. The **latch end** of each clip (the springy end with the release tab) goes towards the board edge with the **TH/LED connectors**.
 3. Screw each clip on from the top with 2 x M2x10 self-tappers. The screw heads sit flush in the raised pads.
 4. Fit the PCB, USB-C end towards the far edge from the latches, using 4 x M3x6.

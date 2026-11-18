@@ -1,5 +1,15 @@
 # Changelog
 
+## v2.5 (2026-11)
+- **More safety margin for real-world use.** Parts that ran close to their limits on 24 V are now rated higher. Same sizes and pin order, so the board layout and Gerbers are unchanged:
+  - Q4-Q9 fan switches: AO3400A (30 V) -> **SI2308A 60 V** (C347491). 40 % of rating at 24 V instead of 80 %.
+  - D21 input protection: SMCJ28A -> **SMCJ30A** (C408374). A 24 V supply turned up to 28.8 V no longer makes it leak current.
+  - F3-F8 fan fuses: 1.6 A / 30 V -> **1.5 A / 33 V** PTC (LUTE 1812L150/33GR, C18198333).
+  - F9/F10 LED fuses: 2 A / 30 V -> **2 A / 33 V** PTC (LUTE 1812L200/33GR, C18198343).
+- New **Safety margins** section in the design notes: every main part's load as a % of its rating at 24 V and 28.8 V, and copper heating at normal load and at the fuse limit (all under 20 °C).
+- **Docs rewritten for beginners**: plain-language steps, a glossary, a "what you buy yourself" list (now with the correct 14 jumper caps), recommended maximum loads per port, and the fixed mounting-hole pattern (86 x 54 mm). Schematic notes reworded in plain language.
+- ERC 0, DRC 0 / 0 unconnected, all nets unchanged. Copper, mask, silk, paste and drill files are byte-identical to v2.4.1; only the BOMs changed.
+
 ## v2.4.1 (2026-11)
 - **Hierarchical schematic, redrawn for humans.** Root block diagram plus sheets for Power, MCU, LEDs and Thermistors, and one **Fan channel** sheet used six times (FAN1-FAN6). Real wires inside each functional block, labelled boxes, notes beside each block. Same circuit: all 348 connected pins land on the same nets as before (checked pin by pin), ERC 0.
 - Net names follow the hierarchy (`/FAN3/FAN_VCC`, `/LEDs/LED1_DATA`, `VIN`); netclass rules updated to match.

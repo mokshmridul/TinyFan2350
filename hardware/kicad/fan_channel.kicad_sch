@@ -2,12 +2,12 @@
 	(version 20250114)
 	(generator "eeschema")
 	(generator_version "9.0")
-	(uuid "1bc1983f-bec0-4277-b112-d2e722f7e408")
+	(uuid "2fc12667-0155-4706-95fe-42b7d56b34ab")
 	(paper "A4")
 	(title_block
 		(title "TinyFan2350 - Fan channel (one sheet, used 6x)")
 		(date "2026-11-17")
-		(rev "2.4")
+		(rev "2.5")
 		(company "github.com/mokshmridul/TinyFan2350")
 		(comment 1 "Derived from Gi7mo/TinyFan (GPL-3.0)")
 	)
@@ -2549,7 +2549,7 @@
 		(embedded_fonts no)
 	)
 	)
-	(text "This sheet is used for FAN1..FAN6 (references below are FAN1; see the table for the others)."
+	(text "This one drawing is used six times, once per fan port (FAN1-FAN6). Part numbers shown are FAN1; see the table."
 		(exclude_from_sim no)
 		(at 15.24 181.102 0)
 		(effects
@@ -2558,7 +2558,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7520effe-3c7c-413f-a1b1-2b245bdb305b")
+		(uuid "e88e0068-b73f-46dd-8c53-b031dbec6cf9")
 	)
 	(rectangle
 		(start 15.24 20.32)
@@ -2571,7 +2571,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "0f2afa78-269b-4311-94ff-25ac2f527478")
+		(uuid "dd92715e-7679-471d-975c-0141066e2beb")
 	)
 	(text "PWM level shifter 3.3 V -> 5 V"
 		(exclude_from_sim no)
@@ -2583,7 +2583,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5954b630-77bb-47cd-812a-ecb4bf86fd78")
+		(uuid "c171c1ff-ec0c-4d08-876f-a997744f9640")
 	)
 	(hierarchical_label "PWM"
 		(shape input)
@@ -2594,7 +2594,7 @@
 			)
 			(justify right)
 		)
-		(uuid "7b0465bb-2586-4409-b5fd-01da09d9ec62")
+		(uuid "f77a71aa-bacb-4cb1-86b2-42b523c8512a")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -2604,7 +2604,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b926a300-4694-457b-87c8-2402fbc3654b")
+		(uuid "0287d976-8c3b-4b16-868e-3381141b3384")
 		(property "Reference" "R47"
 			(at 48.22 51.07 0)
 			(effects
@@ -2669,34 +2669,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "2f22bd8d-becd-4f18-8c60-2461562b5fb0")
+			(uuid "d50ec808-f395-4816-bb57-ab6821257bb0")
 		)
 		(pin "2"
-			(uuid "6c2ba1de-24a9-4733-ac43-34ed5edd438c")
+			(uuid "f0683f30-12c6-42c3-ae31-bf5c5d227b7f")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R47")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R48")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R53")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R54")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R59")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R60")
 				(unit 1)
 			)
@@ -2711,7 +2711,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "216caa56-861e-4429-a33c-94c565faa28e")
+		(uuid "38838451-4eb6-42d6-9ac7-7b965438b7f6")
 		(property "Reference" "#PWR3001"
 			(at 45.72 51.76 0)
 			(effects
@@ -2748,31 +2748,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "9c5c4163-b7b2-4910-b9b2-7fd19708d403")
+			(uuid "18686d9c-82e0-4278-bfa3-7d2c331202c3")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3001")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3101")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3201")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3301")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3401")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3501")
 				(unit 1)
 			)
@@ -2787,7 +2787,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "39c2d2de-0d78-489f-b5fc-ad670ab9ca98")
+		(uuid "c3739722-32e8-4b90-b901-6edfc8844ff6")
 		(property "Reference" "Q10"
 			(at 72.39 47.752 90)
 			(effects
@@ -2852,37 +2852,37 @@
 			)
 		)
 		(pin "1"
-			(uuid "d62cca1f-32f9-44cf-8b47-68f670a1ef59")
+			(uuid "2a0b9b72-8914-4069-9f56-d7ad45b8860b")
 		)
 		(pin "2"
-			(uuid "a60ca4f7-a70a-4a6a-b5f9-16a29d3f2145")
+			(uuid "f53b7687-2a09-4014-abfa-a0a5b0aeb4b1")
 		)
 		(pin "3"
-			(uuid "6b196d44-ad25-492c-ab29-48c04f975706")
+			(uuid "e6392b07-ab0e-402d-96e8-4c4f577b9448")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "Q10")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "Q11")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "Q12")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "Q13")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "Q14")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "Q15")
 				(unit 1)
 			)
@@ -2897,7 +2897,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "c84082b0-791d-4415-adbb-2f117041d524")
+		(uuid "9e150296-d764-49d4-b80f-f1122a67164e")
 		(property "Reference" "#PWR3002"
 			(at 66.04 51.76 0)
 			(effects
@@ -2934,31 +2934,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "1e92bba8-ec58-4722-b4cd-87536d56add6")
+			(uuid "8728e434-8952-4655-905c-112ca529fbaf")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3002")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3102")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3202")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3302")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3402")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3502")
 				(unit 1)
 			)
@@ -2973,7 +2973,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "bbac20f1-54f9-4bd7-a6a4-c65cc77aef95")
+		(uuid "df1ed0d6-7ba4-4675-be15-ee2be5e8854a")
 		(property "Reference" "R49"
 			(at 88.86 51.07 0)
 			(effects
@@ -3038,34 +3038,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "2eb33373-9c5d-42ce-aef9-2c9e2f070370")
+			(uuid "5368446f-42cc-4abb-aa56-7c12da17dc58")
 		)
 		(pin "2"
-			(uuid "12483a72-44c9-40b6-ab5e-f66e29895e2a")
+			(uuid "51f4b4a8-93ad-4864-9d2b-9c5379a9cd9e")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R49")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R50")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R55")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R56")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R61")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R62")
 				(unit 1)
 			)
@@ -3080,7 +3080,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "d89caadf-d823-451e-ad8d-fd77b7a91732")
+		(uuid "4a1de3c5-553a-4984-a9e4-aa1fd4b1687f")
 		(property "Reference" "#PWR3003"
 			(at 86.36 51.76 0)
 			(effects
@@ -3117,31 +3117,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "8f0d106f-2ed2-4212-b1be-12fbc0a6070b")
+			(uuid "50744cf8-6e29-4a8d-82dd-de7aa0685f6b")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3003")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3103")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3203")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3303")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3403")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3503")
 				(unit 1)
 			)
@@ -3156,9 +3156,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4637cab4-90fb-483d-bbaf-b88fc6e3baeb")
+		(uuid "bbcea0cf-b13b-4dc9-aff8-5e77a65e606a")
 	)
-	(text "Non-inverting: MCU unplugged -> fan sees 5 V = full speed."
+	(text "If the RP2350 is unplugged, the fan gets 5 V = full speed (safe)."
 		(exclude_from_sim no)
 		(at 20.32 66.04 0)
 		(effects
@@ -3167,9 +3167,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "d9c59b24-d888-4777-bc67-afd38dcc0ed2")
+		(uuid "ab2238e8-a61e-41f3-ab74-dd1526755cf5")
 	)
-	(text "2N7002: G = 3V3, S = MCU side, D = fan side."
+	(text "2N7002 pins: G = 3V3, S = RP2350 side, D = fan side."
 		(exclude_from_sim no)
 		(at 20.32 69.596 0)
 		(effects
@@ -3178,7 +3178,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e70c43b0-eba6-4461-8079-2b14c6ec2cf9")
+		(uuid "d9948c90-817f-4786-9f07-0059b0039cb8")
 	)
 	(rectangle
 		(start 15.24 76.2)
@@ -3191,7 +3191,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "457d7818-58ad-43ab-9916-8b4cb76ecf8c")
+		(uuid "6fd82cee-be08-42fb-bc9d-035f2f7c00db")
 	)
 	(text "Tach input (open-collector fan output, read at 3.3 V)"
 		(exclude_from_sim no)
@@ -3203,7 +3203,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "56c34d49-a788-4b54-a229-fbd9fa2eb99e")
+		(uuid "84098225-6a9a-4501-9d15-d76de231eaea")
 	)
 	(hierarchical_label "TACH"
 		(shape bidirectional)
@@ -3214,7 +3214,7 @@
 			)
 			(justify right)
 		)
-		(uuid "b373ced7-8009-4941-a19c-5f441a58b1ff")
+		(uuid "64c38139-511e-4da2-b30b-eeb50a3321fc")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -3224,7 +3224,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "c5adbe0f-91ce-4e4f-8e46-2f42bff76858")
+		(uuid "6e7a05d0-1680-467c-bc84-c939346191a3")
 		(property "Reference" "R21"
 			(at 67.31 91.948 90)
 			(effects
@@ -3287,34 +3287,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "814b1337-b5e8-48c0-b780-4fdba5ba99cc")
+			(uuid "2e66a9f2-f5f6-4e04-a8e7-dfee80d4eef7")
 		)
 		(pin "2"
-			(uuid "e746f0c7-b831-43d1-8441-e87130324271")
+			(uuid "9809e76b-6b77-434a-bc6a-7e160ee2ae04")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R21")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R22")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R23")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R24")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R25")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R26")
 				(unit 1)
 			)
@@ -3329,7 +3329,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "71bc8086-2e9b-41a5-8595-3a76cd43f319")
+		(uuid "0c2a93f3-f05e-4e56-9462-a73c2f65a138")
 		(property "Reference" "R51"
 			(at 88.86 86.63 0)
 			(effects
@@ -3394,34 +3394,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "e188ee66-37b8-4e61-b4f4-3dd0e2f0ab6a")
+			(uuid "81a34e98-0eb5-4d90-af41-9b1fc048d492")
 		)
 		(pin "2"
-			(uuid "02b635f2-b7c3-4438-adcd-cb7a360644d6")
+			(uuid "94568881-4b2f-4c6c-83ad-9eb308065ba8")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R51")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R52")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R57")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R58")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R63")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R64")
 				(unit 1)
 			)
@@ -3436,7 +3436,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "ce382961-a88b-4597-a082-d7953fae1d6a")
+		(uuid "a4711ad0-b0f3-4ffc-8590-0e4055e74081")
 		(property "Reference" "#PWR3004"
 			(at 86.36 87.32 0)
 			(effects
@@ -3473,31 +3473,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "21f2c384-d0b5-44d9-97fe-5e26a176d4f7")
+			(uuid "6ed883b7-06a7-4277-bb35-fac189f32fc9")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3004")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3104")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3204")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3304")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3404")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3504")
 				(unit 1)
 			)
@@ -3512,7 +3512,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e234a565-0ebe-486d-ab65-1ff897b28d6b")
+		(uuid "081d6450-ceb5-4e84-ac48-2a85d1b2ce94")
 	)
 	(symbol
 		(lib_id "Diode:BAT54S")
@@ -3522,7 +3522,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "1d59462c-5d8c-41a5-8756-201287f26c4b")
+		(uuid "548ceb31-52e4-4f2b-b262-b320692428e3")
 		(property "Reference" "D1"
 			(at 40.64 82.804 0)
 			(effects
@@ -3585,37 +3585,37 @@
 			)
 		)
 		(pin "1"
-			(uuid "40e9a10b-2781-4ef9-8969-cd22a3fb27c4")
+			(uuid "31f79877-3c54-4b62-a9dd-1facc50158a8")
 		)
 		(pin "2"
-			(uuid "a125e9b2-19e9-4bec-a3f5-68ce906cd684")
+			(uuid "add7471f-6bbd-412c-af87-349e5106b3ff")
 		)
 		(pin "3"
-			(uuid "cb45e0f2-069c-42a3-ab58-badbcd3149ef")
+			(uuid "0bffe466-4cef-49ad-bd9f-ba676af293ba")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "D1")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "D2")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "D3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "D4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "D5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "D6")
 				(unit 1)
 			)
@@ -3630,7 +3630,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "8a1a4b2e-d9bb-4afe-ae2d-17c0250deaa4")
+		(uuid "5e40b2cf-5889-4a8b-8643-2967bc3e77a0")
 		(property "Reference" "#PWR3005"
 			(at 35.56 94.94 0)
 			(effects
@@ -3667,31 +3667,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "2dd32d02-0cf0-4565-996d-a927f418df96")
+			(uuid "395626e7-1e1a-48ba-b5cc-e382ed4fa815")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3005")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3105")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3205")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3305")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3405")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3505")
 				(unit 1)
 			)
@@ -3706,7 +3706,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "c3c7f93d-64ca-48bc-a0ac-aaf438ccd6b3")
+		(uuid "820ea0e9-dc70-4871-8d5d-062891e9c9b1")
 		(property "Reference" "#PWR3006"
 			(at 55.88 94.94 0)
 			(effects
@@ -3743,38 +3743,38 @@
 			)
 		)
 		(pin "1"
-			(uuid "b9017d3c-8372-4eeb-8318-f14832422193")
+			(uuid "c78d7b57-ebf0-4100-a509-1d8e25839f31")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3006")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3106")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3206")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3306")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3406")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3506")
 				(unit 1)
 			)
 			)
 		)
 	)
-	(text "BAT54S clamps the GPIO to 0..3.3 V if the tach wire touches +V"
+	(text "BAT54S keeps the pin between 0 and 3.3 V, even if the tach wire touches +V"
 		(exclude_from_sim no)
 		(at 20.32 111.76 0)
 		(effects
@@ -3783,7 +3783,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c6b2d674-d5e4-4c4b-9c07-f99c91776821")
+		(uuid "36b2a2d6-02fa-497d-99e0-ee9c8387c41d")
 	)
 	(rectangle
 		(start 121.92 20.32)
@@ -3796,7 +3796,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "3202b59d-cff7-4bab-8498-78c6125786b2")
+		(uuid "b98e760d-9879-4c54-9447-1a65b7da12c5")
 	)
 	(text "Fan connector, supply select (JP), flyback, status LED"
 		(exclude_from_sim no)
@@ -3808,7 +3808,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "aea391e0-f693-4f84-90cc-65950dbcade7")
+		(uuid "cb618fa3-458c-4bf2-8762-9cd6e3904c96")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x04")
@@ -3818,7 +3818,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "f6415fc1-db8d-4d77-82a5-fe7b746ea8f8")
+		(uuid "13142077-e687-4e07-a45d-f4bdb9a961e2")
 		(property "Reference" "FAN1"
 			(at 172.72 32.258 0)
 			(effects
@@ -3881,40 +3881,40 @@
 			)
 		)
 		(pin "1"
-			(uuid "0e3f84b2-08b4-43d1-a043-13b29b151b0b")
+			(uuid "c58650de-11db-403e-934a-07156cf5591f")
 		)
 		(pin "2"
-			(uuid "345bb139-2a98-42d7-8abb-27be5a48c985")
+			(uuid "bf57a9fd-b093-4b3f-9453-a4701885660a")
 		)
 		(pin "3"
-			(uuid "06bd5038-2fa6-4676-b8d4-24cf7c339a2a")
+			(uuid "f86bba45-aa24-4446-9a5e-1af042b8e6c7")
 		)
 		(pin "4"
-			(uuid "8c56428e-3568-4514-bbba-d742745a04b5")
+			(uuid "619a3319-218c-4d70-a2e8-cca453369cf7")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "FAN1")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "FAN2")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "FAN3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "FAN4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "FAN5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "FAN6")
 				(unit 1)
 			)
@@ -3929,7 +3929,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "24735697-e504-4774-a2b3-b09255d7db4b")
+		(uuid "90fe9fcc-925f-463a-bf10-b3e989e95579")
 	)
 	(label "FAN_VCC"
 		(at 167.64 40.64 180)
@@ -3939,7 +3939,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "f2052a04-956f-4f1d-9e5e-d80a3650d7d1")
+		(uuid "0017dbcb-5408-4df9-b87c-e834feadea12")
 	)
 	(label "FAN_TACH"
 		(at 167.64 43.18 180)
@@ -3949,7 +3949,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "d9938e08-e043-4168-a988-02a70f46c647")
+		(uuid "db692fb5-e4d8-40ee-82e2-b1650c2b6222")
 	)
 	(label "PWM_5V"
 		(at 167.64 45.72 180)
@@ -3959,7 +3959,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a234723c-69b0-4220-acd3-05947d4baca8")
+		(uuid "f3b7481b-b607-42a0-9aad-a185b439a1de")
 	)
 	(text "1 GND  2 +V  3 TACH  4 PWM"
 		(exclude_from_sim no)
@@ -3970,7 +3970,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e0f3cf82-42e4-488a-951f-66067de24c99")
+		(uuid "b86c26f0-5300-4638-979c-9dd59118c4ff")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
@@ -3980,7 +3980,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "0c7d4678-72de-4dca-b4bd-a6db2fc484e4")
+		(uuid "0390cc0e-df4a-441c-9289-b1cdf462deff")
 		(property "Reference" "JP1"
 			(at 172.72 74.422 0)
 			(effects
@@ -4043,37 +4043,37 @@
 			)
 		)
 		(pin "1"
-			(uuid "985e8f15-10bc-45c4-a18a-bbcfeb675670")
+			(uuid "c8002536-8cef-4f9c-a786-9e5253dc1163")
 		)
 		(pin "2"
-			(uuid "fe23b80b-b2c1-47fe-bc07-b3a19ca0ec47")
+			(uuid "c6de7d0d-83d6-4998-95b5-10b0ae8034bb")
 		)
 		(pin "3"
-			(uuid "80641fa8-e5bb-4652-ba87-895d6c99bc8f")
+			(uuid "001c1050-4e4c-4ad4-8aab-7ac36b62f639")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "JP1")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "JP2")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "JP3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "JP4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "JP5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "JP6")
 				(unit 1)
 			)
@@ -4088,7 +4088,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "a462ca43-e5f3-4572-97f0-b71b44aca6ee")
+		(uuid "50d043ac-7b8f-41d1-ac34-7ea918b6eea1")
 		(property "Reference" "#PWR3007"
 			(at 162.56 77.16 0)
 			(effects
@@ -4125,31 +4125,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "2b918b57-fb4d-43dc-b9ba-31d68288efb1")
+			(uuid "3ab06a05-42fa-4dc4-a1a7-c25cb098e8fd")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3007")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3107")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3207")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3307")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3407")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3507")
 				(unit 1)
 			)
@@ -4164,7 +4164,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "dd456be4-ce94-4469-8ddf-6787f68ff81d")
+		(uuid "e7434dbe-a4a9-4f1a-876d-deb42afe509b")
 		(property "Reference" "#PWR3008"
 			(at 157.48 77.16 0)
 			(effects
@@ -4201,31 +4201,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "08c04cc8-2b1a-4768-90c4-ac7a62c74289")
+			(uuid "f45bc01e-c9fb-4a40-9ac4-473c7da6ed1a")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3008")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3108")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3208")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3308")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3408")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3508")
 				(unit 1)
 			)
@@ -4240,7 +4240,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "2fba29b0-9b2a-47f8-9cf9-7c1c728db2ea")
+		(uuid "4dbb5876-3bcc-48e1-90af-d2ae108e75ed")
 	)
 	(symbol
 		(lib_id "TinyFan2350:D_Schottky")
@@ -4250,7 +4250,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "915e8a39-6d97-4ebe-a804-c379fb850e1f")
+		(uuid "6f9f4261-bd4f-430f-af52-bcc470bc879a")
 		(property "Reference" "D7"
 			(at 212.09 81.28 90)
 			(effects
@@ -4315,34 +4315,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "1e1f36f0-665c-4d2b-80a3-8414a358c11e")
+			(uuid "f057797c-97f6-4785-9234-70949a291678")
 		)
 		(pin "2"
-			(uuid "2117673e-2398-4612-b9c4-b6ced1b0aa74")
+			(uuid "df6a192e-3c1c-4d33-93ca-cd8182ea8510")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "D7")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "D8")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "D9")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "D10")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "D11")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "D12")
 				(unit 1)
 			)
@@ -4357,7 +4357,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "62e80c75-a0fb-4a1b-b739-dfa769dd0bff")
+		(uuid "34692576-28a7-481d-a9cc-12fee7270835")
 	)
 	(label "FAN_GND"
 		(at 208.28 88.9 270)
@@ -4367,7 +4367,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "ae3aa286-b05e-4f5c-836a-def5a5512dbb")
+		(uuid "19391a0d-3544-4e8b-9f99-71a588d252af")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -4377,7 +4377,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "78a157b6-9b10-4e2c-8da8-713940c91b7a")
+		(uuid "1bf5923d-a8ae-42a8-b9b7-69f627b111e0")
 		(property "Reference" "R33"
 			(at 241.26 71.39 0)
 			(effects
@@ -4442,34 +4442,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "1d87b039-6bac-4222-848d-437de2f25354")
+			(uuid "564a96d7-c098-43d0-85ad-8bb1d8c75510")
 		)
 		(pin "2"
-			(uuid "44b40156-a5d3-44e4-841d-56b376d8fac0")
+			(uuid "ead44fa3-bd22-425a-af4c-6eb7182474e7")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R33")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R34")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R35")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R36")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R37")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R38")
 				(unit 1)
 			)
@@ -4484,7 +4484,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6a780d56-bf8d-47c1-b9ef-0e6b20ba31df")
+		(uuid "d6b17bb4-22f6-48b6-b9fd-f4f52aeb7505")
 	)
 	(symbol
 		(lib_id "TinyFan2350:LED")
@@ -4494,7 +4494,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b6de63ba-e529-4ee4-a03b-627db3c30ae0")
+		(uuid "5599b433-7ee3-4af2-bc95-66ce31e5cead")
 		(property "Reference" "LD1"
 			(at 242.57 83.82 90)
 			(effects
@@ -4559,34 +4559,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "6a0a0c34-e888-4a94-8bf1-0bd7706315ad")
+			(uuid "eb5865b4-1534-4101-a0a7-7168fdc27f3a")
 		)
 		(pin "2"
-			(uuid "b61ea6de-a8c6-4568-9424-e69760729f30")
+			(uuid "f8f032a9-87f4-4357-a6b4-662bd40d19c6")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "LD1")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "LD2")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "LD3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "LD4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "LD5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "LD6")
 				(unit 1)
 			)
@@ -4601,7 +4601,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "37b0b7a5-49f6-4d14-a6c6-d32f3db10aab")
+		(uuid "a350fa43-07e7-4700-a96f-f468d32f21a5")
 	)
 	(label "FAN_GND"
 		(at 238.76 91.44 270)
@@ -4611,7 +4611,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8cc5df87-37e5-455f-9550-7d934471903c")
+		(uuid "768e9993-5103-4394-81cd-8539ccfde74f")
 	)
 	(text "flyback"
 		(exclude_from_sim no)
@@ -4622,9 +4622,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0fe50229-8e95-4e0c-bad3-80f9602b3e6c")
+		(uuid "17fc7633-6702-4d46-811d-e7d1de01386e")
 	)
-	(text "LED: on = port powered"
+	(text "LED on = port has power"
 		(exclude_from_sim no)
 		(at 226.06 97.79 0)
 		(effects
@@ -4633,7 +4633,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8c145a86-d493-40e5-9fda-40697223f7b8")
+		(uuid "f7fc808f-d780-4530-9a3d-f4a29ec70b72")
 	)
 	(rectangle
 		(start 121.92 111.76)
@@ -4646,9 +4646,9 @@
 		(fill
 			(type none)
 		)
-		(uuid "198f7132-f845-4849-b599-f760741a8cdf")
+		(uuid "171cde95-6d24-499e-9725-ae16b01d50ee")
 	)
-	(text "2/3-pin fan mode: low-side switch, gate 22k + 5.6 V zener, PTC in the return"
+	(text "2/3-pin fans: Q switches the fan off/on. Resettable fuse (PTC) on every port"
 		(exclude_from_sim no)
 		(at 123.12 114.56 0)
 		(effects
@@ -4658,7 +4658,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "4a65d33f-1880-442d-8192-156006d0eed2")
+		(uuid "968bc92f-b305-49f2-b6c9-690d596019f9")
 	)
 	(label "PWM_5V"
 		(at 132.08 127.0 180)
@@ -4668,7 +4668,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "be25f981-ceb1-4872-8459-ca7315fabc64")
+		(uuid "c09ec5a4-1abf-467d-83b8-27fc66bff6a0")
 	)
 	(symbol
 		(lib_id "Device:R")
@@ -4678,7 +4678,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "2953ea29-28ca-4491-b8e2-1d8adf681c63")
+		(uuid "fe184801-4906-4db6-aa54-adf400f337f7")
 		(property "Reference" "R41"
 			(at 146.05 122.428 90)
 			(effects
@@ -4741,34 +4741,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "a0391350-3373-45ea-b16e-23311cf031d4")
+			(uuid "f4d8fb80-0056-47c6-b79a-63a0f9c274b3")
 		)
 		(pin "2"
-			(uuid "e469a89d-d801-4203-ad17-d20074e4d2a1")
+			(uuid "5787602b-5326-4acd-865b-7431045fe8dd")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "R41")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "R42")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "R43")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "R44")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "R45")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "R46")
 				(unit 1)
 			)
@@ -4783,7 +4783,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "d10e1e4a-e300-4a6a-b6c0-b517d6683788")
+		(uuid "4b7c2922-04d1-434e-8fbd-a9e53ef961af")
 		(property "Reference" "Q4"
 			(at 185.42 125.73 0)
 			(effects
@@ -4793,7 +4793,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "AO3400A"
+		(property "Value" "SI2308A"
 			(at 185.42 129.286 0)
 			(effects
 				(font
@@ -4811,7 +4811,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.aosmd.com/res/datasheets/AO3400A.pdf"
+		(property "Datasheet" "https://www.lcsc.com/product-detail/C347491.html"
 			(at 177.8 127.0 0)
 			(effects
 				(font
@@ -4820,7 +4820,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer" "Alpha & Omega"
+		(property "Manufacturer" "UMW"
 			(at 177.8 127.0 0)
 			(effects
 				(font
@@ -4829,7 +4829,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "AO3400A"
+		(property "MPN" "SI2308A"
 			(at 177.8 127.0 0)
 			(effects
 				(font
@@ -4838,7 +4838,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C20917"
+		(property "LCSC" "C347491"
 			(at 177.8 127.0 0)
 			(effects
 				(font
@@ -4848,37 +4848,37 @@
 			)
 		)
 		(pin "1"
-			(uuid "9ac3d3eb-a754-442a-ac5e-6a41ce7098cc")
+			(uuid "a679f580-a1ae-4090-b174-dc5fe122bd73")
 		)
 		(pin "2"
-			(uuid "7bfd7df6-34c6-4dfa-8272-0ec609f25feb")
+			(uuid "67e8e061-5d6e-4cc0-ab88-628bedcf70fc")
 		)
 		(pin "3"
-			(uuid "406a704f-d2ec-4f4e-973e-549f764b6093")
+			(uuid "1aa1871b-bf48-49ae-94d8-45fcf0493c71")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "Q4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "Q5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "Q6")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "Q7")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "Q8")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "Q9")
 				(unit 1)
 			)
@@ -4893,7 +4893,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "e1f2fb17-b99c-4c24-b82b-1b4cde0771a6")
+		(uuid "08757583-82a0-4be3-a00a-6d5a980fe582")
 	)
 	(symbol
 		(lib_id "TinyFan2350:D_Zener")
@@ -4903,7 +4903,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "7cee54bd-47da-4c6f-a500-aa55e1ee3afc")
+		(uuid "6543d49d-4157-452f-b312-7339e22261ec")
 		(property "Reference" "D13"
 			(at 163.83 134.62 90)
 			(effects
@@ -4968,34 +4968,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "0fd86888-e84b-42c2-a990-9c86a43fc3fb")
+			(uuid "65cf6612-2d08-47e2-a024-127dc9143491")
 		)
 		(pin "2"
-			(uuid "a8bec190-3640-4a50-b3ee-9120978ecac5")
+			(uuid "9ac925fa-e3c6-4234-8454-a0c2f1a381fb")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "D13")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "D14")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "D15")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "D16")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "D17")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "D18")
 				(unit 1)
 			)
@@ -5010,7 +5010,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "bb170c04-26a1-4700-98f1-0ca91d01ba9e")
+		(uuid "17c8a93f-c7dd-4c22-8c97-6b470762c9aa")
 		(property "Reference" "#PWR3009"
 			(at 160.02 143.2 0)
 			(effects
@@ -5047,31 +5047,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "a97caf31-81b0-4210-b72a-4e21046be440")
+			(uuid "bfc4b2e0-f9b2-4f0d-aed4-0959288e7556")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3009")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3109")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3209")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3309")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3409")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3509")
 				(unit 1)
 			)
@@ -5086,7 +5086,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b58320b5-b45d-4e15-a50c-625ba0406d64")
+		(uuid "55f48c05-7b1a-4c1c-932d-79922245b4fe")
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
@@ -5096,7 +5096,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "8a030e20-eafc-4737-b7a6-d5d7591bf0b9")
+		(uuid "4753de93-c83a-4d6c-b55e-707936e762a6")
 		(property "Reference" "JM1"
 			(at 238.76 135.382 0)
 			(effects
@@ -5160,37 +5160,37 @@
 			)
 		)
 		(pin "1"
-			(uuid "3dc5c8bd-7fe7-44df-afd5-9adc6d0f5443")
+			(uuid "811c55a6-6444-4300-9cc5-34be1208b06c")
 		)
 		(pin "2"
-			(uuid "d789b619-1591-4bfb-b7a5-b8be48af141a")
+			(uuid "7ccdce0b-58f3-4b0e-b331-8c9b2ccd6d04")
 		)
 		(pin "3"
-			(uuid "dd6aa878-7423-4118-b11c-364d5c717bc8")
+			(uuid "b8223af4-0427-42bb-b390-ce20ec4d248c")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "JM1")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "JM2")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "JM3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "JM4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "JM5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "JM6")
 				(unit 1)
 			)
@@ -5205,11 +5205,11 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "537645c5-f0be-4060-ac90-1ffe305c7531")
+		(uuid "de738649-907f-46b5-b061-ce0470baf9c9")
 	)
 	(no_connect
 		(at 238.76 139.7)
-		(uuid "8160fa01-4d75-4fcb-8169-6bf3f22a5221")
+		(uuid "ffb77ed7-978c-48bd-8476-7595efa45bba")
 	)
 	(label "FAN_GND"
 		(at 233.68 142.24 180)
@@ -5219,7 +5219,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "8652302a-7fbc-46dd-91ee-56326483defc")
+		(uuid "d06cc994-506a-47ad-974c-aca1096c0a6a")
 	)
 	(symbol
 		(lib_id "Device:Fuse")
@@ -5229,7 +5229,7 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "3efbbd55-dba7-4b36-bad2-6b94eae02217")
+		(uuid "29063f36-2641-4f25-9ae4-60a68e6bc787")
 		(property "Reference" "F3"
 			(at 201.93 147.828 0)
 			(effects
@@ -5239,7 +5239,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "PTC 1.6A 30V"
+		(property "Value" "PTC 1.5A 33V"
 			(at 201.93 151.384 0)
 			(effects
 				(font
@@ -5275,7 +5275,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "1812L160/30GR"
+		(property "MPN" "1812L150/33GR"
 			(at 198.12 148.59 0)
 			(effects
 				(font
@@ -5284,7 +5284,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C18198337"
+		(property "LCSC" "C18198333"
 			(at 198.12 148.59 0)
 			(effects
 				(font
@@ -5294,34 +5294,34 @@
 			)
 		)
 		(pin "1"
-			(uuid "009f53c7-2400-47c2-b30e-2f98ff4e3e78")
+			(uuid "c33dda85-21f2-4f34-893a-122294698bb7")
 		)
 		(pin "2"
-			(uuid "97996b7b-7a54-42d2-9f1f-fe157bface27")
+			(uuid "2122e2db-4afe-40db-9aed-3442b43f4f74")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "F3")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "F4")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "F5")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "F6")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "F7")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "F8")
 				(unit 1)
 			)
@@ -5336,7 +5336,7 @@
 		(in_bom no)
 		(on_board no)
 		(dnp no)
-		(uuid "88c7e7a8-6d4e-40ac-86c4-fdc701e2f2ee")
+		(uuid "86912a97-06d0-4241-92f0-061708f5f00a")
 		(property "Reference" "#PWR3010"
 			(at 198.12 155.9 0)
 			(effects
@@ -5373,38 +5373,38 @@
 			)
 		)
 		(pin "1"
-			(uuid "9a012bc9-abd1-4a46-9dd3-935b8e3da74b")
+			(uuid "18ca0d8b-77cb-4d70-9d72-49b40a14f878")
 		)
 		(instances
 			(project "TinyFan2350"
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/ae265b53-1995-4bf9-a7c4-45cfe691a4b3"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/a358ba21-e2ef-489f-8ff7-4573ab3dc4e6"
 				(reference "#PWR3010")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/9ef4aa76-ffb0-40b1-a119-95772c4dd84d"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/c0a2c24a-86f7-42c6-80c7-3be49c228954"
 				(reference "#PWR3110")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/714e68d5-b0fb-45aa-9903-a13c100d8e53"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/89c40886-25af-4d16-81c0-fc3be1f1d0f3"
 				(reference "#PWR3210")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/92eb7285-60b3-498f-a256-a918f0588696"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/5fcca1a5-4a8c-4dcc-84c6-a4c62b46c1e6"
 				(reference "#PWR3310")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/3b3cf975-1493-4c2c-8302-4e2ce2ff1616"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6540c250-45d3-4dea-914a-168166631934"
 				(reference "#PWR3410")
 				(unit 1)
 			)
-			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/6f357e58-1306-4fe5-9872-a23c25b2c2eb"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/42e72f00-4c3b-497b-95f8-dad04140e7fd"
 				(reference "#PWR3510")
 				(unit 1)
 			)
 			)
 		)
 	)
-	(text "JM 2-3 (bottom pair): 4-pin fan, fan GND goes straight to the PTC."
+	(text "Jumper JM on 2-3 (bottom pair): 4-pin PWM fan. Fan GND goes straight to the fuse."
 		(exclude_from_sim no)
 		(at 208.28 154.94 0)
 		(effects
@@ -5413,9 +5413,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "f719b8d1-9980-4e7f-9595-63a36be57d10")
+		(uuid "cca993b3-d544-4b2c-a61b-d830a5b4f337")
 	)
-	(text "JM 1-2 (top pair): 2/3-pin fan, the MOSFET switches fan GND (100 Hz)."
+	(text "Jumper JM on 1-2 (top pair): 2/3-pin fan. Q turns the fan GND on and off (100 Hz)."
 		(exclude_from_sim no)
 		(at 208.28 159.004 0)
 		(effects
@@ -5424,9 +5424,9 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "32c5b30d-9008-400a-9e40-e9cc57437e0a")
+		(uuid "1e5d3765-f7e3-4838-9ca5-3bc6a75001af")
 	)
-	(text "Per channel  k = 1..6:  FANk  JPk  JMk  Q(9+k) 2N7002  Q(3+k) AO3400A  R(20+k) 4.7k  R(40+k) 22k  R(32+k) 10k  LDk  D(k) BAT54S  D(6+k) B5819W  D(12+k) zener  F(2+k) PTC"
+	(text "Per channel  k = 1..6:  FANk  JPk  JMk  Q(9+k) 2N7002  Q(3+k) SI2308A  R(20+k) 4.7k  R(40+k) 22k  R(32+k) 10k  LDk  D(k) BAT54S  D(6+k) B5819W  D(12+k) zener  F(2+k) PTC"
 		(exclude_from_sim no)
 		(at 15.24 171.45 0)
 		(effects
@@ -5435,7 +5435,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5af8abf2-d895-480e-ae51-7e6994d813ea")
+		(uuid "5b23f377-184f-47cf-ae08-3be5b99797d7")
 	)
 	(text "Pull-ups R47-R64: FAN1/2 -> R47-R52, FAN3/4 -> R53-R58, FAN5/6 -> R59-R64 (PWM 3V3 / PWM 5V / TACH, odd fan first)."
 		(exclude_from_sim no)
@@ -5446,7 +5446,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "64df79d6-753b-43c5-bf88-af30da05abfc")
+		(uuid "ffdbf275-59c9-4e82-907c-a0a97bb4dec2")
 	)
 	(wire
 		(pts
@@ -5456,7 +5456,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "427c9486-7ce2-4326-a72c-aa1ac4959d85")
+		(uuid "a918db07-2d80-4e5e-af53-d317e8e9da30")
 	)
 	(wire
 		(pts
@@ -5466,7 +5466,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "dd92cce7-33c2-44e8-b962-3c1128a9bf62")
+		(uuid "a8f28d89-8d92-4a7c-b001-6f3684ed94f1")
 	)
 	(wire
 		(pts
@@ -5476,7 +5476,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e66ad2d7-45a0-48dd-bc47-d826a473236d")
+		(uuid "d464f14c-bbcb-4c75-8d6d-764222bb2643")
 	)
 	(wire
 		(pts
@@ -5486,7 +5486,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e19894a2-abe0-43b9-8b75-a35d64573b2c")
+		(uuid "e189609b-0b0e-4bbc-8d25-777884fbfa82")
 	)
 	(wire
 		(pts
@@ -5496,7 +5496,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a73aeaf3-70e9-4349-9e9e-f74b560d6a0b")
+		(uuid "7512d0ab-16f3-4064-8caa-a0ee7ab91e58")
 	)
 	(wire
 		(pts
@@ -5506,7 +5506,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "10c90418-b83a-435c-bf5b-80ede335fd23")
+		(uuid "90a45638-44ff-40f8-a5a2-ad58dfcdc79c")
 	)
 	(wire
 		(pts
@@ -5516,7 +5516,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "136202b2-6b54-4b55-b2f2-dc88644786d8")
+		(uuid "e9f9e8c3-bf2e-43df-981b-b774999d975c")
 	)
 	(wire
 		(pts
@@ -5526,7 +5526,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "247e8333-620c-4a5d-91e4-7269da0cc088")
+		(uuid "90025d54-4920-45a0-8e7c-04f61a986ed5")
 	)
 	(wire
 		(pts
@@ -5536,7 +5536,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c72c4cfd-4ea0-4dd6-b1ae-5bd6021e2943")
+		(uuid "0b2e14fa-6ad7-452a-8b75-80e390d5b0dd")
 	)
 	(wire
 		(pts
@@ -5546,7 +5546,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3288e798-dc8c-4cdb-bfef-5317ec217209")
+		(uuid "5b96bd09-e551-4b8d-9b49-f528ac9344a1")
 	)
 	(wire
 		(pts
@@ -5556,7 +5556,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bb1360d7-1d8e-4d66-bbb6-3b1789775eef")
+		(uuid "04348560-10da-4d89-8590-b94f10091383")
 	)
 	(wire
 		(pts
@@ -5566,7 +5566,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6f574948-7cd7-4c8e-8d79-c94f424a4168")
+		(uuid "32eca2e9-6a43-46c0-ba57-1391043a5cec")
 	)
 	(wire
 		(pts
@@ -5576,7 +5576,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9436059a-ac17-455e-a9a3-c2b1b63dc096")
+		(uuid "58f8ea1b-cfc1-4367-b6ce-938c1cc8cb25")
 	)
 	(wire
 		(pts
@@ -5586,7 +5586,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "224c0238-2a02-4a7c-a0c3-0cb51da5fa22")
+		(uuid "d7fc41b9-3c2e-45ae-8221-95af08175322")
 	)
 	(wire
 		(pts
@@ -5596,7 +5596,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9d3e6937-3ba3-49d7-a8ec-30a263477901")
+		(uuid "eab7381d-ba1b-47e5-becc-0c576977e96f")
 	)
 	(wire
 		(pts
@@ -5606,7 +5606,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8843d864-a9d8-4d66-9877-fefffa4e46be")
+		(uuid "fc402703-83e0-42d4-9535-2f46b53bc4e0")
 	)
 	(wire
 		(pts
@@ -5616,7 +5616,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9fd45c3d-623f-422c-bb36-0aaa7f1ba1ea")
+		(uuid "de99ff52-8df5-4e85-a7ae-713a2e50dda2")
 	)
 	(wire
 		(pts
@@ -5626,7 +5626,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b9424cf-72b3-4071-b5e6-deacb7a2524d")
+		(uuid "8e94400d-4f2b-44b7-8483-7c117f178dcc")
 	)
 	(wire
 		(pts
@@ -5636,7 +5636,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f80fe2df-9451-4873-a4e2-7fb3eb99c2a4")
+		(uuid "766d52de-dfce-4433-bc59-c331e9925aaa")
 	)
 	(wire
 		(pts
@@ -5646,7 +5646,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a478a239-67cb-4be7-b081-710706d5d529")
+		(uuid "a0b4d1b7-0da6-4995-81b4-d6691bb9d27e")
 	)
 	(wire
 		(pts
@@ -5656,7 +5656,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "431305b6-881c-47b8-b76d-5ebe1c7b0331")
+		(uuid "7e1182d8-3f31-4d29-aabe-679f832b5860")
 	)
 	(wire
 		(pts
@@ -5666,7 +5666,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b66913d7-32c2-4083-9191-d9ddee440b46")
+		(uuid "9f81ec8c-9a20-4493-980f-9a796d95126c")
 	)
 	(wire
 		(pts
@@ -5676,7 +5676,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3132c363-03f9-474e-b2dc-5442b0f0c1ac")
+		(uuid "10d1a7dc-4ab0-4e70-9571-1e49b2ce1f41")
 	)
 	(wire
 		(pts
@@ -5686,7 +5686,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "57df2f76-6d87-44ef-886e-5bb58cd0a9f8")
+		(uuid "3ede39e6-0dbe-4804-a8f6-ab9c7ef06519")
 	)
 	(wire
 		(pts
@@ -5696,7 +5696,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "3ba6a06b-e1ed-4869-b189-059d41c91a15")
+		(uuid "b9c6ef7b-3acc-4fbe-ade5-cc56be8e9498")
 	)
 	(wire
 		(pts
@@ -5706,7 +5706,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "be7c33cf-97ea-46ce-b6da-e84afd35e795")
+		(uuid "9886c17a-9faa-4560-8362-e1394a4937a1")
 	)
 	(wire
 		(pts
@@ -5716,7 +5716,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "db8fb9db-4db0-4247-a858-2453810a89f3")
+		(uuid "3fd978e7-97f3-4080-97bc-bf11b8183207")
 	)
 	(wire
 		(pts
@@ -5726,7 +5726,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "35793879-4313-432b-8112-130cd7e410ea")
+		(uuid "5b64f51a-9109-4895-819c-896bf50d838e")
 	)
 	(wire
 		(pts
@@ -5736,7 +5736,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b9689a28-b9cb-43b6-8966-2737cb5e099d")
+		(uuid "03f3af52-6cca-4378-aac9-fa6ae550be34")
 	)
 	(wire
 		(pts
@@ -5746,7 +5746,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6107148c-2dee-4eda-8bb8-dafda0534b01")
+		(uuid "7f50eae3-da8c-45ae-9de5-8420470c2f7c")
 	)
 	(wire
 		(pts
@@ -5756,7 +5756,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "10d7d3fd-cb87-4fa8-97b1-46b1d028524d")
+		(uuid "7defc01c-881c-47ce-9e56-d4d3451597b1")
 	)
 	(wire
 		(pts
@@ -5766,7 +5766,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1ef8550d-04cf-4b2c-8ea0-9c8ef9d6f19c")
+		(uuid "93439087-8530-47c4-9cbe-c660465e7a1b")
 	)
 	(wire
 		(pts
@@ -5776,7 +5776,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4cbbe647-add5-414b-87c1-46e4d0ff9ee2")
+		(uuid "f7f6c506-4086-4ae1-a6fe-321052301ab1")
 	)
 	(wire
 		(pts
@@ -5786,7 +5786,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8e3c7a23-dc09-46c7-a99e-768ebafec700")
+		(uuid "358834b6-23c3-4707-962d-7cbd49473acd")
 	)
 	(wire
 		(pts
@@ -5796,7 +5796,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "f008e997-b624-4700-8f4e-ad4c4c86a61a")
+		(uuid "172b73a4-f06b-4944-b761-4e589eae4579")
 	)
 	(wire
 		(pts
@@ -5806,7 +5806,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "a75b99f3-3a27-47d7-81c5-099e227cf459")
+		(uuid "f83b858a-0f90-48ed-a17b-b4352b89685b")
 	)
 	(wire
 		(pts
@@ -5816,7 +5816,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "309dc29d-0ab4-49b0-bfcb-bd6b408fc56b")
+		(uuid "56bf64b1-0bc3-497c-8ecf-2f3bfa18caba")
 	)
 	(wire
 		(pts
@@ -5826,7 +5826,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "81a711d2-40be-4793-bd51-8ad43e174dac")
+		(uuid "bfb90b9a-1d67-49c0-9f22-09c87590989b")
 	)
 	(wire
 		(pts
@@ -5836,7 +5836,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b16048e8-5598-4a4d-8fe4-b7bad5582cae")
+		(uuid "65c6e2a8-6e54-47e1-b2eb-d7782a8a6e3b")
 	)
 	(wire
 		(pts
@@ -5846,7 +5846,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b39bcfc6-812d-44f0-aa18-b1d2b04a4eb6")
+		(uuid "40537ff1-e338-448b-9f22-13dd0f6346e8")
 	)
 	(wire
 		(pts
@@ -5856,61 +5856,61 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1a1c4612-98fc-402e-b1c7-933afb92e2e7")
+		(uuid "a67a4dbd-397e-4e05-ad78-7d68584b8621")
 	)
 	(junction
 		(at 45.72 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a12d2cbf-58e2-49f5-9856-ed163c867bea")
+		(uuid "ba8e1b7e-074f-4211-a775-5b8cb3dd2c1b")
 	)
 	(junction
 		(at 86.36 60.96)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "a50b8000-a139-467a-88eb-4847ce7ddda8")
+		(uuid "5544684b-52e3-4f56-8873-d2a8c2d00e5b")
 	)
 	(junction
 		(at 86.36 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c87b690e-4136-4ea2-a756-01df5b5ae7fa")
+		(uuid "f2c624cc-0beb-45ff-8984-1ccef4e47287")
 	)
 	(junction
 		(at 45.72 96.52)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "c89c451d-3702-4075-b829-ee16747badf7")
+		(uuid "cd953cc4-c74f-4bef-8bb5-9011bc96cb62")
 	)
 	(junction
 		(at 238.76 78.74)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "294f83fe-45fd-4574-aeae-9dbc67daeb93")
+		(uuid "6e15ce04-4520-4abd-b4d1-019cf6087c35")
 	)
 	(junction
 		(at 160.02 127.0)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "6e12619f-4273-433f-9656-2390807a4b89")
+		(uuid "6e305be3-4302-4463-b1cc-1a6f81ffc9e3")
 	)
 	(junction
 		(at 165.1 127.0)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d9327815-5fef-44cf-a522-76addde1a265")
+		(uuid "7e7445fd-5580-4ea7-9c08-b0763e1a1c5b")
 	)
 	(junction
 		(at 198.12 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "5dec6627-ad0a-4ab5-aa52-dc11967baab2")
+		(uuid "9b2da8b2-b7ba-409c-9e72-a28f5aa8b245")
 	)
 	(junction
 		(at 218.44 144.78)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "958805d9-09b2-4f1e-b220-4e4eb16a89ee")
+		(uuid "6d7c53c8-0480-4e0d-9415-3bac7ad52ccc")
 	)
 	(embedded_fonts no)
 )
