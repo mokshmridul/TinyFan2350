@@ -22,7 +22,7 @@
       (rectangle (start -12.7 12.7) (end 12.7 -12.7) (stroke (width 0.254) (type default) (color 0 0 0 0)) (fill (type background)))
     )
     (symbol "RP2350-Zero_1_1"
-      (pin passive line (at -15.24 10.16 0) (length 2.54)
+      (pin power_out line (at -15.24 10.16 0) (length 2.54)
         (name "5V" (effects (font (size 1.27 1.27))))
         (number "32" (effects (font (size 1.27 1.27))))
       )
@@ -2559,7 +2559,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ff2a969a-161d-4673-85f0-2816e60fda79")
+		(uuid "fe81fed3-01a1-40a5-85cf-95cfcbdbcc18")
 	)
 	(text "VIN 12-24V and 5V come in on the Power sheet as global rails (VIN, +5V); the RP2350-Zero makes +3V3. Each fan channel sheet is used six times."
 		(exclude_from_sim no)
@@ -2570,7 +2570,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5341d6b0-18c9-4c08-9ed8-b8d47b55c909")
+		(uuid "527bbe1b-81d4-4cf2-a9a5-db93bd2b5af5")
 	)
 	(sheet
 		(at 20.32 30.48)
@@ -2587,7 +2587,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "63e3e586-a550-48b9-8aa4-8a39a1752ec8")
+		(uuid "4c859cd1-9545-4e1e-ba97-7f306182396c")
 		(property "Sheetname" "Power"
 			(at 20.32 29.78 0)
 			(effects
@@ -2624,7 +2624,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "39181fd0-717e-47ed-bdfa-e4758e28862b")
+		(uuid "af1cde59-27b5-4038-acf5-ea1700f53280")
 	)
 	(sheet
 		(at 20.32 81.28)
@@ -2641,7 +2641,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "5321a153-bfd8-47b0-a32c-55b7a0c3bb73")
+		(uuid "424af881-17ff-4b75-b116-ace34f6bdf13")
 		(property "Sheetname" "MCU"
 			(at 20.32 80.58 0)
 			(effects
@@ -2663,7 +2663,7 @@
 		)
 		(pin "FAN1_PWM" output
 			(at 66.04 86.36 0)
-			(uuid "afcbfa10-bdce-488d-9000-f55d6f8d9e91")
+			(uuid "80e9cb6f-4655-4627-b65e-dc4c849fd6b4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2673,7 +2673,7 @@
 		)
 		(pin "FAN1_TACH_IO" bidirectional
 			(at 66.04 88.9 0)
-			(uuid "db69e382-0398-42a5-ad2c-d87bcb9da252")
+			(uuid "5719396d-e6db-4092-b4a6-34ffd8bae5ff")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2683,7 +2683,7 @@
 		)
 		(pin "FAN2_PWM" output
 			(at 66.04 91.44 0)
-			(uuid "eec5502c-3fea-40f6-92c6-9722e0c9a972")
+			(uuid "0f4b8876-6111-4f81-a519-8c1921db8420")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2693,7 +2693,7 @@
 		)
 		(pin "FAN2_TACH_IO" bidirectional
 			(at 66.04 93.98 0)
-			(uuid "2fc2905d-64b6-427d-b806-0ed4b9d6a06b")
+			(uuid "bf97d448-24b7-40a9-be12-2357dea238b4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2703,7 +2703,7 @@
 		)
 		(pin "FAN3_PWM" output
 			(at 66.04 96.52 0)
-			(uuid "31b34b37-4dcb-4bcc-847f-7b251eaabe16")
+			(uuid "e433ac9a-0e39-43a5-bf81-2cf057d719e9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2713,7 +2713,7 @@
 		)
 		(pin "FAN3_TACH_IO" bidirectional
 			(at 66.04 99.06 0)
-			(uuid "a046ec45-a3e6-4b59-b038-29515b3f6f05")
+			(uuid "827c1b40-6d98-4c44-9daa-b9bdb4889ae5")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2723,7 +2723,7 @@
 		)
 		(pin "FAN4_PWM" output
 			(at 66.04 101.6 0)
-			(uuid "1d2864a0-01a8-4d32-b3f5-a36d122a7554")
+			(uuid "19529aa6-1ae3-414e-a725-a1022e8637cd")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2733,7 +2733,7 @@
 		)
 		(pin "FAN4_TACH_IO" bidirectional
 			(at 66.04 104.14 0)
-			(uuid "d75382c6-ced1-4960-9a91-83fc554cb9e2")
+			(uuid "788af539-8723-4c1b-8850-46d2187c71ae")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2743,7 +2743,7 @@
 		)
 		(pin "FAN5_PWM" output
 			(at 66.04 106.68 0)
-			(uuid "fdd41a40-2bb8-4f61-b9bb-6e04859499af")
+			(uuid "353196c4-da0e-4263-92c6-ded2073d4af3")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2753,7 +2753,7 @@
 		)
 		(pin "FAN5_TACH_IO" bidirectional
 			(at 66.04 109.22 0)
-			(uuid "deede5f5-9d17-4570-bf10-be101ff70dac")
+			(uuid "3c39bddb-2c7e-4475-9ec4-d5a5bc70a12b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2763,7 +2763,7 @@
 		)
 		(pin "FAN6_PWM" output
 			(at 66.04 111.76 0)
-			(uuid "4b5db748-3797-4949-8f58-8f8954384087")
+			(uuid "3b09ccb0-a08d-49ca-8ff6-ce1a7d86195d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2773,7 +2773,7 @@
 		)
 		(pin "FAN6_TACH_IO" bidirectional
 			(at 66.04 114.3 0)
-			(uuid "e899194b-b73d-49af-bda7-04dd9a65c7a4")
+			(uuid "d355f607-04d8-4f13-90da-edd0e85f9b48")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2783,7 +2783,7 @@
 		)
 		(pin "LED1_DIN" output
 			(at 66.04 116.84 0)
-			(uuid "738185b7-d07d-42a4-844a-0bc18c67cfc2")
+			(uuid "28407542-374f-49da-9af8-968498668cd7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2793,7 +2793,7 @@
 		)
 		(pin "LED2_DIN" output
 			(at 66.04 119.38 0)
-			(uuid "6dc8aa74-2117-4c60-bc79-976de9f23680")
+			(uuid "c365ba76-94f4-46e9-8f58-440d17713955")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2803,7 +2803,7 @@
 		)
 		(pin "TH1" input
 			(at 66.04 121.92 0)
-			(uuid "cd5dd2da-c048-4048-a9e8-d7802ddb4772")
+			(uuid "6e7c3baf-a9d9-4b3f-a2eb-50e1c6cabcae")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2813,7 +2813,7 @@
 		)
 		(pin "TH2" input
 			(at 66.04 124.46 0)
-			(uuid "0fe16f60-cc19-4a96-815b-0d7f05c345b6")
+			(uuid "829d6090-79f2-406b-8d31-70af4d492462")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2823,7 +2823,7 @@
 		)
 		(pin "TH3" input
 			(at 66.04 127.0 0)
-			(uuid "72124a22-9c7f-440c-9f2f-60b9e93700e3")
+			(uuid "04da9b97-547e-47fa-9bb1-acca5e4b14db")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2833,7 +2833,7 @@
 		)
 		(pin "TH4" input
 			(at 66.04 129.54 0)
-			(uuid "f9f60230-95ef-4c7c-9f20-cc0224484f78")
+			(uuid "2286a028-63b0-484b-8536-0f0d999fc493")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2857,7 +2857,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c31d0e03-22e2-445f-95c0-548f2ca6b628")
+		(uuid "abf3648e-1d81-4271-a9d3-d4708dcab2f9")
 	)
 	(label "FAN1_TACH_IO"
 		(at 81.28 88.9 0)
@@ -2867,7 +2867,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "135d28a9-5a15-4d1d-9618-27d27ca62dd6")
+		(uuid "4cd64ba0-8918-47a1-9ffa-55b718977e8f")
 	)
 	(label "FAN2_PWM"
 		(at 81.28 91.44 0)
@@ -2877,7 +2877,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "ef9a081b-32e2-4ddf-8e1f-2e63149dff66")
+		(uuid "e7ede344-1e08-4ddf-a808-43ba10812d42")
 	)
 	(label "FAN2_TACH_IO"
 		(at 81.28 93.98 0)
@@ -2887,7 +2887,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "b3e33379-3745-47c5-bd6a-80d12949bc94")
+		(uuid "0f39a067-76a5-4ae2-ba90-36ecfc39a050")
 	)
 	(label "FAN3_PWM"
 		(at 81.28 96.52 0)
@@ -2897,7 +2897,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6c73792a-0934-45d8-b4a3-594c2dae4790")
+		(uuid "7777f7fa-2a34-4aa0-9589-960a39790d4c")
 	)
 	(label "FAN3_TACH_IO"
 		(at 81.28 99.06 0)
@@ -2907,7 +2907,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c39dbd65-1faa-44b0-9a8b-9dfac19252fd")
+		(uuid "cffaa427-d64d-4f82-8eef-46017aa24ff0")
 	)
 	(label "FAN4_PWM"
 		(at 81.28 101.6 0)
@@ -2917,7 +2917,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "603b4e0a-2d87-4cf6-984e-d41bf464c5bc")
+		(uuid "7944eb26-4c80-4f8b-bfce-728c7211dcbb")
 	)
 	(label "FAN4_TACH_IO"
 		(at 81.28 104.14 0)
@@ -2927,7 +2927,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "47cc4b28-23b9-484c-8dd9-e9d67d239e9b")
+		(uuid "6b8e1e95-4843-4c21-9294-49316e6840b7")
 	)
 	(label "FAN5_PWM"
 		(at 81.28 106.68 0)
@@ -2937,7 +2937,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "0628181c-f0db-42f9-acce-ac0eed7cf3c1")
+		(uuid "fd74dc18-62f1-4b20-8a57-8791b4d2d401")
 	)
 	(label "FAN5_TACH_IO"
 		(at 81.28 109.22 0)
@@ -2947,7 +2947,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "3fb72658-79af-40c3-83f7-9f270b6d8ff0")
+		(uuid "83d803d8-1875-4a46-8d5c-eb02df26c41e")
 	)
 	(label "FAN6_PWM"
 		(at 81.28 111.76 0)
@@ -2957,7 +2957,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5c822f47-c88c-4dbf-9d05-45f6302603f0")
+		(uuid "3609b46a-8a31-4ab2-912e-bbc9cbae623d")
 	)
 	(label "FAN6_TACH_IO"
 		(at 81.28 114.3 0)
@@ -2967,7 +2967,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6634436f-7ada-47e5-abb7-a14b30ee4d90")
+		(uuid "65c7e973-2eac-4c20-b5ec-b68673f208fa")
 	)
 	(label "LED1_DIN"
 		(at 81.28 116.84 0)
@@ -2977,7 +2977,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "38d15e3c-684f-4d39-9561-d0c6a8ceef78")
+		(uuid "b78492a1-8dd8-44f8-9afe-238b13e2c080")
 	)
 	(label "LED2_DIN"
 		(at 81.28 119.38 0)
@@ -2987,7 +2987,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "c68926cf-50e6-423e-89de-e049edc1f7aa")
+		(uuid "87b69c56-963c-461c-93a8-3cb43c50379c")
 	)
 	(label "TH1"
 		(at 81.28 121.92 0)
@@ -2997,7 +2997,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5fe79f54-5e19-4c63-8ad6-0705a26f6b83")
+		(uuid "da55824d-95ba-48cd-8de9-f98e3d0483ae")
 	)
 	(label "TH2"
 		(at 81.28 124.46 0)
@@ -3007,7 +3007,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "7cd8169c-dc4d-4672-86c5-9c2c07ee73e2")
+		(uuid "83ef1e7e-50a9-4d62-a8fc-03309210a557")
 	)
 	(label "TH3"
 		(at 81.28 127.0 0)
@@ -3017,7 +3017,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "9605b1f3-2cc9-437a-823b-7bd4a560f1e2")
+		(uuid "24a8ae35-0d78-4f38-b525-24a6bbefd8af")
 	)
 	(label "TH4"
 		(at 81.28 129.54 0)
@@ -3027,7 +3027,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "5d15b046-6eb3-4d37-b1ea-218c86f1efda")
+		(uuid "9b13a3b7-98ad-4b93-b8f0-e8df2627fceb")
 	)
 	(sheet
 		(at 132.08 30.48)
@@ -3044,7 +3044,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "fe805187-a47c-4d67-9ae6-692420aad7bb")
+		(uuid "ae265b53-1995-4bf9-a7c4-45cfe691a4b3")
 		(property "Sheetname" "FAN1"
 			(at 132.08 29.78 0)
 			(effects
@@ -3066,7 +3066,7 @@
 		)
 		(pin "PWM" input
 			(at 132.08 38.1 180)
-			(uuid "1c0c9989-0ab0-4e35-937e-d00b6d43fb02")
+			(uuid "75dec0c8-640f-4890-89d3-69471f2aa59f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3076,7 +3076,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 132.08 43.18 180)
-			(uuid "292fb9d9-39fd-459f-ae91-48cf1aa33070")
+			(uuid "398f674b-6764-434f-a59e-58ab963a4265")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3100,7 +3100,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "fdd1c6e9-0ecd-4046-9296-38e0509efba9")
+		(uuid "28839183-fa09-4988-9adc-fd6c5c8d9147")
 	)
 	(label "FAN1_TACH_IO"
 		(at 121.92 43.18 180)
@@ -3110,7 +3110,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "21c2ad09-bfa2-48fb-bc9f-2c5337692ed7")
+		(uuid "ce33f790-fd17-4b6a-a776-6c4e73cfb26f")
 	)
 	(sheet
 		(at 132.08 63.5)
@@ -3127,7 +3127,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "456b8fec-2a27-4914-9c1c-4e118264681b")
+		(uuid "9ef4aa76-ffb0-40b1-a119-95772c4dd84d")
 		(property "Sheetname" "FAN2"
 			(at 132.08 62.8 0)
 			(effects
@@ -3149,7 +3149,7 @@
 		)
 		(pin "PWM" input
 			(at 132.08 71.12 180)
-			(uuid "3522035b-666d-4f32-b692-1706620f1b92")
+			(uuid "0fd35a98-2c37-4f25-b881-0a3463df43a4")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3159,7 +3159,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 132.08 76.2 180)
-			(uuid "e3821a96-e0ce-4265-a92e-e20bcbb7a50c")
+			(uuid "31eed9dc-f27d-4202-8a77-247c226b8e73")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3183,7 +3183,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e226ec43-b7c7-4528-8d1b-03d2289087f3")
+		(uuid "3807dd2c-b9aa-40ea-acb3-12f56d2282f9")
 	)
 	(label "FAN2_TACH_IO"
 		(at 121.92 76.2 180)
@@ -3193,7 +3193,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "a2f98bd1-3ddc-4411-9c2f-2d027e434ebb")
+		(uuid "4fbb2b09-ea01-478d-9a72-9f2861360ace")
 	)
 	(sheet
 		(at 132.08 96.52)
@@ -3210,7 +3210,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "28d6c439-fe84-4ec4-9a1b-cc2f176f87ec")
+		(uuid "714e68d5-b0fb-45aa-9903-a13c100d8e53")
 		(property "Sheetname" "FAN3"
 			(at 132.08 95.82 0)
 			(effects
@@ -3232,7 +3232,7 @@
 		)
 		(pin "PWM" input
 			(at 132.08 104.14 180)
-			(uuid "b05457b5-e4c4-44f8-9a1b-761fe60206b3")
+			(uuid "e1dd9c26-226f-40a3-bd29-f9d8de10bec0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3242,7 +3242,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 132.08 109.22 180)
-			(uuid "e8b7294a-77e1-45cd-bc58-0055d2372fd6")
+			(uuid "aee8e25a-5e34-4c5e-9b61-d66869692793")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3266,7 +3266,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0ed1ee1e-cc81-4016-9271-49f17b4250b5")
+		(uuid "e2e58d89-8f3f-4d9e-94ae-9fa86bdf64ff")
 	)
 	(label "FAN3_TACH_IO"
 		(at 121.92 109.22 180)
@@ -3276,7 +3276,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0f05cc57-919e-440e-baae-c94b37ab40fd")
+		(uuid "4b4f9551-365a-413d-af30-1087e724bd81")
 	)
 	(sheet
 		(at 208.28 30.48)
@@ -3293,7 +3293,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "8b269c6f-c4b8-4db5-ab8d-164e810530b5")
+		(uuid "92eb7285-60b3-498f-a256-a918f0588696")
 		(property "Sheetname" "FAN4"
 			(at 208.28 29.78 0)
 			(effects
@@ -3315,7 +3315,7 @@
 		)
 		(pin "PWM" input
 			(at 208.28 38.1 180)
-			(uuid "aea9addd-456c-425c-831a-e195ad6f28a4")
+			(uuid "c28cb4e9-46a5-4636-9684-7ed89e0ec820")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3325,7 +3325,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 208.28 43.18 180)
-			(uuid "542c3102-ec53-482b-8367-fd552579cb59")
+			(uuid "28d7e61a-bd98-4cc4-92c0-9e4d50aa58ff")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3349,7 +3349,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "b3d52633-a296-4048-a438-3b02f49a1e94")
+		(uuid "b0fbf233-66b7-44bb-b20a-03db4af9587d")
 	)
 	(label "FAN4_TACH_IO"
 		(at 198.12 43.18 180)
@@ -3359,7 +3359,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "2192eed2-e276-4117-ae51-1ca21ad8817b")
+		(uuid "659ebf93-8766-421c-b14d-cd85f25d01c1")
 	)
 	(sheet
 		(at 208.28 63.5)
@@ -3376,7 +3376,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "d0b3c293-4d15-4048-be4b-0e426bf8ba0e")
+		(uuid "3b3cf975-1493-4c2c-8302-4e2ce2ff1616")
 		(property "Sheetname" "FAN5"
 			(at 208.28 62.8 0)
 			(effects
@@ -3398,7 +3398,7 @@
 		)
 		(pin "PWM" input
 			(at 208.28 71.12 180)
-			(uuid "e2a82e26-a922-4271-8fd9-bf88b7a8f5dc")
+			(uuid "7c8fc0bd-e92a-4134-878c-b6693044cb5a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3408,7 +3408,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 208.28 76.2 180)
-			(uuid "17a03165-36b8-4265-84da-539501b8f624")
+			(uuid "000f341e-33ae-443d-a721-bde5a3725e8a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3432,7 +3432,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "6e125924-d343-4344-831f-4fe36a57a737")
+		(uuid "96cd1ca8-b5ed-426a-9ad4-56149e863fd1")
 	)
 	(label "FAN5_TACH_IO"
 		(at 198.12 76.2 180)
@@ -3442,7 +3442,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e8d71caf-1a0b-4a7e-9995-a38c27c817ce")
+		(uuid "1c9cc9d4-223a-452d-9dff-3d2b24198d13")
 	)
 	(sheet
 		(at 208.28 96.52)
@@ -3459,7 +3459,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "a175930e-9885-418e-bd63-7b368db56466")
+		(uuid "6f357e58-1306-4fe5-9872-a23c25b2c2eb")
 		(property "Sheetname" "FAN6"
 			(at 208.28 95.82 0)
 			(effects
@@ -3481,7 +3481,7 @@
 		)
 		(pin "PWM" input
 			(at 208.28 104.14 180)
-			(uuid "ed49ca46-e356-4f02-8622-292e73c4db2c")
+			(uuid "79b7b0b8-e947-4bd1-ab15-b3e259ecf596")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3491,7 +3491,7 @@
 		)
 		(pin "TACH" bidirectional
 			(at 208.28 109.22 180)
-			(uuid "799d676e-8140-465d-8786-dc63501da99b")
+			(uuid "5beae22c-bdf7-48d9-91c3-74729132f753")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3515,7 +3515,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "76adad77-5f0d-4645-a69c-1db4381c335e")
+		(uuid "09fbdc6c-2058-4387-bfe2-f544608c64f6")
 	)
 	(label "FAN6_TACH_IO"
 		(at 198.12 109.22 180)
@@ -3525,7 +3525,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "388b55e6-4ac1-4ea6-a35a-a8c664d1445f")
+		(uuid "ab1f9b6a-19c0-45a8-828c-a2b2c6618199")
 	)
 	(sheet
 		(at 132.08 132.08)
@@ -3542,7 +3542,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "ad9402d6-b5f5-431c-959f-438ce5001fe7")
+		(uuid "613d2818-21ec-4d88-9b02-f4e9d2936f82")
 		(property "Sheetname" "LEDs"
 			(at 132.08 131.38 0)
 			(effects
@@ -3564,7 +3564,7 @@
 		)
 		(pin "LED1_DIN" input
 			(at 132.08 139.7 180)
-			(uuid "4cda1d12-59db-4ba6-a9f0-928fdbd9b4ac")
+			(uuid "76135118-828e-49e4-b65c-a8afaa5611cd")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3574,7 +3574,7 @@
 		)
 		(pin "LED2_DIN" input
 			(at 132.08 144.78 180)
-			(uuid "3939da8f-a1ef-426c-a998-a818adba4fa1")
+			(uuid "13a6ac79-49bd-432b-a55b-7bb689cdf4c9")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3598,7 +3598,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "69b79be9-69a3-41c2-938f-07cae95cb164")
+		(uuid "c478d92a-f3d0-49db-ba0b-7c05f90be0a2")
 	)
 	(label "LED2_DIN"
 		(at 119.38 144.78 180)
@@ -3608,7 +3608,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "9ef9528e-0a2e-41e8-b6f5-0d4c71015556")
+		(uuid "3895a891-1e81-4a6d-9291-0aa7278538f2")
 	)
 	(sheet
 		(at 208.28 132.08)
@@ -3625,7 +3625,7 @@
 		(fill
 			(color 255 255 230 1.0000)
 		)
-		(uuid "b0821da3-4ee6-4ba4-9b46-2354f7a5079d")
+		(uuid "a2558bb6-870a-4f90-a664-0cd69ed3e37a")
 		(property "Sheetname" "Thermistors"
 			(at 208.28 131.38 0)
 			(effects
@@ -3647,7 +3647,7 @@
 		)
 		(pin "TH1" output
 			(at 208.28 139.7 180)
-			(uuid "b77b3bb7-fa01-4fad-b2e5-0c8f2e79194d")
+			(uuid "41772914-34f2-439a-9805-35bac9873623")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3657,7 +3657,7 @@
 		)
 		(pin "TH2" output
 			(at 208.28 144.78 180)
-			(uuid "bb03b3fb-721e-47ef-bf82-16d3946dc75b")
+			(uuid "cd56fd69-e79d-4f1f-9c41-d6ed0ac48a37")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3667,7 +3667,7 @@
 		)
 		(pin "TH3" output
 			(at 208.28 149.86 180)
-			(uuid "9d1064c3-188f-419d-a950-e091a73bd905")
+			(uuid "b5305a75-6b97-48f8-ad9b-3f8d3d087e9c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3677,7 +3677,7 @@
 		)
 		(pin "TH4" output
 			(at 208.28 154.94 180)
-			(uuid "68e35d3d-eeba-4e42-80d9-ded4e0b45fad")
+			(uuid "2f8ca445-7290-4e7f-8ebb-6db292e8b2ca")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3701,7 +3701,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "18470a71-90e4-4eba-8ceb-7baed1c9d724")
+		(uuid "a5f81ccd-1c20-407a-9831-c3a9a0629983")
 	)
 	(label "TH2"
 		(at 198.12 144.78 180)
@@ -3711,7 +3711,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "e4c6753b-b9fb-4703-8324-d3ecace0a8e4")
+		(uuid "e0121c01-ec57-4b7e-923c-07be55f29f65")
 	)
 	(label "TH3"
 		(at 198.12 149.86 180)
@@ -3721,7 +3721,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "61fd8657-dba7-4859-9f52-e69b39a2327f")
+		(uuid "f343b16b-e879-48a0-acbc-b8cdd2c89ebd")
 	)
 	(label "TH4"
 		(at 198.12 154.94 180)
@@ -3731,7 +3731,7 @@
 			)
 			(justify right bottom)
 		)
-		(uuid "0acdedac-2e2c-4106-b922-c04b3f000c02")
+		(uuid "b509f29a-d96a-4b01-a905-65f477ab5c1b")
 	)
 	(text "Fan channel (x6): 3.3->5 V PWM shifter, tach clamp, VIN/5V jumper, 2/3-pin low-side switch, PTC, flyback, LED"
 		(exclude_from_sim no)
@@ -3742,7 +3742,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "6143de4c-734a-45ab-96ea-e4e6544274fb")
+		(uuid "7fd00d82-5952-4e1a-b541-cfa8bfd79fce")
 	)
 	(wire
 		(pts
@@ -3752,7 +3752,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e9d09db2-e8bd-4af0-af7a-ff4b920a627f")
+		(uuid "dde407d5-589e-478e-980b-0c5da94ab642")
 	)
 	(wire
 		(pts
@@ -3762,7 +3762,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ed810bf4-6e7e-4f4e-8508-7aa9c0d2596a")
+		(uuid "dfab72d9-ac4d-4469-9a82-6b99d8b8fc4e")
 	)
 	(wire
 		(pts
@@ -3772,7 +3772,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9a99d159-f461-462d-8054-897b02698586")
+		(uuid "5ca56ffd-0f03-4c51-b38c-2f5a517b8619")
 	)
 	(wire
 		(pts
@@ -3782,7 +3782,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "62899502-1abf-497d-9104-d0eb2ef25691")
+		(uuid "324addec-545f-42c0-8cb6-a304d71c0411")
 	)
 	(wire
 		(pts
@@ -3792,7 +3792,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "4e2b95d6-cadc-44e9-86c7-031cfddb82d9")
+		(uuid "b4f6771d-5755-4eda-a2be-92357c774976")
 	)
 	(wire
 		(pts
@@ -3802,7 +3802,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e7cac061-db0c-47da-8cbd-3489607ad90b")
+		(uuid "c511189a-1069-41b9-a235-b8f1f41e20be")
 	)
 	(wire
 		(pts
@@ -3812,7 +3812,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e4077c83-3518-4c78-a655-754cde8be9a4")
+		(uuid "73183342-fff7-4adc-ae18-107f6e94edcb")
 	)
 	(wire
 		(pts
@@ -3822,7 +3822,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "6f5fcc71-1f0e-437b-b89f-9de343b30d4c")
+		(uuid "4b0ee069-b3d2-473d-bf98-a52221a9e767")
 	)
 	(wire
 		(pts
@@ -3832,7 +3832,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "56fecb81-363d-4ab3-954d-5683bbb05a45")
+		(uuid "3b4da7da-8b99-48ab-9e96-ed601b029281")
 	)
 	(wire
 		(pts
@@ -3842,7 +3842,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "319e4eb3-29be-488b-8e4c-fbf652999b30")
+		(uuid "c2304fd2-ee08-4c37-aac4-c92e9faa7cac")
 	)
 	(wire
 		(pts
@@ -3852,7 +3852,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1018fa60-9021-429e-938a-796a0af467be")
+		(uuid "0e90e7c4-2766-4562-8642-bb7a8f2c16c7")
 	)
 	(wire
 		(pts
@@ -3862,7 +3862,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "068d9132-7ff6-4240-a4cb-87ac8f343ef7")
+		(uuid "9c02f912-29dc-42d1-b488-1201b2c4e3bd")
 	)
 	(wire
 		(pts
@@ -3872,7 +3872,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "63e7b5e8-a651-4f34-92ec-792db695fc56")
+		(uuid "79b83f8c-a70f-4b08-9b64-275f7fa6397b")
 	)
 	(wire
 		(pts
@@ -3882,7 +3882,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "83bc6cd1-813b-4192-a133-baafb4ad8d7e")
+		(uuid "551135b7-fa91-45e1-96f5-e27ca621897c")
 	)
 	(wire
 		(pts
@@ -3892,7 +3892,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "838e1ca7-6860-48c8-a63f-62cfc06d77d0")
+		(uuid "3be459d3-b2be-4b77-bbb2-7ceeb4182e0f")
 	)
 	(wire
 		(pts
@@ -3902,7 +3902,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "15792b43-3b8a-4d88-b316-a77f7127ac43")
+		(uuid "7c02c74a-2591-4907-9409-7085c92385ca")
 	)
 	(wire
 		(pts
@@ -3912,7 +3912,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "335f4262-7bbd-47bc-b17e-3f8a15027bf3")
+		(uuid "ac5518db-b0c6-4615-a5a0-cc48180e031c")
 	)
 	(wire
 		(pts
@@ -3922,7 +3922,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cdcae239-b5d5-4c9d-96e2-ea98b01325a3")
+		(uuid "821d7fa5-b888-4596-bf5c-317003ee9bd4")
 	)
 	(wire
 		(pts
@@ -3932,7 +3932,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ca44baf5-deec-4c15-87e1-5ee2a7302c5a")
+		(uuid "cc13a113-7daf-4909-acfa-ee12c1bc5e6a")
 	)
 	(wire
 		(pts
@@ -3942,7 +3942,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "b09c5ff5-0b2b-45b4-9d59-5f426f5daf90")
+		(uuid "ff1f6a2d-b15c-4f01-9ba4-7b0be64f99c1")
 	)
 	(wire
 		(pts
@@ -3952,7 +3952,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "d551240a-bf9a-489e-bb8c-cbbaef8a99ce")
+		(uuid "ccaaabb7-b22d-4d28-8501-13b7d50871ca")
 	)
 	(wire
 		(pts
@@ -3962,7 +3962,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "2a308828-a194-42cc-842b-121740624c1a")
+		(uuid "3d78bf79-a4f2-45a5-accf-3f17f0558a65")
 	)
 	(wire
 		(pts
@@ -3972,7 +3972,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "8b721f85-7bd3-4771-bf3f-57e5739505a1")
+		(uuid "7c2beb4c-007e-4b31-b669-d457646b0210")
 	)
 	(wire
 		(pts
@@ -3982,7 +3982,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "1b42d177-4329-476d-b27b-5b39d4d35833")
+		(uuid "a1f3c859-9e11-4b7b-b147-b8aef10c9edf")
 	)
 	(wire
 		(pts
@@ -3992,7 +3992,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "db76b717-bf25-4295-8bde-2aa311ca616f")
+		(uuid "97054817-7b1d-4e0e-874d-f163e57e112c")
 	)
 	(wire
 		(pts
@@ -4002,7 +4002,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "bfb24a51-6e27-4d0c-bff5-075f358fc758")
+		(uuid "971a7c57-c893-4417-b218-8e68d38b1465")
 	)
 	(wire
 		(pts
@@ -4012,7 +4012,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "5f0a53db-4c71-4746-b03b-748d8ce03806")
+		(uuid "46386032-0cdc-4fbd-a770-f25f636d295d")
 	)
 	(wire
 		(pts
@@ -4022,7 +4022,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9527532e-e1fb-45f6-87a5-353184d0e8d6")
+		(uuid "2b1e51b8-910c-4689-b68b-7ab3fe880c49")
 	)
 	(wire
 		(pts
@@ -4032,7 +4032,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "128f4251-9979-4744-94f3-c3e8b2ae4426")
+		(uuid "383c89e0-f342-492b-87d1-e239c633c0f5")
 	)
 	(wire
 		(pts
@@ -4042,7 +4042,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9f102892-17b4-4e35-a8a2-ab256c137ec2")
+		(uuid "3926928a-6817-465c-bc5c-8b0ecc4109bf")
 	)
 	(wire
 		(pts
@@ -4052,7 +4052,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "cb9917ee-4b97-420c-b230-350c0f9e4df6")
+		(uuid "3a02e534-9e89-46cf-a122-045ae4ea6616")
 	)
 	(wire
 		(pts
@@ -4062,7 +4062,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "19b50941-1583-4b33-930a-8de00602f49a")
+		(uuid "b62e2a9d-21bc-4ef7-9d76-d01886872fc4")
 	)
 	(wire
 		(pts
@@ -4072,7 +4072,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "9ad2dd11-a0af-4ba4-a57f-c46879e8cfb3")
+		(uuid "da1260af-4dd0-43cc-b3ab-791f40f564c6")
 	)
 	(wire
 		(pts
@@ -4082,7 +4082,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "c35058c6-8603-485f-8c8d-7ba420cdc86a")
+		(uuid "a5dc2918-ad15-4793-bf5c-bfb8dbe27b85")
 	)
 	(wire
 		(pts
@@ -4092,7 +4092,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "ca05f112-9fcb-4ceb-8b83-f4f98c99a22a")
+		(uuid "37d21b7d-ac6b-4557-acdf-a9fa8dd89ffa")
 	)
 	(wire
 		(pts
@@ -4102,7 +4102,7 @@
 			(width 0)
 			(type default)
 		)
-		(uuid "e6dcd268-bb47-4d3d-821a-a73372744754")
+		(uuid "bf58f917-a5f2-4bff-b249-ed4e34a7ed78")
 	)
 	(sheet_instances
 		(path "/"
