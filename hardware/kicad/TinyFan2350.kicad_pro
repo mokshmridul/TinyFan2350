@@ -7,16 +7,16 @@
     "classes": [
       {
         "name": "Power",
-        "track_width": 0.4,
+        "track_width": 0.8,
         "clearance": 0.25,
-        "via_diameter": 0.8,
-        "via_drill": 0.4
+        "via_diameter": 1.0,
+        "via_drill": 0.5
       },
       {
         "name": "Default",
         "track_width": 0.2,
-        "clearance": 0.18,
-        "via_diameter": 0.6,
+        "clearance": 0.15,
+        "via_diameter": 0.5,
         "via_drill": 0.3
       },
       {
@@ -74,6 +74,14 @@
       {
         "netclass": "Power",
         "pattern": "/Power/5V_IN"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/VIN_F"
+      },
+      {
+        "netclass": "Power",
+        "pattern": "/Power/5V_F"
       }
     ]
   },

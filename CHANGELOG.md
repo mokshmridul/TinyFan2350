@@ -1,5 +1,18 @@
 # Changelog
 
+## v2.6 (2026-11)
+- **29 % smaller: 86 x 52 mm** (was 100 x 63 mm). Complete re-layout and re-route on both sides:
+  - All SMD parts on the bottom except the 8 status LEDs. All through-hole parts on the top.
+  - Labels sit right next to their ports and jumpers (`2/3` / `4P` and `VIN` / `5V` beside every jumper, `GND` / `VIN+` / `5V+` above the screw terminals).
+  - Mounting holes in the four corners, 79 x 45 mm apart (3.5 mm from each edge).
+  - Fan jumpers now run left/right under each fan socket: MODE (upper row) left = 2/3-pin, right = 4-pin; FAN V (lower row) left = VIN, right = 5 V.
+- **Main fuses:** the two blade-fuse holders are gone. F1/F2 are now soldered **Littelfuse Nano2 0452005.MRL** 5 A slow-blow SMD fuses (C66503, also on Robu), fitted by the factory. 125 V rated instead of 32 V.
+- **Reverse-polarity protection without blowing fuses:** new P-channel MOSFET switch on each input, Q1 AO4485 (40 V, C51499) on VIN and Q2 AO4407A (30 V, C2841482) on 5 V, each with a 22k gate resistor (R65/R66) and a 5.6 V gate zener (D23/D24). Power wired backwards now just leaves the board off. Over-voltage still blows the fuse through D21/D22.
+- Simple 3D models for the 1812 PTCs and the Nano2 fuses, so the renders show every part.
+- Copper heating at normal load (3 A per input) is at most about 8 °C. At the 5 A fuse limit the two main rails reach about 25 °C (v2.5: 17 °C) because the smaller board has narrower necks; 2 oz copper roughly halves this. Recommended maximums unchanged (4 A VIN, 3.5 A 5 V).
+- DIN mount resized for the new board (clips 42 mm apart).
+- ERC 0, DRC 0 / 0 unconnected, 379 pads match the design, independent short/clearance check clean.
+
 ## v2.5 (2026-11)
 - **More safety margin for real-world use.** Parts that ran close to their limits on 24 V are now rated higher. Same sizes and pin order, so the board layout and Gerbers are unchanged:
   - Q4-Q9 fan switches: AO3400A (30 V) -> **SI2308A 60 V** (C347491). 40 % of rating at 24 V instead of 80 %.

@@ -4,22 +4,22 @@
 # GPL-3.0, part of https://github.com/mokshmridul/TinyFan2350
 import cadquery as cq
 # ---- parameters (mm) ----
-BW,BH=100.0,63.0           # PCB outline
-HOLE=[(9.5,4.5),(95.5,4.5),(9.5,58.5),(95.5,58.5)]   # PCB M3 holes (mount coords, Y up)
+BW,BH=86.0,52.0           # PCB outline
+HOLE=[(3.5,3.5),(82.5,3.5),(3.5,48.5),(82.5,48.5)]   # PCB M3 holes (mount coords, Y up)
 T=3.0                      # base plate thickness
 SO=7.0                     # standoff height above plate (clearance for THT leads)
 SO_D=8.5; INS_D=4.3; INS_DEP=6.0     # M3 heat-set insert (Robu M3x4, 4.8 OD)
 RIM=5.0
-CLIPS=[25.0,75.0]         # clip centre X positions
-CLIP_Y=(20.1,62.1)         # clip top-face footprint along Y (+0.2 clearance)
+CLIPS=[22.0,64.0]         # clip centre X positions
+CLIP_Y=(9.8,51.8)         # clip top-face footprint along Y (+0.2 clearance)
 CLIP_W=10.4
 POCKET=0.5
-SCREW_Y=[23.69,55.19]      # clip pilot holes (31.5 mm apart)
+SCREW_Y=[13.39,44.89]      # clip pilot holes (31.5 mm apart)
 PAD_W=14.0; PAD_H=2.0      # raised screw pads on top of the plate
 # ---- base ----
 m=cq.Workplane('XY').box(BW,BH,T,centered=False).edges('|Z').fillet(3.0)
 # vent windows
-for (x0,x1,y0,y1) in [(34.5,65.5,RIM,BH/2-2.5),(34.5,65.5,BH/2+2.5,BH-RIM)]:
+for (x0,x1,y0,y1) in [(33.0,53.0,RIM,BH/2-2.5),(33.0,53.0,BH/2+2.5,BH-RIM)]:
     m=m.cut(cq.Workplane('XY').box(x1-x0,y1-y0,T,centered=False).translate((x0,y0,0)).edges('|Z').fillet(2.0))
 # raised pads over the clips
 for xc in CLIPS:

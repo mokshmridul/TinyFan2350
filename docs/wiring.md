@@ -10,17 +10,18 @@ The board has three power inputs:
 
 | Input | Connect it to | Fuse | It powers |
 |---|---|---|---|
-| **J1: VIN 12-24 V** | Your printer's main power supply (12 V or 24 V) | F1, 5 A mini blade | Fans and LED strips whose jumper is set to **VIN** |
-| **J2: 5 V** | A 5 V power supply or a 5 V buck converter | F2, 5 A mini blade | 5 V fans, 5 V LED strips, and the signal boosters on the board |
+| **J1: VIN 12-24 V** | Your printer's main power supply (12 V or 24 V) | F1, 5 A (soldered) | Fans and LED strips whose jumper is set to **VIN** |
+| **J2: 5 V** | A 5 V power supply or a 5 V buck converter | F2, 5 A (soldered) | 5 V fans, 5 V LED strips, and the signal boosters on the board |
 | **USB-C on the RP2350-Zero** | Your Klipper host (Raspberry Pi etc.) | - | The RP2350-Zero itself |
 
 **How to connect J1 and J2**
 
-- The board labels each screw: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals the **top screw is GND**.
+- The board labels each screw: **GND**, **VIN+** (J1) and **5V+** (J2). On both terminals, seen from the top with the terminals at the bottom, the **left screw is GND**.
 - Use wire of at least **0.5 mm² (20 AWG)**.
-- Connect GND of both supplies together at one point (normally your power supply's V- terminal). All grounds on the board are joined, including the USB ground.
+- All grounds on the board are joined: J1 GND, J2 GND and the USB ground. If your printer already ties the supplies' grounds together somewhere else (most do, and Voron wiring does), you don't need to add anything. If it does not, connect the V- of both supplies together at one point.
 - The board does **not** convert voltage. Whatever you feed into J1 goes straight to the fan jumpers.
-- **Wired it backwards?** The board is protected. A protection diode (D21 on J1, D22 on J2) shorts the wrong voltage and the fuse for that input blows. Fix the wiring, then put in a new 5 A fuse. The same happens if you put 12/24 V into the 5 V input by mistake.
+- **Wired it backwards?** Nothing happens and nothing is damaged. Each input has an electronic reverse-polarity switch (Q1 on J1, Q2 on J2) that simply stays off. The ON light above that terminal stays dark. Swap the wires and it works.
+- **12/24 V into the 5 V input by mistake?** A protection diode (D22) shorts it and the 5 A fuse F2 blows, so the rest of the board is safe. F2 is a small soldered fuse, so you (or a friend with a soldering iron) need to replace it: Littelfuse 0452005.MRL, also sold on Robu. The same applies to F1 if far too high a voltage reaches J1.
 
 ### How much can it power?
 
@@ -50,12 +51,12 @@ Colours vary between makers, so check your fan's datasheet.
 
 ### Set two jumpers for every fan port
 
-Next to each fan socket are two 3-pin jumpers. Put one cap on each, on either the top pair or the bottom pair.
+Below each fan socket are two 3-pin jumpers, one above the other. Put one cap on each, on either the left pair or the right pair. The board prints the choices next to the pins.
 
-| Jumper | Cap on the **top** two pins | Cap on the **bottom** two pins |
+| Jumper | Cap on the **left** two pins | Cap on the **right** two pins |
 |---|---|---|
-| **MODE** (JM, left) | 2-pin or 3-pin fan | 4-pin PWM fan |
-| **FAN V** (JP, right) | **VIN** (the 12 V or 24 V on J1) | **5 V** |
+| **MODE** (JM, upper row, labelled `2/3` and `4P`) | 2-pin or 3-pin fan | 4-pin PWM fan |
+| **FAN V** (JP, lower row, labelled `VIN` and `5V`) | **VIN** (the 12 V or 24 V on J1) | **5 V** |
 
 No cap on FAN V means that port gets no power.
 
@@ -63,10 +64,10 @@ No cap on FAN V means that port gets no power.
 
 **Which MODE?**
 
-- **4-pin fan** (4 wires): MODE on the **bottom**. The fan gets steady power, and its blue wire sets the speed. You also get RPM.
-- **2-pin fan** (red and black only, like most Voron 4010/5015/6015 fans): MODE on the **top**. Crimp the black wire to **pin 1** and the red wire to **pin 2**. The board switches the fan on and off quickly to set the speed. In Klipper use `cycle_time: 0.010` for that fan (it is already in `klipper/tinyfan.cfg`).
-- **3-pin fan**: MODE on the **top**, wires on pins 1-3. Speed control works, but the RPM reading is not reliable in this mode, so leave `tachometer_pin` out of the config.
-- Got MODE wrong? Nothing breaks. A 2-pin fan on the bottom setting just runs at full speed, and a 4-pin fan on the top setting runs roughly until you move the cap.
+- **4-pin fan** (4 wires): MODE on the **right** (`4P`). The fan gets steady power, and its blue wire sets the speed. You also get RPM.
+- **2-pin fan** (red and black only, like most Voron 4010/5015/6015 fans): MODE on the **left** (`2/3`). Crimp the black wire to **pin 1** and the red wire to **pin 2**. The board switches the fan on and off quickly to set the speed. In Klipper use `cycle_time: 0.010` for that fan (it is already in `klipper/tinyfan.cfg`).
+- **3-pin fan**: MODE on the **left**, wires on pins 1-3. Speed control works, but the RPM reading is not reliable in this mode, so leave `tachometer_pin` out of the config.
+- Got MODE wrong? Nothing breaks. A 2-pin fan on the `4P` setting just runs at full speed, and a 4-pin fan on the `2/3` setting runs roughly until you move the cap.
 
 **Green light next to each fan:** it is on when that port has power. With a 2/3-pin fan it gets brighter as the fan speeds up. It is dim on 5 V fans.
 
@@ -76,7 +77,7 @@ No cap on FAN V means that port gets no power.
 
 The LED sockets are JST-XH 3-pin: **1 GND, 2 + power, 3 DATA**.
 
-The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, bottom right corner) chooses the strip's power:
+The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, right below each LED socket) chooses the strip's power:
 
 | JL cap on | Strip gets | Use it for |
 |---|---|---|
@@ -104,8 +105,8 @@ JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no + or -, so ei
 
 ## 5. EXP header (J5, optional)
 
-Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14**. Uses: a door switch, a filament sensor, an I2C sensor (GP14 = SDA, GP15 = SCL), or one small extra LED strip data line. **3.3 V signals only**, and draw no more than about 100 mA from the 3.3 V pin.
+Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14**, printed on the board as `G 3V3 15 14`. Uses: a door switch, a filament sensor, an I2C sensor (GP14 = SDA, GP15 = SCL), or one small extra LED strip data line. **3.3 V signals only**, and draw no more than about 100 mA from the 3.3 V pin.
 
 ## 6. Mounting holes
 
-Four M3 holes on an **86 x 54 mm** rectangle, 4.5 mm in from the top, bottom and right edges and 9.5 mm from the left edge (the screw-terminal side), seen from the top. The holes are connected to GND. Leave about 20 mm of space above the board for the fuses. For DIN rail mounting see [mounting.md](mounting.md).
+Four M3 holes, one in each corner, on a **79 x 45 mm** rectangle, 3.5 mm in from every edge. The holes are connected to GND. Leave about 20 mm of space above the board for the connectors and the two round capacitors, plus room for the plugs. For DIN rail mounting see [mounting.md](mounting.md).

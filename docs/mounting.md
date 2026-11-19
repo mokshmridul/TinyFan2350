@@ -7,9 +7,9 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 | | |
 |---|---|
 | Printed part | [`mechanical/TinyFan2350_DIN_mount.stl`](../mechanical/TinyFan2350_DIN_mount.stl) (STEP + CadQuery source alongside) |
-| Footprint | 100 x 63 mm, the same as the PCB. About 43 mm from the bottom of the clips to the top of the screw terminals |
+| Footprint | 86 x 52 mm, the same as the PCB. The clip latches stick out about 10 mm past the screw-terminal edge, under the tray. About 43 mm from the bottom of the clips to the top of the screw terminals |
 | PCB height | Board underside sits 10 mm above the clips (7 mm standoffs on a 3 mm plate) |
-| Clip spacing | 50 mm centre-to-centre along the rail |
+| Clip spacing | 42 mm centre-to-centre along the rail |
 
 ## Parts
 
@@ -31,7 +31,7 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 ![Exploded](images/mount_exploded.png)
 
 1. Heat each M3 insert with your soldering iron (about 220-250 °C) and press it gently straight down into a post, flush with the top.
-2. Put the two DIN clips into the 0.5 mm locating pockets on the underside. The **latch end** of each clip (the springy end with the release tab) goes towards the board edge with the **TH/LED connectors**.
+2. Put the two DIN clips into the 0.5 mm locating pockets on the underside. The **latch end** of each clip (the springy end with the release tab) goes towards the board edge with the **screw terminals** (J1/J2).
 3. Screw each clip on from the top with 2 x M2x10 self-tappers. The screw heads sit flush in the raised pads.
 4. Fit the PCB, USB-C end towards the far edge from the latches, using 4 x M3x6.
 5. Hook the fixed end of the clips onto the rail, then press the latch side down until it snaps. To remove it, pull the latch tab with a flat screwdriver.
@@ -41,8 +41,8 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 ## Design notes
 
 - The geometry was measured from the Voron Trident PCB DIN clip STEP: a 41.5 x 10 mm flat top face, and two Ø1.9 mm pilot holes 31.5 mm apart for M2 self-tappers.
-- The clip axis is across the rail and the board's long side runs along it. That way the board uses 100 mm of rail, and the two clips make a stable 50 mm wide base.
-- 7 mm of clearance under the PCB covers untrimmed through-hole leads (JST-XH pins stick out about 3.4 mm). The screw pads leave at least 2 mm under the fuse-holder and jumper leads.
+- The clip axis is across the rail and the board's long side runs along it. That way the board uses 86 mm of rail, and the two clips make a stable 42 mm wide base.
+- 7 mm of clearance under the PCB covers untrimmed through-hole leads (JST-XH pins stick out about 3.4 mm). The board's full 3D model was checked against the tray: nothing touches.
 - The open windows let air through, and you can reach the clip screws without removing the clips.
 - To change anything (standoff height, insert size, clip spacing), edit the parameters at the top of `TinyFan2350_DIN_mount.py` and run it with CadQuery 2.x. It writes the STEP and STL.
 

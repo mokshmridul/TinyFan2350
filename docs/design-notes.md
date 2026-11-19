@@ -6,7 +6,7 @@ Schematic: [TinyFan2350-schematic.pdf](TinyFan2350-schematic.pdf). KiCad project
 
 ## Safety margins
 
-**In short:** every important part runs well below its maximum rating, even with a 24 V supply turned up to its 28.8 V limit and the board in a warm electronics bay. Datasheet maximums are not targets: real parts get hot, power supplies spike, and cheap parts vary. So the design follows the usual engineering rule of thumb and keeps voltage at or below about 80 % of each part's rating, current at or below about 75 %, and copper heating at or below about 20 °C, even at the fuse limit.
+**In short:** every important part runs well below its maximum rating, even with a 24 V supply turned up to its 28.8 V limit and the board in a warm electronics bay. Datasheet maximums are not targets: real parts get hot, power supplies spike, and cheap parts vary. So the design follows the usual engineering rule of thumb and keeps voltage at or below about 80 % of each part's rating, current at or below about 75 %, and copper heating at or below about 20 °C at the recommended maximum load (the two main rails go slightly over that only right at the fuse limit; see [Copper](#copper-1-oz)).
 
 Voltages are given at **24 V** and at **28.8 V**, which is the highest setting of a typical adjustable 24 V supply such as the Mean Well LRS-350-24. Currents are for the intended load: up to 3 fans at 0.8 A plus 3 fans at 0.2 A.
 
@@ -18,12 +18,15 @@ Voltages are given at **24 V** and at **28.8 V**, which is the highest setting o
 | D7-D12 B5819W | Flyback diode across each fan | 40 V | 60 % | 72 % |
 | F3-F10 PTC fuses | Self-resetting port fuses (they only see full voltage after they trip) | 33 V | 73 % | 87 % |
 | D21 **SMCJ30A** | Input protection diode | 30 V stand-off | 80 % | 96 % (still below the point where it starts to conduct) |
+| Q1 **AO4485** | VIN reverse-polarity switch | 40 V | 60 % | 72 % |
+| Q1 gate | Held at 5.6 V by zener D23 | 20 V | 28 % | 28 % |
+| Q2 **AO4407A** | 5 V reverse-polarity switch | 30 V | 17 % | - |
 | C1 / C5 | VIN capacitors (ceramic / electrolytic) | 50 V | 48 % | 58 % |
-| F1/F2 blade fuses | Main fuses | 32 V | 75 % | 90 % |
+| F1/F2 **Nano2 fuses** (Littelfuse 0452005.MRL) | Main fuses, soldered | 125 V | 19 % | 23 % |
 | C6 / C2 | 5 V capacitors | 16 V / 50 V | 31 % / 10 % | - |
 | 2N7002, 74HCT2G17, BAT54S | Signal parts on 3.3/5 V | 60 V / 7 V / 30 V | 8 % / 71 % / 17 % | - |
 
-How the protection fits together: D21 starts to conduct between 33.3 V and 36.8 V. That is above any normal 24 V supply, but below the 40 V of the flyback diodes and the 60 V of the MOSFETs. If something higher arrives (a wrong supply, a big spike), D21 shorts it and F1 blows before any other part reaches its limit.
+How the protection fits together: D21 starts to conduct between 33.3 V and 36.8 V. That is above any normal 24 V supply, but below the 40 V of the flyback diodes, the 40 V of Q1 and the 60 V of the fan MOSFETs. If something higher arrives (a wrong supply, a big spike), D21 shorts it and F1 blows before any other part reaches its limit. Power wired **backwards** never gets that far: Q1 / Q2 simply stay off (see [Power](#power)).
 
 ### Current and heat
 
@@ -32,25 +35,30 @@ How the protection fits together: D21 starts to conduct between 33.3 V and 36.8 
 | SI2308A switch, per fan | 3 A, 1.25 W | 0.8 A, about 0.06 W of heat | 27 % of current, 5 % of power |
 | Fan port PTC (F3-F8) | 1.5 A hold (about 1.1 A at 60 °C) | 0.8 A | 53 % cold, about 73 % in a 60 °C bay |
 | LED port PTC (F9/F10) | 2 A hold (about 1.5 A at 60 °C) | recommended max 1.5 A | 75 % |
-| F1 VIN blade fuse | 5 A | 3 A | 60 % |
-| F2 5 V blade fuse | 5 A | recommended max 3.5 A | 70 % |
+| F1 VIN fuse (slow-blow) | 5 A | 3 A | 60 % |
+| F2 5 V fuse (slow-blow) | 5 A | recommended max 3.5 A | 70 % |
+| Q1 AO4485 (VIN switch) | 10 A | 3 A, about 0.2 W of heat | 30 % |
+| Q2 AO4407A (5 V switch) | 12 A | 3.5 A, about 0.2 W of heat | 29 % |
+| R65/R66 22k gate resistors | 0.125 W | 0.015 W at 24 V | 12 % (20 % at 28.8 V) |
 | JST-XH connectors | 3 A per pin | 0.8 A fan, 1.5 A LED | 27 % / 50 % |
 | 0805 resistors on VIN (R33-R39) | 0.125 W | 0.05 W at 24 V | 38 % (66 % at 28.8 V) |
 
 ### Copper (1 oz)
 
-A resistive model of the real board layout gives the temperature rise of the hottest (narrowest) piece of each power track, using the IPC-2221 method:
+A resistive model of the real board layout (every track, pad, via and copper pour, both layers) finds the most crowded spot on each power path and turns it into a temperature rise with the IPC-2221 method:
 
-| Track | Normal load | Rise | At the fuse limit | Rise |
+| Path | Normal load | Rise | At the fuse limit | Rise |
 |---|---|---|---|---|
-| Fan power, narrowest 0.375 mm | 0.8 A | about 4 °C | 1.5 A | about 18 °C |
-| LED strip power, 0.8 mm | 1.5 A | about 5 °C | 2 A | about 10 °C |
-| VIN trunk, 2.0 mm | 3 A | about 5 °C | 5 A | about 17 °C |
-| 5 V trunk, 2.5 mm | 3 A | about 4 °C | 5 A | about 12 °C |
+| Fan power and return, per port | 0.8 A | about 2 °C | 1.5 A | 7-9 °C |
+| LED strip power, per port | 1.5 A | about 5 °C | 2 A | about 10 °C |
+| J1 → F1 → Q1 (VIN input side) | 3 A | 4-6 °C | 5 A | 13-19 °C |
+| VIN after Q1 (to the jumpers) | 3 A | about 8 °C | 5 A | about 24 °C |
+| J2 → F2 → Q2 (5 V input side) | 3 A | 2-4 °C | 5 A | 7-12 °C |
+| +5 V after Q2 (to the jumpers) | 3 A | about 8 °C | 5 A | about 25 °C |
 
-All of these stay under 20 °C even when the fuse is about to blow, and under 6 °C in normal use. 1 oz copper is enough.
+In normal use (3 A on each input) nothing gets more than about 8 °C above the room. The v2.6 board is 29 % smaller than v2.5, so the two main rails are narrower in one or two places. Only if you load an input right up to the 5 A fuse do they reach about 25 °C, a little over the 20 °C target. That is still far below what the copper and the black solder mask can take (above 100 °C), but it is why the **recommended maximum is 4 A on VIN and 3.5 A on 5 V**. At those currents the rise is about 14 °C and 11 °C.
 
-**Need more than 4 A on VIN** (for example six 0.8 A fans plus 12 V LED strips)? Order **2 oz copper** and fit a **7.5 A** fuse in F1. That allows up to about 6 A on VIN.
+**Need more current, or want extra margin?** Order the board with **2 oz copper** (one option on the order page). It roughly halves every number in the table. With 2 oz copper you may fit a **7 A** Nano2 fuse (Littelfuse 0452007.MRL) in F1 and run up to about 6 A on VIN.
 
 ### Known limits
 
@@ -65,7 +73,7 @@ All of these stay under 20 °C even when the fuse is about to blow, and under 6 
 | Sheet | File | What is on it |
 |---|---|---|
 | Root | `TinyFan2350.kicad_sch` | Overview: which RP2350 pin goes to which port |
-| Power | `power.kicad_sch` | J1/J2, F1/F2 fuses, capacitors, protection diodes, power lights, mounting holes |
+| Power | `power.kicad_sch` | J1/J2, F1/F2 fuses, Q1/Q2 reverse-polarity switches, capacitors, protection diodes, power lights, mounting holes |
 | MCU | `mcu.kicad_sch` | RP2350-Zero pin map, EXP header J5 |
 | FAN1..FAN6 | `fan_channel.kicad_sch` (one file, used 6 times) | Speed-signal booster, RPM input and its protection, fan socket, VIN/5V jumper, flyback diode, status light, 2/3-pin switch, port fuse |
 | LEDs | `leds.kicad_sch` | 74HCT2G17 data booster, data protection, two LED ports with their jumpers and fuses |
@@ -75,14 +83,14 @@ All of these stay under 20 °C even when the fuse is about to blow, and under 6 
 
 ## Power
 
-**In short:** two separate inputs, each with a fuse and a protection diode. The RP2350-Zero is powered by its own USB cable.
+**In short:** two separate inputs. Each has a fuse, a reverse-polarity switch and a protection diode. The RP2350-Zero is powered by its own USB cable.
 
 ```mermaid
 flowchart LR
-  J1["J1 VIN 12-24V"] --> F1["F1 5A"] --> VIN(("VIN<br/>C1 10uF 50V<br/>C5 100uF 50V<br/>D21 SMCJ30A"))
-  J2["J2 5V"] --> F2["F2 5A"] --> V5(("+5V<br/>C2 10uF<br/>C6 470uF<br/>D22 SMBJ5.0A"))
-  VIN --> JP["JP1-JP6 top"]
-  V5 --> JPb["JP1-JP6 bottom"]
+  J1["J1 VIN 12-24V"] --> F1["F1 5A"] --> Q1["Q1 AO4485<br/>reverse-polarity switch"] --> VIN(("VIN<br/>C1 10uF 50V<br/>C5 100uF 50V<br/>D21 SMCJ30A"))
+  J2["J2 5V"] --> F2["F2 5A"] --> Q2["Q2 AO4407A<br/>reverse-polarity switch"] --> V5(("+5V<br/>C2 10uF<br/>C6 470uF<br/>D22 SMBJ5.0A"))
+  VIN --> JP["JP1-JP6 left"]
+  V5 --> JPb["JP1-JP6 right"]
   JP --> FANS["FAN1-6 +V"]
   JPb --> FANS
   VIN --> JL["JL1/JL2 VIN side"] --> LED["LED1/LED2 +V"]
@@ -93,8 +101,11 @@ flowchart LR
 
 - The RP2350-Zero's 5 V pin is not connected, so the USB 5 V and the J2 5 V can never feed into each other.
 - VIN is not regulated on the board. Anything from 12 V to 24 V works (see the voltage table above).
-- **Wrong polarity or wrong voltage:** D21 (VIN) and D22 (5 V) sit right after the fuses. Backwards, they conduct like a normal diode. Too high (for example 12 V into the 5 V input), they break down. Either way they short the input, the fuse blows, and the rest of the board never sees it. They also absorb short spikes from the power supply.
-- Both copper layers have a solid GND pour, tied together by 87 vias. Small SMD ground pads connect solidly. Through-hole ground pins connect with four 0.8 mm spokes, so a normal soldering iron can heat them.
+- **Main fuses F1/F2:** Littelfuse Nano2 0452005.MRL, 5 A slow-blow, a small soldered SMD fuse (2410 size, about 6 x 2.7 mm). Slow-blow means the inrush when fans spin up won't blow it. It replaces the blade-fuse holders of v2.5 and saves a lot of board space. The trade-off: if one ever blows you have to solder in a new one. With the reverse-polarity switches below, it should only blow on a real fault (a short or the wrong supply).
+- **Power wired backwards:** Q1 (VIN) and Q2 (5 V) are P-channel MOSFETs in the "ideal diode" arrangement. With correct polarity, the MOSFET's gate is pulled to GND by a 22k resistor (R65/R66), so it turns fully on and drops only about 0.05 V at 3 A. Wired backwards, the gate sees the wrong polarity and the MOSFET stays off: nothing flows, nothing blows, the board just does not turn on (the ON light stays dark). Fix the wiring and it works. A 5.6 V zener (D23/D24) keeps Q1's gate inside its 20 V limit on 24 V.
+- **Too high a voltage** (for example 12 V or 24 V into the 5 V input): D21 (VIN) and D22 (5 V) sit right after the switches. They break down and short the rail, the fuse blows, and the rest of the board never sees it. They also absorb short spikes from the power supply.
+- **Grounds:** J1 GND, J2 GND and the USB ground are joined on this board, as on every earlier version (the fans and LED strips need it). The board does not need any other ground link: in a printer where the Pi, 5 V and 24 V supplies already share a ground elsewhere, that is fine.
+- Both copper layers have a solid GND pour, tied together by stitching vias. Small SMD ground pads connect solidly. Through-hole ground pins connect with four spokes, so a normal soldering iron can heat them.
 
 ## Fan speed signal (x6)
 
@@ -108,8 +119,8 @@ Each fan has its own 2N7002 (Q10-Q15 = FAN1-FAN6). The gate is tied to 3V3 and t
 
 Pin 1 of the fan socket (GND) goes to the MODE jumper JMx and to the drain of an SI2308A MOSFET (Q4-Q9). The MOSFET's source is on the port's return (FANx_RET), which reaches GND through the port's PTC fuse.
 
-- **JM on the bottom two pins (4-pin):** the jumper ties pin 1 straight to the return. The MOSFET is bypassed, and the fan is controlled by its PWM wire as above.
-- **JM on the top two pins (2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven by the same 5 V PWM line, through a 22k resistor and clamped by a 5.6 V zener, so the PWM switches the fan's ground (like the Voron Klipper Expander). A B5819W Schottky across the fan catches the spike when it switches off. If the RP2350 is unplugged, the pull-up holds the gate on, so the fan runs at full speed, the same safe failure as 4-pin mode.
+- **JM on the right two pins (`4P`, 4-pin):** the jumper ties pin 1 straight to the return. The MOSFET is bypassed, and the fan is controlled by its PWM wire as above.
+- **JM on the left two pins (`2/3`, 2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven by the same 5 V PWM line, through a 22k resistor and clamped by a 5.6 V zener, so the PWM switches the fan's ground (like the Voron Klipper Expander). A B5819W Schottky across the fan catches the spike when it switches off. If the RP2350 is unplugged, the pull-up holds the gate on, so the fan runs at full speed, the same safe failure as 4-pin mode.
 - The 10k pull-up and 22k gate resistor make the switch turn on in tens of microseconds. That is fine at 100 Hz but too slow for 25 kHz, so 2/3-pin ports use `cycle_time: 0.010` (see `klipper/tinyfan.cfg`).
 - **Why the SI2308A:** it is rated for 60 V, so on 24 V it runs at 40 % of its voltage rating (the AO3400A used before v2.5 was rated 30 V, which is 80 % at 24 V and 96 % at 28.8 V). It has 95 mΩ at 4.5 V gate drive, so a 0.8 A fan heats it by only about 0.06 W. Same SOT-23 size and pin order (1 G, 2 S, 3 D).
 - The status light (10k from the fan's +V to pin 1) is on whenever the port has power. In 2/3-pin mode it follows the fan speed. It is dim on 5 V fans and bright on 24 V fans.
@@ -154,22 +165,23 @@ One 74HCT2G17 dual buffer, powered from 5 V, drives both ports. HCT inputs switc
 
 ## Track corners and EMI
 
-Right-angle track corners are often said to cause interference (EMI). That only matters at multi-GHz signal speeds. The fastest signal here is the 800 kHz LED data (the fan PWM is 25 kHz). What matters on this board is a clean ground return, so it has solid ground pours under the signal tracks and 87 stitching vias between the top and bottom grounds. Right-angle corners were still cut to 45° wherever there was room.
+Right-angle track corners are often said to cause interference (EMI). That only matters at multi-GHz signal speeds. The fastest signal here is the 800 kHz LED data (the fan PWM is 25 kHz). What matters on this board is a clean ground return, so it has solid ground pours under the signal tracks and stitching vias between the top and bottom grounds. Right-angle corners were still cut to 45° wherever there was room.
 
 ## Changes from the original TinyFan
 
-| | TinyFan (Gi7mo) | TinyFan2350 v2.5 |
+| | TinyFan (Gi7mo) | TinyFan2350 v2.6 |
 |---|---|---|
 | MCU | RP2040-Zero | RP2350-Zero (same footprint and pinout), socketed |
-| Input | 24 V + on-board converter | Separate 12-24 V and 5 V inputs, each with a fuse and a protection diode |
+| Input | 24 V + on-board converter | Separate 12-24 V and 5 V inputs, each with a fuse, a reverse-polarity switch and a protection diode |
 | Fans | 2/3/4-pin, fixed voltage | 6 x JST-XH, VIN/5V jumper per port, 4-pin PWM or switched 2/3-pin, RPM input with protection, self-resetting fuse per port |
 | LEDs | - | 2 x addressable LED ports, 5 V data, 5 V or VIN strip power |
 | Sensors | - | 4 x thermistor ports |
-| Size | ~60 x 62 mm | 100 x 63 mm |
+| Size | ~60 x 62 mm | 86 x 52 mm |
 
 ## Verification
 
 - ERC (electrical check): 0 errors.
 - DRC (layout check, KiCad 10.0.8): 0 violations, 0 unconnected.
-- Every pad's net checked against the design table by script (355 pads).
-- Clearances: 0.18 mm on signals (0.15 mm where tracks enter fine-pitch pads), 0.2 mm on GND and fan power, 0.25-0.3 mm on VIN/5V. Copper stays at least 0.7 mm from the board edge. All of it is well inside JLCPCB's and PCBWay's standard 2-layer limits.
+- Every pad's net checked against the design table by script (379 pads).
+- A separate script rebuilt the copper from the board file and checked it for shorts between nets and for gaps below 0.15 mm: none found.
+- Clearances: 0.18 mm on signals (0.15 mm where tracks enter fine-pitch pads), 0.2 mm on GND and fan power, 0.25-0.3 mm on VIN/5V. Copper stays at least 0.5 mm from the board edge. All of it is well inside JLCPCB's and PCBWay's standard 2-layer limits.
