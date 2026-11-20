@@ -31,7 +31,7 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
 
 ## JLCPCB, step by step
 
-1. Go to jlcpcb.com, click **Order now** and drop in `TinyFan2350_GERBERS_upload.zip`. It should show **86 x 52 mm, 2 layers**.
+1. Go to jlcpcb.com, click **Order now** and drop in `TinyFan2350_GERBERS_upload.zip`. It should show **89 x 58.1 mm, 2 layers**.
 2. Board options. Leave everything not listed here at the default:
    - **Base material** FR-4, **Layers** 2, **Thickness** 1.6 mm.
    - **PCB colour: Black** (it comes with white text). It takes the same time as green at JLC.
@@ -61,7 +61,7 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
 
 ## PCBWay, step by step
 
-1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. Choose 2 layers, 86 x 52 mm, 1.6 mm thick, **1 oz** copper (or 2 oz for extra margin), HASL or ENIG, solder mask **Black**, silkscreen **White**.
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. Choose 2 layers, 89 x 58.1 mm, 1.6 mm thick, **1 oz** copper (or 2 oz for extra margin), HASL or ENIG, solder mask **Black**, silkscreen **White**.
 2. Tick **Assembly service**: *Turnkey* (PCBWay buys the parts), **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid (position) file. PCBWay buys parts using the maker part number column. The LCSC numbers are there as a second reference.
 4. In the remarks box, paste this:

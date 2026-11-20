@@ -23,7 +23,7 @@ It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) a
 | **Temperature** | 4 ports (JST-XH 2-pin) for standard 100k thermistors |
 | **Extra pins** | One small 4-pin header (GND, 3.3 V, GP14, GP15) for a door switch, sensor and similar |
 | **Protection** | Every fan port and LED port has its own **self-resetting fuse**: a shorted cable switches off just that port, and it works again once you fix the cable. If you wire the power the wrong way round, nothing happens at all: an electronic switch on each input stays off until you fix it. Too high a voltage blows the main fuse instead of the board. All the main parts run well below their maximum ratings at 24 V (see [design notes](docs/design-notes.md#safety-margins)) |
-| **Board** | 86 x 52 mm, black, 2 layers, 1 oz copper (2 oz optional). Four M3 holes in the corners, 79 x 45 mm apart. A printable DIN-rail mount is included |
+| **Board** | 89 x 58.1 mm, black, 2 layers, 1 oz copper (2 oz optional). Four M3 holes in the corners, 82 x 51.1 mm apart. A printable DIN-rail mount is included |
 
 ![Pinout](docs/images/pinout.png)
 
@@ -34,7 +34,7 @@ It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) a
 3. **Solder the socket** for the RP2350-Zero (three short female header strips). [docs/assembly.md](docs/assembly.md) shows how, and also how to build the whole board by hand if you prefer.
 4. **Wire it up and set the jumpers**: [docs/wiring.md](docs/wiring.md). **Set every fan jumper before you switch the power on.**
 5. **Install Klipper on it and add the config**: [docs/klipper.md](docs/klipper.md) and [`klipper/tinyfan.cfg`](klipper/tinyfan.cfg).
-6. **Mount it** on a DIN rail with the printed tray and two Voron Trident PCB DIN clips: [docs/mounting.md](docs/mounting.md).
+6. **Mount it** on a DIN rail with the printed tray and one Voron Trident PCB DIN clip: [docs/mounting.md](docs/mounting.md).
 
 ![DIN mount](docs/images/mount_assembly.png)
 
@@ -77,7 +77,7 @@ klipper/
 
 ## Status
 
-v2.6 passes KiCad's electrical check (ERC) and layout check (DRC) with zero errors and nothing left unconnected. Scripts also check that every pad connects to the right signal and that no two nets touch or come closer than 0.15 mm. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
+v2.7 passes KiCad's electrical check (ERC) and layout check (DRC) with zero errors and nothing left unconnected. Scripts also check that every pad connects to the right signal and that no two nets touch or come closer than 0.15 mm. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
 
 ## License
 

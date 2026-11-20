@@ -49,14 +49,15 @@ A resistive model of the real board layout (every track, pad, via and copper pou
 
 | Path | Normal load | Rise | At the fuse limit | Rise |
 |---|---|---|---|---|
-| Fan power and return, per port | 0.8 A | about 2 °C | 1.5 A | 7-9 °C |
-| LED strip power, per port | 1.5 A | about 5 °C | 2 A | about 10 °C |
-| J1 → F1 → Q1 (VIN input side) | 3 A | 4-6 °C | 5 A | 13-19 °C |
-| VIN after Q1 (to the jumpers) | 3 A | about 8 °C | 5 A | about 24 °C |
-| J2 → F2 → Q2 (5 V input side) | 3 A | 2-4 °C | 5 A | 7-12 °C |
-| +5 V after Q2 (to the jumpers) | 3 A | about 8 °C | 5 A | about 25 °C |
+| Fan power and return, per port | 0.8 A | 2-3 °C | 1.5 A | 6.5-9 °C (FAN4 power: 11.5 °C) |
+| LED strip power, per port | 1.5 A | 2.5-5.5 °C | 2 A | 4.3 and 9.6 °C |
+| J1 → F1 → Q1 (VIN input side) | 3 A | 2-3 °C | 5 A | 5.0-7.4 °C |
+| VIN after Q1 (to the jumpers) | 3 A | about 3 °C | 5 A | 7.8 °C |
+| J2 → F2 → Q2 (5 V input side) | 3 A | 1.5-2.5 °C | 5 A | 4.5-6.9 °C |
+| +5 V after Q2 (to the jumpers) | 3 A | about 3.5 °C | 5 A | 9.2 °C |
+| GND return (shared) | 3 A | about 2 °C | 5 A | 6.2 °C |
 
-In normal use (3 A on each input) nothing gets more than about 8 °C above the room. The v2.6 board is 29 % smaller than v2.5, so the two main rails are narrower in one or two places. Only if you load an input right up to the 5 A fuse do they reach about 25 °C, a little over the 20 °C target. That is still far below what the copper and the black solder mask can take (above 100 °C), but it is why the **recommended maximum is 4 A on VIN and 3.5 A on 5 V**. At those currents the rise is about 14 °C and 11 °C.
+v2.7 is 3 mm wider and 6 mm taller than v2.6 (89 x 58.1 mm). The power section was rebuilt around that space: the VIN bus and the +5 V rail now run as wide copper areas on the bottom layer, so the top layer is free for an unbroken ground return. Every power path now stays **under 10 °C even at the 5 A fuse limit** (v2.6: about 25 °C). The one exception is a single short neck on the FAN4 power feed, next to its flyback diode, which reaches 11.5 °C at the full 1.5 A. That is still far below what the copper and the black solder mask can take (above 100 °C). The recommended maximums (4 A on VIN, 3.5 A on 5 V) now come only from fuse derating, not from copper heating.
 
 **Need more current, or want extra margin?** Order the board with **2 oz copper** (one option on the order page). It roughly halves every number in the table. With 2 oz copper you may fit a **7 A** Nano2 fuse (Littelfuse 0452007.MRL) in F1 and run up to about 6 A on VIN.
 
@@ -169,19 +170,19 @@ Right-angle track corners are often said to cause interference (EMI). That only 
 
 ## Changes from the original TinyFan
 
-| | TinyFan (Gi7mo) | TinyFan2350 v2.6 |
+| | TinyFan (Gi7mo) | TinyFan2350 v2.7 |
 |---|---|---|
 | MCU | RP2040-Zero | RP2350-Zero (same footprint and pinout), socketed |
 | Input | 24 V + on-board converter | Separate 12-24 V and 5 V inputs, each with a fuse, a reverse-polarity switch and a protection diode |
 | Fans | 2/3/4-pin, fixed voltage | 6 x JST-XH, VIN/5V jumper per port, 4-pin PWM or switched 2/3-pin, RPM input with protection, self-resetting fuse per port |
 | LEDs | - | 2 x addressable LED ports, 5 V data, 5 V or VIN strip power |
 | Sensors | - | 4 x thermistor ports |
-| Size | ~60 x 62 mm | 86 x 52 mm |
+| Size | ~60 x 62 mm | 89 x 58.1 mm |
 
 ## Verification
 
 - ERC (electrical check): 0 errors.
 - DRC (layout check, KiCad 10.0.8): 0 violations, 0 unconnected.
-- Every pad's net checked against the design table by script (379 pads).
+- Every pad's net checked against the design table by script.
 - A separate script rebuilt the copper from the board file and checked it for shorts between nets and for gaps below 0.15 mm: none found.
 - Clearances: 0.18 mm on signals (0.15 mm where tracks enter fine-pitch pads), 0.2 mm on GND and fan power, 0.25-0.3 mm on VIN/5V. Copper stays at least 0.5 mm from the board edge. All of it is well inside JLCPCB's and PCBWay's standard 2-layer limits.

@@ -109,4 +109,4 @@ Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14**, printed on the board as `G 3V3 15 14`.
 
 ## 6. Mounting holes
 
-Four M3 holes, one in each corner, on a **79 x 45 mm** rectangle, 3.5 mm in from every edge. The holes are connected to GND. Leave about 20 mm of space above the board for the connectors and the two round capacitors, plus room for the plugs. For DIN rail mounting see [mounting.md](mounting.md).
+Four M3 holes, one in each corner, on an **82 x 51.1 mm** rectangle, 3.5 mm in from every edge. The holes are connected to GND. Leave about 20 mm of space above the board for the connectors and the two round capacitors, plus room for the plugs. For DIN rail mounting see [mounting.md](mounting.md).
