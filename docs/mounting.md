@@ -31,9 +31,9 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 ![Exploded](images/mount_exploded.png)
 
 1. Heat each M3 insert with your soldering iron (about 220-250 °C) and press it gently straight down into a post, flush with the top.
-2. Put the DIN clip into the 0.5 mm locating pocket on the underside. The **latch end** (the springy end with the release tab) goes towards the board edge with **FAN3 / FAN6 and the two big capacitors**.
+2. Put the DIN clip into the 0.5 mm locating pocket on the underside. The **latch end** (the springy end with the release tab) goes towards the board's **right edge** (the LED ports LED1/LED2), away from the USB-C and power inputs.
 3. Screw the clip on from the top with 2 x M2x10 self-tappers. The screw heads sit flush in the raised pad.
-4. Fit the PCB with the USB-C end (U1) at the edge away from the latch, using 4 x M3x6.
+4. Fit the PCB with the USB-C end (U1, on the left edge) at the edge away from the latch, using 4 x M3x6.
 5. Hook the fixed end of the clip onto the rail, then press the latch side down until it snaps. To remove it, pull the latch tab with a flat screwdriver.
 
 ![Underside](images/mount_bottom.png)

@@ -80,10 +80,10 @@ The first line should start fan 1 at half speed, and the last should light LED s
 | FAN3 PWM / TACH | `FAN3_PWM` / `FAN3_TACH` | gpio4 / gpio5 |
 | FAN4 PWM / TACH | `FAN4_PWM` / `FAN4_TACH` | gpio6 / gpio7 |
 | FAN5 PWM / TACH | `FAN5_PWM` / `FAN5_TACH` | gpio8 / gpio9 |
-| FAN6 PWM / TACH | `FAN6_PWM` / `FAN6_TACH` | gpio10 / gpio11 |
 | LED1 / LED2 data | `LED1` / `LED2` | gpio12 / gpio13 |
 | TH1-TH4 | `TH1`...`TH4` | gpio26-gpio29 |
 | EXP | `EXP_GP15` / `EXP_GP14` | gpio15 / gpio14 |
+| EXP spares (J5 pins 6/5) | - | gpio10 / gpio11 |
 | On-module RGB LED | `STATUS_LED` | gpio16 |
 
 ## Notes
@@ -93,6 +93,6 @@ The first line should start fan 1 at half speed, and the last should light LED s
   - **Important: set `cycle_time: 0.010` for every port whose MODE (JM) jumper is on `2/3`.** At the default 25 kHz signal the 2/3-pin fan switch (MOSFET) on the board overheats.
   - **RPM readings are not meaningful while a 2/3-pin fan is being PWM'd** - the tach pin only shows the switch-on level. Ignore any RPM value on those ports.
 - The RPM inputs already have resistors on the board, so **don't** add `^` in front of `tachometer_pin`.
-- The board's thermistor resistor is 4.7k, so keep `pullup_resistor: 4700`.
+- The board's thermistor resistor is 4.7k, so keep `pullup_resistor: 4700`. There are also 10k series resistors (R67-R70) between each sensor and the MCU; they protect the MCU and don't change the reading.
 - `sensor_type: Generic 3950` suits most 100k thermistors. For a 104GT probe use `ATC Semitec 104GT-2`.
 - To give a port a job (controller fan, temperature-controlled fan, Nevermore filter), copy one of the examples at the bottom of `tinyfan.cfg`. First delete that port's `fan_generic` section, because Klipper lets each pin be used only once.

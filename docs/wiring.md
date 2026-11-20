@@ -29,14 +29,14 @@ These limits keep every part comfortably below its maximum, including in a warm 
 
 | What | Recommended maximum | Hard limit (fuse) |
 |---|---|---|
-| All fans and strips on **VIN** together | **4 A** (for example 3 fans at 0.8 A + 3 fans at 0.2 A = 3 A) | 5 A (F1) |
+| All fans and strips on **VIN** together | **4 A** (for example 5 fans x 0.6 A = 3 A plus 1 A of LED strip) | 5 A (F1) |
 | Everything on **5 V** together | **3.5 A** | 5 A (F2) |
-| **One fan port** | **1 A** | 1.5 A (self-resetting) |
+| **One fan port** | **0.6 A** | 1.1 A (self-resetting PTC, F3-F7) |
 | **One LED port** | **1.5 A** | 2 A (self-resetting) |
 
 A 5 V WS2812 strip uses up to about 60 mA per LED at full white. 25 LEDs at full white is already 1.5 A, so set a brightness limit in Klipper for long strips (or use a 12 V strip on VIN).
 
-## 2. Fans (FAN1-FAN6)
+## 2. Fans (FAN1-FAN5)
 
 The fan sockets are **JST-XH 4-pin** (2.5 mm). Normal PC fan plugs **do not fit**: put JST-XH (XHP-4) housings on your fan wires.
 
@@ -51,12 +51,12 @@ Colours vary between makers, so check your fan's datasheet.
 
 ### Set two jumpers for every fan port
 
-Below each fan socket are two 3-pin jumpers, one above the other. Put one cap on each, on either the left pair or the right pair. The board prints the choices next to the pins.
+Below each fan socket are two 3-pin jumpers standing upright side by side: **JM (MODE)** on the left and **JP (FAN V)** on the right. Put one cap on each, on either the top pair or the bottom pair of pins. The board prints the choice above and below each jumper.
 
-| Jumper | Cap on the **left** two pins | Cap on the **right** two pins |
+| Jumper | Cap on the **top** two pins | Cap on the **bottom** two pins |
 |---|---|---|
-| **MODE** (JM, upper row, labelled `2/3` and `4P`) | 2-pin or 3-pin fan | 4-pin PWM fan |
-| **FAN V** (JP, lower row, labelled `VIN` and `5V`) | **VIN** (the 12 V or 24 V on J1) | **5 V** |
+| **MODE** (JM, left, `2/3` printed above, `4P` below) | 2-pin or 3-pin fan | 4-pin PWM fan |
+| **FAN V** (JP, right, `VIN` printed above, `5V` below) | **VIN** (the 12 V or 24 V on J1) | **5 V** |
 
 No cap on FAN V means that port gets no power.
 
@@ -79,12 +79,12 @@ No cap on FAN V means that port gets no power.
 
 The LED sockets are JST-XH 3-pin: **1 GND, 2 + power, 3 DATA**.
 
-The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, right below each LED socket) chooses the strip's power:
+The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, standing upright just left of each LED socket on the right edge) chooses the strip's power:
 
 | JL cap on | Strip gets | Use it for |
 |---|---|---|
-| **Left two pins (VIN)** | the 12 V or 24 V on J1 | 12 V strips such as WS2815 on a 12 V supply; 24 V strips only on a 24 V supply |
-| **Right two pins (5 V)** | 5 V from J2 | WS2812B, SK6812 and other 5 V strips |
+| **Top two pins (VIN)** | the 12 V or 24 V on J1 | 12 V strips such as WS2815 on a 12 V supply; 24 V strips only on a 24 V supply |
+| **Bottom two pins (5 V)** | 5 V from J2 | WS2812B, SK6812 and other 5 V strips |
 
 > **A 5 V strip on VIN is destroyed at once. A 12 V strip such as WS2815 on a 24 V VIN dies the same way. Check the LED V jumper and your supply voltage before you plug a strip in.**
 
@@ -94,7 +94,7 @@ The data line is protected. A long wire to the first LED is fine, and if + touch
 
 ## 4. Thermistors (TH1-TH4)
 
-JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no + or -, so either way round works. Use standard **100k NTC** thermistors ("Generic 3950" in Klipper). The board already has the resistor Klipper expects (4.7k), so you don't add anything.
+JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no + or -, so either way round works. Use standard **100k NTC** thermistors ("Generic 3950" in Klipper). The board already has the 4.7k pull-ups (R27-R30) that Klipper expects, plus 10k series resistors (R67-R70) on the signal lines that protect the MCU if a sensor wire touches 24 V. The readings are unchanged, so you keep `pullup_resistor: 4700`.
 
 | Port | RP2350 pin |
 |---|---|
@@ -107,7 +107,7 @@ JST-XH 2-pin: **pin 1 = signal, pin 2 = GND**. Thermistors have no + or -, so ei
 
 ## 5. EXP header (J5, optional)
 
-Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14**, printed on the board as `G 3V3 15 14`. Uses: a door switch, a filament sensor, an I2C sensor (GP14 = SDA, GP15 = SCL), or one small extra LED strip data line. **3.3 V signals only**, and draw no more than about 100 mA from the 3.3 V pin.
+Pins: **1 GND, 2 3.3 V, 3 GP15, 4 GP14, 5 GP11, 6 GP10**, printed on the board. GP11 and GP10 are spare GPIOs. Uses: a door switch, a filament sensor, an I2C sensor (GP14 = SDA, GP15 = SCL), or one small extra LED strip data line. **3.3 V signals only, not 5 V tolerant**, and draw no more than about 100 mA from the 3.3 V pin.
 
 ## 6. Mounting holes
 

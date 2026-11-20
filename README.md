@@ -1,6 +1,6 @@
 # TinyFan2350
 
-TinyFan2350 is a small add-on board for a 3D printer that runs **Klipper**. It controls up to **six fans**, **two addressable LED strips** (WS2812 and similar) and reads **four temperature sensors** (thermistors). A **Waveshare RP2350-Zero** does the work. It's a thumb-sized microcontroller board that plugs into sockets on the TinyFan, and it talks to your printer's Raspberry Pi (or similar) over a USB cable.
+TinyFan2350 is a small add-on board for a 3D printer that runs **Klipper**. It controls up to **five fans**, **two addressable LED strips** (WS2812 and similar) and reads **four temperature sensors** (thermistors). A **Waveshare RP2350-Zero** does the work. It's a thumb-sized microcontroller board that plugs into sockets on the TinyFan, and it talks to your printer's Raspberry Pi (or similar) over a USB cable.
 
 It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) and was redesigned in KiCad 10.
 
@@ -18,10 +18,10 @@ It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) a
 |---|---|
 | **Brain** | Waveshare RP2350-Zero in sockets. It is powered by its own USB cable from the Klipper host |
 | **Power in** | **J1: 12 V or 24 V** for fans (and 12/24 V LED strips), with a 5 A fuse (F1). **J2: 5 V** for 5 V fans and 5 V LED strips, with a 5 A fuse (F2). Both fuses are soldered on by the factory |
-| **Fans** | 6 ports (JST-XH 4-pin). Each port works with **4-pin PWM fans** (speed control plus RPM reading) **or 2/3-pin fans** (switched on and off fast by the board to set the speed). Each port can be set to 12/24 V or 5 V. A small green light shows when a port has power |
+| **Fans** | 5 ports (JST-XH 4-pin). Each port works with **4-pin PWM fans** (speed control plus RPM reading) **or 2/3-pin fans** (switched on and off fast by the board to set the speed). Each port can be set to 12/24 V or 5 V. A small green light shows when a port has power |
 | **LED strips** | 2 ports (JST-XH 3-pin) for addressable strips. Each port can be powered from 5 V (WS2812B, SK6812) or from J1 (12/24 V strips). Use 12 V strips such as WS2815 on a 12 V supply; 24 V strips only on a 24 V supply |
 | **Temperature** | 4 ports (JST-XH 2-pin) for standard 100k thermistors |
-| **Extra pins** | One small 4-pin header (GND, 3.3 V, GP14, GP15) for a door switch, sensor and similar |
+| **Extra pins** | One small 6-pin header (GND, 3.3 V, GP15, GP14, GP11, GP10) for a door switch, sensor and similar. GP11 and GP10 are spare GPIOs |
 | **Protection** | Every fan port and LED port has its own **self-resetting fuse** on its + wire: a shorted cable, or a + wire rubbing on the printer frame, switches off just that port, and it works again once you fix the cable. If you wire the power the wrong way round, nothing happens at all: an electronic switch on each input stays off until you fix it. Too high a voltage is shorted by a protection diode and blows the main fuse (both then need replacing, the rest of the board is protected). All the main parts run well below their maximum ratings at 24 V (see [design notes](docs/design-notes.md#safety-margins)) |
 | **Board** | 89 x 58.1 mm, black, 2 layers, 1 oz copper. Four M3 holes in the corners, 82 x 51.1 mm apart. A printable DIN-rail mount is included |
 
@@ -77,7 +77,7 @@ klipper/
 
 ## Status
 
-v2.8 passes KiCad's electrical check (ERC) with zero errors. The layout check (DRC) finds 0 errors and nothing unconnected; it lists 2 warnings for two short, harmless leftover track stubs. Key circuits were checked in SPICE simulation and the Klipper config against a real RP2350 firmware build. Scripts also check that every pad connects to the right signal and that no two nets touch or come closer than 0.15 mm. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
+v3.0 passes KiCad's electrical check (ERC) with zero errors, and the layout check (DRC, all severities, copper pours refilled) with zero errors, zero warnings, nothing unconnected and a clean schematic match. Every power path was checked for current with IPC-2221 (worst case: 0.6 A per fan, 2 A per LED port, the 5 A input fuse), key circuits in SPICE simulation, and the Klipper config against a real RP2350 firmware build. It has not been built yet; see the bring-up checklist in [design-notes.md](docs/design-notes.md).
 
 ## License
 

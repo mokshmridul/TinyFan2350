@@ -1,5 +1,19 @@
 # Changelog
 
+## v3.0 (2026-11)
+- **5 fan ports (FAN6 removed):** FAN1-FAN5, recommended maximum 0.6 A per port (was 0.8 A); fan switches Q4-Q8 and level shifters Q10-Q14 (Q9 and Q15 no longer exist).
+- **Port PTCs:** F3-F7 LUTE 1812L110/33GR, 1.1 A hold / 33 V (was F3-F8 LUTE 1812L150/33GR, 1.5 A).
+- **EXP header J5 is now 1x06:** 1 GND, 2 3V3, 3 GP15, 4 GP14, 5 GP11, 6 GP10 — GP10/GP11 are spares freed by removing FAN6. 3.3 V logic only, not 5 V tolerant.
+- **Thermistor protection:** new 10k series resistors R67-R70 between each divider node and the RP2350 ADC pin; pull-ups R27-R30 now 1206.
+- **Faster fan gate drive (after the SPICE check):** gate resistors R41-R45 22k -> 1k, PWM-5V pull-ups R49/R50/R55/R56/R61 10k -> 2.2k, so 2/3-pin mode is safe at any PWM frequency.
+- **New layout:** USB-C and both power inputs on the left edge, FAN1-FAN5 in a row on the top edge, LED ports on the right edge, thermistors TH1-TH4 in a row on the bottom edge, EXP J5 top-left above the RP2350-Zero.
+- **Routing and build:** hand-routed 2.5 mm VIN/+5V trunks, 2-layer board; all SMD parts on the bottom side (one-side assembly) except the 7 indicator LEDs LD1-LD5, LD7, LD8, which are on the top.
+- **Jumpers stand upright:** under each fan, MODE (JM, left) and FAN V (JP, right) side by side; cap on the top two pins = `2/3` / `VIN`, bottom two pins = `4P` / `5V`. JL1/JL2 stand just left of the LED sockets (top = VIN, bottom = 5 V).
+- **Copper:** VIN on the top layer and +5V on the bottom layer as locked 2.5 mm trunks through the corridor between the fan row and the thermistor row; 164 GND stitching vias join the pours; a GND via beside every fan switch source pin. Every power path stays below 20 °C at the worst case (5 fans x 0.6 A, 2 x 2 A LED, 5 A fuse cap).
+- **Silkscreen:** clear `-` / `+` at both power inputs (C5/C6 use a project copy of their footprint with the `+` mark at the lower left, next to the terminal's `+` pin); every label kept off connector bodies.
+- **DIN tray:** same holes and size; Q2, D21 and R66 moved so they clear the 8.5 mm standoffs, plus small relief pockets in the standoff tops for the U1 socket pins, R48 and the Q2 leads. Reprint the tray for v3.0.
+- **Verification: see design-notes.md.**
+
 ## v2.8 (review fixes) (2026-11)
 - **Port fuses moved to the +V side:** every fan PTC (F3-F8, 1.5 A) and LED PTC (F9/F10, 2 A) now sits between the VIN/5V jumper (JPx/JLx) and the port's +V pin. The port ground, the 2/3-pin MOSFET source and the JM jumper go straight to GND. A +V wire chafing against grounded metal is now caught by the port fuse; before, it bypassed it. Fan and LED power copper re-routed (0.5 mm or wider; LED1 feed 0.6 mm); a custom DRC rule keeps the PTC pads at their previous 0.15 mm clearance.
 - **Tach series resistors R21-R26 4.7k -> 10k:** a 28.8 V short on a tach pin now dissipates 64 mW (51 % of the 0805 rating) instead of 135 mW. Tach reading unchanged (checked in simulation).
