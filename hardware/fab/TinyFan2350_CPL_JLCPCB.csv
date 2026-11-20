@@ -25,7 +25,7 @@ D16,76.329mm,-13.823mm,Bottom,90
 D17,87.129mm,-13.823mm,Bottom,90
 D19,85.295mm,-45.615mm,Bottom,0
 D20,82.519mm,-49.946mm,Bottom,180
-D21,29.617mm,-57.288mm,Bottom,0
+D21,29.917mm,-57.288mm,Bottom,0
 D22,28.645mm,-63.308mm,Bottom,180
 D23,29.747mm,-45.545mm,Bottom,180
 D24,12.503mm,-57.298mm,Bottom,270
@@ -71,7 +71,7 @@ LD5,83.705mm,-26.125mm,Top,90
 LD7,32.925mm,-39.995mm,Top,0
 LD8,32.925mm,-51.795mm,Top,0
 Q1,24.351mm,-45.804mm,Bottom,180
-Q2,20.283mm,-61.434mm,Bottom,270
+Q2,21.133mm,-61.434mm,Bottom,270
 Q4,43.081mm,-20.661mm,Bottom,0
 Q5,53.881mm,-20.661mm,Bottom,0
 Q6,64.681mm,-20.661mm,Bottom,0
@@ -123,7 +123,7 @@ R59,30.673mm,-21.532mm,Bottom,90
 R61,79.850mm,-33.901mm,Bottom,90
 R63,82.120mm,-11.558mm,Bottom,0
 R65,29.094mm,-43.084mm,Bottom,0
-R66,14.965mm,-59.865mm,Bottom,270
+R66,12.300mm,-52.900mm,Bottom,90
 R67,38.812mm,-57.780mm,Bottom,0
 R68,40.436mm,-52.840mm,Bottom,0
 R69,46.297mm,-50.842mm,Bottom,0

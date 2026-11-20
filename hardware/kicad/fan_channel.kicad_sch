@@ -5364,7 +5364,7 @@
 		)
 		(uuid "7d4bd7aa-d5ef-4483-8bcc-4ca127d67ac3")
 	)
-	(text "Per channel  k = 1..6:  FANk  JPk  JMk  Q(9+k) 2N7002  Q(3+k) SI2308A  R(20+k) 4.7k  R(40+k) 22k  R(32+k) 10k  LDk  D(k) BAT54S  D(6+k) B5819W  D(12+k) zener  F(2+k) PTC"
+	(text "Per channel  k = 1..5:  FANk  JPk  JMk  Q(9+k) 2N7002  Q(3+k) SI2308A  R(20+k) 10k  R(40+k) 1k  R(32+k) 10k  LDk  D(k) BAT54S  D(6+k) B5819W  D(12+k) zener  F(2+k) PTC"
 		(exclude_from_sim no)
 		(at 15.24 171.45 0)
 		(effects
