@@ -2701,7 +2701,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+		(property "Footprint" "TinyFan2350:TerminalBlock_MKDS-1,5-2-5.08_EdgeEntry"
 			(at 30.48 40.64 0)
 			(effects
 				(font
@@ -4138,7 +4138,7 @@
 				)
 			)
 		)
-		(property "Footprint" "TerminalBlock_Phoenix:TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal"
+		(property "Footprint" "TinyFan2350:TerminalBlock_MKDS-1,5-2-5.08_EdgeEntry"
 			(at 30.48 106.68 0)
 			(effects
 				(font
