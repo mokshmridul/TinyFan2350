@@ -332,16 +332,8 @@
         "pattern": "/FAN*/FAN_VCC"
       },
       {
-        "netclass": "FanPower",
-        "pattern": "/FAN*/FAN_RET"
-      },
-      {
         "netclass": "LedPower",
         "pattern": "/LEDs/LED*_VCC"
-      },
-      {
-        "netclass": "LedPower",
-        "pattern": "/LEDs/LED*_RET"
       },
       {
         "netclass": "Power",
@@ -366,6 +358,14 @@
       {
         "netclass": "Power",
         "pattern": "/Power/5V_F"
+      },
+      {
+        "netclass": "FanPower",
+        "pattern": "/FAN*/FAN_VSEL"
+      },
+      {
+        "netclass": "LedPower",
+        "pattern": "/LEDs/LED*_VSEL"
       }
     ]
   },

@@ -3285,7 +3285,7 @@
 				)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 67.31 101.6 90)
 			(effects
 				(font
@@ -3320,7 +3320,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "0805W8F1002T5E"
 			(at 71.12 96.52 90)
 			(effects
 				(font
@@ -3329,7 +3329,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17414"
 			(at 71.12 96.52 90)
 			(effects
 				(font
@@ -4284,7 +4284,7 @@
 			)
 		)
 	)
-	(label "FAN_VCC"
+	(label "FAN_VSEL"
 		(at 170.18 81.28 180)
 		(effects
 			(font
@@ -5249,16 +5249,6 @@
 			)
 		)
 	)
-	(label "FAN_RET"
-		(at 218.44 144.78 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a094d892-cefa-47ee-89d3-9821a2b63bb7")
-	)
 	(no_connect
 		(at 238.76 139.7)
 		(uuid "089bc4e1-b6be-461b-8662-07fb878ec9ac")
@@ -5275,7 +5265,7 @@
 	)
 	(symbol
 		(lib_id "Device:Fuse")
-		(at 198.12 148.59 0)
+		(at 198.12 170.18 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -5283,7 +5273,7 @@
 		(dnp no)
 		(uuid "20e7c478-b761-4693-8c71-a1c885d05593")
 		(property "Reference" "F3"
-			(at 201.93 147.828 0)
+			(at 201.93 169.418 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5292,7 +5282,7 @@
 			)
 		)
 		(property "Value" "PTC 1.5A 33V"
-			(at 201.93 151.384 0)
+			(at 201.93 172.974 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5301,7 +5291,7 @@
 			)
 		)
 		(property "Footprint" "Fuse:Fuse_1812_4532Metric"
-			(at 198.12 148.59 0)
+			(at 198.12 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5310,7 +5300,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 198.12 148.59 0)
+			(at 198.12 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5319,7 +5309,7 @@
 			)
 		)
 		(property "Manufacturer" "LUTE"
-			(at 198.12 148.59 0)
+			(at 198.12 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5328,7 +5318,7 @@
 			)
 		)
 		(property "MPN" "1812L150/33GR"
-			(at 198.12 148.59 0)
+			(at 198.12 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5337,7 +5327,7 @@
 			)
 		)
 		(property "LCSC" "C18198333"
-			(at 198.12 148.59 0)
+			(at 198.12 170.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -5958,11 +5948,55 @@
 		(color 0 0 0 0)
 		(uuid "e8247058-e4a3-454e-af96-3b76558c9206")
 	)
-	(junction
-		(at 218.44 144.78)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "37aded4e-1989-4fc8-a2a4-f2e86ba37334")
+	(wire
+		(pts
+			(xy 198.12 144.78) (xy 198.12 152.4)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "84a16390-da4d-4183-be18-448d55bfaa64")
+	)
+	(wire
+		(pts
+			(xy 198.12 166.37) (xy 198.12 163.83)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f4b317a8-37da-4e1c-b6a3-5605da5e402f")
+	)
+	(label "FAN_VSEL"
+		(at 198.12 163.83 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d664b9c6-3338-451a-a9c3-43e8e3390dc0")
+	)
+	(wire
+		(pts
+			(xy 198.12 173.99) (xy 198.12 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b4d6b693-1246-4a2b-8435-4516d6abae62")
+	)
+	(label "FAN_VCC"
+		(at 198.12 176.53 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2cb69031-076a-4115-a99c-8ec7488ffe8c")
 	)
 	(embedded_fonts no)
 )

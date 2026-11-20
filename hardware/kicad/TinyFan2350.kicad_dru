@@ -1,0 +1,8 @@
+(version 1)
+
+# The port PTCs (F3-F10) moved from the ground return to the +V side in the review fixes.
+# Their pads keep the 0.15 mm clearance they had as GND pads; 0.15 mm is far more than
+# 12/24 V needs (IPC-2221 B2: 0.1 mm up to 30 V). FanPower/LedPower otherwise ask 0.2/0.25 mm.
+(rule "PTC pads"
+	(condition "A.Type == 'Pad' && (A.memberOfFootprint('F3') || A.memberOfFootprint('F4') || A.memberOfFootprint('F5') || A.memberOfFootprint('F6') || A.memberOfFootprint('F7') || A.memberOfFootprint('F8') || A.memberOfFootprint('F9') || A.memberOfFootprint('F10'))")
+	(constraint clearance (min 0.15mm)))
