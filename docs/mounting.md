@@ -7,7 +7,7 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 | | |
 |---|---|
 | Printed part | [`mechanical/TinyFan2350_DIN_mount.stl`](../mechanical/TinyFan2350_DIN_mount.stl) (STEP + CadQuery source alongside) |
-| Footprint | 89 x 58.1 mm, the same as the PCB. The clip sits under the middle of the board and its latch stays inside the tray outline (it ends about 3.5 mm in from the edge next to FAN3/FAN6). About 43 mm from the bottom of the clip to the top of the screw terminals |
+| Footprint | 89 x 58.1 mm, the same as the PCB. The whole clip, latch included, is centred under the tray, about 13.5 mm in from each end, so nothing sticks out past the outline. About 43 mm from the bottom of the clip to the top of the screw terminals |
 | PCB height | Board underside sits 10 mm above the clip (7 mm standoffs on a 3 mm plate) |
 | Rail use | 58.1 mm along the rail (the board's short side) |
 
@@ -41,7 +41,7 @@ A 3D-printed tray that holds the TinyFan2350 on a **DIN rail** (the metal rail i
 ## Design notes
 
 - The geometry was measured from the Voron Trident PCB DIN clip STEP: a 41.5 x 10 mm flat top face, and two Ø1.9 mm pilot holes 31.5 mm apart for M2 self-tappers.
-- Since v2.7 the board is turned 90° on the rail: the clip runs across the rail along the board's long side, so a single clip carries it and the board takes only 58 mm of rail. The clip is centred under the board, so the weight sits evenly over the rail. (v2.6 used two clips with the board's long side along the rail.)
+- Since v2.7 the board is turned 90° on the rail: the clip runs across the rail along the board's long side, so a single clip carries it and the board takes only 58 mm of rail. The whole clip (fixed hook to latch tab) is centred under the board, so the weight sits evenly over the rail. (v2.6 used two clips with the board's long side along the rail.)
 - 7 mm of clearance under the PCB covers untrimmed through-hole leads (JST-XH pins stick out about 3.4 mm). The board's full 3D model was checked against the tray: nothing touches.
 - The open windows let air through, and you can reach the clip screws without taking the clip off.
 - To change anything (standoff height, insert size, clip position), edit the parameters at the top of `TinyFan2350_DIN_mount.py` and run it with CadQuery 2.x. It writes the STEP and STL.

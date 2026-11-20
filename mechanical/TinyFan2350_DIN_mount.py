@@ -11,7 +11,8 @@ T=3.0                      # base plate thickness
 SO=7.0                     # standoff height above plate (clearance for THT leads)
 SO_D=8.5; INS_D=4.3; INS_DEP=6.0     # M3 heat-set insert (Robu M3x4, 4.8 OD)
 RIM=5.0
-CX,CY=BW/2,BH/2            # clip centre (board centre)
+CY=BH/2                    # clip centre line along the rail (board centre)
+CX=BW/2-10.0               # clip top-face centre; the latch reaches 20 mm further in +X, so the whole clip is centred under the tray
 CLIP_L=42.0                # clip top-face length along X, across the rail (+0.2 clearance)
 CLIP_W=10.4                # clip width along Y, along the rail
 POCKET=0.5
@@ -21,7 +22,7 @@ PAD_W=14.0; PAD_H=2.0      # raised screw pad on top of the plate
 m=cq.Workplane('XY').box(BW,BH,T,centered=False).edges('|Z').fillet(3.0)
 # vent windows (two each side of the clip pad)
 ya,yb=CY-PAD_W/2-2.5,CY+PAD_W/2+2.5
-for (x0,x1) in [(12.0,CX-3.0),(CX+3.0,BW-12.0)]:
+for (x0,x1) in [(12.0,BW/2-3.0),(BW/2+3.0,BW-12.0)]:
     for (y0,y1) in [(RIM,ya),(yb,BH-RIM)]:
         m=m.cut(cq.Workplane('XY').box(x1-x0,y1-y0,T,centered=False).translate((x0,y0,0)).edges('|Z').fillet(2.0))
 # raised pad over the clip

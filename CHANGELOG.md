@@ -6,7 +6,7 @@
   - The power section was rebuilt. F1 → Q1 and F2 → Q2 now sit in short vertical chains above J1/J2, the VIN bus and +5 V rail run as wide copper areas on the bottom layer, and the top layer is left free as an unbroken ground return.
   - At the 5 A fuse limit: 12/24 V side 5.0-7.8 °C, 5 V side 4.5-9.2 °C, ground return 6.2 °C. Fan ports at 1.5 A: 6.5-9.1 °C (FAN4 11.5 °C). LED ports at 2 A: 4.3 and 9.6 °C.
 - Same schematic, parts and part numbers as v2.6. Only the layout changed, so the BOM files are unchanged and the CPL has new positions.
-- **DIN mount turned 90° and down to one clip.** The board now sits across the rail and uses 58 mm of rail instead of 86 mm. One Voron PCB DIN clip and 2 M2 screws instead of two clips and 4 screws. The clip latch stays inside the tray outline.
+- **DIN mount turned 90° and down to one clip.** The board now sits across the rail and uses 58 mm of rail instead of 86 mm. One Voron PCB DIN clip and 2 M2 screws instead of two clips and 4 screws. The whole clip, latch included, is centred under the tray and stays inside its outline.
 - DRC 0 errors / 0 unconnected. Four harmless "track has unconnected end" warnings remain (short stubs inside copper that is already connected).
 
 ## v2.6 (2026-11)
