@@ -13,6 +13,8 @@ Everything is in [`hardware/fab/`](../hardware/fab). Download these three, and l
 | `TinyFan2350_CPL_JLCPCB.csv` | **CPL** = where each part sits and which way it turns | JLCPCB "CPL", and PCBWay "Centroid" |
 | `TinyFan2350_BOM_PCBWay.csv` | The same parts list, with each maker's part number | PCBWay assembly page, instead of the JLCPCB BOM |
 
+For a cheaper **bottom-side-only** JLCPCB order there is a matching pair: `TinyFan2350_BOM_JLCPCB_bottom-lowfee.csv` and `TinyFan2350_CPL_JLCPCB_bottom-lowfee.csv`. They list only the 104 small parts on the bottom (one assembly side, so one setup fee). You then solder everything on the top yourself: the connectors, screw terminals, jumper headers, the two big capacitors and the 8 green LEDs.
+
 `TinyFan2350-pos.csv` is KiCad's raw position file. You only need it if an assembler asks for the KiCad format.
 
 ## What you buy yourself
@@ -44,7 +46,7 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
      - **Both sides**: you get a finished board. Only the RP2350-Zero socket is left for you to solder.
      - **Bottom side only**: cheaper, because there is only one setup fee. Every small part except the 8 green LEDs is on the bottom. You then solder the LEDs (LD1-LD8) on the top yourself; they are easy 0805 size. See [assembly.md](assembly.md).
    - **Tooling holes:** *Added by JLCPCB*.
-4. Click **Next**. Upload **`TinyFan2350_BOM_JLCPCB.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the CPL.
+4. Click **Next**. Upload **`TinyFan2350_BOM_JLCPCB.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the CPL. For a **bottom side only** order use the two `..._bottom-lowfee.csv` files instead.
 5. **Parts page.** Every line should be matched to a part with a tick. **U1 and J5 show as "not in BOM". That is expected**, because you fit them yourself.
    - A few parts are JLC "extended" parts (for example the fan switch MOSFETs SI2308A, the reverse-polarity MOSFETs AO4485 / AO4407A, the Nano2 fuses, the input protection diode SMCJ30A and the self-resetting fuses). JLC adds a small one-time fee for each extended part type. That is normal.
    - **U2** must be **74HCT2G17**, with **HCT** (it is listed as 74HCT2G17GW-Q100H, C547569). Do **not** accept a "74HC2G17" (without the T) as a substitute: it does not reliably read the RP2350's 3.3 V signals.
