@@ -2753,7 +2753,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 229.83 57.18 0)
 			(effects
 				(font
@@ -2789,7 +2789,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "0805W8F1002T5E"
 			(at 227.33 55.88 0)
 			(effects
 				(font
@@ -2798,7 +2798,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17414"
 			(at 227.33 55.88 0)
 			(effects
 				(font
@@ -2840,7 +2840,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 163.79 57.18 0)
 			(effects
 				(font
@@ -2876,7 +2876,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "0805W8F1002T5E"
 			(at 161.29 55.88 0)
 			(effects
 				(font
@@ -2885,7 +2885,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17414"
 			(at 161.29 55.88 0)
 			(effects
 				(font
@@ -2927,7 +2927,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 97.75 57.18 0)
 			(effects
 				(font
@@ -2963,7 +2963,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "0805W8F1002T5E"
 			(at 95.25 55.88 0)
 			(effects
 				(font
@@ -2972,7 +2972,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17414"
 			(at 95.25 55.88 0)
 			(effects
 				(font
@@ -3014,7 +3014,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "4.7k"
+		(property "Value" "10k"
 			(at 31.71 57.18 0)
 			(effects
 				(font
@@ -3050,7 +3050,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "0805W8F1002T5E"
 			(at 29.21 55.88 0)
 			(effects
 				(font
@@ -3059,7 +3059,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17414"
 			(at 29.21 55.88 0)
 			(effects
 				(font

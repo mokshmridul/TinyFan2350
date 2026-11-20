@@ -2613,7 +2613,7 @@
 		)
 		(uuid "29d8fe26-6089-4644-ab39-1dc2a01b2491")
 	)
-	(text "Power in: 12-24 V (VIN, for fans/strips) and 5 V, both on the Power sheet. The RP2350-Zero makes 3V3. The fan sheet is used 6 times."
+	(text "Power in: 12-24 V (VIN, for fans/strips) and 5 V, both on the Power sheet. The RP2350-Zero makes 3V3. The fan sheet is used 5 times."
 		(exclude_from_sim no)
 		(at 15.24 21.59 0)
 		(effects

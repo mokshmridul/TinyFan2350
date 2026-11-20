@@ -2601,7 +2601,7 @@
 			)
   )
 	)
-	(text "This one drawing is used six times, once per fan port (FAN1-FAN6). Part numbers shown are FAN1; see the table."
+	(text "This one drawing is used five times, once per fan port (FAN1-FAN5). Part numbers shown are FAN1; see the table."
 		(exclude_from_sim no)
 		(at 15.24 181.102 0)
 		(effects
@@ -3019,7 +3019,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10k"
+		(property "Value" "2.2k"
 			(at 88.86 53.37 0)
 			(effects
 				(font
@@ -3055,7 +3055,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F1002T5E"
+		(property "MPN" "0805W8F2201T5E"
 			(at 86.36 52.07 0)
 			(effects
 				(font
@@ -3064,7 +3064,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17414"
+		(property "LCSC" "C17520"
 			(at 86.36 52.07 0)
 			(effects
 				(font
@@ -4663,7 +4663,7 @@
 				)
 			)
 		)
-		(property "Value" "22k"
+		(property "Value" "1k"
 			(at 146.05 132.08 90)
 			(effects
 				(font
@@ -4698,7 +4698,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F2202T5E"
+		(property "MPN" "0805W8F1001T5E"
 			(at 146.05 127.0 90)
 			(effects
 				(font
@@ -4707,7 +4707,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17560"
+		(property "LCSC" "C17513"
 			(at 146.05 127.0 90)
 			(effects
 				(font
@@ -5375,7 +5375,7 @@
 		)
 		(uuid "20fbfc79-0c7c-480f-950d-57096a25c865")
 	)
-	(text "Pull-ups R47-R64: FAN1/2 -> R47-R52, FAN3/4 -> R53-R58, FAN5/6 -> R59-R64 (PWM 3V3 / PWM 5V / TACH, odd fan first)."
+	(text "Pull-ups (PWM 3V3 10k / PWM 5V 2.2k / TACH 10k): FAN1 -> R47/R49/R51, FAN2 -> R48/R50/R52, FAN3 -> R53/R55/R57, FAN4 -> R54/R56/R58, FAN5 -> R59/R61/R63."
 		(exclude_from_sim no)
 		(at 15.24 176.022 0)
 		(effects
