@@ -2678,8 +2678,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 30.48 40.64 0)
-		(mirror y)
+		(at 30.48 43.18 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -4116,8 +4115,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x02")
-		(at 30.48 106.68 0)
-		(mirror y)
+		(at 30.48 109.22 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)

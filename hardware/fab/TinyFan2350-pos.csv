@@ -115,8 +115,8 @@ Ref,Val,Package,PosX,PosY,Rot,Side
 "H2","M3","MountingHole_3.2mm_M3_ISO7380_Pad",95.500000,-13.500000,0.000000,top
 "H3","M3","MountingHole_3.2mm_M3_ISO7380_Pad",13.500000,-64.600000,0.000000,top
 "H4","M3","MountingHole_3.2mm_M3_ISO7380_Pad",95.500000,-64.600000,0.000000,top
-"J1","VIN 12-24V","TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",50.000000,-62.300000,180.000000,top
-"J2","5V IN","TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",63.600000,-62.300000,180.000000,top
+"J1","VIN 12-24V","TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",44.920000,-62.300000,0.000000,top
+"J2","5V IN","TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",58.520000,-62.300000,0.000000,top
 "J3","LED1 WS2812","JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",21.250000,-48.050000,0.000000,top
 "J4","LED2 WS2812","JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",32.550000,-48.050000,0.000000,top
 "J5","EXP","PinHeader_1x04_P2.54mm_Vertical",18.900000,-37.800000,90.000000,top
