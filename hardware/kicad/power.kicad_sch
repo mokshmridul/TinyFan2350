@@ -3491,7 +3491,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
+		(property "Footprint" "TinyFan2350:CP_Radial_D8.0mm_P3.50mm_PlusLow"
 			(at 101.6 49.53 0)
 			(effects
 				(font
@@ -4872,7 +4872,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_THT:CP_Radial_D8.0mm_P3.50mm"
+		(property "Footprint" "TinyFan2350:CP_Radial_D8.0mm_P3.50mm_PlusLow"
 			(at 101.6 115.57 0)
 			(effects
 				(font
