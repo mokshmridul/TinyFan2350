@@ -2675,7 +2675,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 35.56 46.99 0)
 			(effects
 				(font
@@ -2702,7 +2702,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "1206W4F4701T5E"
 			(at 35.56 46.99 0)
 			(effects
 				(font
@@ -2711,7 +2711,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17936"
 			(at 35.56 46.99 0)
 			(effects
 				(font
@@ -2730,6 +2730,354 @@
 			(project "TinyFan2350"
 			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/2e88fa25-6b23-44a0-9137-a41550833a2b"
 				(reference "R27")
+				(unit 1)
+			)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 227.33 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "18798082-7097-41b2-a51f-880c5be1c266")
+		(property "Reference" "R70"
+			(at 229.83 54.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 229.83 57.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 227.33 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 227.33 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 227.33 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0805W8F4701T5E"
+			(at 227.33 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17673"
+			(at 227.33 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6fff505f-de59-448a-b2cd-b716e1a4d4b0")
+		)
+		(pin "2"
+			(uuid "c6238478-9264-4809-8c2d-c8fb33d40460")
+		)
+		(instances
+			(project "TinyFan2350"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/2e88fa25-6b23-44a0-9137-a41550833a2b"
+				(reference "R70")
+				(unit 1)
+			)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 161.29 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3c121914-25c1-41e9-873c-6b6f07c6aeca")
+		(property "Reference" "R69"
+			(at 163.79 54.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 163.79 57.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 161.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 161.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 161.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0805W8F4701T5E"
+			(at 161.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17673"
+			(at 161.29 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "60fba45c-886f-4761-84b6-23b8bbb34370")
+		)
+		(pin "2"
+			(uuid "d9b4913f-0bc7-4d07-b793-c6c215278f2f")
+		)
+		(instances
+			(project "TinyFan2350"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/2e88fa25-6b23-44a0-9137-a41550833a2b"
+				(reference "R69")
+				(unit 1)
+			)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 95.25 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "827d9ce9-12f8-4f99-a5c4-8acc442f2c6c")
+		(property "Reference" "R68"
+			(at 97.75 54.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 97.75 57.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 95.25 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 95.25 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 95.25 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0805W8F4701T5E"
+			(at 95.25 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17673"
+			(at 95.25 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ffa48495-b7a8-44fd-8fd9-6503a36c02fc")
+		)
+		(pin "2"
+			(uuid "edc9fc29-d088-404c-8445-3799c62a00fd")
+		)
+		(instances
+			(project "TinyFan2350"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/2e88fa25-6b23-44a0-9137-a41550833a2b"
+				(reference "R68")
+				(unit 1)
+			)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 29.21 55.88 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6d9a2c01-ed62-429e-83b7-5d1dfbd62c6c")
+		(property "Reference" "R67"
+			(at 31.71 54.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4.7k"
+			(at 31.71 57.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+			(at 29.21 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 29.21 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer" "UNI-ROYAL"
+			(at 29.21 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "MPN" "0805W8F4701T5E"
+			(at 29.21 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C17673"
+			(at 29.21 55.88 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7a7e9a6f-3157-400d-b1fd-eb3084300000")
+		)
+		(pin "2"
+			(uuid "cd25c240-e0a1-422c-bbea-c715924f1123")
+		)
+		(instances
+			(project "TinyFan2350"
+			(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db/2e88fa25-6b23-44a0-9137-a41550833a2b"
+				(reference "R67")
 				(unit 1)
 			)
 			)
@@ -3138,7 +3486,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 101.6 46.99 0)
 			(effects
 				(font
@@ -3165,7 +3513,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "1206W4F4701T5E"
 			(at 101.6 46.99 0)
 			(effects
 				(font
@@ -3174,7 +3522,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17936"
 			(at 101.6 46.99 0)
 			(effects
 				(font
@@ -3601,7 +3949,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 167.64 46.99 0)
 			(effects
 				(font
@@ -3628,7 +3976,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "1206W4F4701T5E"
 			(at 167.64 46.99 0)
 			(effects
 				(font
@@ -3637,7 +3985,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17936"
 			(at 167.64 46.99 0)
 			(effects
 				(font
@@ -4064,7 +4412,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Resistor_SMD:R_0805_2012Metric"
+		(property "Footprint" "Resistor_SMD:R_1206_3216Metric"
 			(at 233.68 46.99 0)
 			(effects
 				(font
@@ -4091,7 +4439,7 @@
 				(hide yes)
 			)
 		)
-		(property "MPN" "0805W8F4701T5E"
+		(property "MPN" "1206W4F4701T5E"
 			(at 233.68 46.99 0)
 			(effects
 				(font
@@ -4100,7 +4448,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C17673"
+		(property "LCSC" "C17936"
 			(at 233.68 46.99 0)
 			(effects
 				(font
@@ -4486,16 +4834,6 @@
 	)
 	(wire
 		(pts
-			(xy 22.86 55.88) (xy 35.56 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "54d011c8-dbb7-4864-b129-3a801e3f24bd")
-	)
-	(wire
-		(pts
 			(xy 35.56 55.88) (xy 45.72 55.88)
 		)
 		(stroke
@@ -4553,16 +4891,6 @@
 			(type default)
 		)
 		(uuid "01d9ef24-1da9-4bc0-b1a3-0c1c1472f9d0")
-	)
-	(wire
-		(pts
-			(xy 88.9 55.88) (xy 101.6 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7512eeba-477f-4fc7-b535-49b5f9874db5")
 	)
 	(wire
 		(pts
@@ -4626,16 +4954,6 @@
 	)
 	(wire
 		(pts
-			(xy 154.94 55.88) (xy 167.64 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7d6d328a-f315-48ff-ba8d-93c55278df71")
-	)
-	(wire
-		(pts
 			(xy 167.64 55.88) (xy 177.8 55.88)
 		)
 		(stroke
@@ -4693,16 +5011,6 @@
 			(type default)
 		)
 		(uuid "ce3c92dc-0d75-4981-8961-51a0b022aca5")
-	)
-	(wire
-		(pts
-			(xy 220.98 55.88) (xy 233.68 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "69fae370-df00-413d-a901-4ba8314d26bb")
 	)
 	(wire
 		(pts
@@ -4791,6 +5099,126 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "4140f521-9d86-4ac3-8543-9886c5089d9f")
+	)
+	(wire
+		(pts
+			(xy 22.86 55.88) (xy 25.4 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ecc204c5-e622-4f8b-99c6-d39ebce485ad")
+	)
+	(wire
+		(pts
+			(xy 33.02 55.88) (xy 35.56 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a2ec3e54-016e-4faa-99a0-33aa913f2080")
+	)
+	(label "TH1_IN"
+		(at 39.37 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "15046207-a9c4-40e1-9b0a-28eadd6f1b90")
+	)
+	(wire
+		(pts
+			(xy 88.9 55.88) (xy 91.44 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "03060f4c-5aec-486b-8e4d-2151d234e083")
+	)
+	(wire
+		(pts
+			(xy 99.06 55.88) (xy 101.6 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15b62098-8936-4da4-a341-a4e351d4435b")
+	)
+	(label "TH2_IN"
+		(at 105.41 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "4f2e33ca-f624-4a50-aa66-4be77e5d1d94")
+	)
+	(wire
+		(pts
+			(xy 154.94 55.88) (xy 157.48 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c6a1486e-892d-45c2-9439-977dde88a1db")
+	)
+	(wire
+		(pts
+			(xy 165.1 55.88) (xy 167.64 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "47775bef-1ba0-42bf-a57b-97a03e1c39a9")
+	)
+	(label "TH3_IN"
+		(at 171.45 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ae370631-854a-468b-91b6-774668755c48")
+	)
+	(wire
+		(pts
+			(xy 220.98 55.88) (xy 223.52 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6bfc8a7-a1c1-4fdb-b645-fb9aaa4a15c5")
+	)
+	(wire
+		(pts
+			(xy 231.14 55.88) (xy 233.68 55.88)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "408e11fc-e939-4575-bf25-fc6c97e00bd0")
+	)
+	(label "TH4_IN"
+		(at 237.49 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e379ede1-822e-462e-90a9-9ea67e70bba8")
 	)
 	(embedded_fonts no)
 )

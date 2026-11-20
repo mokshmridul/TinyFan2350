@@ -2813,26 +2813,6 @@
 				(justify right)
 			)
 		)
-		(pin "FAN6_PWM" output
-			(at 66.04 111.76 0)
-			(uuid "e127f344-4d1c-4e1a-a15a-fe3ddcda963e")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(pin "FAN6_TACH_IO" bidirectional
-			(at 66.04 114.3 0)
-			(uuid "1c334b3f-f221-45ec-80e9-5e6483b81077")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
 		(pin "LED1_DIN" output
 			(at 66.04 116.84 0)
 			(uuid "72fd3cd0-3b39-4dff-b273-71df642e16ac")
@@ -3000,26 +2980,6 @@
 			(justify left bottom)
 		)
 		(uuid "d4530c5b-9d1d-4676-a96c-2ecb786cd70a")
-	)
-	(label "FAN6_PWM"
-		(at 81.28 111.76 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "05cfa784-faf8-4812-8f40-18ec1f44acaf")
-	)
-	(label "FAN6_TACH_IO"
-		(at 81.28 114.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9c92c203-bba7-4ba9-bc25-71f56f065248")
 	)
 	(label "LED1_DIN"
 		(at 81.28 116.84 0)
@@ -3497,89 +3457,6 @@
 		(uuid "8599867d-d7c3-467a-9156-82edabd9e6be")
 	)
 	(sheet
-		(at 208.28 96.52)
-		(size 50.8 20.32)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 255 255 230 1.0000)
-		)
-		(uuid "c642fedd-d9a9-423e-8ee6-8c58f5557030")
-		(property "Sheetname" "FAN6"
-			(at 208.28 95.82 0)
-			(effects
-				(font
-					(size 1.6 1.6)
-					(bold yes)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "fan_channel.kicad_sch"
-			(at 208.28 117.44 0)
-			(effects
-				(font
-					(size 1.1 1.1)
-				)
-				(justify left top)
-			)
-		)
-		(pin "PWM" input
-			(at 208.28 104.14 180)
-			(uuid "2da4376c-2a4e-4866-bba9-4997d8d38ce7")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(pin "TACH" bidirectional
-			(at 208.28 109.22 180)
-			(uuid "383bbeac-2227-4fad-a6e9-5384839bdc52")
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(instances
-			(project "TinyFan2350"
-				(path "/708c2f98-afb0-4ffb-a63c-654fcb0254db"
-					(page "9")
-				)
-			)
-		)
-	)
-	(label "FAN6_PWM"
-		(at 198.12 104.14 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "91c470bf-710b-48ef-b3b6-5191cb99f127")
-	)
-	(label "FAN6_TACH_IO"
-		(at 198.12 109.22 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "bd68d4a7-b6c1-421d-88fe-987046b285ae")
-	)
-	(sheet
 		(at 132.08 132.08)
 		(size 50.8 20.32)
 		(exclude_from_sim no)
@@ -3898,26 +3775,6 @@
 	)
 	(wire
 		(pts
-			(xy 66.04 111.76) (xy 81.28 111.76)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "bcc5cde7-a180-4ef8-9e83-8641da777dfa")
-	)
-	(wire
-		(pts
-			(xy 66.04 114.3) (xy 81.28 114.3)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cfeb064-24bd-4a8b-be14-076e93150af7")
-	)
-	(wire
-		(pts
 			(xy 66.04 116.84) (xy 81.28 116.84)
 		)
 		(stroke
@@ -4075,26 +3932,6 @@
 			(type default)
 		)
 		(uuid "b09b8b74-8758-47e4-84d0-5474c37ea759")
-	)
-	(wire
-		(pts
-			(xy 208.28 104.14) (xy 198.12 104.14)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c286fb9f-4bf2-4dc5-83d8-a0d5b7ee3dfc")
-	)
-	(wire
-		(pts
-			(xy 208.28 109.22) (xy 198.12 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e0d508e7-fbf4-4d9f-b9c3-3c0ae4776ec2")
 	)
 	(wire
 		(pts
