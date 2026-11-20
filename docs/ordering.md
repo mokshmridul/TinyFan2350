@@ -38,7 +38,7 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
    - **Base material** FR-4, **Layers** 2, **Thickness** 1.6 mm.
    - **PCB colour: Black** (it comes with white text). It takes the same time as green at JLC.
    - **Surface finish:** HASL lead-free (cheapest) or ENIG (gold-coloured, a bit more expensive). Both are fine.
-   - **Copper weight: 1 oz** is enough for the recommended loads (up to 4 A on VIN and 3.5 A on 5 V). Choose **2 oz** if you want extra margin or plan to run more current; it costs a little more and halves the copper heating (see [design notes](design-notes.md#copper-1-oz)).
+   - **Copper weight: 1 oz** is enough for the recommended loads (up to 4 A on VIN and 3.5 A on 5 V). Leave it at 1 oz.
    - **Remove order number:** any choice is fine.
 3. Switch on **PCB Assembly**:
    - **PCBA type: Standard** (the connectors are through-hole parts, so Economic can't be used for a full build).
@@ -53,7 +53,7 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
    - If a part is out of stock, see [If a part is out of stock](#if-a-part-is-out-of-stock) below.
 6. **Check the placement preview.** JLC draws each part on the board. Sometimes a part is turned the wrong way, so check one of each kind:
    - **3-legged parts** (D1-D6, D19, D20, Q4-Q15, all SOT-23): the single leg must sit on the single pad.
-   - **Diodes and LEDs** (D7-D18, D21-D24, LD1-LD8): the stripe on the part must be at the pad marked on the board (pad 1).
+   - **Diodes and LEDs** (D7-D18, D21-D24, LD1-LD8): the stripe on the part must be at the pad marked on the board (pad 1). **D21 and D22 are TVS diodes - if one of these is reversed it will short the input at power-on. Check the stripes on D21 and D22 carefully.**
    - **U2** (6 tiny legs): the dot on the chip must be at the dot on the board.
    - **Q1 and Q2** (8 legs, near the screw terminals): the dot on the chip (pin 1) must be at pin 1 marked on the board. **Check these two carefully.** JLC's library sometimes draws this package turned by 180°. A turned Q1/Q2 would leave that input dead (it would not damage anything, but the board would not get power).
    - **C5 and C6** (the two round capacitors): the + leg goes in the square pad.
@@ -63,11 +63,11 @@ The two main fuses (F1/F2, Littelfuse Nano2 5 A, LCSC C66503) are small SMD part
 
 ## PCBWay, step by step
 
-1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. Choose 2 layers, 89 x 58.1 mm, 1.6 mm thick, **1 oz** copper (or 2 oz for extra margin), HASL or ENIG, solder mask **Black**, silkscreen **White**.
+1. pcbway.com → **PCB Instant Quote** → upload `TinyFan2350_GERBERS_upload.zip`. Choose 2 layers, 89 x 58.1 mm, 1.6 mm thick, **1 oz** copper, HASL or ENIG, solder mask **Black**, silkscreen **White**.
 2. Tick **Assembly service**: *Turnkey* (PCBWay buys the parts), **SMT on both sides** plus through-hole.
 3. Upload **`TinyFan2350_BOM_PCBWay.csv`** as the BOM and **`TinyFan2350_CPL_JLCPCB.csv`** as the centroid (position) file. PCBWay buys parts using the maker part number column. The LCSC numbers are there as a second reference.
 4. In the remarks box, paste this:
-   *"Do not fit U1 and J5. SMD parts on both sides (LEDs LD1-LD8 on top, the rest on the bottom). Please confirm the orientation of D1-D24, Q1, Q2, Q4-Q15, U2, LD1-LD8 and C5/C6. C6 is polarised: + is the square pad. Screw terminals: wire openings face the board edge. Q1/Q2 (SOIC-8): pin 1 at the pin-1 mark."*
+   *"Do not fit U1 and J5. SMD parts on both sides (LEDs LD1-LD8 on top, the rest on the bottom). Please confirm the orientation of D1-D24, Q1, Q2, Q4-Q15, U2, LD1-LD8 and C5/C6. D21/D22 are TVS diodes: a reversed one shorts the input at power-on, please double-check their stripes. C6 is polarised: + is the square pad. Screw terminals: wire openings face the board edge. Q1/Q2 (SOIC-8): pin 1 at the pin-1 mark."*
 5. PCBWay checks the files and sends you a quote, sometimes with questions about parts. Answer those, then pay.
 
 ## If a part is out of stock

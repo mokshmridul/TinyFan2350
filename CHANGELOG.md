@@ -1,5 +1,14 @@
 # Changelog
 
+## v2.8 (review fixes) (2026-11)
+- **Port fuses moved to the +V side:** every fan PTC (F3-F8, 1.5 A) and LED PTC (F9/F10, 2 A) now sits between the VIN/5V jumper (JPx/JLx) and the port's +V pin. The port ground, the 2/3-pin MOSFET source and the JM jumper go straight to GND. A +V wire chafing against grounded metal is now caught by the port fuse; before, it bypassed it. Fan and LED power copper re-routed (0.5 mm or wider; LED1 feed 0.6 mm); a custom DRC rule keeps the PTC pads at their previous 0.15 mm clearance.
+- **Tach series resistors R21-R26 4.7k -> 10k:** a 28.8 V short on a tach pin now dissipates 64 mW (51 % of the 0805 rating) instead of 135 mW. Tach reading unchanged (checked in simulation).
+- **FAN3 2/3-pin return track** widened from 0.2 mm to 0.4 mm, the most that fits between the FAN3 pins (about 16 °C at 1.5 A instead of about 49 °C).
+- Three GND stitching vias added; two dangling track stubs removed (two harmless ones remain, see DRC below).
+- **Docs:** removed the "2 oz optional" offer (the board's 0.15 mm tracks/gaps are below JLCPCB's 0.2 mm minimum for 2 oz). 12/24 V into the 5 V input now correctly described (D22 and F2 both need replacing). WS2815 is a 12 V strip. Never park two jumper caps on one header. 2/3-pin fans need `cycle_time: 0.010` (simulated: 0.48 W in the SOT-23 MOSFET at 25 kHz, 7 mW at 100 Hz). New known limits: LED data cable about 1.5 m with the 1k data resistor; thermistor/EXP pins are unprotected. JLCPCB order checklist for TVS/diode polarity.
+- **Verification:** ERC 0. DRC 0 errors and nothing unconnected; 2 warnings for two short leftover track stubs (on the FAN6 PWM line and the LED1 data line), which are electrically harmless. SPICE checks of the reverse-polarity switches, PWM level shifter, 2/3-pin switch, tach input and LED data; Klipper config checked against a real RP2350 firmware build. Fab files, renders, PDFs and STEP regenerated.
+- Not changed: series resistors for the thermistor/EXP pins were tried and dropped (no room near the module); suggested for v2.9.
+
 ## v2.7 (2026-11)
 - **Cooler copper: every power path now stays under 10 °C at its limit on 1 oz copper** (v2.6: about 25 °C at the 5 A fuse limit). The one exception is the FAN4 power feed, which has a short neck that reaches 11.5 °C at the full 1.5 A.
   - The board grew to **89 x 58.1 mm** (v2.6: 86 x 52 mm). Mounting holes are still in the corners, 3.5 mm from each edge, now 82 x 51.1 mm apart.

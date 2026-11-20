@@ -49,8 +49,8 @@ A resistive model of the real board layout (every track, pad, via and copper pou
 
 | Path | Normal load | Rise | At the fuse limit | Rise |
 |---|---|---|---|---|
-| Fan power and return, per port | 0.8 A | 2-3 °C | 1.5 A | 6.5-9 °C (FAN4 power: 11.5 °C) |
-| LED strip power, per port | 1.5 A | 2.5-5.5 °C | 2 A | 4.3 and 9.6 °C |
+| Fan power and return, per port | 0.8 A | 2.6 °C (FAN3 2/3-pin return: 3.8 °C) | 1.5 A | 10.9 °C (FAN3 2/3-pin return: 15.7 °C) |
+| LED strip power, per port | 1.5 A | 5.0 °C (LED1 feed: 8.1 °C) | 2 A | 9.6 °C (LED1 feed: 15.5 °C) |
 | J1 → F1 → Q1 (VIN input side) | 3 A | 2-3 °C | 5 A | 5.0-7.4 °C |
 | VIN after Q1 (to the jumpers) | 3 A | about 3 °C | 5 A | 7.8 °C |
 | J2 → F2 → Q2 (5 V input side) | 3 A | 1.5-2.5 °C | 5 A | 4.5-6.9 °C |
@@ -59,12 +59,12 @@ A resistive model of the real board layout (every track, pad, via and copper pou
 
 v2.7 is 3 mm wider and 6 mm taller than v2.6 (89 x 58.1 mm). The power section was rebuilt around that space: the VIN bus and the +5 V rail now run as wide copper areas on the bottom layer, so the top layer is free for an unbroken ground return. Every power path now stays **under 10 °C even at the 5 A fuse limit** (v2.6: about 25 °C). The one exception is a single short neck on the FAN4 power feed, next to its flyback diode, which reaches 11.5 °C at the full 1.5 A. That is still far below what the copper and the black solder mask can take (above 100 °C). The recommended maximums (4 A on VIN, 3.5 A on 5 V) now come only from fuse derating, not from copper heating.
 
-**Need more current, or want extra margin?** Order the board with **2 oz copper** (one option on the order page). It roughly halves every number in the table. With 2 oz copper you may fit a **7 A** Nano2 fuse (Littelfuse 0452007.MRL) in F1 and run up to about 6 A on VIN.
-
 ### Known limits
 
-- **+V shorted to a 12/24 V strip's DATA pin**: the 1k protection resistor (R19/R20) takes about 0.36 W at 24 V, more than its 0.25 W rating. It is fine for a moment, but fix the short quickly. With 5 V strips there is no problem.
-- **24 V shorted to a fan's tach (RPM) pin**: the 4.7k resistor takes about 0.09 W (71 % of its rating). It survives.
+- **+V shorted to a 12/24 V strip's DATA pin**: the 1k resistor (R19/R20) limits the current to about 23 mA at 24 V (27 mA at 28.8 V). If the 74HCT2G17 is driving the line low at that moment, the buffer sinks that current itself, close to its 25 mA limit, and R19/R20 dissipate about 0.5-0.75 W, well over their 0.25 W rating. Fix the short quickly; a long short can damage R19/R20 or U2. With 5 V strips there is no problem. (A smaller resistor would make this worse, see the LED data section.)
+- **LED data cable length**: the 1k resistor plus the cable capacitance slows the data edges. In simulation (about 70 pF per metre of cable), a WS2812B '0' bit is still long enough at 1 m (276 ns, spec 220-380 ns) but too short at 2 m (195 ns) and 3 m (93 ns). Keep the data cable to about 1.5 m, or put the first LED (or a single 'sacrificial' pixel) within 1 m of the board. 470 ohm would allow 3 m but turns a +V-on-DATA mistake into a dead buffer.
+- **Thermistor and EXP pins** connect straight to the RP2350 (GP26-GP29, GP14/GP15). 12/24 V on one of them destroys the RP2350-Zero. It is socketed, so it is easy to swap. Series resistors near the module would protect them; there was no room for them in v2.8.
+- **24 V shorted to a fan's tach (RPM) pin**: the 10k resistor takes about 0.06 W at 28.8 V (about 51 % of its 0.125 W rating). It survives.
 - **+V shorted straight onto a fan's PWM pin** is not protected. Pins 2 and 4 are not next to each other, so a bad crimp can't easily cause it.
 
 ## Schematic layout
@@ -104,7 +104,7 @@ flowchart LR
 - VIN is not regulated on the board. Anything from 12 V to 24 V works (see the voltage table above).
 - **Main fuses F1/F2:** Littelfuse Nano2 0452005.MRL, 5 A slow-blow, a small soldered SMD fuse (2410 size, about 6 x 2.7 mm). Slow-blow means the inrush when fans spin up won't blow it. It replaces the blade-fuse holders of v2.5 and saves a lot of board space. The trade-off: if one ever blows you have to solder in a new one. With the reverse-polarity switches below, it should only blow on a real fault (a short or the wrong supply).
 - **Power wired backwards:** Q1 (VIN) and Q2 (5 V) are P-channel MOSFETs in the "ideal diode" arrangement. With correct polarity, the MOSFET's gate is pulled to GND by a 22k resistor (R65/R66), so it turns fully on and drops only about 0.05 V at 3 A. Wired backwards, the gate sees the wrong polarity and the MOSFET stays off: nothing flows, nothing blows, the board just does not turn on (the ON light stays dark). Fix the wiring and it works. A 5.6 V zener (D23/D24) keeps Q1's gate inside its 20 V limit on 24 V.
-- **Too high a voltage** (for example 12 V or 24 V into the 5 V input): D21 (VIN) and D22 (5 V) sit right after the switches. They break down and short the rail, the fuse blows, and the rest of the board never sees it. They also absorb short spikes from the power supply.
+- **Too high a voltage** (for example 12 V or 24 V into the 5 V input): D21 (VIN) and D22 (5 V) sit right after the switches. They break down and short the rail, and they also absorb short spikes from the power supply. If a wrong supply lands on the 5 V input, D22 shorts the rail, but the 5 A slow-blow F2 takes 0.1 s to seconds to open — far longer than D22 is rated for. Expect to replace D22 **and** F2 (D22 normally fails short, so the rest of the board is protected).
 - **Grounds:** J1 GND, J2 GND and the USB ground are joined on this board, as on every earlier version (the fans and LED strips need it). The board does not need any other ground link: in a printer where the Pi, 5 V and 24 V supplies already share a ground elsewhere, that is fine.
 - Both copper layers have a solid GND pour, tied together by stitching vias. Small SMD ground pads connect solidly. Through-hole ground pins connect with four spokes, so a normal soldering iron can heat them.
 
@@ -118,10 +118,10 @@ Each fan has its own 2N7002 (Q10-Q15 = FAN1-FAN6). The gate is tied to 3V3 and t
 
 **In short:** a jumper picks how the fan is controlled. 4-pin fans get steady power and a speed signal. 2/3-pin fans have no speed wire, so the board switches their ground on and off instead.
 
-Pin 1 of the fan socket (GND) goes to the MODE jumper JMx and to the drain of an SI2308A MOSFET (Q4-Q9). The MOSFET's source is on the port's return (FANx_RET), which reaches GND through the port's PTC fuse.
+Pin 1 of the fan socket (GND) goes to the MODE jumper JMx and to the drain of an SI2308A MOSFET (Q4-Q9). The MOSFET's source and the jumper's third pin are on GND. (Since v2.8 the port's PTC fuse is on the +V side, see [Port protection](#port-protection).)
 
-- **JM on the right two pins (`4P`, 4-pin):** the jumper ties pin 1 straight to the return. The MOSFET is bypassed, and the fan is controlled by its PWM wire as above.
-- **JM on the left two pins (`2/3`, 2/3-pin):** pin 1 only reaches the return through the MOSFET. Its gate is driven by the same 5 V PWM line, through a 22k resistor and clamped by a 5.6 V zener, so the PWM switches the fan's ground (like the Voron Klipper Expander). A B5819W Schottky across the fan catches the spike when it switches off. If the RP2350 is unplugged, the pull-up holds the gate on, so the fan runs at full speed, the same safe failure as 4-pin mode.
+- **JM on the right two pins (`4P`, 4-pin):** the jumper ties pin 1 straight to GND. The MOSFET is bypassed, and the fan is controlled by its PWM wire as above.
+- **JM on the left two pins (`2/3`, 2/3-pin):** pin 1 only reaches GND through the MOSFET. Its gate is driven by the same 5 V PWM line, through a 22k resistor and clamped by a 5.6 V zener, so the PWM switches the fan's ground (like the Voron Klipper Expander). A B5819W Schottky across the fan catches the spike when it switches off. If the RP2350 is unplugged, the pull-up holds the gate on, so the fan runs at full speed, the same safe failure as 4-pin mode.
 - The 10k pull-up and 22k gate resistor make the switch turn on in tens of microseconds. That is fine at 100 Hz but too slow for 25 kHz, so 2/3-pin ports use `cycle_time: 0.010` (see `klipper/tinyfan.cfg`).
 - **Why the SI2308A:** it is rated for 60 V, so on 24 V it runs at 40 % of its voltage rating (the AO3400A used before v2.5 was rated 30 V, which is 80 % at 24 V and 96 % at 28.8 V). It has 95 mΩ at 4.5 V gate drive, so a 0.8 A fan heats it by only about 0.06 W. Same SOT-23 size and pin order (1 G, 2 S, 3 D).
 - The status light (10k from the fan's +V to pin 1) is on whenever the port has power. In 2/3-pin mode it follows the fan speed. It is dim on 5 V fans and bright on 24 V fans.
@@ -130,27 +130,27 @@ Pin 1 of the fan socket (GND) goes to the MODE jumper JMx and to the drain of an
 
 **In short:** a badly crimped cable should kill a fan at worst, never the board.
 
-- **Fan ports:** each port's return goes to GND through a **1.5 A / 33 V** PTC (F3-F8, LUTE 1812L150/33GR). It carries a 0.8 A fan continuously even in a warm bay, and trips a dead short (tens of amps) in well under a second, so only that port switches off. It resets once the short is gone and it cools.
+- **Fan ports:** each port's +V goes through a **1.5 A / 33 V** PTC (F3-F8, LUTE 1812L150/33GR), between the VIN/5V jumper JPx and pin 2 of the fan socket. Because the fuse is on the +V side (since v2.8), it also catches a +V wire chafing against the printer frame or any other grounded metal, not just a short between the fan's own wires. It carries a 0.8 A fan continuously even in a warm bay, and trips a dead short (tens of amps) in well under a second, so only that port switches off. It resets once the short is gone and it cools.
 - **Fan MOSFET gates:** R41-R46 (22k) plus BZT52C5V6 zeners (D13-D18). A fan wired with its power reversed can push the PWM line well above 5 V; the zener keeps the gate under its 20 V limit.
-- **RPM (tach) lines:** 4.7k in series plus a BAT54S clamp to 3V3, so even 24 V on a tach pin only lets about 4 mA through.
-- **LED ports:** a **2 A / 33 V** PTC (F9/F10, LUTE 1812L200/33GR) in each strip's return, plus the data protection below.
+- **RPM (tach) lines:** 10k in series (R21-R26, 4.7k before v2.8) plus a BAT54S clamp to 3V3, so even 28.8 V on a tach pin only lets about 2.5 mA through and the resistor stays at about half its rating.
+- **LED ports:** a **2 A / 33 V** PTC (F9/F10, LUTE 1812L200/33GR) between the VIN/5V jumper JLx and each strip's +V pin (since v2.8; before it was in the return), plus the data protection below.
 - **Inputs:** see [Power](#power).
 
 ## LED strip power (x2)
 
-JL1/JL2 connect each LED socket's pin 2 to VIN (left two pins) or 5 V (right two pins). Data is always the 5 V buffer output. 12 V/24 V addressable strips (WS2815, WS2813 12 V) also accept it, because their chips run their logic from an internal ~5 V supply. The strip power tracks are 0.8 mm or wider (see the copper table).
+JL1/JL2 connect each LED socket's pin 2 to VIN (left two pins) or 5 V (right two pins). Data is always the 5 V buffer output. Use 12 V strips such as WS2815 on a 12 V supply, and 24 V strips only on a 24 V supply (a WS2815 on a 24 V VIN jumper dies). The strip power tracks are 0.8 mm or wider (see the copper table).
 
 ## Fan RPM (tach) input (x6)
 
 ```
 FAN TACH (XH pin 3) --+-- 10k (R51/R52, R57/R58, R63/R64) --> 3V3
                       |
-                      +-- 4.7k --+--> GPIO
+                      +-- 10k ---+--> GPIO
                                  |
                           BAT54S clamp to GND and 3V3
 ```
 
-The fan's tach output is open collector, pulled up to 3V3 on the board. The 4.7k resistor and the clamp diodes limit the current into the RP2350 to a few mA if a miswired fan puts VIN on the tach wire.
+The fan's tach output is open collector, pulled up to 3V3 on the board. The 10k resistor and the clamp diodes limit the current into the RP2350 to a few mA if a miswired fan puts VIN on the tach wire.
 
 The RP2350 has a known chip bug (erratum E9): a GPIO input can latch at about 2 V when the signal is weak. The 10k pull-up drives the line hard enough that this doesn't happen here.
 
@@ -182,7 +182,7 @@ Right-angle track corners are often said to cause interference (EMI). That only 
 ## Verification
 
 - ERC (electrical check): 0 errors.
-- DRC (layout check, KiCad 10.0.8): 0 violations, 0 unconnected.
+- DRC (layout check, KiCad 10.0.8): 0 errors and nothing unconnected; 2 warnings for two short leftover track stubs (on the FAN6 PWM line and the LED1 data line), which are electrically harmless.
 - Every pad's net checked against the design table by script.
 - A separate script rebuilt the copper from the board file and checked it for shorts between nets and for gaps below 0.15 mm: none found.
 - Clearances: 0.18 mm on signals (0.15 mm where tracks enter fine-pitch pads), 0.2 mm on GND and fan power, 0.25-0.3 mm on VIN/5V. Copper stays at least 0.5 mm from the board edge. All of it is well inside JLCPCB's and PCBWay's standard 2-layer limits.

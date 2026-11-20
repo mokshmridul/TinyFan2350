@@ -44420,7 +44420,7 @@
 			(justify left)
 		)
 	)
-	(gr_text "TinyFan2350 v2.7"
+	(gr_text "TinyFan2350 v2.8"
 		(at 80.4 62.2 0)
 		(layer "F.SilkS")
 		(uuid "9279bdbe-ccca-439b-a859-d413b390ee21")

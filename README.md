@@ -19,11 +19,11 @@ It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) a
 | **Brain** | Waveshare RP2350-Zero in sockets. It is powered by its own USB cable from the Klipper host |
 | **Power in** | **J1: 12 V or 24 V** for fans (and 12/24 V LED strips), with a 5 A fuse (F1). **J2: 5 V** for 5 V fans and 5 V LED strips, with a 5 A fuse (F2). Both fuses are soldered on by the factory |
 | **Fans** | 6 ports (JST-XH 4-pin). Each port works with **4-pin PWM fans** (speed control plus RPM reading) **or 2/3-pin fans** (switched on and off fast by the board to set the speed). Each port can be set to 12/24 V or 5 V. A small green light shows when a port has power |
-| **LED strips** | 2 ports (JST-XH 3-pin) for addressable strips. Each port can be powered from 5 V (WS2812B, SK6812) or from J1 (12/24 V strips such as WS2815) |
+| **LED strips** | 2 ports (JST-XH 3-pin) for addressable strips. Each port can be powered from 5 V (WS2812B, SK6812) or from J1 (12/24 V strips). Use 12 V strips such as WS2815 on a 12 V supply; 24 V strips only on a 24 V supply |
 | **Temperature** | 4 ports (JST-XH 2-pin) for standard 100k thermistors |
 | **Extra pins** | One small 4-pin header (GND, 3.3 V, GP14, GP15) for a door switch, sensor and similar |
-| **Protection** | Every fan port and LED port has its own **self-resetting fuse**: a shorted cable switches off just that port, and it works again once you fix the cable. If you wire the power the wrong way round, nothing happens at all: an electronic switch on each input stays off until you fix it. Too high a voltage blows the main fuse instead of the board. All the main parts run well below their maximum ratings at 24 V (see [design notes](docs/design-notes.md#safety-margins)) |
-| **Board** | 89 x 58.1 mm, black, 2 layers, 1 oz copper (2 oz optional). Four M3 holes in the corners, 82 x 51.1 mm apart. A printable DIN-rail mount is included |
+| **Protection** | Every fan port and LED port has its own **self-resetting fuse** on its + wire: a shorted cable, or a + wire rubbing on the printer frame, switches off just that port, and it works again once you fix the cable. If you wire the power the wrong way round, nothing happens at all: an electronic switch on each input stays off until you fix it. Too high a voltage is shorted by a protection diode and blows the main fuse (both then need replacing, the rest of the board is protected). All the main parts run well below their maximum ratings at 24 V (see [design notes](docs/design-notes.md#safety-margins)) |
+| **Board** | 89 x 58.1 mm, black, 2 layers, 1 oz copper. Four M3 holes in the corners, 82 x 51.1 mm apart. A printable DIN-rail mount is included |
 
 ![Pinout](docs/images/pinout.png)
 
@@ -41,7 +41,7 @@ It is based on [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan) (RP2040-Zero) a
 ## Three rules that keep it safe
 
 1. **Fans get the voltage you feed in.** The board does not convert voltage. If J1 gets 24 V, every fan whose jumper is on VIN gets 24 V. A 12 V fan on 24 V will burn out, and a 5 V fan or 5 V LED strip on VIN dies at once. Check each jumper against the fan's label.
-2. **Check + and - with a meter before you connect power.** Each screw is labelled on the board (GND / VIN+ / 5V+). Wiring it backwards will not damage anything (the board just stays off), but 12/24 V into the 5 V input blows the soldered F2 fuse.
+2. **Check + and - with a meter before you connect power.** Each screw is labelled on the board (GND / VIN+ / 5V+). Wiring it backwards will not damage anything (the board just stays off), but 12/24 V into the 5 V input costs you two soldered parts: the protection diode D22 shorts the rail and protects the rest of the board, and the 5 A slow-blow F2 takes 0.1 s to seconds to open, far longer than D22 is rated for. Expect both D22 and F2 to need replacing (D22 normally fails short, so the rest of the board is protected).
 3. **Stay at 24 V or below on J1.** The board is designed for 12 V or 24 V supplies (a 24 V supply turned up to 28 V is still fine). The thermistor ports and the EXP header are **3.3 V only**.
 
 ## Words you will see
@@ -77,7 +77,7 @@ klipper/
 
 ## Status
 
-v2.7 passes KiCad's electrical check (ERC) and layout check (DRC) with zero errors and nothing left unconnected. Scripts also check that every pad connects to the right signal and that no two nets touch or come closer than 0.15 mm. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
+v2.8 passes KiCad's electrical check (ERC) with zero errors. The layout check (DRC) finds 0 errors and nothing unconnected; it lists 2 warnings for two short, harmless leftover track stubs. Key circuits were checked in SPICE simulation and the Klipper config against a real RP2350 firmware build. Scripts also check that every pad connects to the right signal and that no two nets touch or come closer than 0.15 mm. The board has **not been built yet**. If you build one, please open an issue and tell us how it went.
 
 ## License
 

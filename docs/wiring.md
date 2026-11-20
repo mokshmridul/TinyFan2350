@@ -21,7 +21,7 @@ The board has three power inputs:
 - All grounds on the board are joined: J1 GND, J2 GND and the USB ground. If your printer already ties the supplies' grounds together somewhere else (most do, and Voron wiring does), you don't need to add anything. If it does not, connect the V- of both supplies together at one point.
 - The board does **not** convert voltage. Whatever you feed into J1 goes straight to the fan jumpers.
 - **Wired it backwards?** Nothing happens and nothing is damaged. Each input has an electronic reverse-polarity switch (Q1 on J1, Q2 on J2) that simply stays off. The ON light above that terminal stays dark. Swap the wires and it works.
-- **12/24 V into the 5 V input by mistake?** A protection diode (D22) shorts it and the 5 A fuse F2 blows, so the rest of the board is safe. F2 is a small soldered fuse, so you (or a friend with a soldering iron) need to replace it: Littelfuse 0452005.MRL, also sold on Robu. The same applies to F1 if far too high a voltage reaches J1.
+- **12/24 V into the 5 V input by mistake?** A TVS diode (D22) shorts the rail, but the 5 A slow-blow fuse F2 takes 0.1 s or more to open - far longer than D22 is rated for. Expect to replace **both D22 and F2** (D22 normally fails short, so the rest of the board is protected). F2 is a small soldered fuse, so you (or a friend with a soldering iron) need to replace it: Littelfuse 0452005.MRL, also sold on Robu. The same applies to D21 and F1 if far too high a voltage reaches J1.
 
 ### How much can it power?
 
@@ -62,10 +62,12 @@ No cap on FAN V means that port gets no power.
 
 > **Match FAN V to the voltage printed on the fan.** A 12 V fan on 24 V overheats and dies. A 5 V fan on VIN dies straight away.
 
+> **Never park a spare jumper cap across a JM or JP header (or an LED V header).** Two caps on one header short VIN to 5 V.
+
 **Which MODE?**
 
 - **4-pin fan** (4 wires): MODE on the **right** (`4P`). The fan gets steady power, and its blue wire sets the speed. You also get RPM.
-- **2-pin fan** (red and black only, like most Voron 4010/5015/6015 fans): MODE on the **left** (`2/3`). Crimp the black wire to **pin 1** and the red wire to **pin 2**. The board switches the fan on and off quickly to set the speed. In Klipper use `cycle_time: 0.010` for that fan (it is already in `klipper/tinyfan.cfg`).
+- **2-pin fan** (red and black only, like most Voron 4010/5015/6015 fans): MODE on the **left** (`2/3`). Crimp the black wire to **pin 1** and the red wire to **pin 2**. The board switches the fan on and off quickly to set the speed. **Set `cycle_time: 0.010` for that fan in Klipper (it is already in `klipper/tinyfan.cfg`) - at the default 25 kHz signal the 2/3-pin fan switch (MOSFET) on the board overheats. Also: the RPM reading is not meaningful while a 2/3-pin fan is being PWM'd.**
 - **3-pin fan**: MODE on the **left**, wires on pins 1-3. Speed control works, but the RPM reading is not reliable in this mode, so leave `tachometer_pin` out of the config.
 - Got MODE wrong? Nothing breaks. A 2-pin fan on the `4P` setting just runs at full speed, and a 4-pin fan on the `2/3` setting runs roughly until you move the cap.
 
@@ -81,12 +83,12 @@ The **LED V** jumper for each port (JL1 for LED1, JL2 for LED2, right below each
 
 | JL cap on | Strip gets | Use it for |
 |---|---|---|
-| **Left two pins (VIN)** | the 12 V or 24 V on J1 | 12 V / 24 V addressable strips, such as WS2815 |
+| **Left two pins (VIN)** | the 12 V or 24 V on J1 | 12 V strips such as WS2815 on a 12 V supply; 24 V strips only on a 24 V supply |
 | **Right two pins (5 V)** | 5 V from J2 | WS2812B, SK6812 and other 5 V strips |
 
-> **A 5 V strip on VIN is destroyed at once. Check the LED V jumper before you plug a strip in.**
+> **A 5 V strip on VIN is destroyed at once. A 12 V strip such as WS2815 on a 24 V VIN dies the same way. Check the LED V jumper and your supply voltage before you plug a strip in.**
 
-The DATA signal is always 5 V. That suits 5 V strips, and 12 V/24 V strips such as the WS2815 also accept it. If you use an unusual 12/24 V strip, check its datasheet says it accepts 5 V data.
+The DATA signal is always 5 V. That suits 5 V strips, and 12 V strips such as the WS2815 also accept it. If you use an unusual 12/24 V strip, check its datasheet says it accepts 5 V data.
 
 The data line is protected. A long wire to the first LED is fine, and if + touches DATA by mistake on a 5 V strip, nothing is damaged. With a 12/24 V strip, fix such a short quickly, because the small protection resistor gets hot.
 

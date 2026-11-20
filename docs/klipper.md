@@ -90,6 +90,8 @@ The first line should start fan 1 at half speed, and the last should light LED s
 
 - **4-pin fans** get a 25 kHz speed signal (`cycle_time: 0.00004`, the standard for PC fans). Each port has its own hardware timer, so the ports don't affect each other.
 - **2/3-pin fans** (MODE jumper on the left, `2/3`) need `cycle_time: 0.010` (100 Hz). That is already in the commented example in `tinyfan.cfg`.
+  - **Important: set `cycle_time: 0.010` for every port whose MODE (JM) jumper is on `2/3`.** At the default 25 kHz signal the 2/3-pin fan switch (MOSFET) on the board overheats.
+  - **RPM readings are not meaningful while a 2/3-pin fan is being PWM'd** - the tach pin only shows the switch-on level. Ignore any RPM value on those ports.
 - The RPM inputs already have resistors on the board, so **don't** add `^` in front of `tachometer_pin`.
 - The board's thermistor resistor is 4.7k, so keep `pullup_resistor: 4700`.
 - `sensor_type: Generic 3950` suits most 100k thermistors. For a 104GT probe use `ATC Semitec 104GT-2`.

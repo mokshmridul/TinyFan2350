@@ -54,7 +54,7 @@ The sizes are 0805, 1206, 1812, 2410 (the main fuses), SOT-23 (3 legs), SOD-123 
 | R31, R32 | 10k 0805 | Keep the LED strips dark while the RP2350 starts up |
 | R40 | 1k 0805 | Resistor for the 5V ON light |
 | R19, R20 | 1k 1206 | LED data line protection |
-| R21-R26 | 4.7k 0805 | RPM input protection |
+| R21-R26 | 10k 0805 | RPM input protection |
 | R27-R30 | 4.7k 1% 0805 | Thermistor resistors, near TH1-TH4 |
 | R41-R46 | 22k 0805 | Switch MOSFET input resistors, next to each fan's switch |
 | C1, C2 | 10 µF 50 V 1206 | Smooth the inputs. C1 next to Q1, C2 next to C6 |
