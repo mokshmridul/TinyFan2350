@@ -1,0 +1,48 @@
+* TinyFan2350 v1.2: one fan channel in 2/3 mode switching a 0.6 A fan (24 V and 26.4 V supply)
+* (a) a fan with its own input capacitor: 40 ohm with 1 uF (0.2 ohm ESR), 0.5 uH and 0.15 ohm of cable
+* (b) a fan that looks inductive: 40 ohm in series with 1 mH, no capacitor
+* D4 / D5 are the flyback diodes (B5819W). The gate is driven for 200 us; 1 ns steps resolve both edges.
+* inrush_peak is the current that recharges the capacitor of fan (a) at turn-on; it depends on the fan.
+.model AO3400A NMOS (LEVEL=1 VTO=0.9 KP=15.4 RD=6m RS=4m CGSO=580n CGDO=50n CBD=60p IS=1e-12 PB=0.8 MJ=0.4 W=1m L=1m)
+.model DB5819 D (IS=31.7u RS=0.051 N=1.373 CJO=110p M=0.35 EG=0.69 XTI=2 BV=40 IBV=1m TT=5n)
+.options cshunt=1e-13
+
+VIN vin 0 24
+RSUP vin fanv 60m
+VG gdrv 0 PULSE(0 3.3 10u 20n 20n 200u 1)
+
+* (a) capacitive fan
+CFAN fanv c1 1u
+RESR c1 fgnd 0.2
+RLOAD fanv fgnd 40
+LCABLE fgnd swc 0.5u
+RCABLE swc sw 0.15
+D4 sw fanv DB5819
+VSENSE sw drain 0
+M1 drain gate 0 0 AO3400A
+RG gdrv gate 40
+RPD gate 0 4.7k
+
+* (b) inductive fan
+RLOADB fanv fb1 40
+LFANB fb1 swb 1m
+D5 swb fanv DB5819
+VSENSEB swb drainb 0
+M2 drainb gateb 0 0 AO3400A
+RGB gdrv gateb 40
+RPDB gateb 0 4.7k
+.control
+foreach supply 24 26.4
+  alter vin = $supply
+  tran 1n 600u 0 1n
+  meas tran drain_peak_capacitive_fan max v(drain) from=205u to=600u
+  meas tran drain_peak_inductive_fan max v(drainb) from=205u to=600u
+  meas tran inrush_peak max i(vsense) from=5u to=100u
+  meas tran inrush_start when i(vsense)=5 rise=1
+  meas tran inrush_end when i(vsense)=5 fall=1
+  let inrush_above_5a_ns = (inrush_end - inrush_start) * 1e9
+  echo supply $supply V
+  print drain_peak_capacitive_fan drain_peak_inductive_fan inrush_peak inrush_above_5a_ns
+end
+.endc
+.end

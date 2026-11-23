@@ -1,0 +1,20 @@
+* TinyFan2350 v1.2: what the RP2350 sees when a fan pulls its tach line low
+* GPIO pull-up (50 k, the weak end of the internal pull-up range) -> D9 1N4148WS -> fan tach output
+.model D1N4148 D (IS=2.52n RS=0.568 N=1.752 CJO=4p M=0.4 TT=20n BV=100 IBV=100u)
+
+V33 v33 0 3.3
+RPU v33 gpio 50k
+D9 gpio tach D1N4148
+VFAN tach 0 0.2
+.control
+foreach fan_low 0.2 0.4
+  alter vfan = $fan_low
+  foreach celsius 0 25 60
+    set temp = $celsius
+    op
+    echo fan low level $fan_low V at $celsius C
+    print v(gpio)
+  end
+end
+.endc
+.end

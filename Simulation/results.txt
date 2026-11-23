@@ -1,0 +1,148 @@
+TinyFan2350 v1.2 - output of the decks in this folder
+ngspice as bundled with KiCad 10.0.8, default options, 27 C unless a deck sets a temperature.
+Volts, amps, watts, seconds; *_ns values are nanoseconds, *_ma values are milliamps.
+
+== power_two_20_led_rgb_strips.cir
+    fan1_v = 2.373886e+01
+    fan2_v = 2.373290e+01
+    fan3_v = 2.374545e+01
+    fan4_v = 2.374424e+01
+    fan5_v = 2.376024e+01
+    led1_v = 4.827069e+00
+    led2_v = 4.832149e+00
+    i_vin = 3.000000e+00
+    i_5v = 2.400000e+00
+    p_in = 8.400000e+01
+    p_loss = 1.175931e+00
+
+== power_two_20_led_rgbw_strips.cir
+    fan1_v = 2.373886e+01
+    fan2_v = 2.373290e+01
+    fan3_v = 2.374545e+01
+    fan4_v = 2.374424e+01
+    fan5_v = 2.376024e+01
+    led1_v = 4.766225e+00
+    led2_v = 4.772999e+00
+    i_vin = 3.000000e+00
+    i_5v = 3.200000e+00
+    p_in = 8.800000e+01
+    p_loss = 1.504234e+00
+
+== power_every_port_at_its_limit.cir
+    fan1_v = 4.758465e+00
+    fan2_v = 4.748237e+00
+    fan3_v = 2.364693e+01
+    fan4_v = 2.364145e+01
+    fan5_v = 2.365317e+01
+    led1_v = 2.361285e+01
+    led2_v = 4.661414e+00
+    i_vin = 4.800000e+00
+    i_5v = 4.200000e+00
+    p_in = 1.362000e+02
+    p_loss = 3.108258e+00
+
+== thermal_estimate.cir
+case 1: five fans on VIN and two 20-LED RGB strips on 5 V
+    v(fuse1) = 8.131195e+00
+    v(fuse2) = 6.985740e+00
+    v(left) = 5.704314e+00
+    v(mid) = 3.921470e+00
+    v(right) = 2.473252e+00
+case 2: every port at its limit
+    v(fuse1) = 2.389247e+01
+    v(fuse2) = 2.169702e+01
+    v(left) = 1.597672e+01
+    v(mid) = 9.698582e+00
+    v(right) = 5.885036e+00
+
+== fan_switching.cir
+supply 24 V
+    drain_peak_capacitive_fan = 2.399872e+01
+    drain_peak_inductive_fan = 2.439106e+01
+    inrush_peak = 2.241487e+01
+    inrush_above_5a_ns = 2.002940e+03
+supply 26.4 V
+    drain_peak_capacitive_fan = 2.639859e+01
+    drain_peak_inductive_fan = 2.679799e+01
+    inrush_peak = 2.463869e+01
+    inrush_above_5a_ns = 2.037870e+03
+
+== fan_pwm_line.cir
+    pwm_low = -3.71611e-02
+    pwm_high = 5.243506e+00
+    rise_time = 1.010068e-06
+    fall_time = 4.799664e-09
+
+== tach_low_level.cir
+fan low level 0.2 V at 0 C
+    v(gpio) = 7.159802e-01
+fan low level 0.2 V at 25 C
+    v(gpio) = 6.558969e-01
+fan low level 0.2 V at 60 C
+    v(gpio) = 5.711650e-01
+fan low level 0.4 V at 0 C
+    v(gpio) = 9.127124e-01
+fan low level 0.4 V at 25 C
+    v(gpio) = 8.524183e-01
+fan low level 0.4 V at 60 C
+    v(gpio) = 7.674114e-01
+
+== led_data.cir
+series resistor 100 ohm load 50p
+    width200_ns = 1.635283e+02
+    width250_ns = 2.136260e+02
+    width833_ns = 7.966740e+02
+    low_level = 4.197832e-01
+series resistor 100 ohm load 100p
+    width200_ns = 1.395820e+02
+    width250_ns = 1.902110e+02
+    width833_ns = 7.738460e+02
+    low_level = 4.197832e-01
+series resistor 100 ohm load 150p
+    width200_ns = 1.140193e+02
+    width250_ns = 1.655270e+02
+    width833_ns = 7.508360e+02
+    low_level = 4.197832e-01
+series resistor 100 ohm load 200p
+    width200_ns = 8.709060e+01
+    width250_ns = 1.396020e+02
+    width833_ns = 7.277040e+02
+    low_level = 4.197832e-01
+series resistor 330 ohm load 50p
+    width200_ns = 1.504471e+02
+    width250_ns = 2.007540e+02
+    width833_ns = 7.839470e+02
+    low_level = 4.197832e-01
+series resistor 330 ohm load 100p
+    width200_ns = 1.091957e+02
+    width250_ns = 1.612550e+02
+    width833_ns = 7.469510e+02
+    low_level = 4.197832e-01
+series resistor 330 ohm load 150p
+    width200_ns = 6.328260e+01
+    width250_ns = 1.181240e+02
+    width833_ns = 7.103360e+02
+    low_level = 4.197832e-01
+series resistor 330 ohm load 200p
+    width200_ns = 1.226080e+01
+    width250_ns = 7.100100e+01
+    width833_ns = 6.733710e+02
+    low_level = 4.197832e-01
+
+== led_low_level.cir
+    v(bufa) = 4.197832e-01
+    v(bufb) = 1.092237e+00
+    v(bufc) = 5.045794e-01
+    v(bufd) = 2.911912e+00
+    pad_current_ma = 9.745142e+00
+
+== usb_only_leakage.cir
+rail load 10 ohm
+    v(rail) = 1.007254e-01
+    pin_current_ma = 5.036269e+00
+rail load 250 ohm
+    v(rail) = 1.336976e+00
+    pin_current_ma = 2.673952e+00
+rail load 10k ohm
+    v(rail) = 2.772824e+00
+    pin_current_ma = 1.386412e-01

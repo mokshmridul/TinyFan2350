@@ -1,0 +1,31 @@
+* TinyFan2350 v1.2: LED data low level for typical and worst-case parts (DC)
+* a: typical 2N7002, typical pad (40 ohm)      b: typical 2N7002, weakest pad the datasheet allows (125 ohm)
+* c: 2N7002 at its maximum threshold, typical pad      d: both at their limits
+* 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:
+* Vgs(th) 1.6 V at 250 uA, 0.1 A at Vgs 2.5 V, 0.27 A at 3 V; body diode 0.55 V at 1 mA
+.model N2N7002 VDMOS (Vto=1.72 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+* The same part at the datasheet maximum threshold (2.5 V at 250 uA)
+.model N2N7002_MAXVTH VDMOS (Vto=2.62 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+
+V5 v5 0 5
+V33 v33 0 3.3
+RGA 0 gpa 40
+MA bufa v33 gpa N2N7002
+RPA v5 bufa 470
+RGB 0 gpb 125
+MB bufb v33 gpb N2N7002
+RPB v5 bufb 470
+RGC 0 gpc 40
+MC bufc v33 gpc N2N7002_MAXVTH
+RPC v5 bufc 470
+RGD 0 gpd 125
+MD bufd v33 gpd N2N7002_MAXVTH
+RPD v5 bufd 470
+.control
+op
+let pad_current_ma = v(gpa) / 40 * 1e3
+print v(bufa) v(bufb) v(bufc) v(bufd) pad_current_ma
+.endc
+.end

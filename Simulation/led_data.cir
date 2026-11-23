@@ -1,0 +1,44 @@
+* TinyFan2350 v1.2: LED data level shifter, Q6 2N7002, R12 470 ohm to 5 V, R1 100 ohm in series
+* One 200 ns pulse, one 250 ns pulse (a Klipper 0 bit) and one 833 ns pulse (a 1 bit) into a lumped
+* cable + LED input capacitance. Printed: how long the pixel input stays above 3.5 V (0.7 x 5 V).
+* The RP2350 pad is 3.3 V behind 40 ohm (typical at the 4 mA drive setting Klipper uses).
+* 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:
+* Vgs(th) 1.6 V at 250 uA, 0.1 A at Vgs 2.5 V, 0.27 A at 3 V; body diode 0.55 V at 1 mA
+.model N2N7002 VDMOS (Vto=1.72 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+* The same part at the datasheet maximum threshold (2.5 V at 250 uA)
+.model N2N7002_MAXVTH VDMOS (Vto=2.62 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+
+V5 v5 0 5
+V33 v33 0 3.3
+VGP gdrv 0 PWL(0 0 300n 0 303n 3.3 500n 3.3 503n 0 1500n 0 1503n 3.3 1750n 3.3 1753n 0 3000n 0 3003n 3.3 3833n 3.3 3836n 0)
+RGP gdrv gp 40
+CGP gp 0 5p
+M6 buf v33 gp N2N7002
+R12 v5 buf 470
+CBUF buf 0 5p
+R1 buf data 100
+CLOAD data 0 150p
+.control
+foreach series 100 330
+  alter r1 = $series
+  foreach load 50p 100p 150p 200p
+    alter cload = $load
+    tran 0.5n 5u 0 0.5n
+    meas tran rise200 when v(data)=3.5 rise=1
+    meas tran fall200 when v(data)=3.5 fall=1
+    meas tran rise250 when v(data)=3.5 rise=2
+    meas tran fall250 when v(data)=3.5 fall=2
+    meas tran rise833 when v(data)=3.5 rise=3
+    meas tran fall833 when v(data)=3.5 fall=3
+    meas tran low_level find v(data) at=250n
+    let width200_ns = (fall200 - rise200) * 1e9
+    let width250_ns = (fall250 - rise250) * 1e9
+    let width833_ns = (fall833 - rise833) * 1e9
+    echo series resistor $series ohm, load $load
+    print width200_ns width250_ns width833_ns low_level
+  end
+end
+.endc
+.end

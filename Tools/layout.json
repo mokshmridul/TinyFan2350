@@ -3134,7 +3134,7 @@
   },
   {
    "ref": "R1",
-   "value": "330",
+   "value": "100",
    "package": "R_0603_1608Metric",
    "top": false,
    "at": [
@@ -4077,7 +4077,7 @@
   },
   {
    "ref": "R2",
-   "value": "330",
+   "value": "100",
    "package": "R_0603_1608Metric",
    "top": false,
    "at": [
@@ -5131,7 +5131,7 @@
    "angle": 0.0
   },
   {
-   "text": "TinyFan2350 v1.1",
+   "text": "TinyFan2350 v1.2",
    "at": [
     57.0,
     41.5

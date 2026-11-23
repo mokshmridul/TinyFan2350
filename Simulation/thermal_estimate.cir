@@ -1,0 +1,46 @@
+* TinyFan2350 v1.2 thermal estimate: volts = kelvin above the surrounding air, amps = watts
+* A lumped model for still air. None of its thermal resistances has been measured; read the result
+* as "a few kelvin" or "a few tens of kelvin", not as a temperature.
+* Heat inputs: each fuse with its holder gets I^2 x (R_fuse + R_holder) from the power-path decks.
+* The rest of the loss from those decks is split 40 / 40 / 20 % over the left (power inputs),
+* middle and right (LED ports) thirds of the board. That split is an assumption.
+* Case 1 = power_two_20_led_rgb_strips.cir, case 2 = power_every_port_at_its_limit.cir.
+IF1 0 fuse1 DC 0.216
+IF2 0 fuse2 DC 0.132
+IL 0 left DC 0.331
+IM 0 mid DC 0.331
+IR 0 right DC 0.165
+* fuse and holder: into the board through the clips, a little directly to the air
+RF1B fuse1 left 15
+RF1A fuse1 0 150
+CF1 fuse1 0 1.5
+RF2B fuse2 left 15
+RF2A fuse2 0 150
+CF2 fuse2 0 1.5
+* each board zone: convection + radiation from both faces, and the wires leaving it
+RLA left 0 14.8
+RLW left 0 45
+CL left 0 16
+RMA mid 0 14.8
+RMW mid 0 50
+CM mid 0 16
+RRA right 0 14.8
+RRW right 0 48
+CR right 0 16
+* heat spreading along the board through the copper planes
+RLM left mid 27
+RMR mid right 27
+.control
+op
+echo case 1: five fans on VIN and two 20-LED RGB strips on 5 V
+print v(fuse1) v(fuse2) v(left) v(mid) v(right)
+alter if1 dc = 0.687
+alter if2 dc = 0.526
+alter il dc = 0.758
+alter im dc = 0.758
+alter ir dc = 0.379
+op
+echo case 2: every port at its limit
+print v(fuse1) v(fuse2) v(left) v(mid) v(right)
+.endc
+.end

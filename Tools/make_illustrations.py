@@ -91,6 +91,7 @@ def make_pinout():
     art.label(axes, 40, 460, "(plugged into a socket)", size=15, colour=NOTE)
     art.leader(axes, [frame.p(module_left + 3.4, module_top + 1.6), (330, 446)])
     art.label(axes, 330, 520, "USB-C", size=20, ha="right")
+    art.label(axes, 330, 548, "power and data", size=14, ha="right", colour=NOTE)
     art.leader(axes, [frame.p(module_left + 0.9, (module_top + module_bottom) / 2 + 2.2), (340, 520)])
 
     # Power input detail, left
@@ -109,6 +110,7 @@ def make_pinout():
     art.leader(axes, [power.p(j2[2], j2[3]), frame.p(j2[0], j2[3])], dot=False)
     art.label(axes, 40, 1215, "+ is the lower screw of each terminal", size=16, colour=NOTE)
     art.label(axes, 40, 1245, "F1 / F2: mini blade fuses, 5A max", size=16, colour=NOTE)
+    art.label(axes, 40, 1275, "The RP2350-Zero is powered by its USB-C cable only", size=16, colour=NOTE)
 
     # Jumper legend, bottom right
     art.label(axes, 1500, 1090, "Jumpers", size=24)
@@ -204,7 +206,7 @@ def make_jumpers():
     art.label(axes, 590, 987, "Set every jumper BEFORE power-on!", size=27, colour=RED)
     art.label(axes, 590, 1034, "A 5V fan or a 5V LED strip on VIN (12V / 24V) will be destroyed  -  check twice.", size=18)
     art.label(axes, 590, 1074, "No MODE jumper = the fan never runs.     No VOLT jumper = the port has no power.", size=18)
-    art.label(axes, 590, 1114, "LED1 and LED2 only have a VOLT jumper.", size=18)
+    art.label(axes, 590, 1114, "A 2- or 3-pin fan set to 4P runs at full speed whenever its supply is on.     LED ports only have a VOLT jumper.", size=18)
 
     art.save_sheet(figure, IMAGES / "TinyFan2350_Jumpers.png")
 
@@ -278,10 +280,11 @@ def make_wiring():
         "VIN takes 12V or 24V. The board does not convert voltages:",
         "VIN ports get what you feed into VIN, 5V ports need the 5V input.",
         "+ is the lower screw of each terminal, GND the upper one.",
-        "F1 / F2 are mini blade fuses, 5A max. Wrong polarity blows the fuse.",
+        "F1 / F2 are mini blade fuses, 5A max. Check the polarity before power-up.",
+        "The RP2350-Zero is powered by its USB-C cable, not by these inputs.",
     ]
     for index, content in enumerate(notes):
-        art.label(axes, 40, 900 + index * 34, content, size=17)
+        art.label(axes, 40, 896 + index * 32, content, size=17)
 
     art.rect(axes, 40, 1060, 830, 228, "#fff9e6", radius=14, line=1.6, edge="#c9a227", z=1)
     art.label(axes, 66, 1100, "Before the first power-up", size=24)
@@ -306,9 +309,10 @@ def make_wiring():
     )
     fan_case(
         axes, 1620, 205, [(1, WIRE_BLACK), (2, RED)],
-        "2-pin fan", ["MODE jumper: 2/3", "plug sits on pins 1-2"],
+        "2-pin fan", ["MODE jumper: 2/3", "wires in positions 1-2"],
     )
     art.label(axes, 950, 620, "max 0.6A per fan.  VOLT jumper: VIN for 12V / 24V fans, 5V for 5V fans.", size=17, colour=NOTE)
+    art.label(axes, 950, 652, "Every fan plugs in with a 4-position JST-XH housing; unused positions stay empty.", size=17, colour=NOTE)
 
     # --- LED strip ------------------------------------------------------------------------
     art.label(axes, 950, 720, "LED ports  (LED1, LED2)", size=28)
@@ -327,17 +331,18 @@ def make_wiring():
         art.label(axes, 1032, pad_y, name, size=15, ha="right")
     led_notes = [
         "Addressable strips: WS2812B, SK6812 (5V), WS2811 (12V).  Data is level-shifted to 5V.",
-        "VOLT jumper: 5V for 5V strips, VIN for 12V strips.  Data wire to the first LED: under 1 m.",
-        "max 3A per port.  20 LEDs at full white take 1.2A (RGB) or 1.6A (RGBW).",
+        "VOLT jumper: 5V for 5V strips, VIN for 12V strips.  Both need the 5V input powered (LED data).",
+        "Keep the data wire to the first LED short: about 1 m at most (simulated, not measured).",
+        "max 3A per port; all 5V loads share the 5V fuse.  20 LEDs at full white: 1.2A (RGB), 1.6A (RGBW).",
     ]
     for index, content in enumerate(led_notes):
-        art.label(axes, 950, 975 + index * 30, content, size=16)
+        art.label(axes, 950, 966 + index * 28, content, size=15.5)
 
     # --- thermistor -----------------------------------------------------------------------
-    art.label(axes, 950, 1100, "Thermistor ports  (TH1 - TH4)", size=28)
-    thermistor = art.frame_for("J10", 1010, 1150, 16)
+    art.label(axes, 950, 1114, "Thermistor ports  (TH1 - TH4)", size=28)
+    thermistor = art.frame_for("J10", 1010, 1160, 16)
     art.draw_jst(axes, thermistor, art.FOOTPRINTS["J10"])
-    bead_x, bead_y = 1420, 1197
+    bead_x, bead_y = 1420, 1207
     for number, offset in [(1, -9), (2, 9)]:
         pad_x, pad_y = thermistor.p(*art.pad_position("J10", number))
         art.curve(
@@ -345,9 +350,9 @@ def make_wiring():
             "#f1f1f1", width=4.5, z=5,
         )
     art.circle(axes, bead_x + 6, bead_y, 17, "#3a3a3c", line=1.6, z=6)
-    art.label(axes, 1470, 1180, "NTC 100k thermistor", size=17)
-    art.label(axes, 1470, 1212, "(polarity does not matter)", size=15, colour=NOTE)
-    art.label(axes, 950, 1275, "pin 1 = signal, pin 2 = GND.  Keep the wires away from 12V / 24V wiring.", size=16)
+    art.label(axes, 1470, 1190, "NTC 100k thermistor", size=17)
+    art.label(axes, 1470, 1222, "(polarity does not matter)", size=15, colour=NOTE)
+    art.label(axes, 950, 1285, "pin 1 = signal, pin 2 = GND.  Keep the wires away from 12V / 24V wiring.", size=16)
 
     art.save_sheet(figure, IMAGES / "TinyFan2350_Wiring.png")
 
@@ -421,7 +426,7 @@ def make_flashing():
     step_card(
         axes, card_x, 814, card_width, 3, "Later updates  -  no buttons",
         ["The flash tool restarts Klipper into Katapult, uploads and starts it again."],
-        ["cd ~/klipper && git pull && make clean && make",
+        ["cd ~/klipper && make clean && make",
          "python3 ~/katapult/scripts/flashtool.py -d /dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00"],
         "->  /dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00      (unchanged)",
     )

@@ -56,8 +56,9 @@ The board sits **across** the rail and takes 65 mm of rail length.
 A small bridge that holds a **40 x 40 x 10 mm fan** above the power terminals, the capacitors and the fuses,
 blowing down onto the board. The fan sits in the corner of the board, flush with two of its edges:
 **nothing reaches past the PCB outline**. The bridge stands on the two mounting holes at the USB-C end and is
-held by the screws that hold the board there, so it fits on the DIN mount and on any other M3 standoffs.
-Worth fitting if the board sits in a warm electronics bay or runs close to its limits.
+held by the screws that hold the board there, so it fits on the DIN mount and on other M3 standoffs with a
+vertical thread. Worth fitting if the board sits in a warm electronics bay or runs close to its limits; how much
+it lowers the temperatures has not been measured.
 
 ![Fan bridge: parts and assembly](../Images/TinyFan2350_Fan_Bridge_BOM.png)
 
@@ -78,15 +79,22 @@ Worth fitting if the board sits in a warm electronics bay or runs close to its l
 
 ### Assemble
 
+Switch both supplies off and unplug USB before you start, and every time you take the fan off again.
+
 1. Press the two inserts into the **underside** of the bridge, flush.
 2. Wire both power terminals and fit the fuses now: they end up under the fan.
 3. Take out the two board screws at the USB-C end and set the bridge on the board.
    Fasten the leg next to the RP2350-Zero with the M3x30.
 4. Put the fan on, **label side down**, so that it blows onto the board (the arrow on the fan's side points down).
-   The M3x40 goes through the fan's corner above the other leg, through that leg and the board into the mount;
-   the two M3x16 go into the inserts. Tighten gently, the legs are plastic.
-5. Plug the fan into any fan port and set that port's jumpers (2-pin fan: MODE **2/3**, VOLT to the fan's voltage).
-   Klipper example: [Set it up](../Klipper#5-ports-in-klipper).
+   Start all three fan screws loosely: the M3x40 through the fan's corner above the other leg, through that leg and
+   the board into the mount, and the two M3x16 into the inserts.
+5. The M3x40 leans by about 1 degree (see below), so thread it into the mount **by hand first**. It has to turn
+   freely. If it binds, loosen the other screws and let the fan and the bridge settle; if it still binds, open the
+   hole in that leg to 4 mm. Never force it: the thread it goes into is a heat-set insert in plastic.
+   Then tighten all screws gently, the legs are plastic.
+6. Plug the fan into any fan port and set that port's jumpers: MODE **4P** lets a 2- or 3-pin fan run whenever
+   its supply is on, which is what a cooling fan should do; VOLT to the fan's voltage.
+   Switched by Klipper instead: [Set it up](../Klipper#5-ports-in-klipper).
 
 ### Details
 - Under the fan: both power terminals, both capacitors and both fuses. To reach them, take the fan off (3 screws);
@@ -98,7 +106,11 @@ Worth fitting if the board sits in a warm electronics bay or runs close to its l
 - 40 x 65 x 23.9 mm, the top of the fan is 34 mm above the PCB. Checked against the board's 3D model:
   nothing outside the PCB outline, 0.9 mm to the RP2350-Zero, 4 mm above the terminal blocks.
 - The fan's holes are 4 mm from its edges, the board's holes 3.5 mm. With the fan flush with the board, the M3x40
-  therefore leans by about 1 degree; the hole in the leg is made for that.
+  therefore leans by about 1 degree; the hole in the leg is made for that. Whether the screw still enters the
+  vertical thread below without binding depends on the fan, the print and the insert, so test it as described above.
+- The clearances come from the CAD model, with a fitted fuse taken as 16.5 mm high and the USB-C plug as 8.5 mm
+  thick: 3.7 mm between the VIN fuse and the bridge, 7.4 mm between the fuses and the fan, 0.8 mm between the plug
+  and the arm. A thicker USB-C plug does not fit under the arm, so measure yours before you print.
 - Edit the values at the top of [TinyFan2350_Fan_Bridge.py](./TinyFan2350_Fan_Bridge.py) to change it; it rewrites the
   [STEP](./TinyFan2350_Fan_Bridge.step) and the STL. `LEG_SCREW_LENGTH` sets the height; 30 is the shortest standard
   screw that keeps the deck clear of the terminal blocks.

@@ -1,0 +1,23 @@
+* TinyFan2350 v1.2: PWM pin of a 4-wire fan (MODE 4P), 25 kHz
+* The fan pulls its PWM input up to 5 V with 2.2 k; 100 pF of cable; the AO3400A drain pulls it low.
+.model AO3400A NMOS (LEVEL=1 VTO=0.9 KP=15.4 RD=6m RS=4m CGSO=580n CGDO=50n CBD=60p IS=1e-12 PB=0.8 MJ=0.4 W=1m L=1m)
+.model DB5819 D (IS=31.7u RS=0.051 N=1.373 CJO=110p M=0.35 EG=0.69 XTI=2 BV=40 IBV=1m TT=5n)
+
+VF fanv 0 24
+V5 fan5 0 5
+RPU fan5 pwm 2200
+CCABLE pwm 0 100p
+D4 pwm fanv DB5819
+M1 pwm gate 0 0 AO3400A
+VG gdrv 0 PULSE(0 3.3 2u 10n 10n 4u 40u)
+RG gdrv gate 40
+RPD gate 0 4.7k
+.control
+tran 10n 120u 0 10n
+meas tran pwm_low min v(pwm) from=40u to=120u
+meas tran pwm_high max v(pwm) from=40u to=120u
+meas tran rise_time trig v(pwm) val=0.5 rise=2 targ v(pwm) val=4.5 rise=2
+meas tran fall_time trig v(pwm) val=4.5 fall=2 targ v(pwm) val=0.5 fall=2
+print pwm_low pwm_high rise_time fall_time
+.endc
+.end

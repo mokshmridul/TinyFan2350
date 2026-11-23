@@ -14536,7 +14536,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "330"
+		(property "Value" "100"
 			(at 0 -1.43 0)
 			(layer "B.Fab")
 			(uuid "c4ca0232-0a83-4151-9421-76d731838201")
@@ -15858,7 +15858,7 @@
 		(path "/a4b4503a-7b55-4703-ab60-edfaa0bd0dc3")
 		(sheetname "/")
 		(sheetfile "TinyFan2350.kicad_sch")
-		(attr smd)
+		(attr smd dnp)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_line
 			(start -2.36 1)
@@ -18611,7 +18611,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Value" "330"
+		(property "Value" "100"
 			(at 0 -1.43 0)
 			(layer "B.Fab")
 			(uuid "70483864-9692-4123-a378-c4248169ea12")
@@ -21735,7 +21735,7 @@
 			)
 		)
 	)
-	(gr_text "TinyFan2350 v1.1"
+	(gr_text "TinyFan2350 v1.2"
 		(at 107 91.5 0)
 		(layer "F.SilkS")
 		(uuid "fcd9a411-9ca7-4159-aef5-86437a26f2a3")

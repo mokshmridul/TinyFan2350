@@ -1,0 +1,265 @@
+* TinyFan2350 v1.2 power paths: five 0.6 A fans on VIN (24 V), LED1 and LED2 on 5 V at 1.6 A each
+* Every resistor named R<net>_<n> is one copper segment taken from the board file (1 oz copper, 20 C).
+* The copper is the same in v1.1 and v1.2. Loads are ideal current sinks; fuses and contacts are resistors.
+* RTERM = screw terminal, RFUSE + RHOLD = blade fuse and holder, RJ* = jumper shunt, RC* = JST contact.
+
+* --- device models (fitted to the datasheet figures, see notes in the report) ---
+* AO3400A: RDS(on) 28 mOhm at VGS 4.5 V, about 50 mOhm at 2.5 V; Ciss 630 pF, Coss 75 pF, Crss 50 pF
+.model AO3400A NMOS (LEVEL=1 VTO=0.9 KP=15.4 RD=6m RS=4m CGSO=580n CGDO=50n CBD=60p IS=1e-12 PB=0.8 MJ=0.4 W=1m L=1m)
+* 2N7002: Vth about 1.8 V, about 3 Ohm at VGS 4.5 V
+.model N2N7002 NMOS (LEVEL=1 VTO=1.8 KP=0.17 RD=1 RS=0.3 CGSO=22n CGDO=5n CBD=15p W=1m L=1m)
+.model DB5819 D (IS=31.7u RS=0.051 N=1.373 CJO=110p M=0.35 EG=0.69 XTI=2 BV=40 IBV=1m TT=5n)
+.model D1N4148 D (IS=2.52n RS=0.568 N=1.752 CJO=4p M=0.4 TT=20n BV=100 IBV=100u)
+.model DSS54 D (IS=20u RS=0.02 N=1.1 CJO=500p M=0.4 EG=0.69 XTI=2 BV=40 IBV=1m)
+
+VVIN vin_supply 0 24
+V5 five_supply 0 5
+VGATE gate 0 3.3
+IFAN1 fan1_p fan1_n 0.6
+M1 fan1_sw_10 gate q1_s q1_s AO3400A
+IFAN2 fan2_p fan2_n 0.6
+M2 fan2_sw_8 gate q2_s q2_s AO3400A
+IFAN3 fan3_p fan3_n 0.6
+M3 fan3_sw_7 gate q3_s q3_s AO3400A
+IFAN4 fan4_p fan4_n 0.6
+M4 fan4_sw_7 gate q4_s q4_s AO3400A
+IFAN5 fan5_p fan5_n 0.6
+M5 fan5_sw_3 gate q5_s q5_s AO3400A
+ILED1 led1_p led1_n 1.6
+ILED2 led2_p led2_n 1.6
+Rvin_raw_1 vin_raw_1 vin_raw_0 0.00413291
+Rvin_raw_2 vin_raw_2 vin_raw_1 0.00120927
+Rvin_0 vin_0 vin_1 0.000912092
+Rvin_1 vin_2 vin_3 0.000912092
+Rvin_2 vin_4 vin_5 0.000604637
+Rvin_3 vin_0 vin_6 0.00356286
+Rvin_4 vin_7 vin_0 0.00356286
+Rvin_5 vin_8 vin_9 0.0049595
+Rvin_6 vin_6 vin_10 0.000912092
+Rvin_7 vin_11 vin_12 0.00158012
+Rvin_9 vin_12 vin_4 0.0160129
+Rvin_10 vin_13 vin_14 0.000912092
+Rvin_11 vin_5 vin_15 0.00114323
+Rvin_12 vin_2 vin_13 0.00356286
+Rvin_13 vin_16 vin_17 0.00103191
+Rvin_14 vin_15 vin_18 0.00303788
+Rvin_15 vin_7 vin_19 0.000912092
+Rvin_16 vin_9 vin_2 0.00116862
+Rvin_17 vin_13 vin_7 0.00356286
+Rvin_18 vin_20 vin_21 0.000808389
+Rvin_19 vin_5 vin_8 0.00141082
+Rvin_20 vin_17 vin_11 0.00212061
+Rvin_21 vin_18 vin_21 0.00114323
+Rvin_22 vin_16 vin_22 0.00251932
+R5v_raw_1 5v_raw_1 5v_raw_0 0.00313531
+R5v_raw_2 5v_raw_2 5v_raw_1 0.00262009
+R5v_0 5v_0 5v_1 0.00356286
+R5v_1 5v_2 5v_3 0.000919692
+R5v_2 5v_4 5v_5 0.000261276
+R5v_3 5v_1 5v_6 0.000919692
+R5v_4 5v_7 5v_8 0.000261276
+R5v_5 5v_9 5v_0 0.00356286
+R5v_6 5v_10 5v_11 0.000311724
+R5v_7 5v_9 5v_12 0.000919692
+R5v_8 5v_1 5v_2 0.00356286
+R5v_9 5v_11 5v_13 0.00262986
+R5v_10 5v_0 5v_14 0.000919692
+R5v_11 5v_15 5v_16 0.00326504
+R5v_13 5v_17 5v_4 0.000261276
+R5v_14 5v_8 5v_18 0.000261276
+R5v_15 5v_4 5v_19 0.0009976
+R5v_16 5v_20 5v_8 0.00170447
+R5v_17 5v_21 5v_22 0.000919692
+R5v_18 5v_19 5v_9 0.00225173
+R5v_19 5v_2 5v_21 0.00356286
+R5v_20 5v_13 5v_20 0.00124958
+R5v_21 5v_16 5v_23 0.0019781
+R5v_22 5v_20 5v_15 0.0123873
+R5v_23 5v_24 5v_25 0.0027814
+R5v_24 5v_26 5v_27 0.000878838
+R5v_25 5v_28 5v_29 0.00285029
+R5v_26 5v_27 5v_30 0.00100773
+R5v_27 5v_5 5v_29 0.000261276
+R5v_28 5v_13 5v_26 0.00179093
+R5v_29 5v_31 5v_32 0.00119772
+R5v_30 5v_33 5v_34 0.00391311
+R5v_31 5v_34 5v_35 0.00440156
+R5v_32 5v_32 5v_36 0.000559701
+R5v_33 5v_18 5v_28 0.000261276
+R5v_34 5v_23 5v_37 0.000627063
+R5v_35 5v_37 5v_38 0.00327783
+R5v_36 5v_36 5v_39 0.00099839
+R5v_37 5v_10 5v_33 0.00110931
+R5v_38 5v_35 5v_31 0.000138191
+R5v_39 5v_40 5v_24 0.000550891
+R5v_40 5v_38 5v_40 0.000627063
+R5v_41 5v_25 5v_41 0.00128263
+RTERM_VIN vin_supply vin_raw_2 0.0015
+RTERM_5V five_supply 5v_raw_2 0.0015
+RFUSE1 vin_raw_0 f1_mid 0.02
+RHOLD1 f1_mid vin_11 0.004
+RFUSE2 5v_raw_0 f2_mid 0.02
+RHOLD2 f2_mid 5v_13 0.004
+Rfan1_v_0 fan1_v_0 fan1_v_1 0.00151917
+Rfan1_v_1 fan1_v_1 fan1_v_2 0.00198363
+Rfan1_v_2 fan1_v_3 fan1_v_4 0.004499
+Rfan1_v_3 fan1_v_5 fan1_v_3 0.000691221
+Rfan1_v_4 fan1_v_4 fan1_v_6 0.00109673
+Rfan1_v_5 fan1_v_7 fan1_v_2 0.00130489
+Rfan1_v_6 fan1_v_5 fan1_v_7 0.00430809
+Rfan1_v_7 fan1_v_5 fan1_v_8 0.000913802
+Rfan1_gnd_0 fan1_gnd_0 fan1_gnd_1 0.00303616
+Rfan1_gnd_1 fan1_gnd_2 fan1_gnd_3 0.000379658
+Rfan1_gnd_2 fan1_gnd_3 fan1_gnd_4 0.00075765
+Rfan1_gnd_3 fan1_gnd_5 fan1_gnd_2 0.000209849
+Rfan1_gnd_4 fan1_gnd_1 fan1_gnd_5 0.00688276
+Rfan1_sw_0 fan1_sw_0 fan1_sw_1 0.000780123
+Rfan1_sw_1 fan1_sw_1 fan1_sw_2 0.000539336
+Rfan1_sw_2 fan1_sw_3 fan1_sw_4 0.000188969
+Rfan1_sw_3 fan1_sw_4 fan1_sw_5 0.00461524
+Rfan1_sw_4 fan1_sw_6 fan1_sw_7 0.00241839
+Rfan1_sw_5 fan1_sw_8 fan1_sw_3 0.00018905
+Rfan1_sw_6 fan1_sw_7 fan1_sw_9 0.000724087
+Rfan1_sw_7 fan1_sw_9 fan1_sw_8 0.00200375
+Rfan1_sw_9 fan1_sw_0 fan1_sw_10 0.00299337
+Rfan1_sw_10 fan1_sw_9 fan1_sw_2 0.00108317
+RJV1 vin_10 fan1_v_8 0.015
+RCV1 fan1_v_0 fan1_p 0.01
+RCG1 fan1_n fan1_gnd_0 0.01
+RJM1 fan1_gnd_4 fan1_sw_2 0.015
+RGND_F1 q1_s 0 0.003
+Rfan2_v_0 fan2_v_0 fan2_v_1 0.00155617
+Rfan2_v_1 fan2_v_2 fan2_v_3 0.00421932
+Rfan2_v_2 fan2_v_4 fan2_v_5 0.00198353
+Rfan2_v_3 fan2_v_5 fan2_v_6 0.0035852
+Rfan2_v_4 fan2_v_0 fan2_v_7 0.000117058
+Rfan2_v_5 fan2_v_1 fan2_v_8 0.000787479
+Rfan2_v_6 fan2_v_9 fan2_v_3 0.000984318
+Rfan2_v_7 fan2_v_6 fan2_v_8 0.000364636
+Rfan2_v_8 fan2_v_10 fan2_v_8 0.000732094
+Rfan2_v_9 fan2_v_7 fan2_v_2 0.00992441
+Rfan2_gnd_0 fan2_gnd_0 fan2_gnd_1 0.00284236
+Rfan2_gnd_1 fan2_gnd_2 fan2_gnd_3 0.000391002
+Rfan2_gnd_2 fan2_gnd_3 fan2_gnd_4 0.00075765
+Rfan2_gnd_3 fan2_gnd_1 fan2_gnd_2 0.00716818
+Rfan2_sw_0 fan2_sw_0 fan2_sw_1 0.000947435
+Rfan2_sw_1 fan2_sw_2 fan2_sw_3 0.000716847
+Rfan2_sw_2 fan2_sw_4 fan2_sw_1 0.000302722
+Rfan2_sw_3 fan2_sw_5 fan2_sw_6 1.00773e-05
+Rfan2_sw_4 fan2_sw_7 fan2_sw_5 0.000913061
+Rfan2_sw_5 fan2_sw_8 fan2_sw_4 0.00316068
+Rfan2_sw_6 fan2_sw_6 fan2_sw_2 0.0059661
+Rfan2_sw_7 fan2_sw_3 fan2_sw_9 0.00242862
+Rfan2_sw_8 fan2_sw_0 fan2_sw_2 0.00107598
+RJV2 vin_1 fan2_v_4 0.015
+RCV2 fan2_v_9 fan2_p 0.01
+RCG2 fan2_n fan2_gnd_0 0.01
+RJM2 fan2_gnd_4 fan2_sw_0 0.015
+RGND_F2 q2_s 0 0.003
+Rfan3_v_0 fan3_v_0 fan3_v_1 0.00116381
+Rfan3_v_1 fan3_v_1 fan3_v_2 0.00053859
+Rfan3_v_2 fan3_v_3 fan3_v_4 0.00075765
+Rfan3_v_3 fan3_v_5 fan3_v_6 0.00286703
+Rfan3_v_4 fan3_v_4 fan3_v_7 0.00253399
+Rfan3_v_5 fan3_v_7 fan3_v_2 0.00215835
+Rfan3_v_6 fan3_v_8 fan3_v_0 0.000793406
+Rfan3_v_7 fan3_v_6 fan3_v_9 0.0057256
+Rfan3_v_8 fan3_v_9 fan3_v_3 0.000408446
+Rfan3_gnd_0 fan3_gnd_0 fan3_gnd_1 0.000412265
+Rfan3_gnd_1 fan3_gnd_1 fan3_gnd_2 0.00075765
+Rfan3_gnd_2 fan3_gnd_3 fan3_gnd_4 0.00287243
+Rfan3_gnd_3 fan3_gnd_4 fan3_gnd_0 0.00714692
+Rfan3_sw_0 fan3_sw_0 fan3_sw_1 0.000868197
+Rfan3_sw_1 fan3_sw_2 fan3_sw_3 0.000359136
+Rfan3_sw_2 fan3_sw_0 fan3_sw_2 0.0034424
+Rfan3_sw_4 fan3_sw_4 fan3_sw_5 0.00565115
+Rfan3_sw_5 fan3_sw_5 fan3_sw_0 0.00153175
+Rfan3_sw_6 fan3_sw_6 fan3_sw_1 0.000414781
+Rfan3_sw_7 fan3_sw_7 fan3_sw_6 0.00308144
+RJV3 vin_19 fan3_v_4 0.015
+RCV3 fan3_v_5 fan3_p 0.01
+RCG3 fan3_n fan3_gnd_3 0.01
+RJM3 fan3_gnd_2 fan3_sw_0 0.015
+RGND_F3 q3_s 0 0.003
+Rfan4_v_0 fan4_v_0 fan4_v_1 0.000188889
+Rfan4_v_1 fan4_v_2 fan4_v_3 0.00326449
+Rfan4_v_2 fan4_v_4 fan4_v_2 0.00198232
+Rfan4_v_3 fan4_v_5 fan4_v_0 0.000400108
+Rfan4_v_4 fan4_v_3 fan4_v_6 0.000115607
+Rfan4_v_5 fan4_v_7 fan4_v_8 0.000733545
+Rfan4_v_6 fan4_v_9 fan4_v_7 0.000174209
+Rfan4_v_7 fan4_v_10 fan4_v_11 0.00568318
+Rfan4_v_8 fan4_v_12 fan4_v_5 0.000259661
+Rfan4_v_9 fan4_v_13 fan4_v_14 0.000496691
+Rfan4_v_10 fan4_v_14 fan4_v_12 0.000496608
+Rfan4_v_11 fan4_v_6 fan4_v_9 0.000496634
+Rfan4_v_12 fan4_v_9 fan4_v_13 0.000496689
+Rfan4_v_13 fan4_v_1 fan4_v_10 0.00883851
+Rfan4_gnd_0 fan4_gnd_0 fan4_gnd_1 0.00287025
+Rfan4_gnd_1 fan4_gnd_1 fan4_gnd_2 0.00687626
+Rfan4_gnd_2 fan4_gnd_2 fan4_gnd_3 0.0011426
+Rfan4_sw_0 fan4_sw_0 fan4_sw_1 0.000947549
+Rfan4_sw_1 fan4_sw_2 fan4_sw_3 0.00241855
+Rfan4_sw_2 fan4_sw_4 fan4_sw_5 0.00688629
+Rfan4_sw_3 fan4_sw_6 fan4_sw_1 0.00030256
+Rfan4_sw_4 fan4_sw_0 fan4_sw_4 0.00108311
+Rfan4_sw_5 fan4_sw_3 fan4_sw_4 0.000723973
+Rfan4_sw_6 fan4_sw_7 fan4_sw_6 0.0031608
+RJV4 vin_14 fan4_v_4 0.015
+RCV4 fan4_v_11 fan4_p 0.01
+RCG4 fan4_n fan4_gnd_0 0.01
+RJM4 fan4_gnd_3 fan4_sw_0 0.015
+RGND_F4 q4_s 0 0.003
+Rfan5_v_0 fan5_v_0 fan5_v_1 0.00627074
+Rfan5_v_1 fan5_v_1 fan5_v_2 0.00285372
+Rfan5_v_2 fan5_v_3 fan5_v_4 0.00447632
+Rfan5_v_3 fan5_v_5 fan5_v_0 0.00093478
+Rfan5_v_4 fan5_v_4 fan5_v_6 0.00112761
+Rfan5_v_5 fan5_v_0 fan5_v_3 0.00069243
+Rfan5_gnd_0 fan5_gnd_0 fan5_gnd_1 0.00714692
+Rfan5_gnd_1 fan5_gnd_1 fan5_gnd_2 0.000412265
+Rfan5_gnd_2 fan5_gnd_3 fan5_gnd_0 0.00287243
+Rfan5_gnd_3 fan5_gnd_2 fan5_gnd_4 0.00075765
+Rfan5_sw_0 fan5_sw_0 fan5_sw_1 0.000856226
+Rfan5_sw_1 fan5_sw_2 fan5_sw_1 0.000431711
+Rfan5_sw_2 fan5_sw_3 fan5_sw_2 0.00306947
+Rfan5_sw_3 fan5_sw_0 fan5_sw_4 0.00108311
+Rfan5_sw_4 fan5_sw_4 fan5_sw_5 0.00688629
+Rfan5_sw_5 fan5_sw_6 fan5_sw_4 0.000723973
+Rfan5_sw_6 fan5_sw_7 fan5_sw_6 0.00241855
+RJV5 vin_3 fan5_v_5 0.015
+RCV5 fan5_v_2 fan5_p 0.01
+RCG5 fan5_n fan5_gnd_3 0.01
+RJM5 fan5_gnd_4 fan5_sw_0 0.015
+RGND_F5 q5_s 0 0.003
+Rled1_v_1 led1_v_1 led1_v_0 0.00330633
+RJL1 5v_40 led1_v_0 0.015
+RCL1 led1_v_1 led1_p 0.01
+RCLG1 led1_n led1_g 0.01
+RGND_L1 led1_g 0 0.003
+Rled2_v_0 led2_v_0 led2_v_1 0.000337474
+Rled2_v_1 led2_v_2 led2_v_3 0.00231348
+Rled2_v_2 led2_v_1 led2_v_4 0.000463421
+Rled2_v_3 led2_v_3 led2_v_0 0.000490293
+RJL2 5v_23 led2_v_4 0.015
+RCL2 led2_v_2 led2_p 0.01
+RCLG2 led2_n led2_g 0.01
+RGND_L2 led2_g 0 0.003
+.control
+op
+let fan1_v = v(fan1_p) - v(fan1_n)
+let fan2_v = v(fan2_p) - v(fan2_n)
+let fan3_v = v(fan3_p) - v(fan3_n)
+let fan4_v = v(fan4_p) - v(fan4_n)
+let fan5_v = v(fan5_p) - v(fan5_n)
+let led1_v = v(led1_p) - v(led1_n)
+let led2_v = v(led2_p) - v(led2_n)
+let p_in = -(v(vin_supply) * i(vvin) + v(five_supply) * i(v5))
+let p_load = fan1_v * 0.6 + fan2_v * 0.6 + fan3_v * 0.6 + fan4_v * 0.6 + fan5_v * 0.6 + led1_v * 1.6 + led2_v * 1.6
+let p_loss = p_in - p_load
+let i_vin = -i(vvin)
+let i_5v = -i(v5)
+print fan1_v fan2_v fan3_v fan4_v fan5_v led1_v led2_v
+print i_vin i_5v p_in p_loss
+.endc
+.end

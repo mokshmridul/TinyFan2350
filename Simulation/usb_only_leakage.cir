@@ -1,0 +1,31 @@
+* TinyFan2350 v1.2: module on USB, 5 V input off. Both LED data pins held high.
+* The only DC path from the module into the board's 5 V rail is pin -> 2N7002 body diode -> 470 ohm.
+* RRAIL stands for whatever hangs on the unpowered rail (250 ohm: two idle strips; 10 k: almost nothing).
+* 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:
+* Vgs(th) 1.6 V at 250 uA, 0.1 A at Vgs 2.5 V, 0.27 A at 3 V; body diode 0.55 V at 1 mA
+.model N2N7002 VDMOS (Vto=1.72 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+* The same part at the datasheet maximum threshold (2.5 V at 250 uA)
+.model N2N7002_MAXVTH VDMOS (Vto=2.62 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+
+V33 v33 0 3.3
+VGP1 gd1 0 3.3
+RG1 gd1 gp1 40
+M6 buf1 v33 gp1 N2N7002
+R12 buf1 rail 470
+VGP2 gd2 0 3.3
+RG2 gd2 gp2 40
+M7 buf2 v33 gp2 N2N7002
+R13 buf2 rail 470
+RRAIL rail 0 250
+.control
+foreach rail_load 10 250 10k
+  alter rrail = $rail_load
+  op
+  let pin_current_ma = -i(vgp1) * 1e3
+  echo rail load $rail_load ohm
+  print v(rail) pin_current_ma
+end
+.endc
+.end

@@ -17,4 +17,5 @@ python Tools\make_illustrations.py
 ```
 
 `make_production_files.py` stops with an error if an SMD part sits on the top side or has no LCSC number.
+Parts marked *do not populate* in KiCad (D3 since v1.2) are left out of the BOM, the placement file and the pictures.
 `tinyfan_art.py` is the drawing library; the lettering is [osifont](https://github.com/hikikomori82/osifont) (LGPL v3 with font exception).
