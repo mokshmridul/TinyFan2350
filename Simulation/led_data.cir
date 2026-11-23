@@ -1,4 +1,4 @@
-* TinyFan2350 v1.2: LED data level shifter, Q6 2N7002, R12 470 ohm to 5 V, R1 100 ohm in series
+* TinyFan2350 v1.3: LED data level shifter, Q6 2N7002, R12 470 ohm to 5 V, R1 100 ohm in series
 * One 200 ns pulse, one 250 ns pulse (a Klipper 0 bit) and one 833 ns pulse (a 1 bit) into a lumped
 * cable + LED input capacitance. Printed: how long the pixel input stays above 3.5 V (0.7 x 5 V).
 * The RP2350 pad is 3.3 V behind 40 ohm (typical at the 4 mA drive setting Klipper uses).

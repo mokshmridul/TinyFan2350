@@ -1,0 +1,220 @@
+* TinyFan2350 v1.3: tach input while a 2/3-mode fan is switched (PWM edges)
+* One 200 us on-pulse of a fan channel from 24 V. The fan's own ground follows the switched pin, so its tach
+* output drags the tach wire along: below ground when the channel switches on, up to 24 V when it switches off.
+* Fan a: 40 ohm with a 1 uF input capacitor, 0.25 uH in each supply wire. Its capacitor recharges with a 22 A
+*        pulse at switch-on and the fan's ground dips to about -4 V for 2 us.
+* Fan b: 40 ohm in series with 1 mH, no capacitor. Its ground jumps to 24 V within nanoseconds at switch-off.
+* Tach output, switched on: m = open-drain MOSFET (20 ohm, with its body diode), n = NPN with 0.1 mA of base current.
+* Input: v12 = 1N4148WS in series (v1.0 - v1.2), alone = 2N7002 pass transistor only, v13 = 4.7 k + 2N7002 + 1 nF.
+* The RP2350 pin: 50 k pull-up, 5 pF, a clamp diode to ground and none to 3.3 V (5 V tolerant pad, 5.5 V at most).
+* clamp_ma is the largest current pulled out of the pin through that clamp diode.
+.model AO3400A NMOS (LEVEL=1 VTO=0.9 KP=15.4 RD=6m RS=4m CGSO=580n CGDO=50n CBD=60p IS=1e-12 PB=0.8 MJ=0.4 W=1m L=1m)
+.model DB5819 D (IS=31.7u RS=0.051 N=1.373 CJO=110p M=0.35 EG=0.69 XTI=2 BV=40 IBV=1m TT=5n)
+* 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:
+* Vgs(th) 1.6 V at 250 uA, 0.1 A at Vgs 2.5 V, 0.27 A at 3 V; body diode 0.55 V at 1 mA
+.model N2N7002 VDMOS (Vto=1.72 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+.model D1N4148 D (IS=2.52n RS=0.568 N=1.752 CJO=4p M=0.4 TT=20n BV=100 IBV=100u)
+* Assumed parts of the fan and of the pin, not fitted to anything
+.model DCLAMP D (IS=1e-14 N=1.05 RS=5 CJO=1p)
+.model DBODY D (IS=1e-13 N=1.1 RS=2 CJO=10p)
+.model QTACH NPN (BF=150 BR=3 IS=1e-14 VAF=80 RC=5 CJC=5p CJE=8p TF=0.5n)
+.options cshunt=1e-13
+
+VIN vin 0 24
+RSUP vin fanv 60m
+VG gdrv 0 PULSE(0 3.3 10u 20n 20n 200u 1)
+V33 v33 0 3.3
+
+* fan a and its channel
+LPA fanv fplusa 0.25u
+CFA fplusa c1a 1u
+RESRA c1a fgnda 0.2
+RLA fplusa fgnda 40
+LMA fgnda swca 0.25u
+RCA swca swa 0.15
+D4A swa fanv DB5819
+M1A swa gatea 0 0 AO3400A
+RGA gdrv gatea 40
+RPDA gatea 0 4.7k
+
+* fan b and its channel
+RLB fanv fb1 40
+LFB fb1 fgndb 1m
+RCB fgndb swb 0.15
+D4B swb fanv DB5819
+M1B swb gateb 0 0 AO3400A
+RGB gdrv gateb 40
+RPDB gateb 0 4.7k
+
+* fan a, tach output m
+RON_am_v12 w_am_v12 fgnda 20
+DBD_am_v12 fgnda w_am_v12 DBODY
+CW_am_v12 w_am_v12 0 50p
+DS_am_v12 p_am_v12 w_am_v12 D1N4148
+RPU_am_v12 v33 p_am_v12 50k
+CP_am_v12 p_am_v12 0 5p
+VI_am_v12 p_am_v12 c_am_v12 0
+DN_am_v12 0 c_am_v12 DCLAMP
+RON_am_alone w_am_alone fgnda 20
+DBD_am_alone fgnda w_am_alone DBODY
+CW_am_alone w_am_alone 0 50p
+MS_am_alone w_am_alone v33 p_am_alone N2N7002
+RPU_am_alone v33 p_am_alone 50k
+CP_am_alone p_am_alone 0 5p
+VI_am_alone p_am_alone c_am_alone 0
+DN_am_alone 0 c_am_alone DCLAMP
+RON_am_v13 w_am_v13 fgnda 20
+DBD_am_v13 fgnda w_am_v13 DBODY
+CW_am_v13 w_am_v13 0 50p
+RS_am_v13 w_am_v13 d_am_v13 4.7k
+MS_am_v13 d_am_v13 v33 p_am_v13 N2N7002
+CF_am_v13 p_am_v13 0 1n
+RPU_am_v13 v33 p_am_v13 50k
+CP_am_v13 p_am_v13 0 5p
+VI_am_v13 p_am_v13 c_am_v13 0
+DN_am_v13 0 c_am_v13 DCLAMP
+
+* fan a, tach output n
+IB_an_v12 fgnda b_an_v12 0.1m
+QT_an_v12 w_an_v12 b_an_v12 fgnda QTACH
+CW_an_v12 w_an_v12 0 50p
+DS_an_v12 p_an_v12 w_an_v12 D1N4148
+RPU_an_v12 v33 p_an_v12 50k
+CP_an_v12 p_an_v12 0 5p
+VI_an_v12 p_an_v12 c_an_v12 0
+DN_an_v12 0 c_an_v12 DCLAMP
+IB_an_alone fgnda b_an_alone 0.1m
+QT_an_alone w_an_alone b_an_alone fgnda QTACH
+CW_an_alone w_an_alone 0 50p
+MS_an_alone w_an_alone v33 p_an_alone N2N7002
+RPU_an_alone v33 p_an_alone 50k
+CP_an_alone p_an_alone 0 5p
+VI_an_alone p_an_alone c_an_alone 0
+DN_an_alone 0 c_an_alone DCLAMP
+IB_an_v13 fgnda b_an_v13 0.1m
+QT_an_v13 w_an_v13 b_an_v13 fgnda QTACH
+CW_an_v13 w_an_v13 0 50p
+RS_an_v13 w_an_v13 d_an_v13 4.7k
+MS_an_v13 d_an_v13 v33 p_an_v13 N2N7002
+CF_an_v13 p_an_v13 0 1n
+RPU_an_v13 v33 p_an_v13 50k
+CP_an_v13 p_an_v13 0 5p
+VI_an_v13 p_an_v13 c_an_v13 0
+DN_an_v13 0 c_an_v13 DCLAMP
+
+* fan b, tach output m
+RON_bm_v12 w_bm_v12 fgndb 20
+DBD_bm_v12 fgndb w_bm_v12 DBODY
+CW_bm_v12 w_bm_v12 0 50p
+DS_bm_v12 p_bm_v12 w_bm_v12 D1N4148
+RPU_bm_v12 v33 p_bm_v12 50k
+CP_bm_v12 p_bm_v12 0 5p
+VI_bm_v12 p_bm_v12 c_bm_v12 0
+DN_bm_v12 0 c_bm_v12 DCLAMP
+RON_bm_alone w_bm_alone fgndb 20
+DBD_bm_alone fgndb w_bm_alone DBODY
+CW_bm_alone w_bm_alone 0 50p
+MS_bm_alone w_bm_alone v33 p_bm_alone N2N7002
+RPU_bm_alone v33 p_bm_alone 50k
+CP_bm_alone p_bm_alone 0 5p
+VI_bm_alone p_bm_alone c_bm_alone 0
+DN_bm_alone 0 c_bm_alone DCLAMP
+RON_bm_v13 w_bm_v13 fgndb 20
+DBD_bm_v13 fgndb w_bm_v13 DBODY
+CW_bm_v13 w_bm_v13 0 50p
+RS_bm_v13 w_bm_v13 d_bm_v13 4.7k
+MS_bm_v13 d_bm_v13 v33 p_bm_v13 N2N7002
+CF_bm_v13 p_bm_v13 0 1n
+RPU_bm_v13 v33 p_bm_v13 50k
+CP_bm_v13 p_bm_v13 0 5p
+VI_bm_v13 p_bm_v13 c_bm_v13 0
+DN_bm_v13 0 c_bm_v13 DCLAMP
+
+* fan b, tach output n
+IB_bn_v12 fgndb b_bn_v12 0.1m
+QT_bn_v12 w_bn_v12 b_bn_v12 fgndb QTACH
+CW_bn_v12 w_bn_v12 0 50p
+DS_bn_v12 p_bn_v12 w_bn_v12 D1N4148
+RPU_bn_v12 v33 p_bn_v12 50k
+CP_bn_v12 p_bn_v12 0 5p
+VI_bn_v12 p_bn_v12 c_bn_v12 0
+DN_bn_v12 0 c_bn_v12 DCLAMP
+IB_bn_alone fgndb b_bn_alone 0.1m
+QT_bn_alone w_bn_alone b_bn_alone fgndb QTACH
+CW_bn_alone w_bn_alone 0 50p
+MS_bn_alone w_bn_alone v33 p_bn_alone N2N7002
+RPU_bn_alone v33 p_bn_alone 50k
+CP_bn_alone p_bn_alone 0 5p
+VI_bn_alone p_bn_alone c_bn_alone 0
+DN_bn_alone 0 c_bn_alone DCLAMP
+IB_bn_v13 fgndb b_bn_v13 0.1m
+QT_bn_v13 w_bn_v13 b_bn_v13 fgndb QTACH
+CW_bn_v13 w_bn_v13 0 50p
+RS_bn_v13 w_bn_v13 d_bn_v13 4.7k
+MS_bn_v13 d_bn_v13 v33 p_bn_v13 N2N7002
+CF_bn_v13 p_bn_v13 0 1n
+RPU_bn_v13 v33 p_bn_v13 50k
+CP_bn_v13 p_bn_v13 0 5p
+VI_bn_v13 p_bn_v13 c_bn_v13 0
+DN_bn_v13 0 c_bn_v13 DCLAMP
+.control
+tran 1n 230u 0 1n
+meas tran v12_pin_max max v(p_am_v12) from=1u to=230u
+meas tran v12_pin_min min v(p_am_v12) from=1u to=230u
+meas tran v12_pull min i(vi_am_v12) from=1u to=230u
+let v12_clamp_ma = -v12_pull * 1e3
+meas tran alone_pin_max max v(p_am_alone) from=1u to=230u
+meas tran alone_pin_min min v(p_am_alone) from=1u to=230u
+meas tran alone_pull min i(vi_am_alone) from=1u to=230u
+let alone_clamp_ma = -alone_pull * 1e3
+meas tran v13_pin_max max v(p_am_v13) from=1u to=230u
+meas tran v13_pin_min min v(p_am_v13) from=1u to=230u
+meas tran v13_pull min i(vi_am_v13) from=1u to=230u
+let v13_clamp_ma = -v13_pull * 1e3
+echo fan a with an open-drain tach output
+print v12_pin_max v12_pin_min v12_clamp_ma alone_pin_max alone_pin_min alone_clamp_ma v13_pin_max v13_pin_min v13_clamp_ma
+meas tran v12_pin_max max v(p_an_v12) from=1u to=230u
+meas tran v12_pin_min min v(p_an_v12) from=1u to=230u
+meas tran v12_pull min i(vi_an_v12) from=1u to=230u
+let v12_clamp_ma = -v12_pull * 1e3
+meas tran alone_pin_max max v(p_an_alone) from=1u to=230u
+meas tran alone_pin_min min v(p_an_alone) from=1u to=230u
+meas tran alone_pull min i(vi_an_alone) from=1u to=230u
+let alone_clamp_ma = -alone_pull * 1e3
+meas tran v13_pin_max max v(p_an_v13) from=1u to=230u
+meas tran v13_pin_min min v(p_an_v13) from=1u to=230u
+meas tran v13_pull min i(vi_an_v13) from=1u to=230u
+let v13_clamp_ma = -v13_pull * 1e3
+echo fan a with an NPN tach output
+print v12_pin_max v12_pin_min v12_clamp_ma alone_pin_max alone_pin_min alone_clamp_ma v13_pin_max v13_pin_min v13_clamp_ma
+meas tran v12_pin_max max v(p_bm_v12) from=1u to=230u
+meas tran v12_pin_min min v(p_bm_v12) from=1u to=230u
+meas tran v12_pull min i(vi_bm_v12) from=1u to=230u
+let v12_clamp_ma = -v12_pull * 1e3
+meas tran alone_pin_max max v(p_bm_alone) from=1u to=230u
+meas tran alone_pin_min min v(p_bm_alone) from=1u to=230u
+meas tran alone_pull min i(vi_bm_alone) from=1u to=230u
+let alone_clamp_ma = -alone_pull * 1e3
+meas tran v13_pin_max max v(p_bm_v13) from=1u to=230u
+meas tran v13_pin_min min v(p_bm_v13) from=1u to=230u
+meas tran v13_pull min i(vi_bm_v13) from=1u to=230u
+let v13_clamp_ma = -v13_pull * 1e3
+echo fan b with an open-drain tach output
+print v12_pin_max v12_pin_min v12_clamp_ma alone_pin_max alone_pin_min alone_clamp_ma v13_pin_max v13_pin_min v13_clamp_ma
+meas tran v12_pin_max max v(p_bn_v12) from=1u to=230u
+meas tran v12_pin_min min v(p_bn_v12) from=1u to=230u
+meas tran v12_pull min i(vi_bn_v12) from=1u to=230u
+let v12_clamp_ma = -v12_pull * 1e3
+meas tran alone_pin_max max v(p_bn_alone) from=1u to=230u
+meas tran alone_pin_min min v(p_bn_alone) from=1u to=230u
+meas tran alone_pull min i(vi_bn_alone) from=1u to=230u
+let alone_clamp_ma = -alone_pull * 1e3
+meas tran v13_pin_max max v(p_bn_v13) from=1u to=230u
+meas tran v13_pin_min min v(p_bn_v13) from=1u to=230u
+meas tran v13_pull min i(vi_bn_v13) from=1u to=230u
+let v13_clamp_ma = -v13_pull * 1e3
+echo fan b with an NPN tach output
+print v12_pin_max v12_pin_min v12_clamp_ma alone_pin_max alone_pin_min alone_clamp_ma v13_pin_max v13_pin_min v13_clamp_ma
+.endc
+.end

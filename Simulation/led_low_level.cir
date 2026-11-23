@@ -1,4 +1,4 @@
-* TinyFan2350 v1.2: LED data low level for typical and worst-case parts (DC)
+* TinyFan2350 v1.3: LED data low level for typical and worst-case parts (DC)
 * a: typical 2N7002, typical pad (40 ohm)      b: typical 2N7002, weakest pad the datasheet allows (125 ohm)
 * c: 2N7002 at its maximum threshold, typical pad      d: both at their limits
 * 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:

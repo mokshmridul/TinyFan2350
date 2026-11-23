@@ -5,6 +5,10 @@
 ![](./TinyFan2350_bottom.png)
 ![](./TinyFan2350_iso.png)
 
+Top side with the RP2350-Zero unplugged:
+
+![](./TinyFan2350_top_no_module.png)
+
 ### Pinout, jumpers, wiring
 ![](./TinyFan2350_Pinout.png)
 ![](./TinyFan2350_Jumpers.png)

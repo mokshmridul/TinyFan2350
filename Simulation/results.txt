@@ -1,4 +1,4 @@
-TinyFan2350 v1.2 - output of the decks in this folder
+TinyFan2350 v1.3 - output of the decks in this folder
 ngspice as bundled with KiCad 10.0.8, default options, 27 C unless a deck sets a temperature.
 Volts, amps, watts, seconds; *_ns values are nanoseconds, *_ma values are milliamps.
 
@@ -73,19 +73,90 @@ supply 26.4 V
     rise_time = 1.010068e-06
     fall_time = 4.799664e-09
 
-== tach_low_level.cir
-fan low level 0.2 V at 0 C
-    v(gpio) = 7.159802e-01
-fan low level 0.2 V at 25 C
-    v(gpio) = 6.558969e-01
-fan low level 0.2 V at 60 C
-    v(gpio) = 5.711650e-01
-fan low level 0.4 V at 0 C
-    v(gpio) = 9.127124e-01
-fan low level 0.4 V at 25 C
-    v(gpio) = 8.524183e-01
-fan low level 0.4 V at 60 C
-    v(gpio) = 7.674114e-01
+== tach_input.cir
+tach wire at 0.2 V at 0 C
+    v(pina) = 4.665103e-01
+    v(pinb) = 4.669751e-01
+    v(pinc) = 7.159802e-01
+tach wire at 0.2 V at 25 C
+    v(pina) = 4.665274e-01
+    v(pinb) = 4.670576e-01
+    v(pinc) = 6.558969e-01
+tach wire at 0.2 V at 60 C
+    v(pina) = 4.665527e-01
+    v(pinb) = 4.671790e-01
+    v(pinc) = 5.711650e-01
+tach wire at 0.4 V at 0 C
+    v(pina) = 6.493385e-01
+    v(pinb) = 6.504896e-01
+    v(pinc) = 9.127124e-01
+tach wire at 0.4 V at 25 C
+    v(pina) = 6.493577e-01
+    v(pinb) = 6.506717e-01
+    v(pinc) = 8.524183e-01
+tach wire at 0.4 V at 60 C
+    v(pina) = 6.493860e-01
+    v(pinb) = 6.509400e-01
+    v(pinc) = 7.674114e-01
+tach wire at 26.4 V at 0 C
+    v(pina) = 3.300044e+00
+    v(pinb) = 3.300044e+00
+    v(pinc) = 3.300011e+00
+tach wire at 26.4 V at 25 C
+    v(pina) = 3.300424e+00
+    v(pinb) = 3.300424e+00
+    v(pinc) = 3.300107e+00
+tach wire at 26.4 V at 60 C
+    v(pina) = 3.305894e+00
+    v(pinb) = 3.305894e+00
+    v(pinc) = 3.301706e+00
+fan output switching at 200 Hz with 150 pF on the wire
+    pin_low = 4.670454e-01
+    pin_high = 3.299799e+00
+    rise_time = 3.955870e-05
+    fall_time = 7.064336e-06
+
+== tach_pwm_edges.cir
+fan a with an open-drain tach output
+    v12_pin_max = 3.414088e+00
+    v12_pin_min = -1.25012e+00
+    v12_clamp_ma = 8.812226e+01
+    alone_pin_max = 3.973846e+00
+    alone_pin_min = -1.38895e+00
+    alone_clamp_ma = 1.144684e+02
+    v13_pin_max = 3.300560e+00
+    v13_pin_min = 3.868757e-01
+    v13_clamp_ma = 1.062691e-03
+fan a with an NPN tach output
+    v12_pin_max = 3.388248e+00
+    v12_pin_min = -8.54481e-01
+    v12_clamp_ma = 1.771021e+01
+    alone_pin_max = 3.797304e+00
+    alone_pin_min = -8.57629e-01
+    alone_clamp_ma = 1.819349e+01
+    v13_pin_max = 3.300547e+00
+    v13_pin_min = 3.962398e-01
+    v13_clamp_ma = 9.228523e-04
+fan b with an open-drain tach output
+    v12_pin_max = 6.612668e+00
+    v12_pin_min = -7.24173e-01
+    v12_clamp_ma = 2.436133e+00
+    alone_pin_max = 7.948364e+00
+    alone_pin_min = 2.619154e-03
+    alone_clamp_ma = 2.466505e-01
+    v13_pin_max = 3.300594e+00
+    v13_pin_min = 3.536530e-01
+    v13_clamp_ma = 1.753889e-03
+fan b with an NPN tach output
+    v12_pin_max = 3.783467e+00
+    v12_pin_min = -6.80958e-01
+    v12_clamp_ma = 6.767030e-01
+    alone_pin_max = 5.805703e+00
+    alone_pin_min = 1.284180e-02
+    alone_clamp_ma = 1.164017e-01
+    v13_pin_max = 3.300571e+00
+    v13_pin_min = 3.633096e-01
+    v13_clamp_ma = 1.503672e-03
 
 == led_data.cir
 series resistor 100 ohm load 50p

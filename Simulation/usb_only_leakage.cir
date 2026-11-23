@@ -1,4 +1,4 @@
-* TinyFan2350 v1.2: module on USB, 5 V input off. Both LED data pins held high.
+* TinyFan2350 v1.3: module on USB, 5 V input off. Both LED data pins held high.
 * The only DC path from the module into the board's 5 V rail is pin -> 2N7002 body diode -> 470 ohm.
 * RRAIL stands for whatever hangs on the unpowered rail (250 ohm: two idle strips; 10 k: almost nothing).
 * 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:

@@ -17,11 +17,10 @@ Files in this folder:
 **PCB with the SMD parts fitted (JLCPCB Economic assembly)** - you only solder the through-hole parts:
 1. Upload the Gerber zip, enable **PCB Assembly**, choose **Economic**, assembly side **Bottom Side**.
 2. Upload the BOM and the CPL file.
-3. Check every part in the placement preview: Q1-Q7 (SOT-23) and the cathode bar of D1, D2 and D4-D13
+3. Check every part in the placement preview: Q1-Q12 (SOT-23) and the cathode bar of D1, D2 and D4-D8
    (D14 works either way round). If JLC shows a part rotated, fix it in the preview (usually 180°).
-   The pads of **D3 stay empty**; that is intended, see [USB power](#usb-power).
 
-All 37 SMD parts are JLCPCB **Basic** parts, so there are no extended-part fees. Check that again in the JLC BOM step:
+All 47 SMD parts are JLCPCB **Basic** parts, so there are no extended-part fees. Check that again in the JLC BOM step:
 the library class and the stock of a part can change. If a part is out of stock, pick the same part from another
 maker rather than a different type.
 
@@ -30,16 +29,15 @@ maker rather than a different type.
 |Reference|Qty|Part|LCSC|Fitted by|
 |---|---|---|---|---|
 |Q1 - Q5|5|AO3400A (SOT-23)|C20917|JLCPCB|
-|Q6 Q7|2|2N7002 (SOT-23)|C8545|JLCPCB|
+|Q6 - Q12|7|2N7002 (SOT-23)|C8545|JLCPCB|
 |D4 - D8|5|B5819W SL (SOD-123)|C8598|JLCPCB|
-|D9 - D13|5|1N4148WS (SOD-323)|C2128|JLCPCB|
 |D1 D2|2|SS54 (SMA)|C22452|JLCPCB|
 |D14|1|P6SMB6.8CA (SMB)|C78395|JLCPCB|
-|R3 - R11|9|4.7k 0603|C23162|JLCPCB|
+|R3 - R11, R14 - R18|14|4.7k 0603|C23162|JLCPCB|
 |R1 R2|2|100R 0603|C22775|JLCPCB|
 |R12 R13|2|470R 0603|C23179|JLCPCB|
 |C4 - C7|4|100nF 0603|C14663|JLCPCB|
-|D3|-|not fitted (pads for a B5819W)|-|nobody, see [USB power](#usb-power)|
+|C8 - C12|5|1nF 50V X7R 0603|C1588|JLCPCB|
 |C1|1|100uF 35V radial 8mm, pitch 3.5|-|you|
 |C2|1|100uF 16V radial 6.3mm, pitch 2.5|-|you|
 |F1 F2|2|Keystone 3568 mini blade fuse holder|C5249699 (verify)|you|
@@ -61,6 +59,12 @@ library: all are listed as Basic. The ones marked *verify* were not checked.
 
 All through-hole parts go on the **top**: C1 C2, the fuse holders, the screw terminals (wire entry to the board edge),
 the JST connectors, the jumper and EXP headers and the three female headers for the RP2350-Zero.
+
+![Top side without the RP2350-Zero](../Images/TinyFan2350_top_no_module.png)
+
+The three female headers are the socket; nothing else sits under the module on the top side. On the bottom, the
+tach parts (Q8 - Q12, C8 - C12) sit between and next to the socket pins. They are already fitted when you solder
+the socket, so use little solder there and check for bridges afterwards.
 
 Solder the male pin headers onto the RP2350-Zero, then plug it in with the USB-C pointing off the board edge.
 
@@ -87,24 +91,28 @@ Nobody has built this board yet, so bring the first one up step by step.
   each LED jumper to its connector is 1.2 mm.
 - KiCad 10 project: [KiCad](../KiCad). After a board change, [Tools](../Tools) regenerates the files in this folder.
 
-### v1.2 (printed on the board)
+### v1.3 (printed on the board)
 
-- **D3 is no longer fitted.** The RP2350-Zero runs from its USB-C cable only, see [USB power](#usb-power).
-- **R1 and R2 are 100 Ω** (330 Ω before). The LED data signal gets through a longer wire, see [Simulation](../Simulation#led-data).
-- The schematic is redrawn as wired blocks, one per function. The connections are the same as in v1.1.
-- The copper is unchanged: apart from the `v1.2` on the silkscreen, the Gerber and drill files are the v1.1 files.
+- **New tach inputs.** Each fan's tach wire now goes through 4.7 kΩ (R14 - R18) and a 2N7002 pass transistor
+  (Q8 - Q12), with 1 nF at the RP2350 pin (C8 - C12). The series diodes D9 - D13 are gone. The RP2350 now sees
+  0.47 V when a fan pulls its tach wire to 0.2 V (0.57 - 0.72 V through the diode), and the pin stays inside its
+  ratings while a 2/3-mode fan is switched, see [Simulation](../Simulation#tach-input).
+- **D3 and its pads are gone.** Nothing on the board can power the module any more, see [USB power](#usb-power).
+- The copper changed, so v1.3 has new Gerber and drill files. A v1.2 board cannot be turned into a v1.3 board.
 
-Older boards: v1.1 widened the fan tracks to 1.0 mm (0.45 - 0.6 mm in v1.0) and the 5V trunk to 2.0 mm.
-A v1.1 board becomes a v1.2 board by removing D3 and swapping R1 and R2.
+Older boards: v1.2 stopped fitting D3 and changed R1 and R2 from 330 Ω to 100 Ω (longer LED data wire, see
+[Simulation](../Simulation#led-data)); its copper is the v1.1 copper. v1.1 widened the fan tracks to 1.0 mm
+(0.45 - 0.6 mm in v1.0) and the 5V trunk to 2.0 mm.
 
-### Checked for v1.2
+### Checked for v1.3
 
 - ERC and DRC without violations, with the zones refilled, and the board matches the schematic part by part.
-- The netlist is the v1.1 netlist: the same 53 nets on the same pins.
-- All copper, solder mask, paste, outline and drill files are identical to the v1.1 files, which were checked
-  against the board file (no shorts, every net connected, 245 plated and 4 unplated holes).
-- BOM and placement file: the same 37 parts, D3 in neither.
-- Power paths, fan switching, PWM, LED data, tach levels and the USB-only case are simulated: [Simulation](../Simulation).
+- The copper read back from the board file: no two nets closer than 0.2 mm, each of the 58 nets in one piece,
+  and the pads on every net are the pins the schematic puts there.
+- The Gerber and drill files in the zip match the board: both copper layers, 252 plated and 4 unplated holes.
+- No bottom-side pad of another net is closer than 0.75 mm to a through-hole pad that you solder by hand.
+- BOM and placement file: 47 parts, the same parts and positions as KiCad's own placement export.
+- Power paths, fan switching, PWM, LED data, the tach inputs and the USB-only case are simulated: [Simulation](../Simulation).
 
 **The board has not been built or measured yet.**
 
@@ -117,6 +125,8 @@ A v1.1 board becomes a v1.2 board by removing D3 and swapping R1 and R2.
   sooner in a warm electronics bay.
 - **Fan ports:** 0.6A each. There is no protection per channel: a shorted fan cable in 2/3 mode can destroy that
   channel's MOSFET before the fuse opens. Keep the fuse close to the real load.
+- **Tach inputs:** made for the usual open-collector tach output. The transistor blocks the fan voltage, so a tach
+  wire may sit at up to VIN. In 2/3 mode the fan's ground is switched, so the RPM reading is only valid at 100%.
 - **LED ports:** 3A is what one connector can carry, not what both ports can draw together: all 5V loads share the
   5V fuse. 20 RGB LEDs at full white take about 1.2A (RGBW: 1.6A); check your strip's data sheet. With two such strips
   and five fans the strips still get about 4.8V from a 5.0V supply (simulated).
@@ -141,11 +151,10 @@ The RP2350-Zero is powered by its USB-C cable, not by this board.
 
 On the Waveshare module the 5V pin is wired directly to the USB socket. A diode from the board's 5V input to that pin
 (D3, fitted up to v1.1) therefore also feeds the USB cable: a Raspberry Pi that is switched off gets powered backwards
-through its USB port. v1.2 leaves D3 out, and the 5V input feeds only the fans and LEDs.
+through its USB port. v1.2 left D3 out. v1.3 has no pads for it: the module's 5V pin is not connected to anything
+on the board, and the 5V input feeds only the fans and LEDs.
 
 - No USB, no MCU: fans in 2/3 mode are off, fans in 4P mode run at full speed, the LEDs stay as they are.
 - USB connected and the 5V input off: nothing is fed back, except up to 5 mA from an LED data pin while it is high.
-- The pads of D3 are still there, on the bottom below the module's 5V pin (B5819W, SOD-123; the closed end of the
-  silkscreen outline marks the cathode).
-  Fit it only if the board has to run without any USB host, for example with Klipper on a UART at the EXP header.
-  With D3 fitted, never have the 5V supply on while USB is plugged into a host.
+- To run the board without a USB host, for example with Klipper on a UART at the EXP header, plug any 5V USB
+  supply into the module's USB-C socket.

@@ -1,6 +1,7 @@
-* TinyFan2350 v1.2 power paths, stress case: fans 3-5 and LED1 (3 A) on VIN, fans 1-2 and LED2 (3 A) on 5 V
+* TinyFan2350 v1.3 power paths, stress case: fans 3-5 and LED1 (3 A) on VIN, fans 1-2 and LED2 (3 A) on 5 V
 * Every resistor named R<net>_<n> is one copper segment taken from the board file (1 oz copper, 20 C).
-* The copper is the same in v1.1 and v1.2. Loads are ideal current sinks; fuses and contacts are resistors.
+* The copper that carries current is the same in v1.1, v1.2 and v1.3 (v1.3 dropped the unused 5 V track to D3).
+* Loads are ideal current sinks; fuses and contacts are resistors.
 * RTERM = screw terminal, RFUSE + RHOLD = blade fuse and holder, RJ* = jumper shunt, RC* = JST contact.
 
 * --- device models (fitted to the datasheet figures, see notes in the report) ---
@@ -9,7 +10,6 @@
 * 2N7002: Vth about 1.8 V, about 3 Ohm at VGS 4.5 V
 .model N2N7002 NMOS (LEVEL=1 VTO=1.8 KP=0.17 RD=1 RS=0.3 CGSO=22n CGDO=5n CBD=15p W=1m L=1m)
 .model DB5819 D (IS=31.7u RS=0.051 N=1.373 CJO=110p M=0.35 EG=0.69 XTI=2 BV=40 IBV=1m TT=5n)
-.model D1N4148 D (IS=2.52n RS=0.568 N=1.752 CJO=4p M=0.4 TT=20n BV=100 IBV=100u)
 .model DSS54 D (IS=20u RS=0.02 N=1.1 CJO=500p M=0.4 EG=0.69 XTI=2 BV=40 IBV=1m)
 
 VVIN vin_supply 0 24
@@ -81,16 +81,9 @@ R5v_25 5v_28 5v_29 0.00285029
 R5v_26 5v_27 5v_30 0.00100773
 R5v_27 5v_5 5v_29 0.000261276
 R5v_28 5v_13 5v_26 0.00179093
-R5v_29 5v_31 5v_32 0.00119772
-R5v_30 5v_33 5v_34 0.00391311
-R5v_31 5v_34 5v_35 0.00440156
-R5v_32 5v_32 5v_36 0.000559701
 R5v_33 5v_18 5v_28 0.000261276
 R5v_34 5v_23 5v_37 0.000627063
 R5v_35 5v_37 5v_38 0.00327783
-R5v_36 5v_36 5v_39 0.00099839
-R5v_37 5v_10 5v_33 0.00110931
-R5v_38 5v_35 5v_31 0.000138191
 R5v_39 5v_40 5v_24 0.000550891
 R5v_40 5v_38 5v_40 0.000627063
 R5v_41 5v_25 5v_41 0.00128263

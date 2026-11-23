@@ -32,8 +32,9 @@ A small Klipper fan / LED / thermistor controller based on the **Waveshare RP235
 
 ## Notes
 - Original TinyFan by [Gi7mo](https://github.com/Gi7mo/TinyFan), idea by [Rama](https://github.com/Ramalama2).
-- Board revision **v1.2**: the MCU is powered from USB only (D3 no longer fitted) and the LED data resistors are 100 Ω;
-  the copper is the same as v1.1. See [Build it](./Production#v12-printed-on-the-board). It passes KiCad ERC/DRC and is
+- Board revision **v1.3**: new tach inputs (series resistor, pass transistor and a capacitor at the pin instead of a
+  diode), so the RP2350 sees a fan's low level properly and stays protected while a fan is switched; the unused D3
+  pads are gone. See [Build it](./Production#v13-printed-on-the-board). It passes KiCad ERC/DRC and is
   simulated, but **it has not been built or tested yet**: read [Limits and safety](./Production#limits-and-safety) first.
 
 ## License

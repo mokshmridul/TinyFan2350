@@ -153,9 +153,8 @@ cycle_time: 0.01
 kick_start_time: 0.5
 off_below: 0.20
 ```
-The fan GND is switched, so the RPM reading is only valid at 100% speed.
-Not every fan's tach output pulls low enough for the RP2350 through the board's protection diode. If the RPM reads
-0 or jumps around, that fan cannot be read here; it still runs normally.
+The fan GND is switched, so the RPM reading is only valid at 100% speed. Below that the number is wrong; the fan
+and the board are fine.
 
 **2-pin fan** (MODE jumper 2/3)
 ```

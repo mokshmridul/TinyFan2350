@@ -1,0 +1,61 @@
+* TinyFan2350 v1.3: fan tach input
+* Fan tach wire -> R14 4.7 k -> 2N7002 pass transistor Q8 (gate on 3.3 V) -> RP2350 pin, C8 1 nF from the pin to ground.
+* The only pull-up is the pin's own (50 k here, the strong end of its 50 - 80 k range).
+* a: typical 2N7002      b: 2N7002 at its maximum threshold      c: the 1N4148WS diode of v1.0 - v1.2, for comparison
+* Low:  the fan pulls its wire to 0.2 V or 0.4 V. The RP2350 guarantees a low only below 0.8 V.
+* High: 26.4 V on the wire, as from a fan that pulls its tach output up to a 24 V + 10 % supply.
+* Edge: a fan output switching at 200 Hz with 150 pF of cable on the wire. rise_time and fall_time are the
+*       times the pin takes between 0.8 V and 2.0 V (guaranteed low and guaranteed high).
+* 2N7002 (Changjiang, LCSC C8545), fitted to the typical datasheet curves:
+* Vgs(th) 1.6 V at 250 uA, 0.1 A at Vgs 2.5 V, 0.27 A at 3 V; body diode 0.55 V at 1 mA
+.model N2N7002 VDMOS (Vto=1.72 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+* The same part at the datasheet maximum threshold (2.5 V at 250 uA)
+.model N2N7002_MAXVTH VDMOS (Vto=2.62 Kp=0.33 Lambda=0.02 Rd=0.3 Rs=0.2 Rg=10 ksubthres=0.12
++ Cgdmax=20p Cgdmin=4p A=1 Cgs=40p Cjo=45p M=0.4 Vj=0.7 Is=1e-8 N=1.85 Rb=0.5)
+.model D1N4148 D (IS=2.52n RS=0.568 N=1.752 CJO=4p M=0.4 TT=20n BV=100 IBV=100u)
+.model FANOUT SW (VT=0.5 VH=0.1 RON=10 ROFF=1G)
+.options method=gear
+
+V33 v33 0 3.3
+VFAN tach 0 0.2
+RSA tach da 4.7k
+MA da v33 pina N2N7002
+CA pina 0 1n
+RPA v33 pina 50k
+RSB tach db 4.7k
+MB db v33 pinb N2N7002_MAXVTH
+CB pinb 0 1n
+RPB v33 pinb 50k
+DC pinc tach D1N4148
+RPC v33 pinc 50k
+
+* Edge: open-collector fan output (0.2 V when on), 150 pF of cable
+VPULSE ctl 0 PULSE(0 1 1m 1u 1u 2.5m 5m)
+VSAT sat 0 0.2
+SFAN wire sat ctl 0 FANOUT
+CWIRE wire 0 150p
+RSE wire de 4.7k
+ME de v33 pine N2N7002
+CE pine 0 1n
+RPE v33 pine 50k
+.control
+foreach wire_volts 0.2 0.4 26.4
+  alter vfan = $wire_volts
+  foreach celsius 0 25 60
+    set temp = $celsius
+    op
+    echo tach wire at $wire_volts V at $celsius C
+    print v(pina) v(pinb) v(pinc)
+  end
+end
+set temp = 25
+tran 1u 12m 0 1u
+meas tran pin_low find v(pine) at=8m
+meas tran pin_high find v(pine) at=10.9m
+meas tran rise_time trig v(pine) val=0.8 rise=2 targ v(pine) val=2.0 rise=2
+meas tran fall_time trig v(pine) val=2.0 fall=2 targ v(pine) val=0.8 fall=2
+echo fan output switching at 200 Hz with 150 pF on the wire
+print pin_low pin_high rise_time fall_time
+.endc
+.end

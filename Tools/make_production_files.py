@@ -11,6 +11,7 @@ Outputs:
     Production/JLC-Economic-CPL-bottom.csv     JLCPCB CPL (pick & place), bottom-side SMD parts only
     Production/TinyFan2350_Schematic.pdf       schematic
     Images/TinyFan2350_top.png, _bottom.png, _iso.png   3D pictures of the board
+    Images/TinyFan2350_top_no_module.png       top view with the RP2350-Zero unplugged (sockets only)
 """
 import csv
 import os
@@ -38,12 +39,12 @@ LCSC = {
     "2N7002": ("C8545", "Basic"),
     "B5819W": ("C8598", "Basic"),
     "SS54": ("C22452", "Basic"),
-    "1N4148WS": ("C2128", "Basic"),
     "P6SMB6.8CA": ("C78395", "Basic"),
     "4.7k": ("C23162", "Basic"),
     "100": ("C22775", "Basic"),
     "470": ("C23179", "Basic"),
     "100nF": ("C14663", "Basic"),
+    "1nF": ("C1588", "Basic"),
 }
 
 
@@ -56,6 +57,25 @@ def is_assembled_smd(fp):
     if hasattr(fp, "IsDNP") and fp.IsDNP():
         return False
     return True
+
+
+def without_3d_model(board_text, model_name):
+    """Board file text with the one 3D model whose path contains model_name removed."""
+    start = board_text.find('(model "')
+    while start != -1:
+        depth = 0
+        for end in range(start, len(board_text)):
+            if board_text[end] == "(":
+                depth += 1
+            elif board_text[end] == ")":
+                depth -= 1
+                if depth == 0:
+                    break
+        path = board_text[start + 8:board_text.index('"', start + 8)]
+        if model_name in path:
+            return board_text[:start] + board_text[end + 1:]
+        start = board_text.find('(model "', end)
+    raise SystemExit(f"No 3D model named {model_name} on the board")
 
 
 def jlc_bottom_rotation(fp):
@@ -130,6 +150,21 @@ def main():
     for name, view in views:
         subprocess.run([KICAD_CLI, "pcb", "render", *view, *common, "-o", os.path.join(IMAGES, name), BOARD],
                        check=True, capture_output=True)
+
+    # Same top view with the RP2350-Zero unplugged: render a temporary copy of the board
+    # that has the module's 3D model taken out (the three sockets stay).
+    tmp = tempfile.mkdtemp()
+    try:
+        bare = os.path.join(tmp, "TinyFan2350.kicad_pcb")
+        with open(BOARD, encoding="utf-8", newline="") as f:
+            board_text = f.read()
+        with open(bare, "w", encoding="utf-8", newline="") as f:
+            f.write(without_3d_model(board_text, "RP2350-Zero"))
+        subprocess.run([KICAD_CLI, "pcb", "render", "--side", "top", "--zoom", "1.1", *common,
+                        "-o", os.path.join(IMAGES, "TinyFan2350_top_no_module.png"), bare],
+                       check=True, capture_output=True)
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
     extended = sorted({LCSC[v][0] for (v, _), _r in groups.items() if LCSC[v][1] == "Extended"})
     print(f"{len(parts)} bottom SMD parts in {len(groups)} BOM lines; extended parts: {len(extended)} ({', '.join(extended)})")

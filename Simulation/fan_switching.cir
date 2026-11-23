@@ -1,4 +1,4 @@
-* TinyFan2350 v1.2: one fan channel in 2/3 mode switching a 0.6 A fan (24 V and 26.4 V supply)
+* TinyFan2350 v1.3: one fan channel in 2/3 mode switching a 0.6 A fan (24 V and 26.4 V supply)
 * (a) a fan with its own input capacitor: 40 ohm with 1 uF (0.2 ohm ESR), 0.5 uH and 0.15 ohm of cable
 * (b) a fan that looks inductive: 40 ohm in series with 1 mH, no capacitor
 * D4 / D5 are the flyback diodes (B5819W). The gate is driven for 200 us; 1 ns steps resolve both edges.

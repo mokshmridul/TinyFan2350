@@ -1,4 +1,4 @@
-* TinyFan2350 v1.2 thermal estimate: volts = kelvin above the surrounding air, amps = watts
+* TinyFan2350 v1.3 thermal estimate: volts = kelvin above the surrounding air, amps = watts
 * A lumped model for still air. None of its thermal resistances has been measured; read the result
 * as "a few kelvin" or "a few tens of kelvin", not as a temperature.
 * Heat inputs: each fuse with its holder gets I^2 x (R_fuse + R_holder) from the power-path decks.

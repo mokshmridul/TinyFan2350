@@ -3,6 +3,11 @@ C4,89.250mm,-103.500mm,Bottom,0
 C5,100.250mm,-103.500mm,Bottom,0
 C6,111.250mm,-103.500mm,Bottom,0
 C7,122.250mm,-103.500mm,Bottom,0
+C8,52.300mm,-62.400mm,Bottom,0
+C9,59.510mm,-57.300mm,Bottom,90
+C10,64.750mm,-57.450mm,Bottom,90
+C11,69.670mm,-57.400mm,Bottom,90
+C12,66.430mm,-66.275mm,Bottom,270
 D1,70.000mm,-85.750mm,Bottom,90
 D2,70.000mm,-102.500mm,Bottom,90
 D4,89.000mm,-80.000mm,Bottom,90
@@ -10,11 +15,6 @@ D5,101.500mm,-80.000mm,Bottom,90
 D6,114.000mm,-80.000mm,Bottom,90
 D7,126.500mm,-80.000mm,Bottom,90
 D8,139.000mm,-80.000mm,Bottom,90
-D9,89.000mm,-84.300mm,Bottom,270
-D10,101.500mm,-84.300mm,Bottom,270
-D11,114.000mm,-84.300mm,Bottom,270
-D12,126.500mm,-84.300mm,Bottom,270
-D13,139.000mm,-84.300mm,Bottom,270
 D14,75.500mm,-103.000mm,Bottom,180
 Q1,83.000mm,-80.000mm,Bottom,0
 Q2,95.500mm,-80.000mm,Bottom,0
@@ -23,6 +23,11 @@ Q4,120.500mm,-80.000mm,Bottom,0
 Q5,133.000mm,-80.000mm,Bottom,0
 Q6,131.000mm,-90.500mm,Bottom,0
 Q7,131.000mm,-99.000mm,Bottom,0
+Q8,55.837mm,-62.400mm,Bottom,180
+Q9,59.843mm,-62.400mm,Bottom,180
+Q10,64.737mm,-62.400mm,Bottom,180
+Q11,68.850mm,-62.600mm,Bottom,180
+Q12,69.200mm,-66.110mm,Bottom,180
 R1,135.000mm,-90.500mm,Bottom,0
 R2,135.000mm,-99.000mm,Bottom,0
 R3,83.000mm,-84.000mm,Bottom,0
@@ -36,3 +41,8 @@ R10,111.250mm,-105.500mm,Bottom,0
 R11,122.250mm,-105.500mm,Bottom,0
 R12,131.000mm,-93.400mm,Bottom,0
 R13,131.000mm,-96.100mm,Bottom,0
+R14,89.825mm,-85.300mm,Bottom,0
+R15,101.500mm,-84.300mm,Bottom,270
+R16,114.000mm,-83.600mm,Bottom,0
+R17,126.500mm,-84.800mm,Bottom,270
+R18,140.500mm,-84.200mm,Bottom,270
