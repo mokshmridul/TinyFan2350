@@ -55,17 +55,16 @@ LEG_SCREW_LENGTH = 30.0         # M3x30 on the upper hole, its head on the arm. 
 LEG_SCREW_ENGAGEMENT = 4.5      # thread left below the PCB (the DIN mount's inserts are 4.0 long, their holes 6.0 deep)
 LEG_SCREW_CLEARANCE_DIAMETER = 3.4
 FAN_LEG_SCREW_CLEARANCE_DIAMETER = 3.6     # the hole under the fan's corner; it leans a little, see fan_leg_screw_hole()
-LEG_FOOT_DIAMETER = 7.0         # on the PCB; this is as wide as the hole's distance to the board edges allows
-LEG_TOP_DIAMETER = 8.0          # where the leg meets the deck, and the pad around the upper screw
+LEG_DIAMETER = 8.0              # the legs, and the round pad of the deck above each of them; cut off flat at the board edges
 
 # Deck: the part the fan sits on
 DECK_THICKNESS = 6.0            # fan screws: M3x16 (10 mm fan + 6 mm deck)
 RIM_WIDTH = 2.5                 # narrowest part of the deck along the top of the fan
 BEAM_WIDTH = 3.8                # ... and along the USB-C edge, where the deck is the beam between the two legs
-CORNER_BLOCK = 8.0              # the deck keeps a strip this wide along the USB-C edge and along the top of the fan
+TOP_STRIP = 8.0                 # along the top of the fan the deck keeps a strip this high; it carries the two inserts
 ARM_WIDTH = 5.0                 # arm from the deck to the leg on the upper hole
 INSIDE_CORNER_RADIUS = 2.0      # every inside corner of the outline
-END_CORNER_RADIUS = 2.0         # the two free ends of the deck
+END_CORNER_RADIUS = 2.0         # the free end of the deck
 FAN_INSERT_DEPTH = 4.6          # M3 x D4.6 x L4.0 inserts, pressed in from the underside of the deck
 FAN_SCREW_CLEARANCE_DIAMETER = 3.4
 
@@ -85,7 +84,8 @@ FAN_CENTRE_Y = FAN_SIZE / 2
 
 UPPER_HOLE = (BOARD_HOLE_INSET, BOARD_WIDTH - BOARD_HOLE_INSET)    # next to the RP2350-Zero
 LOWER_HOLE = (BOARD_HOLE_INSET, BOARD_HOLE_INSET)                  # under the fan's corner
-LEG_HOLES = [UPPER_HOLE, LOWER_HOLE]
+LEGS = [(UPPER_HOLE, (0.0, BOARD_WIDTH)), (LOWER_HOLE, (0.0, 0.0))]   # (mounting hole, the board corner it sits in)
+LEG_HOLES = [hole for hole, _ in LEGS]
 
 DECK_TOP_Z = LEG_SCREW_LENGTH - PCB_THICKNESS - LEG_SCREW_ENGAGEMENT   # the fan sits on this face
 DECK_UNDERSIDE_Z = DECK_TOP_Z - DECK_THICKNESS                         # = height of the legs
@@ -119,18 +119,15 @@ def within_board_outline(shape, z_start, height):
 
 
 def deck_outline():
-    """Top view of the deck, the arm and the pad of the upper leg as one closed outline."""
+    """Top view of the deck, the arm and the pads above the two legs as one closed outline."""
     slab = 1.0      # the outline is put together from thin slabs, then read back as a wire
 
     seat = box(SEAT_LEFT, SEAT_BOTTOM, SEAT_RIGHT, SEAT_TOP, 0, slab).edges("|Z").fillet(FAN_CORNER_RADIUS)
-    left_strip = (
-        box(SEAT_LEFT, SEAT_BOTTOM, SEAT_LEFT + CORNER_BLOCK, SEAT_TOP, 0, slab)
-        .edges("|Z").edges(">X").edges("<Y").fillet(END_CORNER_RADIUS)
-    )
     top_strip = (
-        box(SEAT_LEFT, SEAT_TOP - CORNER_BLOCK, SEAT_RIGHT, SEAT_TOP, 0, slab)
+        box(SEAT_LEFT, SEAT_TOP - TOP_STRIP, SEAT_RIGHT, SEAT_TOP, 0, slab)
         .edges("|Z").edges(">X").edges("<Y").fillet(END_CORNER_RADIUS)
     )
+    beam = box(SEAT_LEFT, SEAT_BOTTOM, SEAT_LEFT + BEAM_WIDTH, SEAT_TOP, 0, slab)
     opening = cylinder(FAN_CENTRE_X, FAN_CENTRE_Y, 0, FAN_OPENING_DIAMETER, slab).intersect(
         box(
             SEAT_LEFT + BEAM_WIDTH, SEAT_BOTTOM + RIM_WIDTH,
@@ -138,16 +135,32 @@ def deck_outline():
             0, slab,
         )
     )
-    arm = box(SEAT_LEFT, SEAT_TOP - CORNER_BLOCK / 2, SEAT_LEFT + ARM_WIDTH, BOARD_WIDTH, 0, slab)
-    upper_pad = cylinder(UPPER_HOLE[0], UPPER_HOLE[1], 0, LEG_TOP_DIAMETER, slab)
+    # a round pad above each leg, as wide as the leg; the lower one ends at the fan's rounded corner
+    lower_pad = cylinder(LOWER_HOLE[0], LOWER_HOLE[1], 0, LEG_DIAMETER, slab).intersect(seat)
+    upper_pad = cylinder(UPPER_HOLE[0], UPPER_HOLE[1], 0, LEG_DIAMETER, slab)
+    arm = box(SEAT_LEFT, SEAT_TOP - TOP_STRIP / 2, SEAT_LEFT + ARM_WIDTH, BOARD_WIDTH, 0, slab)
 
-    outline = seat.intersect(left_strip.union(top_strip)).cut(opening).union(arm).union(upper_pad)
+    outline = seat.intersect(top_strip.union(beam)).cut(opening).union(lower_pad).union(arm).union(upper_pad)
     outline = within_board_outline(outline, 0, slab)
 
     wire = outline.faces(">Z").val().outerWire()
     # Round every inside corner: grow the outline, then shrink it back by the same amount
     wire = wire.offset2D(INSIDE_CORNER_RADIUS)[0].offset2D(-INSIDE_CORNER_RADIUS)[0]
     return wire.translate((0, 0, -slab))        # back down to Z = 0
+
+
+def leg(hole, board_corner, deck_face):
+    """One leg: a round post, filled out towards the board corner and trimmed to the outline of the deck.
+
+    Every face of the leg therefore carries straight on from the edge of the deck down to the PCB, with no
+    step between deck and leg.
+    """
+    x, y = hole
+    corner_x, corner_y = board_corner
+    post = cylinder(x, y, 0, LEG_DIAMETER, DECK_UNDERSIDE_Z)
+    corner_fill = box(min(x, corner_x), min(y, corner_y), max(x, corner_x), max(y, corner_y), 0, DECK_UNDERSIDE_Z)
+    below_the_deck = cq.Workplane("XY").add(cq.Solid.extrudeLinear(deck_face, cq.Vector(0, 0, DECK_UNDERSIDE_Z)))
+    return post.union(corner_fill).intersect(below_the_deck)
 
 
 def fan_leg_screw_hole():
@@ -183,10 +196,9 @@ def build_bridge():
         .translate((0, 0, DECK_UNDERSIDE_Z))
     )
 
-    # Legs, slightly tapered, flat where they would cross the board edge
-    for x, y in LEG_HOLES:
-        leg = cone(x, y, 0, LEG_FOOT_DIAMETER, LEG_TOP_DIAMETER, DECK_UNDERSIDE_Z)
-        bridge = bridge.union(within_board_outline(leg, 0, DECK_UNDERSIDE_Z))
+    # Legs, flush with the edge of the deck all the way down
+    for hole, board_corner in LEGS:
+        bridge = bridge.union(leg(hole, board_corner, deck_face))
 
     bridge = bridge.cut(cylinder(UPPER_HOLE[0], UPPER_HOLE[1], 0, LEG_SCREW_CLEARANCE_DIAMETER, DECK_TOP_Z))
     bridge = bridge.cut(fan_leg_screw_hole())

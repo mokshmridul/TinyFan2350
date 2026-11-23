@@ -96,7 +96,7 @@ Worth fitting if the board sits in a warm electronics bay or runs close to its l
 - The arm crosses the USB-C socket 4 mm above it; the cable plugs in underneath. To pull the RP2350-Zero out of its
   socket, take the bridge off.
 - 40 x 65 x 23.9 mm, the top of the fan is 34 mm above the PCB. Checked against the board's 3D model:
-  nothing outside the PCB outline, 1.1 mm to the RP2350-Zero, 4 mm above the terminal blocks.
+  nothing outside the PCB outline, 0.9 mm to the RP2350-Zero, 4 mm above the terminal blocks.
 - The fan's holes are 4 mm from its edges, the board's holes 3.5 mm. With the fan flush with the board, the M3x40
   therefore leans by about 1 degree; the hole in the leg is made for that.
 - Edit the values at the top of [TinyFan2350_Fan_Bridge.py](./TinyFan2350_Fan_Bridge.py) to change it; it rewrites the
