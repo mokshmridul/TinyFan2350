@@ -40,7 +40,79 @@ aliases:
 
 <ul><li>
 <details>
- <summary><h3>Installation Steps:</h3></summary>
+ <summary><h3>Installation with Katapult (recommended):</h3></summary>
+ <a href="https://github.com/Arksine/katapult">Katapult</a> is a small bootloader that stays on the RP2350. With it, Klipper can be flashed and updated over USB without ever pressing the BOOT button again.<br>
+ You only need the BOOT button once, to put Katapult on the board.
+
+ <h4>1. Flash Katapult (once)</h4>
+ <li>ssh into your raspberry pi</li>
+ <li>get Katapult and the serial library its flash tool needs</li>
+ <pre>cd ~
+git clone https://github.com/Arksine/katapult
+sudo apt update
+sudo apt install python3-serial</pre>
+ <li>create the build config <code>cd ~/katapult && make menuconfig</code> using the following settings</li>
+ <pre>    Micro-controller Architecture (Raspberry Pi RP2040/RP235x)
+    Processor model (rp2350)
+    Build Katapult deployment application (Do not build)
+    Communication Interface (USBSERIAL)
+    USB ids  ---&gt;  (leave default)
+()  GPIO pins to set on bootloader entry
+[*] Support bootloader entry on rapid double click of reset button
+[ ] Enable bootloader entry on button (or gpio) state
+[ ] Enable Status LED</pre>
+ <li>leave the status LED off: the LED on the RP2350-Zero is an addressable RGB LED (GP16), which Katapult cannot drive</li>
+ <li>run the build <code>make clean && make</code></li>
+ <li>hold the <b>BOOT</b> button on the RP2350-Zero while plugging it into the Pi (or hold BOOT and tap RESET)</li>
+ <li>check that it shows up with <code>lsusb</code> as <code>2e8a:000f Raspberry Pi RP2350 Boot</code></li>
+ <li>flash it <code>make flash</code><br>
+ (alternative: copy <code>~/katapult/out/katapult.uf2</code> onto the <code>RP2350</code> USB drive that appears)</li>
+ <li>the board restarts into Katapult. Check with <code>ls /dev/serial/by-id/*</code>, it must show</li>
+ <pre>/dev/serial/by-id/usb-katapult_rp2350_XXXXXXXXXXXX-if00</pre>
+ <li>if it does not show up, quickly press <b>RESET</b> twice (double click) to force the bootloader</li>
+
+ <h4>2. Flash Klipper through Katapult</h4>
+ <li>stop the klipper service <code>sudo systemctl stop klipper</code></li>
+ <li>make sure your Klipper is recent enough to support the RP2350 (2025 or newer): <code>cd ~/klipper && git pull</code></li>
+ <li>cleanup all previous build files <code>make clean</code></li>
+ <li>create a new build config <code>make menuconfig</code> using the following settings</li>
+ <pre>[*] Enable extra low-level configuration options
+    Micro-controller Architecture (Raspberry Pi RP2040/RP235x)
+    Processor model (rp2350)
+    Bootloader offset (16KiB bootloader)
+    Communication Interface (USBSERIAL)
+    USB ids  ---&gt;  (leave default)
+()  GPIO pins to set at micro-controller startup</pre>
+ <li>the <b>Bootloader offset</b> must be <code>16KiB bootloader</code>, otherwise Klipper will not start behind Katapult</li>
+ <li>run the build <code>make</code> (this creates <code>~/klipper/out/klipper.bin</code>)</li>
+ <li>flash it through Katapult, using the katapult address from above</li>
+ <pre>python3 ~/katapult/scripts/flashtool.py -d /dev/serial/by-id/usb-katapult_rp2350_XXXX-if00 -f ~/klipper/out/klipper.bin</pre>
+ <li>find your mcu address by running <code>ls /dev/serial/by-id/*</code> (it now starts with <code>usb-Klipper_rp2350_</code>)</li>
+ <li>put it into <code>TinyFan2350.cfg</code></li>
+ <pre>[mcu tinyfan]
+serial: /dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00</pre>
+ <li>start the klipper service <code>sudo systemctl start klipper</code></li>
+
+ <h4>3. Later Klipper updates (no buttons needed)</h4>
+ <li><code>sudo systemctl stop klipper</code></li>
+ <li><code>cd ~/klipper && git pull && make clean && make</code> (the menuconfig settings are kept)</li>
+ <li>flash using the <b>Klipper</b> address. The flash tool asks Klipper to restart into Katapult, waits for it and uploads the new firmware</li>
+ <pre>python3 ~/katapult/scripts/flashtool.py -d /dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00 -f ~/klipper/out/klipper.bin</pre>
+ <li>or do the same from the Klipper folder: <code>make flash FLASH_DEVICE=/dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00</code></li>
+ <li><code>sudo systemctl start klipper</code></li>
+
+ <h4>Good to know</h4>
+ <li><b>Enter Katapult by hand:</b> double click <b>RESET</b> on the RP2350-Zero (twice within half a second). The board then shows up as <code>usb-katapult_rp2350_...</code> and waits for a firmware upload.</li>
+ <li><b>Enter Katapult from the Pi:</b> <code>python3 ~/katapult/scripts/flashtool.py -r -d /dev/serial/by-id/usb-Klipper_rp2350_XXXX-if00</code></li>
+ <li><b>Klipper does not start after flashing:</b> it was most likely built with <code>No bootloader</code>. Double click RESET, rebuild with <code>16KiB bootloader</code> and flash again.</li>
+ <li><b>Update or remove Katapult:</b> hold BOOT while plugging in, then flash the new Katapult (step 1) or a Klipper built with <code>No bootloader</code> (next section). Flashing Katapult again erases Klipper, so repeat step 2 afterwards.</li>
+</details></li></ul>
+
+
+<ul><li>
+<details>
+ <summary><h3>Installation without a bootloader:</h3></summary>
+ Use this if you do not want Katapult. Klipper is then flashed directly with the BOOT button.
  <li>ssh into your raspberry pi</li>
  <li>stop the klipper service <code>sudo systemctl stop klipper</code></li>
  <li>make sure your Klipper is recent enough to support the RP2350 (2025 or newer): <code>cd ~/klipper && git pull</code></li>
@@ -50,15 +122,13 @@ aliases:
     Micro-controller Architecture (Raspberry Pi RP2040/RP235x)
     Processor model (rp2350)
     Bootloader offset (No bootloader)
-    Flash chip (W25Q080 with CLKDIV 2)
-    Communication interface (USBSERIAL)
+    Communication Interface (USBSERIAL)
     USB ids  ---&gt;  (leave default)
 ()  GPIO pins to set at micro-controller startup</pre>
  <li>run the build <code>make</code></li>
  <li>hold the <b>BOOT</b> button on the RP2350-Zero while plugging it into the Pi (or hold BOOT and tap RESET)</li>
  <li>check that it shows up with <code>lsusb</code> as <code>2e8a:000f Raspberry Pi RP2350 Boot</code></li>
- <li>flash it <code>make flash FLASH_DEVICE=2e8a:000f</code><br>
- (copying the uf2 to the mass storage drive does not work reliably for Klipper on the RP2350, use <code>make flash</code>)</li>
+ <li>flash it <code>make flash FLASH_DEVICE=2e8a:000f</code></li>
  <li>find your mcu address by running <code>ls /dev/serial/by-id/*</code></li>
  <li>put it into <code>TinyFan2350.cfg</code></li>
  <pre>[mcu tinyfan]
