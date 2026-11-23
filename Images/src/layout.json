@@ -1,0 +1,5143 @@
+{
+ "footprints": [
+  {
+   "ref": "JP5",
+   "value": "FAN5 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    87.9,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    86.58,
+    17.68,
+    89.22,
+    25.4
+   ],
+   "courtyard": [
+    86.085,
+    17.185,
+    89.715,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      87.9,
+      19.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      87.9,
+      21.54
+     ],
+     "net": "/FAN5_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      87.9,
+      24.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J9",
+   "value": "LED2 (GND/V+/DATA)",
+   "package": "JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    95.5,
+    49.0
+   ],
+   "rotation": -90.0,
+   "fab": [
+    92.05,
+    46.5,
+    97.9,
+    56.5
+   ],
+   "courtyard": [
+    91.555,
+    46.005,
+    98.395,
+    56.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      95.5,
+      49.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      95.5,
+      51.5
+     ],
+     "net": "/LED2_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      95.5,
+      54.0
+     ],
+     "net": "/LED2_DATA",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP2",
+   "value": "FAN2 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    50.4,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    49.08,
+    17.68,
+    51.72,
+    25.4
+   ],
+   "courtyard": [
+    48.585,
+    17.185,
+    52.215,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      50.4,
+      19.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      50.4,
+      21.54
+     ],
+     "net": "/FAN2_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      50.4,
+      24.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP12",
+   "value": "LED2 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    88.5,
+    49.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    87.18,
+    47.68,
+    89.82,
+    55.4
+   ],
+   "courtyard": [
+    86.685,
+    47.185,
+    90.315,
+    55.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      88.5,
+      49.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      88.5,
+      51.54
+     ],
+     "net": "/LED2_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      88.5,
+      54.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP8",
+   "value": "FAN3 mode: 4P / 2-3P",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    59.1,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    57.78,
+    17.68,
+    60.42,
+    25.4
+   ],
+   "courtyard": [
+    57.285,
+    17.185,
+    60.915,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      59.1,
+      19.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      59.1,
+      21.54
+     ],
+     "net": "/FAN3_GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      59.1,
+      24.08
+     ],
+     "net": "/FAN3_SW",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP1",
+   "value": "FAN1 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    37.9,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    36.58,
+    17.68,
+    39.22,
+    25.4
+   ],
+   "courtyard": [
+    36.085,
+    17.185,
+    39.715,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      37.9,
+      19.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      37.9,
+      21.54
+     ],
+     "net": "/FAN1_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      37.9,
+      24.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP3",
+   "value": "FAN3 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    62.9,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    61.58,
+    17.68,
+    64.22,
+    25.4
+   ],
+   "courtyard": [
+    61.085,
+    17.185,
+    64.715,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      62.9,
+      19.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      62.9,
+      21.54
+     ],
+     "net": "/FAN3_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      62.9,
+      24.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP11",
+   "value": "LED1 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    88.5,
+    37.5
+   ],
+   "rotation": 0.0,
+   "fab": [
+    87.18,
+    36.18,
+    89.82,
+    43.9
+   ],
+   "courtyard": [
+    86.685,
+    35.685,
+    90.315,
+    44.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      88.5,
+      37.5
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      88.5,
+      40.04
+     ],
+     "net": "/LED1_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      88.5,
+      42.58
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP9",
+   "value": "FAN4 mode: 4P / 2-3P",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    71.6,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    70.28,
+    17.68,
+    72.92,
+    25.4
+   ],
+   "courtyard": [
+    69.785,
+    17.185,
+    73.415,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      71.6,
+      19.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      71.6,
+      21.54
+     ],
+     "net": "/FAN4_GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      71.6,
+      24.08
+     ],
+     "net": "/FAN4_SW",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "C1",
+   "value": "100uF 35V",
+   "package": "CP_Radial_D8.0mm_P3.50mm",
+   "top": true,
+   "at": [
+    16.0,
+    34.0
+   ],
+   "rotation": -90.0,
+   "fab": [
+    11.95,
+    31.7,
+    20.05,
+    39.8
+   ],
+   "courtyard": [
+    11.703,
+    31.454,
+    20.295,
+    40.046
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      16.0,
+      34.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.6,
+      1.6
+     ],
+     "drill": 0.8,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      16.0,
+      37.5
+     ],
+     "net": "GND",
+     "size": [
+      1.6,
+      1.6
+     ],
+     "drill": 0.8,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "U1",
+   "value": "Waveshare RP2350-Zero",
+   "package": "Waveshare_RP2350-Zero_THT",
+   "top": true,
+   "at": [
+    1.89,
+    25.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    -0.76,
+    8.339,
+    23.85,
+    26.439
+   ],
+   "courtyard": [
+    -1.245,
+    8.094,
+    24.095,
+    26.684
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      1.89,
+      25.0
+     ],
+     "net": "/MOD_5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      4.43,
+      25.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      6.97,
+      25.0
+     ],
+     "net": "+3V3",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      9.51,
+      25.0
+     ],
+     "net": "/TH4",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "5",
+     "at": [
+      12.05,
+      25.0
+     ],
+     "net": "/TH3",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "6",
+     "at": [
+      14.59,
+      25.0
+     ],
+     "net": "/TH2",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "7",
+     "at": [
+      17.13,
+      25.0
+     ],
+     "net": "/TH1",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "8",
+     "at": [
+      19.67,
+      25.0
+     ],
+     "net": "/EXP_GP15",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "9",
+     "at": [
+      22.21,
+      25.0
+     ],
+     "net": "/EXP_GP14",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "10",
+     "at": [
+      22.21,
+      22.46
+     ],
+     "net": "/EXP_GP13",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "11",
+     "at": [
+      22.21,
+      19.92
+     ],
+     "net": "/EXP_GP12",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "12",
+     "at": [
+      22.21,
+      17.38
+     ],
+     "net": "/LED2_DIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "13",
+     "at": [
+      22.21,
+      14.84
+     ],
+     "net": "/LED1_DIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "14",
+     "at": [
+      22.21,
+      12.3
+     ],
+     "net": "/FAN5_TACH_IN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "15",
+     "at": [
+      22.21,
+      9.76
+     ],
+     "net": "/FAN5_PWM",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "16",
+     "at": [
+      19.67,
+      9.76
+     ],
+     "net": "/FAN4_TACH_IN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "17",
+     "at": [
+      17.13,
+      9.76
+     ],
+     "net": "/FAN4_PWM",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "18",
+     "at": [
+      14.59,
+      9.76
+     ],
+     "net": "/FAN3_TACH_IN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "19",
+     "at": [
+      12.05,
+      9.76
+     ],
+     "net": "/FAN3_PWM",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "20",
+     "at": [
+      9.51,
+      9.76
+     ],
+     "net": "/FAN2_TACH_IN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "21",
+     "at": [
+      6.97,
+      9.76
+     ],
+     "net": "/FAN2_PWM",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "22",
+     "at": [
+      4.43,
+      9.76
+     ],
+     "net": "/FAN1_TACH_IN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "23",
+     "at": [
+      1.89,
+      9.76
+     ],
+     "net": "/FAN1_PWM",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J3",
+   "value": "FAN1 (GND/V+/TACH/PWM)",
+   "package": "JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    36.0,
+    4.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    32.55,
+    2.0,
+    38.4,
+    14.5
+   ],
+   "courtyard": [
+    32.055,
+    1.505,
+    38.895,
+    14.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      36.0,
+      4.5
+     ],
+     "net": "/FAN1_GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      36.0,
+      7.0
+     ],
+     "net": "/FAN1_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      36.0,
+      9.5
+     ],
+     "net": "/FAN1_TACH",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      36.0,
+      12.0
+     ],
+     "net": "/FAN1_SW",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP6",
+   "value": "FAN1 mode: 4P / 2-3P",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    34.1,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    32.78,
+    17.68,
+    35.42,
+    25.4
+   ],
+   "courtyard": [
+    32.285,
+    17.185,
+    35.915,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      34.1,
+      19.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      34.1,
+      21.54
+     ],
+     "net": "/FAN1_GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      34.1,
+      24.08
+     ],
+     "net": "/FAN1_SW",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J14",
+   "value": "EXP",
+   "package": "PinHeader_1x06_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    27.0,
+    12.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    25.68,
+    10.68,
+    28.32,
+    26.02
+   ],
+   "courtyard": [
+    25.185,
+    10.185,
+    28.815,
+    26.515
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      27.0,
+      12.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      27.0,
+      14.54
+     ],
+     "net": "+3V3",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      27.0,
+      17.08
+     ],
+     "net": "/EXP_GP12",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      27.0,
+      19.62
+     ],
+     "net": "/EXP_GP13",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "5",
+     "at": [
+      27.0,
+      22.16
+     ],
+     "net": "/EXP_GP14",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "6",
+     "at": [
+      27.0,
+      24.7
+     ],
+     "net": "/EXP_GP15",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP10",
+   "value": "FAN5 mode: 4P / 2-3P",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    84.1,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    82.78,
+    17.68,
+    85.42,
+    25.4
+   ],
+   "courtyard": [
+    82.285,
+    17.185,
+    85.915,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      84.1,
+      19.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      84.1,
+      21.54
+     ],
+     "net": "/FAN5_GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      84.1,
+      24.08
+     ],
+     "net": "/FAN5_SW",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "H1",
+   "value": "M3",
+   "package": "MountingHole_3.2mm_M3",
+   "top": true,
+   "at": [
+    3.5,
+    3.5
+   ],
+   "rotation": 0.0,
+   "fab": null,
+   "courtyard": [
+    0.008,
+    0.002,
+    6.995,
+    6.998
+   ],
+   "pads": [
+    {
+     "number": "",
+     "at": [
+      3.5,
+      3.5
+     ],
+     "net": "",
+     "size": [
+      3.2,
+      3.2
+     ],
+     "drill": 3.2,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "J4",
+   "value": "FAN2 (GND/V+/TACH/PWM)",
+   "package": "JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    48.5,
+    4.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    45.05,
+    2.0,
+    50.9,
+    14.5
+   ],
+   "courtyard": [
+    44.555,
+    1.505,
+    51.395,
+    14.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      48.5,
+      4.5
+     ],
+     "net": "/FAN2_GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      48.5,
+      7.0
+     ],
+     "net": "/FAN2_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      48.5,
+      9.5
+     ],
+     "net": "/FAN2_TACH",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      48.5,
+      12.0
+     ],
+     "net": "/FAN2_SW",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "JP4",
+   "value": "FAN4 V: VIN / 5V",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    75.4,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    74.08,
+    17.68,
+    76.72,
+    25.4
+   ],
+   "courtyard": [
+    73.585,
+    17.185,
+    77.215,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      75.4,
+      19.0
+     ],
+     "net": "/VIN",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      75.4,
+      21.54
+     ],
+     "net": "/FAN4_V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      75.4,
+      24.08
+     ],
+     "net": "+5V",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "H2",
+   "value": "M3",
+   "package": "MountingHole_3.2mm_M3",
+   "top": true,
+   "at": [
+    96.5,
+    3.5
+   ],
+   "rotation": 0.0,
+   "fab": null,
+   "courtyard": [
+    93.008,
+    0.002,
+    99.995,
+    6.998
+   ],
+   "pads": [
+    {
+     "number": "",
+     "at": [
+      96.5,
+      3.5
+     ],
+     "net": "",
+     "size": [
+      3.2,
+      3.2
+     ],
+     "drill": 3.2,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "JP7",
+   "value": "FAN2 mode: 4P / 2-3P",
+   "package": "PinHeader_1x03_P2.54mm_Vertical",
+   "top": true,
+   "at": [
+    46.6,
+    19.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    45.28,
+    17.68,
+    47.92,
+    25.4
+   ],
+   "courtyard": [
+    44.785,
+    17.185,
+    48.415,
+    25.895
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      46.6,
+      19.0
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      46.6,
+      21.54
+     ],
+     "net": "/FAN2_GND",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      46.6,
+      24.08
+     ],
+     "net": "/FAN2_SW",
+     "size": [
+      1.7,
+      1.7
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J2",
+   "value": "5V IN",
+   "package": "TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+   "top": true,
+   "at": [
+    6.0,
+    47.42
+   ],
+   "rotation": -90.0,
+   "fab": [
+    1.35,
+    44.83,
+    11.25,
+    55.09
+   ],
+   "courtyard": [
+    0.855,
+    44.335,
+    11.755,
+    55.595
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      6.0,
+      47.42
+     ],
+     "net": "GND",
+     "size": [
+      2.6,
+      2.6
+     ],
+     "drill": 1.3,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      6.0,
+      52.5
+     ],
+     "net": "/5V_RAW",
+     "size": [
+      2.6,
+      2.6
+     ],
+     "drill": 1.3,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J11",
+   "value": "TH2",
+   "package": "JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    49.0,
+    60.5
+   ],
+   "rotation": 0.0,
+   "fab": [
+    46.5,
+    58.1,
+    54.0,
+    63.95
+   ],
+   "courtyard": [
+    46.005,
+    57.605,
+    54.495,
+    64.445
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      49.0,
+      60.5
+     ],
+     "net": "/TH2",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      51.5,
+      60.5
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "H3",
+   "value": "M3",
+   "package": "MountingHole_3.2mm_M3",
+   "top": true,
+   "at": [
+    3.5,
+    61.5
+   ],
+   "rotation": 0.0,
+   "fab": null,
+   "courtyard": [
+    0.008,
+    58.002,
+    6.995,
+    64.998
+   ],
+   "pads": [
+    {
+     "number": "",
+     "at": [
+      3.5,
+      61.5
+     ],
+     "net": "",
+     "size": [
+      3.2,
+      3.2
+     ],
+     "drill": 3.2,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "J6",
+   "value": "FAN4 (GND/V+/TACH/PWM)",
+   "package": "JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    73.5,
+    4.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    70.05,
+    2.0,
+    75.9,
+    14.5
+   ],
+   "courtyard": [
+    69.555,
+    1.505,
+    76.395,
+    14.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      73.5,
+      4.5
+     ],
+     "net": "/FAN4_GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      73.5,
+      7.0
+     ],
+     "net": "/FAN4_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      73.5,
+      9.5
+     ],
+     "net": "/FAN4_TACH",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      73.5,
+      12.0
+     ],
+     "net": "/FAN4_SW",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J5",
+   "value": "FAN3 (GND/V+/TACH/PWM)",
+   "package": "JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    61.0,
+    4.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    57.55,
+    2.0,
+    63.4,
+    14.5
+   ],
+   "courtyard": [
+    57.055,
+    1.505,
+    63.895,
+    14.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      61.0,
+      4.5
+     ],
+     "net": "/FAN3_GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      61.0,
+      7.0
+     ],
+     "net": "/FAN3_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      61.0,
+      9.5
+     ],
+     "net": "/FAN3_TACH",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      61.0,
+      12.0
+     ],
+     "net": "/FAN3_SW",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "C2",
+   "value": "100uF 16V",
+   "package": "CP_Radial_D6.3mm_P2.50mm",
+   "top": true,
+   "at": [
+    16.0,
+    48.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    12.8,
+    46.55,
+    19.2,
+    52.95
+   ],
+   "courtyard": [
+    12.557,
+    46.303,
+    19.445,
+    53.197
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      16.0,
+      48.5
+     ],
+     "net": "+5V",
+     "size": [
+      1.6,
+      1.6
+     ],
+     "drill": 0.8,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      16.0,
+      51.0
+     ],
+     "net": "GND",
+     "size": [
+      1.6,
+      1.6
+     ],
+     "drill": 0.8,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J13",
+   "value": "TH4",
+   "package": "JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    71.0,
+    60.5
+   ],
+   "rotation": 0.0,
+   "fab": [
+    68.5,
+    58.1,
+    76.0,
+    63.95
+   ],
+   "courtyard": [
+    68.005,
+    57.605,
+    76.495,
+    64.445
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      71.0,
+      60.5
+     ],
+     "net": "/TH4",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      73.5,
+      60.5
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J1",
+   "value": "VIN 12-24V",
+   "package": "TerminalBlock_Phoenix_MKDS-1,5-2-5.08_1x02_P5.08mm_Horizontal",
+   "top": true,
+   "at": [
+    6.0,
+    33.92
+   ],
+   "rotation": -90.0,
+   "fab": [
+    1.35,
+    31.33,
+    11.25,
+    41.59
+   ],
+   "courtyard": [
+    0.855,
+    30.835,
+    11.755,
+    42.095
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      6.0,
+      33.92
+     ],
+     "net": "GND",
+     "size": [
+      2.6,
+      2.6
+     ],
+     "drill": 1.3,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      6.0,
+      39.0
+     ],
+     "net": "/VIN_RAW",
+     "size": [
+      2.6,
+      2.6
+     ],
+     "drill": 1.3,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J8",
+   "value": "LED1 (GND/V+/DATA)",
+   "package": "JST_XH_B3B-XH-A_1x03_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    95.5,
+    37.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    92.05,
+    35.0,
+    97.9,
+    45.0
+   ],
+   "courtyard": [
+    91.555,
+    34.505,
+    98.395,
+    45.495
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      95.5,
+      37.5
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      95.5,
+      40.0
+     ],
+     "net": "/LED1_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      95.5,
+      42.5
+     ],
+     "net": "/LED1_DATA",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "F1",
+   "value": "5A mini blade",
+   "package": "Fuseholder_Blade_Mini_Keystone_3568",
+   "top": true,
+   "at": [
+    23.5,
+    42.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    21.78,
+    28.99,
+    28.62,
+    45.09
+   ],
+   "courtyard": [
+    21.535,
+    28.745,
+    28.865,
+    45.335
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      23.5,
+      42.0
+     ],
+     "net": "/VIN_RAW",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "1",
+     "at": [
+      26.9,
+      42.0
+     ],
+     "net": "/VIN_RAW",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      23.5,
+      32.08
+     ],
+     "net": "/VIN",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      26.9,
+      32.08
+     ],
+     "net": "/VIN",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "H4",
+   "value": "M3",
+   "package": "MountingHole_3.2mm_M3",
+   "top": true,
+   "at": [
+    96.5,
+    61.5
+   ],
+   "rotation": 0.0,
+   "fab": null,
+   "courtyard": [
+    93.008,
+    58.002,
+    99.995,
+    64.998
+   ],
+   "pads": [
+    {
+     "number": "",
+     "at": [
+      96.5,
+      61.5
+     ],
+     "net": "",
+     "size": [
+      3.2,
+      3.2
+     ],
+     "drill": 3.2,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "J10",
+   "value": "TH1",
+   "package": "JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    38.0,
+    60.5
+   ],
+   "rotation": 0.0,
+   "fab": [
+    35.5,
+    58.1,
+    43.0,
+    63.95
+   ],
+   "courtyard": [
+    35.005,
+    57.605,
+    43.495,
+    64.445
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      38.0,
+      60.5
+     ],
+     "net": "/TH1",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      40.5,
+      60.5
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J7",
+   "value": "FAN5 (GND/V+/TACH/PWM)",
+   "package": "JST_XH_B4B-XH-A_1x04_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    86.0,
+    4.5
+   ],
+   "rotation": -90.0,
+   "fab": [
+    82.55,
+    2.0,
+    88.4,
+    14.5
+   ],
+   "courtyard": [
+    82.055,
+    1.505,
+    88.895,
+    14.995
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      86.0,
+      4.5
+     ],
+     "net": "/FAN5_GND",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      86.0,
+      7.0
+     ],
+     "net": "/FAN5_V",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "3",
+     "at": [
+      86.0,
+      9.5
+     ],
+     "net": "/FAN5_TACH",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    },
+    {
+     "number": "4",
+     "at": [
+      86.0,
+      12.0
+     ],
+     "net": "/FAN5_SW",
+     "size": [
+      1.7,
+      1.95
+     ],
+     "drill": 0.95,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "J12",
+   "value": "TH3",
+   "package": "JST_XH_B2B-XH-A_1x02_P2.50mm_Vertical",
+   "top": true,
+   "at": [
+    60.0,
+    60.5
+   ],
+   "rotation": 0.0,
+   "fab": [
+    57.5,
+    58.1,
+    65.0,
+    63.95
+   ],
+   "courtyard": [
+    57.005,
+    57.605,
+    65.495,
+    64.445
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      60.0,
+      60.5
+     ],
+     "net": "/TH3",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      62.5,
+      60.5
+     ],
+     "net": "GND",
+     "size": [
+      1.7,
+      2.0
+     ],
+     "drill": 1.0,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "F2",
+   "value": "5A mini blade",
+   "package": "Fuseholder_Blade_Mini_Keystone_3568",
+   "top": true,
+   "at": [
+    23.5,
+    59.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    21.78,
+    45.99,
+    28.62,
+    62.09
+   ],
+   "courtyard": [
+    21.535,
+    45.745,
+    28.865,
+    62.335
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      23.5,
+      59.0
+     ],
+     "net": "/5V_RAW",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "1",
+     "at": [
+      26.9,
+      59.0
+     ],
+     "net": "/5V_RAW",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      23.5,
+      49.08
+     ],
+     "net": "+5V",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    },
+    {
+     "number": "2",
+     "at": [
+      26.9,
+      49.08
+     ],
+     "net": "+5V",
+     "size": [
+      2.78,
+      2.78
+     ],
+     "drill": 1.78,
+     "through": true
+    }
+   ]
+  },
+  {
+   "ref": "D2",
+   "value": "SS54",
+   "package": "D_SMA",
+   "top": false,
+   "at": [
+    20.0,
+    52.5
+   ],
+   "rotation": 90.0,
+   "fab": [
+    18.45,
+    50.15,
+    21.55,
+    54.85
+   ],
+   "courtyard": [
+    18.205,
+    48.955,
+    21.795,
+    56.045
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      20.0,
+      54.5
+     ],
+     "net": "+5V",
+     "size": [
+      2.5,
+      1.8
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      20.0,
+      50.5
+     ],
+     "net": "GND",
+     "size": [
+      2.5,
+      1.8
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R3",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    33.0,
+    34.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    32.15,
+    33.537,
+    33.85,
+    34.463
+   ],
+   "courtyard": [
+    31.475,
+    33.225,
+    34.525,
+    34.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      33.825,
+      34.0
+     ],
+     "net": "/FAN1_PWM",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      32.175,
+      34.0
+     ],
+     "net": "GND",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D11",
+   "value": "1N4148WS",
+   "package": "D_SOD-323",
+   "top": false,
+   "at": [
+    64.0,
+    34.3
+   ],
+   "rotation": -90.0,
+   "fab": [
+    63.25,
+    33.35,
+    64.75,
+    35.25
+   ],
+   "courtyard": [
+    63.005,
+    32.655,
+    64.995,
+    35.945
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      64.0,
+      33.25
+     ],
+     "net": "/FAN3_TACH",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      64.0,
+      35.35
+     ],
+     "net": "/FAN3_TACH_IN",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D8",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    89.0,
+    30.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    88.05,
+    28.55,
+    89.95,
+    31.45
+   ],
+   "courtyard": [
+    87.805,
+    27.605,
+    90.195,
+    32.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      89.0,
+      31.65
+     ],
+     "net": "/FAN5_V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      89.0,
+      28.35
+     ],
+     "net": "/FAN5_SW",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q6",
+   "value": "2N7002",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    81.0,
+    40.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    80.3,
+    39.0,
+    81.7,
+    42.0
+   ],
+   "courtyard": [
+    79.025,
+    38.755,
+    82.975,
+    42.245
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      81.938,
+      39.55
+     ],
+     "net": "+3V3",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      81.938,
+      41.45
+     ],
+     "net": "/LED1_DIN",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      80.062,
+      40.5
+     ],
+     "net": "/LED1_BUF",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "C6",
+   "value": "100nF",
+   "package": "C_0603_1608Metric",
+   "top": false,
+   "at": [
+    61.25,
+    53.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    60.4,
+    53.05,
+    62.1,
+    53.95
+   ],
+   "courtyard": [
+    59.725,
+    52.725,
+    62.775,
+    54.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      62.025,
+      53.5
+     ],
+     "net": "/TH3",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      60.475,
+      53.5
+     ],
+     "net": "GND",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q2",
+   "value": "AO3400A",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    45.5,
+    30.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    44.8,
+    28.5,
+    46.2,
+    31.5
+   ],
+   "courtyard": [
+    43.525,
+    28.255,
+    47.475,
+    31.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      46.438,
+      29.05
+     ],
+     "net": "/FAN2_PWM",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      46.438,
+      30.95
+     ],
+     "net": "GND",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      44.562,
+      30.0
+     ],
+     "net": "/FAN2_SW",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R10",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    61.25,
+    55.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    60.4,
+    55.037,
+    62.1,
+    55.963
+   ],
+   "courtyard": [
+    59.725,
+    54.725,
+    62.775,
+    56.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      62.075,
+      55.5
+     ],
+     "net": "+3V3",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      60.425,
+      55.5
+     ],
+     "net": "/TH3",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D10",
+   "value": "1N4148WS",
+   "package": "D_SOD-323",
+   "top": false,
+   "at": [
+    51.5,
+    34.3
+   ],
+   "rotation": -90.0,
+   "fab": [
+    50.75,
+    33.35,
+    52.25,
+    35.25
+   ],
+   "courtyard": [
+    50.505,
+    32.655,
+    52.495,
+    35.945
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      51.5,
+      33.25
+     ],
+     "net": "/FAN2_TACH",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      51.5,
+      35.35
+     ],
+     "net": "/FAN2_TACH_IN",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R13",
+   "value": "470",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    81.0,
+    46.1
+   ],
+   "rotation": 180.0,
+   "fab": [
+    80.15,
+    45.638,
+    81.85,
+    46.562
+   ],
+   "courtyard": [
+    79.475,
+    45.325,
+    82.525,
+    46.875
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      81.825,
+      46.1
+     ],
+     "net": "+5V",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      80.175,
+      46.1
+     ],
+     "net": "/LED2_BUF",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D1",
+   "value": "SS54",
+   "package": "D_SMA",
+   "top": false,
+   "at": [
+    20.0,
+    35.75
+   ],
+   "rotation": 90.0,
+   "fab": [
+    18.45,
+    33.4,
+    21.55,
+    38.1
+   ],
+   "courtyard": [
+    18.205,
+    32.205,
+    21.795,
+    39.295
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      20.0,
+      37.75
+     ],
+     "net": "/VIN",
+     "size": [
+      2.5,
+      1.8
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      20.0,
+      33.75
+     ],
+     "net": "GND",
+     "size": [
+      2.5,
+      1.8
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R1",
+   "value": "330",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    85.0,
+    40.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    84.15,
+    40.037,
+    85.85,
+    40.963
+   ],
+   "courtyard": [
+    83.475,
+    39.725,
+    86.525,
+    41.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      85.825,
+      40.5
+     ],
+     "net": "/LED1_BUF",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      84.175,
+      40.5
+     ],
+     "net": "/LED1_DATA",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q5",
+   "value": "AO3400A",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    83.0,
+    30.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    82.3,
+    28.5,
+    83.7,
+    31.5
+   ],
+   "courtyard": [
+    81.025,
+    28.255,
+    84.975,
+    31.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      83.938,
+      29.05
+     ],
+     "net": "/FAN5_PWM",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      83.938,
+      30.95
+     ],
+     "net": "GND",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      82.062,
+      30.0
+     ],
+     "net": "/FAN5_SW",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R6",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    70.5,
+    34.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    69.65,
+    33.537,
+    71.35,
+    34.463
+   ],
+   "courtyard": [
+    68.975,
+    33.225,
+    72.025,
+    34.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      71.325,
+      34.0
+     ],
+     "net": "/FAN4_PWM",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      69.675,
+      34.0
+     ],
+     "net": "GND",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D9",
+   "value": "1N4148WS",
+   "package": "D_SOD-323",
+   "top": false,
+   "at": [
+    39.0,
+    34.3
+   ],
+   "rotation": -90.0,
+   "fab": [
+    38.25,
+    33.35,
+    39.75,
+    35.25
+   ],
+   "courtyard": [
+    38.005,
+    32.655,
+    39.995,
+    35.945
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      39.0,
+      33.25
+     ],
+     "net": "/FAN1_TACH",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      39.0,
+      35.35
+     ],
+     "net": "/FAN1_TACH_IN",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "C7",
+   "value": "100nF",
+   "package": "C_0603_1608Metric",
+   "top": false,
+   "at": [
+    72.25,
+    53.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    71.4,
+    53.05,
+    73.1,
+    53.95
+   ],
+   "courtyard": [
+    70.725,
+    52.725,
+    73.775,
+    54.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      73.025,
+      53.5
+     ],
+     "net": "/TH4",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      71.475,
+      53.5
+     ],
+     "net": "GND",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "C4",
+   "value": "100nF",
+   "package": "C_0603_1608Metric",
+   "top": false,
+   "at": [
+    39.25,
+    53.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    38.4,
+    53.05,
+    40.1,
+    53.95
+   ],
+   "courtyard": [
+    37.725,
+    52.725,
+    40.775,
+    54.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      40.025,
+      53.5
+     ],
+     "net": "/TH1",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      38.475,
+      53.5
+     ],
+     "net": "GND",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D3",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    5.0,
+    28.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    3.55,
+    27.55,
+    6.45,
+    29.45
+   ],
+   "courtyard": [
+    2.605,
+    27.305,
+    7.395,
+    29.695
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      6.65,
+      28.5
+     ],
+     "net": "/MOD_5V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      3.35,
+      28.5
+     ],
+     "net": "+5V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R11",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    72.25,
+    55.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    71.4,
+    55.037,
+    73.1,
+    55.963
+   ],
+   "courtyard": [
+    70.725,
+    54.725,
+    73.775,
+    56.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      73.075,
+      55.5
+     ],
+     "net": "+3V3",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      71.425,
+      55.5
+     ],
+     "net": "/TH4",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R9",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    50.25,
+    55.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    49.4,
+    55.037,
+    51.1,
+    55.963
+   ],
+   "courtyard": [
+    48.725,
+    54.725,
+    51.775,
+    56.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      51.075,
+      55.5
+     ],
+     "net": "+3V3",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      49.425,
+      55.5
+     ],
+     "net": "/TH2",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R7",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    83.0,
+    34.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    82.15,
+    33.537,
+    83.85,
+    34.463
+   ],
+   "courtyard": [
+    81.475,
+    33.225,
+    84.525,
+    34.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      83.825,
+      34.0
+     ],
+     "net": "/FAN5_PWM",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      82.175,
+      34.0
+     ],
+     "net": "GND",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q3",
+   "value": "AO3400A",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    58.0,
+    30.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    57.3,
+    28.5,
+    58.7,
+    31.5
+   ],
+   "courtyard": [
+    56.025,
+    28.255,
+    59.975,
+    31.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      58.938,
+      29.05
+     ],
+     "net": "/FAN3_PWM",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      58.938,
+      30.95
+     ],
+     "net": "GND",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      57.062,
+      30.0
+     ],
+     "net": "/FAN3_SW",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D14",
+   "value": "P6SMB6.8CA",
+   "package": "D_SMB",
+   "top": false,
+   "at": [
+    25.5,
+    53.0
+   ],
+   "rotation": 0.0,
+   "fab": [
+    23.15,
+    50.95,
+    27.85,
+    55.05
+   ],
+   "courtyard": [
+    21.805,
+    50.705,
+    29.195,
+    55.295
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      23.35,
+      53.0
+     ],
+     "net": "+5V",
+     "size": [
+      2.5,
+      2.3
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      27.65,
+      53.0
+     ],
+     "net": "GND",
+     "size": [
+      2.5,
+      2.3
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D5",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    51.5,
+    30.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    50.55,
+    28.55,
+    52.45,
+    31.45
+   ],
+   "courtyard": [
+    50.305,
+    27.605,
+    52.695,
+    32.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      51.5,
+      31.65
+     ],
+     "net": "/FAN2_V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      51.5,
+      28.35
+     ],
+     "net": "/FAN2_SW",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D4",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    39.0,
+    30.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    38.05,
+    28.55,
+    39.95,
+    31.45
+   ],
+   "courtyard": [
+    37.805,
+    27.605,
+    40.195,
+    32.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      39.0,
+      31.65
+     ],
+     "net": "/FAN1_V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      39.0,
+      28.35
+     ],
+     "net": "/FAN1_SW",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q4",
+   "value": "AO3400A",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    70.5,
+    30.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    69.8,
+    28.5,
+    71.2,
+    31.5
+   ],
+   "courtyard": [
+    68.525,
+    28.255,
+    72.475,
+    31.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      71.438,
+      29.05
+     ],
+     "net": "/FAN4_PWM",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      71.438,
+      30.95
+     ],
+     "net": "GND",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      69.562,
+      30.0
+     ],
+     "net": "/FAN4_SW",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R5",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    58.0,
+    34.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    57.15,
+    33.537,
+    58.85,
+    34.463
+   ],
+   "courtyard": [
+    56.475,
+    33.225,
+    59.525,
+    34.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      58.825,
+      34.0
+     ],
+     "net": "/FAN3_PWM",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      57.175,
+      34.0
+     ],
+     "net": "GND",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D7",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    76.5,
+    30.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    75.55,
+    28.55,
+    77.45,
+    31.45
+   ],
+   "courtyard": [
+    75.305,
+    27.605,
+    77.695,
+    32.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      76.5,
+      31.65
+     ],
+     "net": "/FAN4_V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      76.5,
+      28.35
+     ],
+     "net": "/FAN4_SW",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R2",
+   "value": "330",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    85.0,
+    49.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    84.15,
+    48.537,
+    85.85,
+    49.463
+   ],
+   "courtyard": [
+    83.475,
+    48.225,
+    86.525,
+    49.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      85.825,
+      49.0
+     ],
+     "net": "/LED2_BUF",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      84.175,
+      49.0
+     ],
+     "net": "/LED2_DATA",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q7",
+   "value": "2N7002",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    81.0,
+    49.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    80.3,
+    47.5,
+    81.7,
+    50.5
+   ],
+   "courtyard": [
+    79.025,
+    47.255,
+    82.975,
+    50.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      81.938,
+      48.05
+     ],
+     "net": "+3V3",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      81.938,
+      49.95
+     ],
+     "net": "/LED2_DIN",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      80.062,
+      49.0
+     ],
+     "net": "/LED2_BUF",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "Q1",
+   "value": "AO3400A",
+   "package": "SOT-23",
+   "top": false,
+   "at": [
+    33.0,
+    30.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    32.3,
+    28.5,
+    33.7,
+    31.5
+   ],
+   "courtyard": [
+    31.025,
+    28.255,
+    34.975,
+    31.745
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      33.938,
+      29.05
+     ],
+     "net": "/FAN1_PWM",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      33.938,
+      30.95
+     ],
+     "net": "GND",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "3",
+     "at": [
+      32.062,
+      30.0
+     ],
+     "net": "/FAN1_SW",
+     "size": [
+      1.48,
+      0.6
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D13",
+   "value": "1N4148WS",
+   "package": "D_SOD-323",
+   "top": false,
+   "at": [
+    89.0,
+    34.3
+   ],
+   "rotation": -90.0,
+   "fab": [
+    88.25,
+    33.35,
+    89.75,
+    35.25
+   ],
+   "courtyard": [
+    88.005,
+    32.655,
+    89.995,
+    35.945
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      89.0,
+      33.25
+     ],
+     "net": "/FAN5_TACH",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      89.0,
+      35.35
+     ],
+     "net": "/FAN5_TACH_IN",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D6",
+   "value": "B5819W",
+   "package": "D_SOD-123",
+   "top": false,
+   "at": [
+    64.0,
+    30.0
+   ],
+   "rotation": 90.0,
+   "fab": [
+    63.05,
+    28.55,
+    64.95,
+    31.45
+   ],
+   "courtyard": [
+    62.805,
+    27.605,
+    65.195,
+    32.395
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      64.0,
+      31.65
+     ],
+     "net": "/FAN3_V",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      64.0,
+      28.35
+     ],
+     "net": "/FAN3_SW",
+     "size": [
+      0.9,
+      1.2
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "D12",
+   "value": "1N4148WS",
+   "package": "D_SOD-323",
+   "top": false,
+   "at": [
+    76.5,
+    34.3
+   ],
+   "rotation": -90.0,
+   "fab": [
+    75.75,
+    33.35,
+    77.25,
+    35.25
+   ],
+   "courtyard": [
+    75.505,
+    32.655,
+    77.495,
+    35.945
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      76.5,
+      33.25
+     ],
+     "net": "/FAN4_TACH",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      76.5,
+      35.35
+     ],
+     "net": "/FAN4_TACH_IN",
+     "size": [
+      0.6,
+      0.45
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R4",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    45.5,
+    34.0
+   ],
+   "rotation": 180.0,
+   "fab": [
+    44.65,
+    33.537,
+    46.35,
+    34.463
+   ],
+   "courtyard": [
+    43.975,
+    33.225,
+    47.025,
+    34.775
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      46.325,
+      34.0
+     ],
+     "net": "/FAN2_PWM",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      44.675,
+      34.0
+     ],
+     "net": "GND",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R12",
+   "value": "470",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    81.0,
+    43.4
+   ],
+   "rotation": 180.0,
+   "fab": [
+    80.15,
+    42.938,
+    81.85,
+    43.862
+   ],
+   "courtyard": [
+    79.475,
+    42.625,
+    82.525,
+    44.175
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      81.825,
+      43.4
+     ],
+     "net": "+5V",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      80.175,
+      43.4
+     ],
+     "net": "/LED1_BUF",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "R8",
+   "value": "4.7k",
+   "package": "R_0603_1608Metric",
+   "top": false,
+   "at": [
+    39.25,
+    55.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    38.4,
+    55.037,
+    40.1,
+    55.963
+   ],
+   "courtyard": [
+    37.725,
+    54.725,
+    40.775,
+    56.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      40.075,
+      55.5
+     ],
+     "net": "+3V3",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      38.425,
+      55.5
+     ],
+     "net": "/TH1",
+     "size": [
+      0.8,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  },
+  {
+   "ref": "C5",
+   "value": "100nF",
+   "package": "C_0603_1608Metric",
+   "top": false,
+   "at": [
+    50.25,
+    53.5
+   ],
+   "rotation": 180.0,
+   "fab": [
+    49.4,
+    53.05,
+    51.1,
+    53.95
+   ],
+   "courtyard": [
+    48.725,
+    52.725,
+    51.775,
+    54.275
+   ],
+   "pads": [
+    {
+     "number": "1",
+     "at": [
+      51.025,
+      53.5
+     ],
+     "net": "/TH2",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    },
+    {
+     "number": "2",
+     "at": [
+      49.475,
+      53.5
+     ],
+     "net": "GND",
+     "size": [
+      0.9,
+      0.95
+     ],
+     "drill": 0.0,
+     "through": false
+    }
+   ]
+  }
+ ],
+ "silk": [
+  {
+   "text": "EXP",
+   "at": [
+    27.0,
+    9.9
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "4P",
+   "at": [
+    34.1,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "2/3",
+   "at": [
+    34.1,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    37.9,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    37.9,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "4P",
+   "at": [
+    46.6,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "2/3",
+   "at": [
+    46.6,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    50.4,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    50.4,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "JP mode: 4P = 4-pin PWM, 2/3 = 2/3-pin fan   |   JP V: VIN or 5V",
+   "at": [
+    57.0,
+    45.0
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "FAN: 1 GND  2 +V  3 TACH  4 PWM      LED: 1 GND  2 +V  3 DATA",
+   "at": [
+    57.0,
+    47.2
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "4P",
+   "at": [
+    59.1,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "2/3",
+   "at": [
+    59.1,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    62.9,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    62.9,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "4P",
+   "at": [
+    71.6,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "2/3",
+   "at": [
+    71.6,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    75.4,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    75.4,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "4P",
+   "at": [
+    84.1,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "2/3",
+   "at": [
+    84.1,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    87.9,
+    16.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    87.9,
+    26.45
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    88.5,
+    35.1
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    88.5,
+    44.9
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN",
+   "at": [
+    88.5,
+    46.6
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "5V",
+   "at": [
+    88.5,
+    56.4
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "G 3V3 12 13 14 15",
+   "at": [
+    29.0,
+    18.35
+   ],
+   "size": 0.8,
+   "angle": 270.0
+  },
+  {
+   "text": "F1 VIN 5A MAX",
+   "at": [
+    25.2,
+    27.75
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "F2 5V 5A MAX",
+   "at": [
+    25.2,
+    63.55
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "SET VIN/5V JUMPERS BEFORE POWER-ON  |  LED PORTS 3A MAX",
+   "at": [
+    57.0,
+    49.5
+   ],
+   "size": 0.8,
+   "angle": 0.0
+  },
+  {
+   "text": "LED1",
+   "at": [
+    86.2,
+    40.04
+   ],
+   "size": 0.9,
+   "angle": 90.0
+  },
+  {
+   "text": "LED2",
+   "at": [
+    86.2,
+    51.54
+   ],
+   "size": 0.9,
+   "angle": 90.0
+  },
+  {
+   "text": "1",
+   "at": [
+    30.25,
+    4.5
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    42.75,
+    4.5
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    55.25,
+    4.5
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    67.75,
+    4.5
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    80.25,
+    4.5
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    90.75,
+    35.85
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "1",
+   "at": [
+    90.75,
+    47.35
+   ],
+   "size": 0.9,
+   "angle": 0.0
+  },
+  {
+   "text": "VIN 12-24V",
+   "at": [
+    6.5,
+    29.8
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "5V IN",
+   "at": [
+    6.5,
+    43.4
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "TH1",
+   "at": [
+    39.25,
+    56.9
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "TH2",
+   "at": [
+    50.25,
+    56.9
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "TH3",
+   "at": [
+    61.25,
+    56.9
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "TH4",
+   "at": [
+    72.25,
+    56.9
+   ],
+   "size": 1.0,
+   "angle": 0.0
+  },
+  {
+   "text": "FAN1",
+   "at": [
+    40.3,
+    8.25
+   ],
+   "size": 1.0,
+   "angle": 90.0
+  },
+  {
+   "text": "FAN2",
+   "at": [
+    52.8,
+    8.25
+   ],
+   "size": 1.0,
+   "angle": 90.0
+  },
+  {
+   "text": "FAN3",
+   "at": [
+    65.3,
+    8.25
+   ],
+   "size": 1.0,
+   "angle": 90.0
+  },
+  {
+   "text": "FAN4",
+   "at": [
+    77.8,
+    8.25
+   ],
+   "size": 1.0,
+   "angle": 90.0
+  },
+  {
+   "text": "FAN5",
+   "at": [
+    90.3,
+    8.25
+   ],
+   "size": 1.0,
+   "angle": 90.0
+  },
+  {
+   "text": "-",
+   "at": [
+    12.15,
+    32.6
+   ],
+   "size": 1.2,
+   "angle": 0.0
+  },
+  {
+   "text": "+",
+   "at": [
+    12.15,
+    39.0
+   ],
+   "size": 1.2,
+   "angle": 0.0
+  },
+  {
+   "text": "-",
+   "at": [
+    12.15,
+    47.1
+   ],
+   "size": 1.2,
+   "angle": 0.0
+  },
+  {
+   "text": "+",
+   "at": [
+    12.15,
+    52.5
+   ],
+   "size": 1.2,
+   "angle": 0.0
+  },
+  {
+   "text": "TinyFan2350 v1.0",
+   "at": [
+    57.0,
+    41.5
+   ],
+   "size": 2.0,
+   "angle": 0.0
+  }
+ ]
+}

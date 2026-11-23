@@ -4,7 +4,7 @@ A 3D-printed tray that holds the TinyFan2350 on a 35 mm **DIN rail**. It uses on
 [DIN Rail Clip (Heat Insert Version)](https://www.printables.com/model/537942-din-rail-clip-heat-insert-version) by Maxstupo.
 The board sits **across** the rail: its long side (100 mm) points away from the rail and it takes 65 mm of rail length.
 
-![Assembled](../Images/TinyFan2350_DIN_Mount_Assembly.png)
+![Parts and assembly](../Images/TinyFan2350_DIN_Mount_BOM.png)
 
 | | |
 |---|---|
@@ -35,7 +35,7 @@ The clip is not included here (it is licensed CC BY-NC-SA) - download and print 
 
 ## Assembly
 
-![Exploded](../Images/TinyFan2350_DIN_Mount_Exploded.png)
+![Assembled](../Images/TinyFan2350_DIN_Mount_Assembly.png)
 
 1. Press the two M3 inserts into the **flat face** of the clip and the four M3 inserts into the standoffs of the mount
    with a soldering iron (about 220-250 C), flush with the surface.

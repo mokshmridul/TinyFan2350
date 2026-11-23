@@ -34,12 +34,16 @@ A small Klipper fan / LED / thermistor controller based on the **Waveshare RP235
 3. Flash [Katapult](https://github.com/Arksine/katapult) and then Klipper onto the RP2350 (or Klipper alone), and add [TinyFan2350.cfg](./Klipper/TinyFan2350.cfg). Step-by-step: [Klipper](./Klipper).
 4. Connect power: VIN 12-24V and 5V (+ is the lower pin of each terminal).
 
+![Wiring](./Images/TinyFan2350_Wiring.png)
+
+![Jumpers](./Images/TinyFan2350_Jumpers.png)
+
 ## DIN rail mount
 A printed tray carries the board on a 35 mm DIN rail with one
 [DIN Rail Clip (Heat Insert Version)](https://www.printables.com/model/537942-din-rail-clip-heat-insert-version).
 Files and instructions: [CAD](./CAD), [STL](./STL).
 
-![DIN rail mount](./Images/TinyFan2350_DIN_Mount_Assembly.png)
+![DIN rail mount](./Images/TinyFan2350_DIN_Mount_BOM.png)
 
 ## Notes
 - Original TinyFan by [Gi7mo](https://github.com/Gi7mo/TinyFan), idea by [Rama](https://github.com/Ramalama2).
