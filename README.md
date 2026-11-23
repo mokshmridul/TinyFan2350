@@ -1,18 +1,15 @@
 # Klipper TinyFan2350
 
-
-### Navigation:
-|[• Installation & Klipper](./Klipper)|[• Get a PCB](./PCB)|[• DIN rail mount](./CAD)|[• Pictures](./Images)|
-|---|---|---|---|
-
-|[• Klipper Config](./Klipper/TinyFan2350.cfg)|[• Schematic](./PCB/TinyFan2350_Schematic.pdf)|[• Pinout](./Images/TinyFan2350_Pinout.png)|
-|---|---|---|
-<br>
-
 A small Klipper fan / LED / thermistor controller based on the **Waveshare RP2350-Zero**, derived from [Gi7mo/TinyFan](https://github.com/Gi7mo/TinyFan).
 
-![PCB](./Images/TinyFan2350_top.png)
-<br>
+<p align="center">
+  <img src="./Images/TinyFan2350_top.png" width="49%" alt="Top side">
+  <img src="./Images/TinyFan2350_bottom.png" width="49%" alt="Bottom side">
+</p>
+
+|[• Build it](./Production)|[• Set it up](./Klipper)|[• Mount it](./Mount)|
+|---|---|---|
+|Order the PCB, parts list, soldering|Flashing, jumpers, wiring, Klipper config|Printable DIN rail mount|
 
 ## Features
 - **5 fan ports** (JST-XH 4-pin) for 2-, 3- and 4-pin fans, 0.6A each
@@ -24,26 +21,11 @@ A small Klipper fan / LED / thermistor controller based on the **Waveshare RP235
 - Inputs: **12/24V (VIN)** and **5V**, each with a mini blade fuse and reverse-polarity protection, no converters on board
 - All bottom-side SMD parts are **JLCPCB Basic** parts (cheap Economic assembly)
 - 2 layers, 1 oz copper, black solder mask; SMD parts only on the bottom, THT only on the top; socketed MCU
-- 4x M3 mounting holes (93 x 58 mm) and a printable **DIN rail mount** ([CAD](./CAD))
+- 100 x 65 mm, 4x M3 mounting holes (93 x 58 mm)
 
-![Pinout](./Images/TinyFan2350_Pinout.png)
-
-## Quick start
-1. Build the board ([PCB](./PCB)), plug the RP2350-Zero into its socket.
-2. Set every fan **mode** and **voltage** jumper and both LED voltage jumpers.
-3. Flash [Katapult](https://github.com/Arksine/katapult) and then Klipper onto the RP2350 (or Klipper alone), and add [TinyFan2350.cfg](./Klipper/TinyFan2350.cfg). Step-by-step: [Klipper](./Klipper).
-4. Connect power: VIN 12-24V and 5V (+ is the lower pin of each terminal).
-
-![Wiring](./Images/TinyFan2350_Wiring.png)
-
-![Jumpers](./Images/TinyFan2350_Jumpers.png)
-
-## DIN rail mount
-A printed tray carries the board on a 35 mm DIN rail with one
-[DIN Rail Clip (Heat Insert Version)](https://www.printables.com/model/537942-din-rail-clip-heat-insert-version).
-Files and instructions: [CAD](./CAD), [STL](./STL).
-
-![DIN rail mount](./Images/TinyFan2350_DIN_Mount_BOM.png)
+## Files
+|[Pinout](./Images/TinyFan2350_Pinout.png)|[Schematic](./Production/TinyFan2350_Schematic.pdf)|[Klipper config](./Klipper/TinyFan2350.cfg)|[KiCad project](./KiCad)|[Pictures](./Images)|[Download](https://github.com/mokshmridul/TinyFan2350/releases/latest)|
+|---|---|---|---|---|---|
 
 ## Notes
 - Original TinyFan by [Gi7mo](https://github.com/Gi7mo/TinyFan), idea by [Rama](https://github.com/Ramalama2).
