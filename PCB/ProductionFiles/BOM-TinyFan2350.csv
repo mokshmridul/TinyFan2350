@@ -1,0 +1,26 @@
+Reference,Qty,Value,Footprint,LCSC,Note,Assembly
+Q1 Q2 Q3 Q4 Q5,5,AO3400A,SOT-23,C20917,fan N-MOSFET 30V 5.7A,SMD bottom (JLC Basic)
+Q6 Q7,2,2N7002,SOT-23,C8545,LED data level shifter 3.3V -> 5V,SMD bottom (JLC Basic)
+D3 D4 D5 D6 D7 D8,6,B5819W SL,SOD-123,C8598,Schottky 40V 1A: fan flyback + MCU 5V feed,SMD bottom (JLC Basic)
+D9 D10 D11 D12 D13,5,1N4148WS,SOD-323,C2128,tacho input protection,SMD bottom (JLC Basic)
+D1 D2,2,SS54,SMA,C22452,"reverse-polarity crowbar, VIN and 5V inputs",SMD bottom (JLC Basic)
+D14,1,P6SMB6.8CA,SMB,C78395,"TVS, over-voltage on the 5V input",SMD bottom (JLC Basic)
+R3 R4 R5 R6 R7 R8 R9 R10 R11,9,4.7k 1%,0603,C23162,gate pull-downs + thermistor pull-ups,SMD bottom (JLC Basic)
+R1 R2,2,330R 1%,0603,C23138,LED data series,SMD bottom (JLC Basic)
+R12 R13,2,470R 1%,0603,C23179,LED data pull-up to 5V,SMD bottom (JLC Basic)
+C4 C5 C6 C7,4,100nF 50V X7R,0603,C14663,thermistor filter,SMD bottom (JLC Basic)
+C1,1,100uF 35V,Radial D8 P3.5,-,"VIN bulk, 105C",THT top
+C2,1,100uF 16V,Radial D6.3 P2.5,-,"5V bulk, 105C",THT top
+F1 F2,2,Keystone 3568,Mini blade holder,C5249699 (verify),mini blade (ATM) fuse holder,THT top
+F1 F2 (fuse),2,ATM mini blade fuse 3-5A,-,-,"size to your load, 5A max",plug-in
+J1 J2,2,Screw terminal 2P 5.08mm,"MKDS-1,5-2-5.08",-,power inputs,THT top
+J3 J4 J5 J6 J7,5,JST B4B-XH-A,XH 4P vertical,C144395 (verify),fan ports,THT top
+J8 J9,2,JST B3B-XH-A,XH 3P vertical,C144394 (verify),LED ports,THT top
+J10 J11 J12 J13,4,JST B2B-XH-A,XH 2P vertical,C158012 (verify),thermistor ports,THT top
+JP1-JP12,12,Pin header 1x3 2.54mm,1x03 P2.54,C2937625 (verify),jumpers,THT top
+JP1-JP12 (caps),12,Jumper cap 2.54mm,-,-,one per jumper,plug-in
+J14,1,Pin header 1x6 2.54mm,1x06 P2.54,C492405 (verify),EXP header,THT top
+U1 socket,2,Female header 1x9 2.54mm 8.5mm,1x09 P2.54,C39576 (verify),"RP2350-Zero socket, side rows",THT top
+U1 socket,1,Female header 1x5 2.54mm 8.5mm,1x05 P2.54,C50950 (verify),"RP2350-Zero socket, end row",THT top
+U1,1,Waveshare RP2350-Zero (with pin headers),module,-,MCU,socketed
+H1-H4,4,M3 screw / standoff,3.2mm hole,-,mounting,-

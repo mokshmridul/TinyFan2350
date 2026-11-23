@@ -1,4 +1,0 @@
-(fp_lib_table
-  (version 7)
-  (lib (name "TinyFan2350")(type "KiCad")(uri "${KIPRJMOD}/TinyFan2350.pretty")(options "")(descr "TinyFan2350 project footprints"))
-)
