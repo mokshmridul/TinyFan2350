@@ -22,3 +22,7 @@ The menuconfig pictures are drawings of the screens, not screenshots.
 ![](./TinyFan2350_DIN_Mount_BOM.png)
 ![](./TinyFan2350_DIN_Mount_Assembly.png)
 ![](./TinyFan2350_DIN_Mount.png)
+
+### Fan bridge
+![](./TinyFan2350_Fan_Bridge_BOM.png)
+![](./TinyFan2350_Fan_Bridge.png)

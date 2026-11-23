@@ -145,6 +145,20 @@ kick_start_time: 0.5
 off_below: 0.20
 ```
 
+**Cooling fan for the board itself** (40 mm fan on the [fan bridge](../Mount#fan-bridge-optional), here a 2-pin fan on FAN5, MODE jumper 2/3)
+```
+[temperature_fan tinyfan_cooling]
+pin: tinyfan:FAN5_PWM
+sensor_type: temperature_mcu
+sensor_mcu: tinyfan
+min_temp: 0
+max_temp: 100
+target_temp: 45
+control: watermark
+```
+The fan starts when the RP2350 reads more than 47 °C and stops below 43 °C. The MCU temperature can only be read by one
+section: delete `[temperature_sensor TinyFan2350]` from `TinyFan2350.cfg` when you use this.
+
 **Addressable LED strip** (LED1 / LED2)
 ```
 [neopixel tinyfan_led1]
@@ -179,5 +193,8 @@ press_gcode:
 
 - **RP2350 A2 errata (E9):** early RP2350 chips (marked `A2`) have a GPIO input leakage bug. The fan gates have 4.7k pull-downs and the tacho inputs use pull-ups, so they are fine. Check that the thermistors read room temperature correctly; modules with `A4` chips are not affected.
 - **Fail-safe behaviour:** without a running MCU, 2/3-mode fans are OFF and 4P-mode fans are at FULL speed. Use 4P fans for anything that must keep cooling.
-- **Fuses:** mini blade (ATM) fuses, 5A max each. Use the smallest fuse that covers your load (5 x 0.6A fans = 3A -> 3A or 4A fuse).
+- **Fuses:** mini blade (ATM) fuses, 5A max each. Load a fuse to 75% of its rating at most (5 x 0.6A fans = 3A -> 4A fuse).
+- **LED ports:** 3A max each, and all 5V loads together have to fit the 5V fuse. 20 LEDs at full white take 1.2A (RGB) or 1.6A (RGBW).
+  Keep the data wire to the first LED shorter than about 1 m.
+- **Cooling:** in a warm electronics bay, or with the ports loaded close to their limits, fit a 40 mm fan on the [fan bridge](../Mount#fan-bridge-optional).
 - **Thermistor inputs** are not protected against overvoltage: keep their wires away from 12/24V wiring.

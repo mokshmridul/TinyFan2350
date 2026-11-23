@@ -68,11 +68,25 @@ the JST connectors, the jumper and EXP headers and the three female headers for 
 - 2 layers, 1 oz copper, 1.6 mm FR4, black solder mask, white silkscreen
 - All SMD parts on the bottom, all through-hole parts on the top
 - KiCad 10 project: [KiCad](../KiCad). After a board change, [Tools](../Tools) regenerates the files in this folder.
+- **v1.1** (printed on the board): the fan tracks are 1.0 mm wide (0.45 - 0.6 mm in v1.0) and the 5V track to the LED ports
+  is 2.0 mm all the way (partly 1.2 mm before). Schematic, parts and part positions are the same as in v1.0.
+- Checked for v1.1: ERC and DRC without violations; the copper, read back from the board file, has no shorts and
+  connects every net as the schematic says; the Gerber and drill files in the zip match the board (same copper, 249 holes);
+  power paths, fan switching, PWM, LED data and tacho levels simulated in SPICE. **The board has not been built yet.**
 
 ## Safety notes
-- Inputs are fused. Reverse polarity on either input is shorted by an SS54 diode and blows the fuse; 12/24V on the 5V input is clamped by the TVS (D14) and blows F2. Use fast-acting fuses sized to your load (5A max).
+- Inputs are fused. Reverse polarity on either input is shorted by an SS54 diode and blows the fuse; 12/24V on the 5V input is clamped by the TVS (D14) and blows F2.
+- **Fuse size:** pick each fuse so that its load is at most 75% of its rating, and never fit more than 5A.
+  Example: 5 fans x 0.6A = 3A on VIN -> 4A fuse. A fuse run at its full rating ages and blows without a fault, more so in a warm electronics bay.
 - The VIN input has no TVS (there is no JLC Basic part for it): use a regulated 12V or 24V supply. The fan MOSFETs are rated 30V.
 - There is no per-channel fan protection: a shorted fan cable in 2/3 mode can destroy that channel's MOSFET before a large fuse blows - keep fuse ratings close to the real load.
+  The fan tracks are sized to outlast a 5A fuse in such a short (calculated, not tested).
+- **LED ports:** 3A max each (the connector's limit), and all 5V loads together have to fit the 5V fuse. 20 LEDs at full white take
+  1.2A (RGB) or 1.6A (RGBW); with both ports loaded like that, the strips still get about 4.8V from a 5.0V supply (calculated).
+  Keep the data wire to the first LED shorter than about 1 m.
+- **Heat (calculated, still air):** with 5 fans (3A on VIN) and 2.4A of LEDs on 5V, the board runs about 4 - 8 °C and the
+  fuses 7 - 10 °C above the air around them. With every port at its limit (4.8A + 4.2A) the fuses reach +20 - 28 °C.
+  In a warm electronics bay, or near the limits, fit the [fan bridge](../Mount#fan-bridge-optional): it takes about a third off these numbers.
 - 5V fans / 5V LED strips on a VIN jumper setting will be destroyed.
 - Thermistor inputs connect directly to the RP2350 ADC; never route thermistor wires together with heater / 24V wires.
 - USB and the 5V input are separated by a Schottky diode (USB cannot power the fans); a 5V PSU set much above 5.2V can push a little current back into a connected USB host.

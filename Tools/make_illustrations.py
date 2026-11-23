@@ -288,7 +288,7 @@ def make_wiring():
     checklist = [
         "1.  Every used port has its jumpers set (see the jumper picture).",
         "2.  Polarity checked on both terminals with a multimeter.",
-        "3.  Fuses fitted - the smallest that covers your load (5 fans x 0.6A = 3A).",
+        "3.  Fuses fitted, loaded to 75% at most (5 fans x 0.6A = 3A -> 4A fuse).",
         "4.  RP2350-Zero in its socket, USB-C pointing off the board edge.",
     ]
     for index, content in enumerate(checklist):
@@ -326,9 +326,9 @@ def make_wiring():
         art.curve(axes, [(pad_x, pad_y), (pad_x + 70, pad_y), (strip_x - 90, end_y), (strip_x, end_y)], colour, width=5.5, z=5)
         art.label(axes, 1032, pad_y, name, size=15, ha="right")
     led_notes = [
-        "Addressable strips: WS2812B, SK6812 (5V), WS2811 (12V).",
-        "VOLT jumper: 5V for 5V strips, VIN for 12V strips.",
-        "Data is level-shifted to 5V.  max 3A per port.",
+        "Addressable strips: WS2812B, SK6812 (5V), WS2811 (12V).  Data is level-shifted to 5V.",
+        "VOLT jumper: 5V for 5V strips, VIN for 12V strips.  Data wire to the first LED: under 1 m.",
+        "max 3A per port.  20 LEDs at full white take 1.2A (RGB) or 1.6A (RGBW).",
     ]
     for index, content in enumerate(led_notes):
         art.label(axes, 950, 975 + index * 30, content, size=16)
