@@ -36,6 +36,8 @@ A small Klipper fan / LED / thermistor controller based on the **Waveshare RP235
   diode), so the RP2350 sees a fan's low level properly and stays protected while a fan is switched; the unused D3
   pads are gone. See [Build it](./Production#v13-printed-on-the-board). It passes KiCad ERC/DRC and is
   simulated, but **it has not been built or tested yet**: read [Limits and safety](./Production#limits-and-safety) first.
+- Release **v1.31**: the [schematic](./Production/TinyFan2350_Schematic.pdf) is redrawn on one page and is easier to
+  read. The circuit and the board did not change, and the board still reads v1.3.
 
 ## License
 GPL-3.0, the same as the original TinyFan. See [LICENSE](./LICENSE).

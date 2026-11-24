@@ -100,6 +100,9 @@ Nobody has built this board yet, so bring the first one up step by step.
 - **D3 and its pads are gone.** Nothing on the board can power the module any more, see [USB power](#usb-power).
 - The copper changed, so v1.3 has new Gerber and drill files. A v1.2 board cannot be turned into a v1.3 board.
 
+Release v1.31 changed only the drawing of the schematic: one A2 page, the same circuit. The board is the v1.3
+board and still reads v1.3, and the Gerber, BOM and placement files are the v1.3 files.
+
 Older boards: v1.2 stopped fitting D3 and changed R1 and R2 from 330 Ω to 100 Ω (longer LED data wire, see
 [Simulation](../Simulation#led-data)); its copper is the v1.1 copper. v1.1 widened the fan tracks to 1.0 mm
 (0.45 - 0.6 mm in v1.0) and the 5V trunk to 2.0 mm.
@@ -113,6 +116,8 @@ Older boards: v1.2 stopped fitting D3 and changed R1 and R2 from 330 Ω to 100 �
 - No bottom-side pad of another net is closer than 0.75 mm to a through-hole pad that you solder by hand.
 - BOM and placement file: 47 parts, the same parts and positions as KiCad's own placement export.
 - Power paths, fan switching, PWM, LED data, the tach inputs and the USB-only case are simulated: [Simulation](../Simulation).
+- v1.31: the redrawn schematic passes ERC and has the same 82 parts and 58 nets, on the same pins, as the v1.3
+  schematic. The board still matches it part by part.
 
 **The board has not been built or measured yet.**
 
