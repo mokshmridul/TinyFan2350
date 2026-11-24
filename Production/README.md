@@ -9,7 +9,7 @@ Files in this folder:
 |[GERBER-TinyFan2350.zip](./GERBER-TinyFan2350.zip)|the PCB (Gerbers + drill)|
 |[JLC-Economic-BOM-bottom.csv](./JLC-Economic-BOM-bottom.csv)|JLCPCB assembly: parts list|
 |[JLC-Economic-CPL-bottom.csv](./JLC-Economic-CPL-bottom.csv)|JLCPCB assembly: part positions|
-|[TinyFan2350_Schematic.pdf](./TinyFan2350_Schematic.pdf)|schematic|
+|[TinyFan2350_Schematic.pdf](./TinyFan2350_Schematic.pdf)|schematic (one A2 page)|
 
 **PCB only** (e.g. [jlcpcb](https://jlcpcb.com/) or [pcbway](https://www.pcbway.com/)): upload the Gerber zip.
 2 layers, 1.6 mm, 1 oz copper, **black** solder mask.
